@@ -55,7 +55,7 @@ export function Repositories({ repositories } : { repositories : any[] }) {
             </Cards>
 
             <div className="flex flex-col justify-center items-center text-center gap-2">
-                <Button type="button" onClick={(event) => setHide(!archives)} style={ButtonStyle.ACTION} animation={Animation.DEFAULT}>
+                <Button type="button" onClick={() => setHide(!archives)} style={ButtonStyle.ACTION} animation={Animation.DEFAULT}>
                     <p>{archives ? "Hide archives" : "View archives"}</p>
                     <FontAwesomeIcon icon={archives ? faAngleUp : faAngleDown} />
                 </Button>

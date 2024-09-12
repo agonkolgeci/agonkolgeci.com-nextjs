@@ -88,10 +88,12 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
                 <Textarea id="message" name="Message" required disabled={pending} />
                 <ReCAPTCHA sitekey={recaptchaKey} onChange={setCaptcha} />
 
-                <Button type="submit" disabled={pending}>
-                    <p>Submit</p>
-                    <FontAwesomeIcon icon={pending ? faSpinner : faPaperPlane} className={`${pending ? "animate-spin" : null}`} />
-                </Button>
+                <div className="block">
+                    <Button type="submit" disabled={pending}>
+                        <p>Submit</p>
+                        <FontAwesomeIcon icon={pending ? faSpinner : faPaperPlane} className={`${pending ? "animate-spin" : null}`} />
+                    </Button>
+                </div>
             </Form>
         </div>
     )
