@@ -2,6 +2,12 @@ import Image from "next/image";
 import Article from "../_components/pages/article";
 import Section from "../_components/pages/section";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Education",
+  description: "Discover my educational background."
+};
 
 export default function Education() {
     const School = ({ title, date, description, children }: { title: string, date: string, description: string, children?: React.ReactNode }) => {

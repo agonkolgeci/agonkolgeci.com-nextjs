@@ -49,8 +49,8 @@ export default function Experiences() {
                         title="Web Development"
                         date="started in 2022"
                         links={[
-                            { name: "GitHub", href: "https://github.com/agonkolgeci/agonkolgeci.com@nextjs" },
-                            { name: "V1", href: "https://resources.agonkolgeci.com/web/v1_website/" }
+                            { name: "GitHub", href: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" },
+                            { name: "V1", href: "https://resources.agonkolgeci.com/web/v1.agonkolgeci.com/" }
                         ]}
                         languages={["React", "NextJS", "Tailwind CSS", "Sass", "TypeScript"]}
                         description="Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies."

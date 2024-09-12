@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import Article from "../_components/pages/article";
 import Section from "../_components/pages/section";
 import ContactForm from "./form";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Feel free to reach me for inquiries or simply to connect!"
+};
 
 export default function Contact() {
     return (

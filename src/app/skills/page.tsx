@@ -7,10 +7,16 @@ import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-so
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Slider, { Slide } from "../_components/utils/ui/slider";
 import { Language } from "../_components/utils/ui/languages";
+import { Metadata } from "next";
 
 const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass", "MySQL", "Redis"];
 const FRAMEWORKS = ["MySQL", "MongoDB", "Node", "React", "NextJS", "Tailwind CSS" ];
 const TOOLS = ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell" ];
+
+export const metadata: Metadata = {
+  title: "Skills",
+  description: "Over the years, I've been able to develop and gain experience in a variety of skills."
+};
 
 export default function Skills() {
     const ITSkill = ({ title, languages }: { title: string, languages: string[] }) => {
