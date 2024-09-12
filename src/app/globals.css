@@ -5,9 +5,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --navbar-height: 50px;
+}
+
 @layer components {
+    html {
+        scroll-behavior: smooth;
+    }
+
     * {
         @apply font-primary;
+    
+        scroll-margin-top: var(--navbar-height);
     }
     
     p, label, input, textarea, li {

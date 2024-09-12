@@ -81,7 +81,7 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
     }
 
     return (
-        <div ref={reference} className="flex flex-grow flex-col gap-8 max-w-xl w-full [scroll-margin-top:100px]">
+        <div ref={reference} className="flex flex-grow flex-col gap-8 py-8 max-w-xl w-full">
             <div className={`${status ? "flex" : "hidden" } flex-row items-center gap-4 ${status?.color}`}>
                 <FontAwesomeIcon icon={status?.icon ? status.icon : faCircleInfo} className={`text-xl ${status?.animate ? "animate-spin": null}`} />
                         
