@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../_components/utils/ui/buttons";
 import Form, { Input, Textarea } from "../_components/utils/ui/forms";
 import { faCheck, faCircleInfo, faPaperPlane, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { sendEmail } from "../_components/utils/api/mailer";
 import { CONTACT_URL } from "../_components/utils/links";
 import ReCAPTCHA from "react-google-recaptcha";
+import Link from "next/link";
 
 export type FormData = {
     name: string
@@ -25,6 +26,8 @@ export type FormStatus = {
 }
 
 export default function ContactForm({ recaptchaKey } : { recaptchaKey: string }) {
+    const reference = useRef<HTMLDivElement>(null);
+
     const [pending, setPending] = useState(false);
     const [sent, setSent] = useState(false);
 
@@ -34,6 +37,10 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
 
     const handleSubmit = async(event: any) => {
         event.preventDefault();
+
+        if(reference.current) {
+            reference.current?.scrollIntoView();
+        }
 
         if(!event.target.name.value || !event.target.email.value || !event.target.subject.value || !event.target.message.value) {
             setStatus({message: "Please fill out all required fields in the form before submitting.", color: "text-red-500"});
@@ -71,10 +78,10 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
         } else {
             setStatus({message: "Sorry, but an error occurred and your message could not be sent. Please try again later.", color: "text-red-500", icon: faXmark});
         }
-    }   
+    }
 
     return (
-        <div className="flex flex-grow flex-col gap-8 max-w-xl w-full">
+        <div ref={reference} className="flex flex-grow flex-col gap-8 max-w-xl w-full [scroll-margin-top:100px]">
             <div className={`${status ? "flex" : "hidden" } flex-row items-center gap-4 ${status?.color}`}>
                 <FontAwesomeIcon icon={status?.icon ? status.icon : faCircleInfo} className={`text-xl ${status?.animate ? "animate-spin": null}`} />
                         

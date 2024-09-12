@@ -7,6 +7,6 @@ export enum ButtonStyle {
 
 export function Button({ description, style = ButtonStyle.PRIMARY, animation = Animation.SCALE, ...props } : { description?: string, style?: ButtonStyle, animation?: Animation } & React.ComponentPropsWithoutRef<"button">) {
     return (
-        <button {...props} className={`flex flex-row self-[inherit] items-center gap-4 ${style} ${animation} relative`}/>
+        <button {...props} className={`flex flex-row self-[inherit] items-center gap-4 ${style} ${animation} relative`} />
     )
 }
