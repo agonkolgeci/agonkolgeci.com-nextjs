@@ -6,6 +6,13 @@ import HyperLinks from "../_components/utils/ui/hyperlinks";
 import { Cards, Card, CardContainer, CardImage } from "../_components/utils/ui/cards";
 import { Orientation } from "../_components/utils/ui/render";
 import { ExternalURL } from "../_components/utils/links";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experiences",
+  description: "Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences."
+};
+
 
 export default function Experiences() {
     const Experience = ({ image, title, date, links, languages, tags, description, tasks }: { image: string, title: string, date: string, links?: ExternalURL[], languages?: string[], tags?: string[], description: string, tasks: string[] }) => {
