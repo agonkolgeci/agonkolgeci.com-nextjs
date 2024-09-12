@@ -66,7 +66,7 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
             sender: event.target.email.value,
             to: CONTACT_URL.name,
             replyTo: event.target.email.value,
-            subject: event.target.subject.value,
+            subject: `[agonkolgeci.com] ${event.target.subject.value}`,
             text: event.target.message.value
         });
 
