@@ -11,7 +11,7 @@ export function Label({ id, name, required, children } : { id?: string, name: st
 export function Input({ name, ...props } : { name: string } & React.ComponentPropsWithoutRef<"input">): React.ReactNode {
     return (
         <Label {...props} name={name}>
-            <input {...props} className="border-primary border-[1px] px-4 py-2 rounded-md focus:shadow-xl" />
+            <input {...props} className="border-primary border-[1px] px-4 py-2 rounded-md focus:shadow-xl disabled:opacity-50" />
         </Label>
     )
 }
@@ -19,7 +19,7 @@ export function Input({ name, ...props } : { name: string } & React.ComponentPro
 export function Textarea({ name, ...props } : { name: string } & React.ComponentPropsWithoutRef<"textarea">): React.ReactNode {
     return (
         <Label {...props} name={name}>
-            <textarea {...props} className="border-primary border-[1px] px-4 py-2 rounded-md min-h-40 max-h-80 focus:shadow-xl" />
+            <textarea {...props} className="border-primary border-[1px] px-4 py-2 rounded-md min-h-[150px] max-h-[500px] focus:shadow-xl disabled:opacity-50 disabled:resize-none" />
         </Label>
     )
 }

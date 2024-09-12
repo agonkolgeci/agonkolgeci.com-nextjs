@@ -26,8 +26,6 @@ export type FormStatus = {
 }
 
 export default function ContactForm({ recaptchaKey } : { recaptchaKey: string }) {
-    const reference = useRef<HTMLDivElement>(null);
-
     const [pending, setPending] = useState(false);
     const [sent, setSent] = useState(false);
 
@@ -37,10 +35,6 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
 
     const handleSubmit = async(event: any) => {
         event.preventDefault();
-
-        if(reference.current) {
-            reference.current?.scrollIntoView();
-        }
 
         if(!event.target.name.value || !event.target.email.value || !event.target.subject.value || !event.target.message.value) {
             setStatus({message: "Please fill out all required fields in the form before submitting.", color: "text-red-500"});
@@ -81,24 +75,23 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
     }
 
     return (
-        <div ref={reference} className="flex flex-grow flex-col gap-8 py-8 max-w-xl w-full">
-            <div className={`${status ? "flex" : "hidden" } flex-row items-center gap-4 ${status?.color}`}>
-                <FontAwesomeIcon icon={status?.icon ? status.icon : faCircleInfo} className={`text-xl ${status?.animate ? "animate-spin": null}`} />
-                        
-                <p>{status?.message}</p>
-            </div>
+        <div className="flex flex-grow flex-col gap-8 max-w-xl w-full">
+            <Form className={`flex flex-col gap-8`} onSubmit={handleSubmit}>
+                <Input id="name" type="text" name="Name" placeholder="Agon KOLGECI" required disabled={pending || sent} />
+                <Input id="email" type="email" name="E-mail" placeholder="contact@agonkolgeci.com" required disabled={pending || sent} />
+                <Input id="subject" type="text" name="Subject" placeholder="Collaboration" required disabled={pending || sent} />
+                <Textarea id="message" name="Message" required disabled={pending || sent} />
+                <ReCAPTCHA className={sent ? "hidden" : "block"} sitekey={recaptchaKey} onChange={setCaptcha} />
 
-            <Form className={`${sent ? "hidden": "flex"} flex-col gap-8`} onSubmit={handleSubmit}>
-                <Input id="name" type="text" name="Name" placeholder="Agon KOLGECI" required disabled={pending} />
-                <Input id="email" type="email" name="E-mail" placeholder="contact@agonkolgeci.com" required disabled={pending} />
-                <Input id="subject" type="text" name="Subject" placeholder="Collaboration" required disabled={pending} />
-                <Textarea id="message" name="Message" required disabled={pending} />
-                <ReCAPTCHA sitekey={recaptchaKey} onChange={setCaptcha} />
+                <div className={`${status ? "flex" : "hidden" } flex-row items-center gap-4 ${status?.color}`}>
+                    <FontAwesomeIcon icon={status?.icon ? status.icon : faCircleInfo} className={`text-xl ${status?.animate ? "animate-spin": null}`} />
+                            
+                    <p>{status?.message}</p>
+                </div>
 
-                <div className="block">
-                    <Button type="submit" disabled={pending}>
+                <div className={sent ? "hidden" : "block"}>
+                    <Button type="submit" disabled={pending || sent}>
                         <p>Submit</p>
-                        <FontAwesomeIcon icon={pending ? faSpinner : faPaperPlane} className={`${pending ? "animate-spin" : null}`} />
                     </Button>
                 </div>
             </Form>
