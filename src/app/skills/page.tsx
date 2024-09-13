@@ -9,8 +9,8 @@ import Slider, { Slide } from "../_components/utils/ui/slider";
 import { Language } from "../_components/utils/ui/languages";
 import { Metadata } from "next";
 
-const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass", "MySQL", "Redis"];
-const FRAMEWORKS = ["MySQL", "MongoDB", "Node", "React", "NextJS", "Tailwind CSS" ];
+const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"];
+const FRAMEWORKS = ["MySQL", "MongoDB", "Redis", "Node", "React", "NextJS", "Tailwind CSS" ];
 const TOOLS = ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell" ];
 
 export const metadata: Metadata = {
