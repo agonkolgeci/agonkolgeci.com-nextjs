@@ -1,5 +1,5 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faFile } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
@@ -17,6 +17,7 @@ export default function SocialsLinks(props: React.ComponentPropsWithoutRef<"ul">
             <SocialLink href="mailto:contact@agonkolgeci.com"><FontAwesomeIcon icon={faEnvelope} /></SocialLink>
             <SocialLink href="https://github.com/agonkolgeci"><FontAwesomeIcon icon={faGithub} /></SocialLink>
             <SocialLink href="https://inkedin.com/in/agon-kolgeci-193aa2266/"><FontAwesomeIcon icon={faLinkedin} /></SocialLink>
+            <SocialLink href="https://resources.agonkolgeci.com/CV.pdf"><FontAwesomeIcon icon={faFile} /></SocialLink>
         </ul>
     );
 }
