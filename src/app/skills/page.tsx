@@ -10,8 +10,8 @@ import { Language } from "../_components/utils/ui/languages";
 import { Metadata } from "next";
 
 const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"];
-const FRAMEWORKS = ["MySQL", "MongoDB", "Redis", "Node", "React", "NextJS", "Tailwind CSS" ];
-const TOOLS = ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell" ];
+const FRAMEWORKS = ["Node", "React", "NextJS", "Tailwind CSS", "Redis"];
+const TOOLS = ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell", "MySQL", "MongoDB" ];
 
 export const metadata: Metadata = {
   title: "Skills",
