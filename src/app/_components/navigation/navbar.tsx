@@ -39,7 +39,7 @@ export default function Navbar() {
             </figure>
 
             <div className="flex flex-row font-semibold">
-                <FontAwesomeIcon className="md:hidden w-10 h-10 hover:cursor-pointer" icon={opened ? faClose : faBars} onClick={toggleMenu} />
+                <FontAwesomeIcon className="md:hidden size-8 hover:cursor-pointer" icon={opened ? faClose : faBars} onClick={toggleMenu} />
                 <NavLinks className={opened ? "flex flex-col absolute overflow-hidden top-full left-0 w-full h-screen p-10 gap-10 text-2xl bg-primary z-50" : "hidden md:flex flex-row gap-8"} onClick={closeMenu} />
             </div>
         </nav>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { NAVIGATION_LINKS } from "./navigation/navlinks";
+import NavLinks, { NAVIGATION_LINKS } from "./navigation/navlinks";
 import { RESOURCES_LINKS } from "./navigation/resources";
 import ExternalLink, { ExternalURL } from "./utils/links";
 import { COPYRIGHT_NOTICE } from "../page";
