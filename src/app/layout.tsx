@@ -13,14 +13,23 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Agon KOLGECI — Software Developer",
+    default: "Agon KOLGECI",
     template: "Agon KOLGECI — %s"
   },
   description: "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
 
-  keywords: "Software Developer, Agon KOLGECI, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Young Developer, Self-Learning, IT Professional, Tech Projects",
-  authors: [{name: "Agon KOLGECI", url: "https://github.com/agonkolgeci/"}],
-  robots: "index, follow",
+  keywords: ["Agon KOLGECI", "Developer", "Portfolio", "Software Developer", "Passionate Developer", "Computer Enthusiast", "Software Projects", "Knowledge Enrichment", "Coding Expert", "Developer Portfolio", "Tech Enthusiast", "Programming Projects", "Skilled Coder", "Computer Science", "Development Skills", "Innovative Software", "Personal Projects", "Technology Passion", "Young Developer", "Self-Learning", "IT Professional", "Tech Projects"],
+  authors: [
+    {
+      name: "Agon KOLGECI", 
+      url: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs"
+    }
+  ],
+
+  robots: {
+    index: true,
+    follow: true
+  },
 
   openGraph: {
     type: "website",

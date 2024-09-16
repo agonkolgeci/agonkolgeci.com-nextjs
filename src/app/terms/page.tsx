@@ -2,6 +2,15 @@ import Link from "next/link";
 import Article from "../_components/pages/article";
 import Section from "../_components/pages/section";
 import { CONTENTS } from "./contents";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  }
+};
+
 
 export default function Terms() {
     return (

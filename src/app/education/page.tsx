@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Education",
-  description: "Discover my educational background."
+  description: "Learn more about my academic background and how it has contributed to my skills in computer science and development."
 };
 
 export default function Education() {
@@ -26,16 +26,16 @@ export default function Education() {
     }
 
     return (
-        <Article title="Education" description="Discover my educational background.">
+        <Article title="Education" description="Learn more about my academic background and how it has contributed to my skills in computer science and development.">
             <Section title="School career" description="After finishing high school, I went straight into a Bachelor's degree in Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field." position={0}>
                 <ul className="flex flex-col gap-16 relative border-s border-primary max-w-screen-md">
                     <School title="University of Geneva: Bachelor of Computer Science" date="2023 - present" description="The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.">
                         <Link href="https://unige.ch/" target="_blank"><Image src="/education/university_of_geneva.svg" width={200} height={300} alt="University of Geneva Logo" /></Link>
                     </School>
 
-                    <School title="High School: Baccalauréat générale et technologique" date="2020 - 2023" description="High School Diploma general and sciences." />
+                    <School title="High School: Madame de Staël" date="2020 - 2023" description="High School Diploma general and sciences." />
 
-                    <School title="Middle School: Brevet des collèges" date="2016 - 2020" description="General Certifate of secondary education." />
+                    <School title="Middle School: Jean Jacques Rousseau" date="2016 - 2020" description="General Certifate of secondary education." />
                 </ul>
             </Section>
         </Article>
