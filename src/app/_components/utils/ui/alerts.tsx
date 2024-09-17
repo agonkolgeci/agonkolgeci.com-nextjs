@@ -63,7 +63,7 @@ export const AlertOptions: Record<AlertType, AlertProps> = {
 
 export default function Alert({ type, props = AlertOptions[type], message }: { type: AlertType, props?: AlertProps, message: string }) {
     return (
-        <div className={`flex flex-row items-center gap-4 rounded-lg px-4 py-2 ${props.background}`}>
+        <div className={`flex flex-row items-center gap-4 rounded-md px-4 py-2 ${props.background}`}>
             <FontAwesomeIcon icon={props.icon.type} className={`text-xl ${props.icon.color} ${props.icon.animation}`} />
 
             <p className={`${props.color}`}>{message}</p>
