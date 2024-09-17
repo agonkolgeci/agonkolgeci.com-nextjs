@@ -21,7 +21,7 @@ export enum Justify {
 }
 
 export enum Animation {
-    NONE = "animation-none",
+    NONE = "animate-none",
     DEFAULT = "transition-property-all duration-300",
     CLIMB = "transition-all duration-300 hover:-translate-y-4",
     SCALE = "transition-property-[scale] duration-150 hover:scale-110"

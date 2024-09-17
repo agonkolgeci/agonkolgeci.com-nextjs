@@ -10,19 +10,11 @@ import { sendEmail } from "../_components/utils/api/mailer";
 import { CONTACT_URL } from "../_components/utils/links";
 import ReCAPTCHA from "react-google-recaptcha";
 import Link from "next/link";
-
-export type FormData = {
-    name: string
-    email: string
-    subject: string
-    message: string
-};
+import Alert, { AlertType } from "../_components/utils/ui/alerts";
 
 export type FormStatus = {
-    message: string,
-    color: string,
-    icon?: IconProp
-    animate?: boolean
+    type: AlertType,
+    message: string
 }
 
 export default function ContactForm({ recaptchaKey } : { recaptchaKey: string }) {
@@ -37,20 +29,20 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
         event.preventDefault();
 
         if(!event.target.name.value || !event.target.email.value || !event.target.subject.value || !event.target.message.value) {
-            setStatus({message: "Please fill out all required fields in the form before submitting.", color: "text-red-500"});
+            setStatus({type: AlertType.ERROR, message: "Please fill out all required fields in the form before submitting." });
 
             return;
         }
 
         if(!captcha) {
-            setStatus({message: "Please complete the reCAPTCHA verification before submitting.", color: "text-red-500"});
+            setStatus({type: AlertType.ERROR, message: "Please complete the reCAPTCHA verification before submitting." });
 
             return;
         }
 
 
         setPending(true);
-        setStatus({message: "Your message is in the process of being sent...", color: "text-orange-500", icon: faSpinner, animate: true});
+        setStatus({type: AlertType.LOADING, message: "Your message is being sent..." });
 
         const result = await sendEmail({
             from: {
@@ -68,9 +60,9 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
         setSent(result);
 
         if(result) {
-            setStatus({message: "Thank you for your message. I have received it and will get back to you shortly by e-mail.", color: "text-green-500", icon: faCheck});
+            setStatus({type: AlertType.SUCCESS, message: "Thank you for your message. I have received it and will get back to you shortly by e-mail." });
         } else {
-            setStatus({message: "Sorry, but an error occurred and your message could not be sent. Please try again later.", color: "text-red-500", icon: faXmark});
+            setStatus({type: AlertType.ERROR, message: "Sorry, but an error occurred and your message could not be sent. Please try again later." });
         }
     }
 
@@ -81,19 +73,17 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
                 <Input id="email" type="email" name="E-mail" placeholder="contact@agonkolgeci.com" required disabled={pending || sent} />
                 <Input id="subject" type="text" name="Subject" placeholder="Collaboration" required disabled={pending || sent} />
                 <Textarea id="message" name="Message" required disabled={pending || sent} />
-                <ReCAPTCHA className={sent ? "hidden" : "block"} sitekey={recaptchaKey} onChange={setCaptcha} />
 
-                <div className={`${status ? "flex" : "hidden" } flex-row items-center gap-4 ${status?.color}`}>
-                    <FontAwesomeIcon icon={status?.icon ? status.icon : faCircleInfo} className={`text-xl ${status?.animate ? "animate-spin": null}`} />
-                            
-                    <p>{status?.message}</p>
-                </div>
+                {!sent ? <ReCAPTCHA sitekey={recaptchaKey} onChange={setCaptcha} /> : null}
+                {status ? <Alert type={status.type} message={status.message} /> : null}
 
-                <div className={sent ? "hidden" : "block"}>
-                    <Button type="submit" disabled={pending || sent}>
-                        <p>Submit</p>
-                    </Button>
-                </div>
+                {!sent ? (
+                    <div className="flex">
+                        <Button type="submit" disabled={pending || sent}>
+                            <p>Submit</p>
+                        </Button>
+                    </div>
+                ): null}
             </Form>
         </div>
     )
