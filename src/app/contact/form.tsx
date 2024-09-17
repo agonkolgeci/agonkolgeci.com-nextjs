@@ -67,7 +67,7 @@ export default function ContactForm({ recaptchaKey } : { recaptchaKey: string })
     }
 
     return (
-        <div className="flex flex-grow flex-col gap-8 max-w-xl w-full">
+        <div className="flex flex-col gap-8 max-w-xl w-full">
             <Form className={`flex flex-col gap-8`} onSubmit={handleSubmit}>
                 <Input id="name" type="text" name="Name" placeholder="Agon KOLGECI" required disabled={pending || sent} />
                 <Input id="email" type="email" name="E-mail" placeholder="contact@agonkolgeci.com" required disabled={pending || sent} />
