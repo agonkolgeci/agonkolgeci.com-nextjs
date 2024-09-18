@@ -14,7 +14,7 @@ export default async function Gallery() {
     const repositories: any[] = await retrieveRepositories();
 
     return (
-        <Article title="Gallery" description="Find out about the different creations I've made or taken part in. These have helped me learn more about certain aspects of development.">
+        <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section title="Projects" description="List of all the projects I have been involved in." position={0}>
                 <Projects />
             </Section>

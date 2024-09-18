@@ -26,7 +26,7 @@ export default function Education() {
     }
 
     return (
-        <Article title="Education" description="Learn more about my academic background and how it has contributed to my skills in computer science and development.">
+        <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section title="School career" description="After finishing high school, I went straight into a Bachelor's degree in Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field." position={0}>
                 <ul className="flex flex-col gap-16 relative border-s border-primary max-w-screen-md">
                     <School title="University of Geneva: Bachelor of Computer Science" date="2023 - present" description="The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.">

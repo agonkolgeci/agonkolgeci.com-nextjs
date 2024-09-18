@@ -5,16 +5,13 @@ import { CONTENTS } from "./contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-  }
+    title: "Terms of Service",
+    description: "Latest Updated: September 18, 2024"
 };
-
 
 export default function Terms() {
     return (
-        <Article title="Terms of Service" description="Latest Updated: September 12, 2024">
+        <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section id="summary" title="Table of contents" description="Quick access to the sections." position={0}>
                 <ul className="flex flex-col list-decimal p-[revert]">
                     {CONTENTS.map(content => {

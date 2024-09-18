@@ -48,7 +48,7 @@ export default function Experiences() {
     }
 
     return (
-        <Article title="Experiences" description="Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences.">
+        <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section title="Personal Experiences" description="Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment." position={0}>
                 <Cards className="grid-cols-[repeat(auto-fit,minmax(0,400px))] max-w-screen-2xl">
                     <Experience 

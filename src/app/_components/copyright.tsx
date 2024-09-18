@@ -1,5 +1,3 @@
-import { faCodeBranch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ExternalLink from "./utils/links";
 
 export default function Copyright() {

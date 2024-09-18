@@ -50,7 +50,7 @@ export default function Skills() {
     }
 
     return (
-        <Article title="Skills" description="Over the years, I've been able to develop and gain experience in a variety of skills.">
+        <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section title="IT Skills" description="Programming languages and tools I master." position={0}>
                 <div className="block w-full max-w-[600px]">
                     <Slider>
