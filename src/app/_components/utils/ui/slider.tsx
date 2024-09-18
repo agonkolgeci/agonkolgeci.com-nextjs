@@ -1,4 +1,4 @@
-import { Orientation } from "./render";
+import { Orientation } from "./Render";
 
 export function Slide(props: React.ComponentPropsWithoutRef<"li">) {
     return (

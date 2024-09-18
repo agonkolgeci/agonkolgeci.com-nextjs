@@ -1,4 +1,4 @@
-import ExternalLink from "./utils/links";
+import ExternalLink from "./utils/ExternalLink";
 
 export default function Copyright() {
     return (

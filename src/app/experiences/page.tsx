@@ -1,11 +1,11 @@
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
-import Tags from "../_components/utils/ui/tags";
-import Languages from "../_components/utils/ui/languages";
-import HyperLinks from "../_components/utils/ui/hyperlinks";
-import { Cards, Card, CardContainer, CardImage } from "../_components/utils/ui/cards";
-import { Orientation } from "../_components/utils/ui/render";
-import { ExternalURL } from "../_components/utils/links";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
+import Tags from "../_components/utils/ui/Tag";
+import Languages from "../_components/utils/ui/Language";
+import HyperLinks from "../_components/utils/ui/HyperLink";
+import { Cards, Card, CardContainer, CardImage } from "../_components/utils/ui/Card";
+import { Orientation } from "../_components/utils/ui/Render";
+import { ExternalURL } from "../_components/utils/ExternalLink";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

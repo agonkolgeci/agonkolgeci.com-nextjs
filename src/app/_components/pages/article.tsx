@@ -1,5 +1,3 @@
-import { TemplateString } from "next/dist/lib/metadata/types/metadata-types";
-
 export default function Article({ title, description, children }: { title?: string, description?: string, children: React.ReactNode }) {
     return (
         <article className="w-full bg-secondary text-white">

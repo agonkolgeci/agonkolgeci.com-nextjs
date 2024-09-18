@@ -1,8 +1,8 @@
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
 import { retrieveRepositories } from "../_components/utils/api/github";
-import { Repositories } from "./repositories";
-import { Projects } from "./projects";
+import { Repositories } from "./Repositories";
+import { Projects } from "./Projects";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

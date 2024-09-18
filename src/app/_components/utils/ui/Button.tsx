@@ -1,4 +1,4 @@
-import { Animation } from "./render";
+import { Animation } from "./Render";
 
 export enum ButtonStyle {
     PRIMARY = "border-primary border-2 bg-white text-primary disabled:bg-gray-500 px-8 py-2 rounded-full hover:bg-primary hover:text-white",

@@ -2,58 +2,59 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
-import Footer from "./_components/footer";
-import Header from "./_components/header";
-
-const DEFAULT_IMAGE = "https://agonkolgeci.com/banner_full.webp";
+import Footer from "./_components/Footer";
+import Header from "./_components/Header";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 export const viewport: Viewport = {
   themeColor: "#152238",
 }
 
-export const metadata: Metadata = {
-  title: {
-    default: "Agon KOLGECI",
-    template: "Agon KOLGECI — %s"
-  },
-  description: "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
+export async function generateMetadata({params: { locale }} : { params: {locale: string} }): Promise<Metadata> {
+  const t = await getTranslations({locale, namespace: "global"});
 
-  keywords: ["Agon KOLGECI", "Developer", "Portfolio", "Software Developer", "Passionate Developer", "Computer Enthusiast", "Software Projects", "Knowledge Enrichment", "Coding Expert", "Developer Portfolio", "Tech Enthusiast", "Programming Projects", "Skilled Coder", "Computer Science", "Development Skills", "Innovative Software", "Personal Projects", "Technology Passion", "Young Developer", "Self-Learning", "IT Professional", "Tech Projects"],
-  authors: [
-    {
-      name: "Agon KOLGECI", 
-      url: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs"
+  return {
+    title: {
+      default: t("title"),
+      template: `${t("title")} — %s`
+    },
+    description: t("description"),
+
+    keywords: t("keywords"),
+    authors: { name: t("title"), url: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" },
+    
+    robots: { index: true, follow: true },
+
+    openGraph: {
+      type: "website",
+      images: "https://agonkolgeci.com/banner_full.webp",
+      locale: locale
+    },
+
+    twitter: {
+      card: "summary",
+      images: "https://agonkolgeci.com/logo_full.webp"
     }
-  ],
-
-  robots: {
-    index: true,
-    follow: true
-  },
-
-  openGraph: {
-    type: "website",
-    images: DEFAULT_IMAGE,
-    locale: "en_US"
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    images: DEFAULT_IMAGE
   }
-};
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode; }) {
+export default async function RootLayout({ children }: { children: React.ReactNode; }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className="bg-primary text-white">
-        <Header/>
+        <NextIntlClientProvider messages={messages}>
+          <Header/>
 
-        <main className="w-full">
-          {children}
-        </main>
+          <main className="w-full">
+            {children}
+          </main>
 
-        <Footer/>
+          <Footer/>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

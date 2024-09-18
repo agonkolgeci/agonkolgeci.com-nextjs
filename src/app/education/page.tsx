@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
 import Link from "next/link";
 import { Metadata } from "next";
 

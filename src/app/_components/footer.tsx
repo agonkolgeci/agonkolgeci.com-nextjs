@@ -1,12 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import NavLinks, { NAVIGATION_LINKS } from "./navigation/navlinks";
-import { RESOURCES_LINKS } from "./navigation/resources";
-import ExternalLink, { ExternalURL } from "./utils/links";
-import Copyright from "./copyright";
+import { retrieveResources } from "./navigation/Resources";
+import { retrieveNavLinks } from "./navigation/navbar/links/NavLinks";
+import { retrieveLegal } from "./navigation/Legal";
+
+import ExternalLink, { ExternalURL } from "./utils/ExternalLink";
+import Copyright from "./Copyright";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+    const t = useTranslations("footer");
+
     const Brackets = ({ title, children }: { title: string, children: React.ReactNode }) => {
         return (
             <div className="flex flex-col gap-4">
@@ -38,26 +43,24 @@ export default function Footer() {
                 <div className="flex flex-col xl:flex-row justify-between gap-12 max-w-screen-2xl mx-auto px-10 py-20">
                     <div className="flex flex-col gap-8">
                         <figure className="flex w-52 h-28 relative">
-                            <Link href="/"><Image className="object-contain object-center" src="/banner.png" fill={true} alt="Banner" /></Link>
+                            <Link href="/"><Image className="object-contain object-center" src="/banner.png" fill={true} alt={t("banner")} /></Link>
                         </figure>
 
-                        <Brackets title="Legal">
-                            <Bracket links={[
-                                {name: "Terms of Service", href: "/terms"}
-                            ]} blank={false} />
+                        <Brackets title={t("legal")}>
+                            <Bracket links={retrieveLegal()} blank={false} />
                         </Brackets>
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-12 md:gap-24">
-                        <Brackets title="Navigation">
-                            <Bracket links={NAVIGATION_LINKS} blank={false} />
+                        <Brackets title={t("navigation")}>
+                            <Bracket links={retrieveNavLinks()} blank={false} />
                         </Brackets>
 
-                        <Brackets title="Resources">
-                            <Bracket links={RESOURCES_LINKS} blank={false} />
+                        <Brackets title={t("resources")}>
+                            <Bracket links={retrieveResources()} blank={false} />
                         </Brackets>
 
-                        <Brackets title="Where to find me">
+                        <Brackets title={t("location")}>
                             <div className="flex flex-col gap-[inherit]">
                                 <ul className="flex flex-col">
                                     <li>Uni-Mail</li>

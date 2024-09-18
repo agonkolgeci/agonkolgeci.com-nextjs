@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/cards";
-import { Orientation } from "../_components/utils/ui/render";
-import HyperLinks from "../_components/utils/ui/hyperlinks";
-import Tags from "../_components/utils/ui/tags";
+import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
+import { Orientation } from "../_components/utils/ui/Render";
+import HyperLinks from "../_components/utils/ui/HyperLink";
+import Tags from "../_components/utils/ui/Tag";
 import Link from "next/link";
-import { ExternalURL } from "../_components/utils/links";
-import { FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/collaborators";
+import { ExternalURL } from "../_components/utils/ExternalLink";
+import { FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/Collaborators";
 
 export function Projects() {
     const Project = ({ image, title, date, links, tags, description, team} : { image: string, title: string, date: string, links?: ExternalURL[], tags?: string[], description: string, team?: { role: string, authors: { name: string, href: string }[] }[] }) => {

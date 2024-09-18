@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { AGON_KOLGECI } from "../_components/utils/collaborators"
-import ExternalLink, { CONTACT_URL } from "../_components/utils/links"
-import Copyright from "../_components/copyright"
+import { AGON_KOLGECI } from "../_components/utils/Collaborators"
+import ExternalLink, { CONTACT_URL } from "../_components/utils/ExternalLink"
+import Copyright from "../_components/Copyright"
 
 const Material = (props: React.ComponentPropsWithoutRef<"div">) => {
     return (

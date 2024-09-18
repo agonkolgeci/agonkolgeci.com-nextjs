@@ -1,0 +1,79 @@
+{
+    "locales": {
+        "en": "English",
+        "fr": "French"
+    },
+
+    "legal": {
+        "terms": "Terms of Service"
+    },
+
+    "navigation": {
+        "home": "Home",
+        "skills": "Skills",
+        "education": "Education",
+        "experiences": "Experiences",
+        "gallery": "Gallery",
+        "contact": "Contact"
+    },
+
+    "resources": {
+        "repositories": "Repositories",
+        "resources": "Resources",
+        "archives": "Archives"
+    },
+
+    "header": {
+        "logo": "Logo"
+    },
+
+    "footer": {
+        "banner": "Banner",
+        "legal": "Legal",
+        "navigation": "Navigation",
+        "resources": "Resources",
+        "location": "Where to find me"
+    },
+
+    "global": {
+        "title": "Agon KOLGECI",
+        "description": "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
+        "keywords": "Agon KOLGECI, Software Developer, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Young Developer, Self-Learning, IT Professional, Tech Projects"
+    },
+
+    "home": {
+        "title": "Agon KOLGECI",
+        "description": "Software Developer",
+
+        "about": {
+            "title": "About Me",
+            "description": "Discover who I am, my passions, and the journey that has shaped me. Learn about my background, interests, and what drives me to excel in everything I do.",
+
+            "presentation": "Hi, I'm Agon KOLGECI, a young software developer currently studying in Computer Science. Since I was young, I've been able to discover, learn and experiment with various technologies on a self-taught basis, which has enabled me to develop a real passion for IT and acquire a variety of skills in this field. All my experiences motivated me to continue my studies in this field to deepen my knowledge and become an expert capable of creating innovative solutions. Today, I'm determined to continue on this path and improve every day to achieve my goals."
+        },
+
+        "discover": {
+            "title": "Discover more",
+            "description": "It's not over, it's just the beginning. Discover what I'm capable of by browsing my site!",
+
+            "knowledge": {
+                "title": "Explore my knowledge",
+                "description": "Delve into the skills and education I have acquired over the years. From technical proficiencies to academic achievements. This section showcases the breadth of my learning journey.",
+                "go_to_skills": "Go To Skills",
+                "go_to_education": "Go To Education"
+            },
+
+            "career": {
+                "title": "View my career",
+                "description": "Take a look at my personal and professional experiences, highlighting the roles I have taken on and the projects I have contributed to. This section provides an in-depth look at my career path.",
+                "go_to_experiences": "Go to Experiences"
+            },
+
+            "creations": {
+                "title": "Discover my creations",
+                "description": "Explore a collection of my personal projects and creative works. From design to development, this gallery showcases my passion for creation and innovation.",
+                "go_to_gallery": "Go to Gallery"
+            }
+        }
+    }
+}

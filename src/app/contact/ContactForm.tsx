@@ -1,16 +1,15 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../_components/utils/ui/buttons";
-import Form, { Input, Textarea } from "../_components/utils/ui/forms";
+import { Button } from "../_components/utils/ui/Button";
+import Form, { Input, Textarea } from "../_components/utils/ui/Form";
 import { faCheck, faCircleInfo, faPaperPlane, faSpinner, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { sendEmail } from "../_components/utils/api/mailer";
-import { CONTACT_URL } from "../_components/utils/links";
+import { CONTACT_URL } from "../_components/utils/ExternalLink";
 import ReCAPTCHA from "react-google-recaptcha";
-import Link from "next/link";
-import Alert, { AlertType } from "../_components/utils/ui/alerts";
+import Alert, { AlertType } from "../_components/utils/ui/Alert";
 
 export type FormStatus = {
     type: AlertType,

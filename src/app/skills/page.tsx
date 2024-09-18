@@ -1,12 +1,12 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
 
 import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Slider, { Slide } from "../_components/utils/ui/slider";
-import { Language } from "../_components/utils/ui/languages";
+import Slider, { Slide } from "../_components/utils/ui/Slider";
+import { Language } from "../_components/utils/ui/Language";
 import { Metadata } from "next";
 
 const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"];

@@ -1,4 +1,4 @@
-import { ExternalURL } from "./links";
+import { ExternalURL } from "./ExternalLink";
 
 export const AGON_KOLGECI: ExternalURL = { name: "Agon KOLGECI", href: "https://agonkolgeci.com/" };
 export const FABIEN_GRAYSSAGUEL: ExternalURL = { name: "Fabien GRAYSSAGUEL", href: "https://playze.org/"};

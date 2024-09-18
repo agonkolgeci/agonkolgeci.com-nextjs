@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { retrieveColorByType, retrieveRepositories } from "../_components/utils/api/github";
-import { Animation, Orientation } from "../_components/utils/ui/render";
-import { Card, CardContainer, Cards } from "../_components/utils/ui/cards";
+import { Animation, Orientation } from "../_components/utils/ui/Render";
+import { Card, CardContainer, Cards } from "../_components/utils/ui/Card";
 import Link from "next/link";
-import Languages from "../_components/utils/ui/languages";
-import Tags from "../_components/utils/ui/tags";
-import { Button, ButtonStyle } from "../_components/utils/ui/buttons";
+import Languages from "../_components/utils/ui/Language";
+import Tags from "../_components/utils/ui/Tag";
+import { Button, ButtonStyle } from "../_components/utils/ui/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import HyperLinks from "../_components/utils/ui/hyperlinks";
+import HyperLinks from "../_components/utils/ui/HyperLink";
 
 export function Repositories({ repositories } : { repositories : any[] }) {
     const [archives, setHide] = useState(false);

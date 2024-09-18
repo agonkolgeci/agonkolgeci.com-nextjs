@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
-import { CONTENTS } from "./contents";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
+import { CONTENTS } from "./Contents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

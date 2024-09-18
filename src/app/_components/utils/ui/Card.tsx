@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Align, Animation, Justify, Orientation } from "./render"
+import { Align, Animation, Justify, Orientation } from "./Render"
 
 export function CardImage({ className, border, ...props } : { className: string, border: string } & React.ComponentPropsWithoutRef<typeof Image>) {
     return (

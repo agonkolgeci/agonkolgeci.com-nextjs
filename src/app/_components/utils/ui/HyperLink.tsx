@@ -1,6 +1,6 @@
 import Link from "next/link"
-import Icon from "./icons"
-import { ExternalURL } from "../links"
+import Icon from "./Icon"
+import { ExternalURL } from "../ExternalLink"
 
 export function HyperLink({ link }: { link: ExternalURL }) {
     return (

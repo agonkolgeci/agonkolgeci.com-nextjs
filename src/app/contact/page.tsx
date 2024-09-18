@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
-import ContactForm from "./form";
+import Article from "../_components/pages/Article";
+import Section from "../_components/pages/Section";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
