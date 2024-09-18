@@ -1,7 +1,7 @@
 import { ExternalURL } from "@/app/_components/utils/ExternalLink";
 import { useTranslations } from "next-intl";
 
-export function retrieveResources(): ExternalURL[] {
+export function useResources(): ExternalURL[] {
     const t = useTranslations("resources");
 
     return [

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Section from "./_components/pages/Section";
-import SocialsLinks from "./_components/navigation/Socials";
+import SocialsLinks from "./_components/navigation/socials/SocialsLinks";
 import { ExternalURL } from "./_components/utils/ExternalLink";
 import { Card, CardContainer, CardImage } from "./_components/utils/ui/Card";
 import { Button } from "./_components/utils/ui/Button";

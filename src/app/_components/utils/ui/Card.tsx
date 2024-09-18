@@ -1,11 +1,11 @@
 import Image from "next/image"
 import { Align, Animation, Justify, Orientation } from "./Render"
 
-export function CardImage({ className, border, ...props } : { className: string, border: string } & React.ComponentPropsWithoutRef<typeof Image>) {
+export function CardImage({ className, border, alt, ...props } : { className: string, border: string, alt: string } & React.ComponentPropsWithoutRef<typeof Image>) {
     return (
         <div className="block">
             <figure className={`${className} relative`}>
-                <Image {...props} className={`${border} object-cover object-center`} fill={true} />
+                <Image {...props} className={`${border} object-cover object-center`} fill={true} alt={alt} />
             </figure>
         </div>
     )

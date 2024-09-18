@@ -1,7 +1,7 @@
 import { ExternalURL } from "@/app/_components/utils/ExternalLink";
 import { useTranslations } from "next-intl";
 
-export function retrieveNavLinks(): ExternalURL[] {
+export function useMenu(): ExternalURL[] {
     const t = useTranslations("navigation");
 
     return [

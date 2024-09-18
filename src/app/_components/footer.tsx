@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { retrieveResources } from "./navigation/Resources";
-import { retrieveNavLinks } from "./navigation/navbar/links/NavLinks";
-import { retrieveLegal } from "./navigation/Legal";
+import { useResources } from "./utils/links/resources";
+import { useMenu } from "./utils/links/menu";
+import { useLegal } from "./utils/links/legal";
 
 import ExternalLink, { ExternalURL } from "./utils/ExternalLink";
 import Copyright from "./Copyright";
@@ -47,17 +47,17 @@ export default function Footer() {
                         </figure>
 
                         <Brackets title={t("legal")}>
-                            <Bracket links={retrieveLegal()} blank={false} />
+                            <Bracket links={useLegal()} blank={false} />
                         </Brackets>
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-12 md:gap-24">
                         <Brackets title={t("navigation")}>
-                            <Bracket links={retrieveNavLinks()} blank={false} />
+                            <Bracket links={useMenu()} blank={false} />
                         </Brackets>
 
                         <Brackets title={t("resources")}>
-                            <Bracket links={retrieveResources()} blank={false} />
+                            <Bracket links={useResources()} blank={false} />
                         </Brackets>
 
                         <Brackets title={t("location")}>

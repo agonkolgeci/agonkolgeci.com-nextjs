@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Link from "next/link";
-import NavLinks from "./links/NavbarLinks";
+import NavLinks from "./menu/MenuLinks";
 import LocaleSwitcher from "./locale_switcher/LocaleSwitcher";
 
 export default function Navbar() {
