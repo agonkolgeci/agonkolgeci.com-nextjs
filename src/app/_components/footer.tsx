@@ -4,7 +4,7 @@ import Link from "next/link";
 import NavLinks, { NAVIGATION_LINKS } from "./navigation/navlinks";
 import { RESOURCES_LINKS } from "./navigation/resources";
 import ExternalLink, { ExternalURL } from "./utils/links";
-import { COPYRIGHT_NOTICE } from "../page";
+import Copyright from "./copyright";
 
 export default function Footer() {
     const Brackets = ({ title, children }: { title: string, children: React.ReactNode }) => {
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col items-center justify-center p-4 text-center">
-                {COPYRIGHT_NOTICE}
+                <Copyright />
             </div>
         </footer>
     );

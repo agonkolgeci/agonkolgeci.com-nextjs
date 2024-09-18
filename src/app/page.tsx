@@ -7,8 +7,6 @@ import { Button } from "./_components/utils/ui/buttons";
 import Link from "next/link";
 import { Align, Justify, Orientation } from "./_components/utils/ui/render";
 
-export const COPYRIGHT_NOTICE = <p>Copyright © 2024 Agon KOLGECI • All Rights Reserved</p>;
-
 export default function Home() {
     const Discover = ({ image, title, description, buttons, orientation } : { image: string, title: string, description: string, buttons?: ExternalURL[], orientation: Orientation }) => {
         return (

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { AGON_KOLGECI } from "../_components/utils/collaborators"
 import ExternalLink, { CONTACT_URL } from "../_components/utils/links"
-import { COPYRIGHT_NOTICE } from "../page"
+import Copyright from "../_components/copyright"
 
 const Material = (props: React.ComponentPropsWithoutRef<"div">) => {
     return (
@@ -98,7 +98,7 @@ export const CONTENTS: Content[] = [
             <Material>
                 <p>All content on this website, including text, images, and code, is the intellectual property of <ExternalLink url={AGON_KOLGECI} />, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited.</p>
 
-                {COPYRIGHT_NOTICE}
+                <Copyright />
             </Material>
         )
     }
