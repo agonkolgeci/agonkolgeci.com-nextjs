@@ -23,22 +23,22 @@ export default function NavLinks() {
         }
 
         window.addEventListener("resize", handleMove);
-        window.addEventListener("scroll", handleMove);
+        // window.addEventListener("scroll", handleMove);
 
         return () => {
             window.removeEventListener("resize", handleMove);
-            window.removeEventListener("scroll", handleMove);
+            // window.removeEventListener("scroll", handleMove);
         };
     });
 
     return (
-        <div className="flex flex-row font-semibold">
-            <FontAwesomeIcon className="md:hidden size-8 hover:cursor-pointer" icon={opened ? faClose : faBars} onClick={toggleMenu} />
-
-            <ul className={opened ? "flex flex-col absolute overflow-hidden top-full left-0 w-full h-screen p-10 gap-10 text-2xl bg-primary z-50" : "hidden md:flex flex-row gap-8"} onClick={closeMenu}>
+        <div className="flex flex-row">
+            <FontAwesomeIcon className="lg:hidden text-3xl hover:cursor-pointer" icon={opened ? faClose : faBars} fixedWidth onClick={toggleMenu} />
+            
+            <ul className={opened ? "flex flex-col absolute top-full left-0 w-full h-screen p-10 gap-10 text-2xl bg-primary z-50" : "hidden lg:flex flex-row gap-8 z-50"} >
                 {useMenu().map(link => {
                     return (
-                        <li key={link.name}>
+                        <li key={link.name} onClick={closeMenu}>
                             <Link href={link.href} className={pathname === link.href ? "border-white border-b-2 pb-[2px]" : "hover:underline"}>{link.name}</Link>
                         </li>
                     )
