@@ -49,7 +49,7 @@ export default function Dropdown({ button, items, defaultValue, disabled = false
             window.removeEventListener("scroll", closeMenu);
             window.removeEventListener("mousedown", handleClick);
         };
-    }, [opened]);
+    }, [opened, closeMenu]);
 
     return (
         <div className="flex flex-row relative">

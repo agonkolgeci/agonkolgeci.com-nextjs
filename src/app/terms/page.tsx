@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Article from "../_components/pages/Article";
 import Section from "../_components/pages/Section";
-import retrieveContents, { Content } from "./TermsContents";
+import useContents, { Content } from "./TermsContents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function Terms() {
-    const contents: Content[] = retrieveContents();
+    const contents: Content[] = useContents();
 
     return (
         <Article title={String(metadata.title)} description={String(metadata.description)}>

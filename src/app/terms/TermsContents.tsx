@@ -19,7 +19,7 @@ export type Content = {
     material: React.ReactNode
 }
 
-export default function retrieveContents(): Content[] {
+export default function useContents(): Content[] {
     const t = useTranslations("terms");
 
     return [
