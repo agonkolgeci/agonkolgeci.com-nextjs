@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Article from "../_components/pages/Article";
 import Section from "../_components/pages/Section";
-import { CONTENTS } from "./Contents";
+import retrieveContents, { Content } from "./TermsContents";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default function Terms() {
+    const contents: Content[] = retrieveContents();
+
     return (
         <Article title={String(metadata.title)} description={String(metadata.description)}>
             <Section id="summary" title="Table of contents" description="Quick access to the sections." position={0}>
                 <ul className="flex flex-col list-decimal p-[revert]">
-                    {CONTENTS.map(content => {
+                    {contents.map(content => {
                         return (
                             <li key={content.id}>
                                 <Link className="text-blue-700" href={`#${content.id}`}>{content.title}</Link>
@@ -24,8 +26,8 @@ export default function Terms() {
                 </ul>
             </Section>
 
-            {CONTENTS.map(content => {
-                const position = CONTENTS.indexOf(content) + 1;
+            {contents.map(content => {
+                const position = contents.indexOf(content) + 1;
 
                 return (
                     <Section key={content.id} id={content.id} title={`${position}. ${content.title}`} position={position}>

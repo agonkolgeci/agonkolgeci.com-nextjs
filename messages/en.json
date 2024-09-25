@@ -75,5 +75,64 @@
                 "go_to_gallery": "Go to Gallery"
             }
         }
+    },
+
+    "skills": {
+        "title": "Skills",
+        "description": "Over the years, I've been able to develop and gain experience in a variety of skills.",
+
+        "it_skills": {
+            "title": "IT Skills",
+            "description": "\"Programming\" languages and tools I master.",
+
+            "languages": "Languages",
+            "frameworks": "Frameworks",
+            "tools": "Tools"
+        },
+
+        "soft_skills": {
+            "title": "Soft Skills",
+            "description": "Various soft skills acquired during the different projects I've worked on.",
+
+            "motivation": {
+                "title": "Motivation",
+                "description": "I am highly motivated in everything I undertake and love exploring various topics."
+            },
+
+            "adaptation": {
+                "title": "Adaptation",
+                "description": "I easily adapt to different situations and always strive to do my best."
+            },
+
+            "autonomy": {
+                "title": "Autonomy",
+                "description": "I'm mainly self-taught, I know how to be autonomous to reach my goal."
+            },
+
+            "team_work": {
+                "title": "Team Work",
+                "description": "I am able to collaborate and respect different points of view in order to actively contribute to the group's objectives."
+            }
+        }
+    },
+
+    "education": {
+
+    },
+
+    "experiences": {
+
+    },
+
+    "gallery": {
+
+    },
+
+    "contact": {
+
+    },
+
+    "terms": {
+        
     }
 }

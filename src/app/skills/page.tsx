@@ -8,17 +8,25 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Slider, { Slide } from "../_components/utils/ui/Slider";
 import { Language } from "../_components/utils/ui/Language";
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const LANGUAGES = ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"];
 const FRAMEWORKS = ["Node", "React", "NextJS", "Tailwind CSS", "Redis"];
 const TOOLS = ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell", "MySQL", "MongoDB" ];
 
-export const metadata: Metadata = {
-  title: "Skills",
-  description: "Over the years, I've been able to develop and gain experience in a variety of skills."
-};
+export async function generateMetadata({params: { locale }} : { params: {locale: string} }): Promise<Metadata> {
+  const t = await getTranslations({locale, namespace: "skills"});
+
+  return {
+    title: t("title"),
+    description: t("description")
+  }
+}
 
 export default function Skills() {
+    const t = useTranslations("skills");
+
     const ITSkill = ({ title, languages }: { title: string, languages: string[] }) => {
         return (
             <li className="flex flex-col gap-2">
@@ -50,8 +58,8 @@ export default function Skills() {
     }
 
     return (
-        <Article title={String(metadata.title)} description={String(metadata.description)}>
-            <Section title="IT Skills" description="Programming languages and tools I master." position={0}>
+        <Article title={t("title")} description={t("description")}>
+            <Section title={t("it_skills.title")} description={t("it_skills.description")} position={0}>
                 <div className="block w-full max-w-[600px]">
                     <Slider>
                         {[...LANGUAGES, ...FRAMEWORKS, ...TOOLS].map(skill => {
@@ -65,18 +73,18 @@ export default function Skills() {
                 </div>
                 
                 <ul className="flex flex-row flex-wrap gap-x-24 gap-y-12">
-                    <ITSkill title="Languages" languages={LANGUAGES} />
-                    <ITSkill title="Frameworks" languages={FRAMEWORKS} />
-                    <ITSkill title="Tools" languages={TOOLS} />
+                    <ITSkill title={t("it_skills.languages")} languages={LANGUAGES} />
+                    <ITSkill title={t("it_skills.frameworks")} languages={FRAMEWORKS} />
+                    <ITSkill title={t("it_skills.tools")} languages={TOOLS} />
                 </ul>
             </Section>
 
-            <Section title="Soft Skills" description="Various soft skills acquired during the different projects I've worked on." position={1}>
+            <Section title={t("soft_skills.title")} description={t("soft_skills.description")} position={1}>
                 <ul className="flex flex-col gap-16 max-w-screen-md">
-                    <SoftSkill icon={faBolt} title="Motivation" description="I am highly motivated in everything I undertake and love exploring various topics." />
-                    <SoftSkill icon={faSliders} title="Adaptation" description="I easily adapt to different situations and always strive to do my best." />
-                    <SoftSkill icon={faPerson} title="Autonomy" description="I'm mainly self-taught, I know how to be autonomous to reach my goal." />
-                    <SoftSkill icon={faPeopleGroup} title="Team Work" description="I am able to collaborate and respect different points of view in order to actively contribute to the group's objectives." />
+                    <SoftSkill icon={faBolt} title={t("soft_skills.motivation.title")} description={t("soft_skills.motivation.description")} />
+                    <SoftSkill icon={faSliders} title={t("soft_skills.adaptation.title")}  description={t("soft_skills.adaptation.description")} />
+                    <SoftSkill icon={faPerson} title={t("soft_skills.autonomy.title")} description={t("soft_skills.autonomy.description")} />
+                    <SoftSkill icon={faPeopleGroup} title={t("soft_skills.team_work.title")} description={t("soft_skills.team_work.description")} />
                 </ul>
             </Section>
         </Article>

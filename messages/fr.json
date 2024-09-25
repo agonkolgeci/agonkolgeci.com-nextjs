@@ -59,14 +59,14 @@
             "knowledge": {
                 "title": "Explorez mes connaissances",
                 "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Des compétences techniques aux réussites académiques, cette section met en lumière l'étendue de mon parcours d'apprentissage.",
-                "go_to_skills": "Voir les compétences",
-                "go_to_education": "Voir le parcours"
+                "go_to_skills": "Voir mes compétences",
+                "go_to_education": "Voir ma scolarité"
             },
 
             "career": {
                 "title": "Visualiser mon parcours",
                 "description": "Découvrez mes expériences personnelles et professionnelles, mettant en avant les rôles que j'ai occupés et les projets auxquels j'ai contribué. Cette section offre un aperçu détaillé de mon cheminement de carrière.",
-                "go_to_experiences": "Voir les expériences"
+                "go_to_experiences": "Voir mes expériences"
             },
 
             "creations": {
@@ -75,5 +75,45 @@
                 "go_to_gallery": "Voir mes réalisations"
             }
         }
+    },
+
+    "skills": {
+        "title": "Compétences",
+        "description": "Au fil des années, j'ai pu développer et acquérir de l'expérience dans une variété de compétences.",
+
+        "it_skills": {
+            "title": "Compétences Informatiques",
+            "description": "Langages de \"programmation\" et outils que je maîtrise.",
+
+            "languages": "Langages",
+            "frameworks": "Frameworks",
+            "tools": "Outils"
+        },
+
+        "soft_skills": {
+            "title": "Compétences Interpersonnelles",
+            "description": "Diverses compétences interpersonnelles acquises au cours des différents projets sur lesquels j'ai travaillé.",
+
+            "motivation": {
+                "title": "Motivation",
+                "description": "Je suis très motivé dans tout ce que j'entreprends et j'aime explorer divers sujets."
+            },
+
+            "adaptation": {
+                "title": "Adaptation",
+                "description": "Je m'adapte facilement à différentes situations et je m'efforce toujours de donner le meilleur de moi-même."
+            },
+
+            "autonomy": {
+                "title": "Autonomie",
+                "description": "Principalement autodidacte, je sais être autonome pour atteindre mes objectifs."
+            },
+
+            "team_work": {
+                "title": "Travail d'équipe",
+                "description": "Je suis capable de collaborer et de respecter différents points de vue afin de contribuer activement aux objectifs du groupe."
+            }
+        }
     }
+
 }

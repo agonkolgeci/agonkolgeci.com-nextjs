@@ -11,6 +11,13 @@ import { CONTACT_URL } from "../_components/utils/ExternalLink";
 import ReCAPTCHA from "react-google-recaptcha";
 import Alert, { AlertType } from "../_components/utils/ui/Alert";
 
+export type FormData = {
+    name: string,
+    email: string,
+    subject: string,
+    message: string
+}
+
 export type FormStatus = {
     type: AlertType,
     message: string
