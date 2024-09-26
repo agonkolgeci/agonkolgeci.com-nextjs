@@ -35,6 +35,11 @@
         "location": "Où me trouver"
     },
 
+    "copyright": {
+        "content": "Copyright © 2024 Agon KOLGECI • Tous droits réservés",
+        "details": "Fait avec Next.js et Tailwind CSS, deployée avec Vercel depuis GitHub."
+    },
+
     "global": {
         "title": "Agon KOLGECI",
         "description": "Passionné depuis mon plus jeune âge par l'informatique, je consacre mon temps à réaliser divers projets me permettant d'enrichir mes connaissances.",
@@ -58,9 +63,9 @@
 
             "knowledge": {
                 "title": "Explorez mes connaissances",
-                "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Des compétences techniques aux réussites académiques, cette section met en lumière l'étendue de mon parcours d'apprentissage.",
+                "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Cette section met en lumière mes compétences techniques et l'étendue de mon parcours d'apprentissage.",
                 "go_to_skills": "Voir mes compétences",
-                "go_to_education": "Voir ma scolarité"
+                "go_to_education": "Voir mon parcours scolaire"
             },
 
             "career": {
@@ -83,7 +88,7 @@
 
         "it_skills": {
             "title": "Compétences Informatiques",
-            "description": "Langages de \"programmation\" et outils que je maîtrise.",
+            "description": "Langages de programmation et outils que je maîtrise.",
 
             "languages": "Langages",
             "frameworks": "Frameworks",
@@ -91,7 +96,7 @@
         },
 
         "soft_skills": {
-            "title": "Compétences Interpersonnelles",
+            "title": "Savoir-être",
             "description": "Diverses compétences interpersonnelles acquises au cours des différents projets sur lesquels j'ai travaillé.",
 
             "motivation": {

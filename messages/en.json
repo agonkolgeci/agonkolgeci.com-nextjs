@@ -35,6 +35,11 @@
         "location": "Where to find me"
     },
 
+    "copyright": {
+        "content": "Copyright © 2024 Agon KOLGECI • All Rights Reserved",
+        "details": "Build with Next.js and Tailwind CSS, deployed with Vercel from GitHub."
+    },
+
     "global": {
         "title": "Agon KOLGECI",
         "description": "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
@@ -83,7 +88,7 @@
 
         "it_skills": {
             "title": "IT Skills",
-            "description": "\"Programming\" languages and tools I master.",
+            "description": "Programming languages and tools I master.",
 
             "languages": "Languages",
             "frameworks": "Frameworks",
@@ -117,7 +122,7 @@
     },
 
     "education": {
-
+        
     },
 
     "experiences": {

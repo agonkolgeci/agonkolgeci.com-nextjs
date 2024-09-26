@@ -11,7 +11,7 @@ export default function LocaleSwitcher() {
         return (
             <div className="flex flex-row gap-2">
                 <figure className="size-6 relative">
-                    <Image className="rounded-full" src={`/locales/${value}.svg`} fill={true} alt="EN" />
+                    <Image className="rounded-full" src={`/locales/${value}.svg`} loading="eager" fill={true} alt="EN" />
                 </figure>
 
                 <p>{displayName}</p>
