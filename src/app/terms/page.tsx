@@ -65,7 +65,7 @@ export default function Terms() {
                                 })}
                             </div>
 
-                            <ExternalLink url={{name: "Back to top", href: "#summary"}} blank={false} />
+                            <ExternalLink url={{name: t("back_to_top"), href: "#summary"}} blank={false} />
                         </div>
                     </Section>
                 )
