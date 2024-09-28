@@ -45,7 +45,7 @@ export default function Terms() {
                                         <div key={text}>
                                             {t.rich(`${content_path}.texts.${text}`, {
                                                 author: (() => <ExternalLink url={AGON_KOLGECI} />),
-                                                terms: (() => <ExternalLink url={{name: "Terms of Service", href: "https://agonkolgeci.com/terms" }} />),
+                                                terms: (() => <ExternalLink url={{name: t("title"), href: "https://agonkolgeci.com/terms" }} />),
                                                 contact: (() => <ExternalLink url={CONTACT_URL} />),
                                                 copyright: (() => <Copyright/>),
 
