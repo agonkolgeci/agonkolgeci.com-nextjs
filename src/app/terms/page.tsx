@@ -18,7 +18,7 @@ export default function Terms() {
 
     return (
         <Article title={t("title")} description={t("description")}>
-            <Section id="summary" title="Table of contents" description="Quick access to the sections." position={0}>
+            <Section id={"summary"} title={t("summary.title")} description={t("summary.description")} position={0}>
                 <ul className="flex flex-col list-decimal p-[revert]">
                     {contents.map(content => {
                         const content_path = (`contents.${content.key}`);

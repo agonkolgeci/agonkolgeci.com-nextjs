@@ -353,6 +353,11 @@
         "title": "Mentions légales",
         "description": "Dernière mise à jour : 28 septembre 2024",
 
+        "summary": {
+            "title": "Table des matières",
+            "description": "Accès rapide aux différentes sections."
+        },
+
         "contents": {
             "general": {
                 "title": "Informations Générales",

@@ -353,6 +353,11 @@
         "title": "Terms of Service",
         "description": "Latest Updated: September 28, 2024",
 
+        "summary": {
+            "title": "Table of contents",
+            "description": "Quick access to the sections."
+        },
+
         "contents": {
             "general": {
                 "title": "General Information",
