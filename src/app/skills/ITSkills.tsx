@@ -1,7 +1,7 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 import Section from "../_components/pages/Section";
-import Slider, { Slide } from "../_components/utils/ui/Slider";
 import { Language } from "../_components/utils/ui/Language";
+import Slider, { Slide } from "../_components/utils/ui/Slider";
 
 export function useITSkills(): AsbtractITSkill[] {
     return [

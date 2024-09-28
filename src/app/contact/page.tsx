@@ -1,7 +1,7 @@
-import Article from "../_components/pages/Article";
-import ContactForm from "./ContactForm";
 import { useTranslations } from "next-intl";
+import Article from "../_components/pages/Article";
 import { getPageMetadata, MetadataProps } from "../metadata";
+import ContactForm from "./ContactForm";
 
 export async function generateMetadata({ params }: MetadataProps) {
     return await getPageMetadata({namespace: "contact", params});

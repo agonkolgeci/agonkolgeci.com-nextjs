@@ -350,6 +350,63 @@
     },
 
     "terms": {
-        
+        "title": "Terms of Service",
+        "description": "Latest Updated: September 28, 2024",
+
+        "contents": {
+            "general": {
+                "title": "General Information",
+                "texts": {
+                    "1": "This website serves as a portfolio for <author></author>, showcasing various projects and developments in the field of computer science. By using the site, you acknowledge that the information provided here is for general informational purposes and may change over time."
+                }
+            },
+
+            "content": {
+                "title": "Use of Content",
+                "texts": {
+                    "1": "Visitors are free to share any of the content found on this website. However, some parts of the site, such as GitHub repositories or other linked materials, are subject to specific licenses that govern their use. It is the responsibility of the user to check the relevant licenses before sharing or using these materials."
+                }
+            },
+
+            "intellectual-property": {
+                "title": "Intellectual Property",
+                "texts": {
+                    "1": "The content on this website, unless otherwise stated, is the intellectual property of <author></author>. This includes text, design, and projects, all of which are protected under copyright law.",
+                    "2": "However, certain images and icons used on the site are sourced from third-party providers, including but not limited to:",
+                    "3": "<references></references>",
+                    "4": "These images and icons remain the property of their respective owners and are used under the licenses provided by those sources. Users must respect the intellectual property rights of these third-party providers when using or sharing content from this website."
+                }
+            },
+
+            "disclaimer": {
+                "title": "Disclaimer and Limitation of Liability",
+                "texts": {
+                    "1": "The information provided on this website is intended to be accurate and up-to-date at the time of publication. However, <author></author> makes no guarantees about the accuracy, completeness, or currency of the information and disclaims any liability for any errors or omissions. The content may change or evolve over time, and visitors are encouraged to verify information independently before relying on it.",
+                    "2": "By using this website, you acknowledge that your use of any information or materials is entirely at your own risk, and <author></author> is not liable for any damages or losses that may result from your use of the website or its contents."
+                }
+            },
+
+            "modifications": {
+                "title": "Modifications to the Terms",
+                "texts": {
+                    "1": "<author></author> reserves the right to update or modify these Terms of Service at any time. Changes will be effective immediately upon posting. The date of the last update will always be indicated at the top of this page. It is the responsibility of the user to review these Terms regularly to ensure compliance."
+                }
+            },
+
+            "contact": {
+                "title": "Contact Information",
+                "texts": {
+                    "1": "If you have any questions or concerns regarding these <terms></terms>, please contact <author></author> at <contact></contact>."
+                }
+            },
+
+            "copyright": {
+                "title": "Copyright Notice",
+                "texts": {
+                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited.",
+                    "2": "<copyright></copyright>"
+                }
+            }
+        }
     }
 }

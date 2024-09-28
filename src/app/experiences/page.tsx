@@ -1,6 +1,6 @@
+import { useTranslations } from "next-intl";
 import Article from "../_components/pages/Article";
 import { MetadataProps, getPageMetadata } from "../metadata";
-import { useTranslations } from "next-intl";
 import PersonalExperiences from "./PersonalExperiences";
 import ProfessionalExperiences from "./ProfessionalExperiences";
 

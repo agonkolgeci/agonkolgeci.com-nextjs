@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Section from "./_components/pages/Section";
-import SocialsLinks from "./_components/navigation/socials/SocialsLinks";
-import { ExternalURL } from "./_components/utils/ExternalLink";
-import { Card, CardContainer, CardImage } from "./_components/utils/ui/Card";
-import { Button } from "./_components/utils/ui/Button";
-import Link from "next/link";
-import { Justify, Orientation } from "./_components/utils/ui/Render";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import SocialsLinks from "./_components/navigation/socials/SocialsLinks";
+import Section from "./_components/pages/Section";
+import { ExternalURL } from "./_components/utils/ExternalLink";
+import { Button } from "./_components/utils/ui/Button";
+import { Card, CardContainer, CardImage } from "./_components/utils/ui/Card";
+import { Justify, Orientation } from "./_components/utils/ui/Render";
 
 export default function Home() {
     const t = useTranslations("home");

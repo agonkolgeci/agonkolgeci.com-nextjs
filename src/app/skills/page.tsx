@@ -1,10 +1,9 @@
-
 import Article from "../_components/pages/Article";
 
 import { useTranslations } from "next-intl";
-import { MetadataProps, getPageMetadata  } from "../metadata";
-import SoftSkills from "./SoftSkills";
+import { MetadataProps, getPageMetadata } from "../metadata";
 import ITSkills from "./ITSkills";
+import SoftSkills from "./SoftSkills";
 
 export async function generateMetadata({ params }: MetadataProps) {
     return await getPageMetadata({namespace: "skills", params});

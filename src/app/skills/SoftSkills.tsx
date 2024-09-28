@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl"
-import Section from "../_components/pages/Section";
-import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
+import Section from "../_components/pages/Section";
 
 export function useSoftSkills(): AbstractSoftSkill[] {
     return [

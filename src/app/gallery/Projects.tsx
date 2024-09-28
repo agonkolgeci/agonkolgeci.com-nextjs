@@ -1,12 +1,12 @@
-import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
-import { Orientation } from "../_components/utils/ui/Render";
-import HyperLinks from "../_components/utils/ui/HyperLink";
-import Tags from "../_components/utils/ui/Tag";
-import Link from "next/link";
-import { ExternalURL } from "../_components/utils/ExternalLink";
-import { Collaborators, FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/Collaborators";
-import Section from "../_components/pages/Section";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import Section from "../_components/pages/Section";
+import { Collaborators, FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/Collaborators";
+import { ExternalURL } from "../_components/utils/ExternalLink";
+import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
+import HyperLinks from "../_components/utils/ui/HyperLink";
+import { Orientation } from "../_components/utils/ui/Render";
+import Tags from "../_components/utils/ui/Tag";
 
 export type AbstractProject = {
     key: string,

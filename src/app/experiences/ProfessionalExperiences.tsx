@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import Section from "../_components/pages/Section";
-import Experiences from "./Experiences";
-import { AbstractExperience } from "./Experiences";
+import Experiences, { AbstractExperience } from "./Experiences";
 
 export function useProfessionalExperiences(): AbstractExperience[] {
     return [

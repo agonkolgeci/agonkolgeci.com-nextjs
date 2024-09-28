@@ -2,6 +2,7 @@
 
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Section from "../_components/pages/Section";
@@ -12,7 +13,6 @@ import HyperLinks from "../_components/utils/ui/HyperLink";
 import Languages from "../_components/utils/ui/Language";
 import { Animation, Orientation } from "../_components/utils/ui/Render";
 import Tags from "../_components/utils/ui/Tag";
-import { useTranslations } from "next-intl";
 
 export default function Repositories() {
     const t = useTranslations("gallery.repositories");

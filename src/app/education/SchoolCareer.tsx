@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import Section from "../_components/pages/Section";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Section from "../_components/pages/Section";
 
 export function useSchools(): AbstractSchool[] {
     return [
