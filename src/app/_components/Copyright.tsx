@@ -8,7 +8,14 @@ export default function Copyright() {
         <div className="flex flex-col">
             <p>{t("content")}</p>
 
-            <span>Build with <ExternalLink url={{ name: "Next.js", href: "https://nextjs.org/" }} /> and <ExternalLink url={{ name: "Tailwind CSS", href: "https://tailwindcss.com/" }} />, deployed with <ExternalLink url={{ name: "Vercel", href: "https://nextjs.org/" }} /> from <ExternalLink url={{ name: "GitHub", href: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" }} />.</span>
+            <span>
+                {t.rich("details", {
+                    nextjs: ((chunks) => <ExternalLink url={{ name: chunks, href: "https://nextjs.org/" }} />),
+                    tailwindcss: ((chunks) => <ExternalLink url={{ name: chunks, href: "https://vercel.com/" }} />),
+                    vercel: ((chunks) => <ExternalLink url={{ name: chunks, href: "https://tailwindcss.com/" }} />),
+                    github: ((chunks) => <ExternalLink url={{ name: chunks, href: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" }} />)
+                })}
+            </span>
         </div>
     )
 }

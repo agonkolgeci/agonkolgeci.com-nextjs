@@ -13,7 +13,7 @@ export function CardImage({ className, border, alt, ...props } : { className: st
 
 export function CardContainer({ orientation = Orientation.VERTICAL, justify = Justify.START, children } : { orientation?: Orientation, justify?: Justify, children: React.ReactNode }): React.ReactNode {
     return (
-        <div className={`flex flex-col ${justify} lg:${orientation} gap-6 p-6 w-full h-full relative`} >
+        <div className={`flex flex-col flex-wrap ${justify} lg:${orientation} gap-6 p-6 w-full h-full relative`} >
             {children}
         </div>
     )

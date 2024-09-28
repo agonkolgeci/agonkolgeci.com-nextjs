@@ -11,7 +11,7 @@
     "navigation": {
         "home": "Accueil",
         "skills": "Compétences",
-        "education": "Parcours",
+        "education": "Éducation",
         "experiences": "Expériences",
         "gallery": "Réalisations",
         "contact": "Contact"
@@ -37,7 +37,7 @@
 
     "copyright": {
         "content": "Copyright © 2024 Agon KOLGECI • Tous droits réservés",
-        "details": "Fait avec Next.js et Tailwind CSS, deployée avec Vercel depuis GitHub."
+        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, deployée avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
     },
 
     "global": {
@@ -65,7 +65,7 @@
                 "title": "Explorez mes connaissances",
                 "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Cette section met en lumière mes compétences techniques et l'étendue de mon parcours d'apprentissage.",
                 "go_to_skills": "Voir mes compétences",
-                "go_to_education": "Voir mon parcours scolaire"
+                "go_to_education": "Voir mon éducation"
             },
 
             "career": {
@@ -90,33 +90,68 @@
             "title": "Compétences Informatiques",
             "description": "Langages de programmation et outils que je maîtrise.",
 
-            "languages": "Langages",
-            "frameworks": "Frameworks",
-            "tools": "Outils"
+            "skills": {
+                "languages": "Langages",
+                "frameworks": "Frameworks",
+                "tools": "Outils"
+            }
         },
 
         "soft_skills": {
             "title": "Savoir-être",
             "description": "Diverses compétences interpersonnelles acquises au cours des différents projets sur lesquels j'ai travaillé.",
 
-            "motivation": {
-                "title": "Motivation",
-                "description": "Je suis très motivé dans tout ce que j'entreprends et j'aime explorer divers sujets."
-            },
+            "skills": {
+                "motivation": {
+                    "title": "Motivation",
+                    "description": "Je suis très motivé dans tout ce que j'entreprends et j'aime explorer divers sujets."
+                },
 
-            "adaptation": {
-                "title": "Adaptation",
-                "description": "Je m'adapte facilement à différentes situations et je m'efforce toujours de donner le meilleur de moi-même."
-            },
+                "adaptation": {
+                    "title": "Adaptation",
+                    "description": "Je m'adapte facilement à différentes situations et je m'efforce toujours de donner le meilleur de moi-même."
+                },
 
-            "autonomy": {
-                "title": "Autonomie",
-                "description": "Principalement autodidacte, je sais être autonome pour atteindre mes objectifs."
-            },
+                "autonomy": {
+                    "title": "Autonomie",
+                    "description": "Principalement autodidacte, je sais être autonome pour atteindre mes objectifs."
+                },
 
-            "team_work": {
-                "title": "Travail d'équipe",
-                "description": "Je suis capable de collaborer et de respecter différents points de vue afin de contribuer activement aux objectifs du groupe."
+                "team_work": {
+                    "title": "Travail d'équipe",
+                    "description": "Je suis capable de collaborer et de respecter différents points de vue afin de contribuer activement aux objectifs du groupe."
+                }
+            }
+        }
+    },
+
+    
+    "education": {
+        "title": "Éducation",
+        "description": "En savoir plus sur mon parcours académique et de quel manière il a contribué à développer mes compétences en informatique et en développement.",
+
+        "school_career": {
+            "title": "Parcours scolaire",
+            "description": "Après avoir terminé le lycée, je me suis directement orienté vers un Bachelor en Sciences Informatiques. Je suis passionné par la technologie et l'innovation, et c'est un réel plaisir de pouvoir travailler dans ce domaine.",
+
+            "schools": {
+                "unige": {
+                    "title": "Université de Genève : Bachelor en Sciences Informatiques",
+                    "description": "Le Bachelor en sciences informatiques permet d'acquérir une solide formation de base en algorithmique, en systèmes informatiques et sécurité, en génie logiciel, en imagerie numérique, en informatique théorique et en traitement de l'information multimédia.",
+                    "date": "2023 - aujourd'hui"
+                },
+
+                "stael": {
+                    "title": "Lycée : Madame de Staël",
+                    "description": "Diplôme du Baccalauréat général et scientifique.",
+                    "date": "2020 - 2023"
+                },
+
+                "jjr": {
+                    "title": "Collège : Jean-Jacques Rousseau",
+                    "description": "Diplôme du Brevet des collèges.",
+                    "date": "2016 - 2020"
+                }
             }
         }
     }

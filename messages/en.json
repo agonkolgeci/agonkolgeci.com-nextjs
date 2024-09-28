@@ -37,7 +37,7 @@
 
     "copyright": {
         "content": "Copyright © 2024 Agon KOLGECI • All Rights Reserved",
-        "details": "Build with Next.js and Tailwind CSS, deployed with Vercel from GitHub."
+        "details": "Build with <nextjs>Next.js</nextjs> and <tailwindcss>Tailwind CSS</tailwindcss>, deployed with <vercel>Vercel</vercel> from <github>GitHub</github>."
     },
 
     "global": {
@@ -90,43 +90,147 @@
             "title": "IT Skills",
             "description": "Programming languages and tools I master.",
 
-            "languages": "Languages",
-            "frameworks": "Frameworks",
-            "tools": "Tools"
+            "skills": {
+                "languages": "Languages",
+                "frameworks": "Frameworks",
+                "tools": "Tools"
+            }
         },
 
         "soft_skills": {
             "title": "Soft Skills",
             "description": "Various soft skills acquired during the different projects I've worked on.",
 
-            "motivation": {
-                "title": "Motivation",
-                "description": "I am highly motivated in everything I undertake and love exploring various topics."
-            },
+            "skills": {
+                "motivation": {
+                    "title": "Motivation",
+                    "description": "I am highly motivated in everything I undertake and love exploring various topics."
+                },
 
-            "adaptation": {
-                "title": "Adaptation",
-                "description": "I easily adapt to different situations and always strive to do my best."
-            },
+                "adaptation": {
+                    "title": "Adaptation",
+                    "description": "I easily adapt to different situations and always strive to do my best."
+                },
 
-            "autonomy": {
-                "title": "Autonomy",
-                "description": "I'm mainly self-taught, I know how to be autonomous to reach my goal."
-            },
+                "autonomy": {
+                    "title": "Autonomy",
+                    "description": "I'm mainly self-taught, I know how to be autonomous to reach my goal."
+                },
 
-            "team_work": {
-                "title": "Team Work",
-                "description": "I am able to collaborate and respect different points of view in order to actively contribute to the group's objectives."
+                "team_work": {
+                    "title": "Team Work",
+                    "description": "I am able to collaborate and respect different points of view in order to actively contribute to the group's objectives."
+                }
             }
         }
     },
 
     "education": {
-        
+        "title": "Education",
+        "description": "Learn more about my academic background and how it has contributed to my skills in computer science and development.",
+
+        "school_career": {
+            "title": "School career",
+            "description": "After finishing high school, I went straight into a Bachelor's degree in Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field.",
+
+            "schools": {
+                "unige": { 
+                    "title": "University of Geneva: Bachelor of Computer Science",
+                    "description": "The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.",
+                    "date": "2023 - present"
+                },
+
+                "stael": { 
+                    "title": "High School: Madame de Staël",
+                    "description": "High School Diploma general and sciences.",
+                    "date": "2020 - 2023"
+                },
+
+                "jjr": { 
+                    "title": "Middle School: Jean Jacques Rousseau",
+                    "description": "General Certifate of secondary education.",
+                    "date": "2016 - 2020"
+                }
+            }
+        }
     },
 
-    "experiences": {
+    "experiences": { 
+        "title": "Experiences",
+        "description": "Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences.",
 
+        "personal_experiences": {
+            "title": "Personal Experiences",
+            "description": "Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment.",
+
+            "experiences": {
+                "web": {
+                    "title": "Web Development",
+                    "date": "started in 2022",
+                    "description": "Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies.",
+                    "tasks": [
+                        "Creating interactive websites with familiar frameworks like React, NextJS", 
+                        "Using CSS preprocessors like Sass for advanced styling",
+                        "Optimizing website performance and accessibility"
+                    ]
+                },
+
+                "discord": {
+                    "title": "Discord Development",
+                    "date": "started in 2021",
+                    "description": "Realization of various projects related to the development of Discord bots and server management tools, particularly focused on enhancing user engagement and community automation.",
+                    "tasks": [
+                        "Designing and implementing new features using Java and JavaScript", 
+                        "Integrating APIs and managing data flow between Discord and external services",
+                        "Developing and maintaining custom bot commands to streamline server operations"
+                    ]
+                },
+
+                "minecraft": {
+                    "title": "Minecraft Development",
+                    "date": "started in 2018",
+                    "description": "Realization of various projects related to the operation of Minecraft servers, particularly in the development of Spigot/Bukkit plugins, management of servers and communications between them.",
+                    "tasks": [
+                        "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
+                        "Deployment and commissioning of infrastructure in Linux environments",
+                        "Discord bots development using the Discord API for community server automation"
+                    ]
+                }
+            }
+        },
+
+        "professional_experiences": {
+            "title": "Professional Experiences",
+            "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
+
+            "experiences": {
+                "world-heberg": {
+                    "title": "World-Heberg",
+                    "date": "sept. 2020 - apr. 2021",
+                    "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
+                    
+                    "tags": ["Volunteering"],
+                    "tasks": [
+                        "Member of the administration team as Moderation team leader", 
+                        "Development of Discord moderation tools necessary for the proper functioning of the moderation"
+                    ]
+                },
+
+                "buro_plus": {
+                    "title": "Buro +",
+                    "date": "dec 2019",
+                    "description": "No.1 network for office/computer supplies in France.",
+
+                    "tags": ["Internship"],
+                    "tasks": [
+                        "Verification of the authenticity of the material", 
+                        "Order management and shelving",
+                        "Registration of items using the software",
+                        "Customer relationship / payment"
+                    ]
+                }
+            }
+        }
     },
 
     "gallery": {

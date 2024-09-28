@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export const CONTACT_URL: ExternalURL = { name: "contact@agonkolgeci.com", href: "mailto:contact@agonkolgeci" };
 
 export type ExternalURL = {
-    name: string,
+    name: string | React.ReactNode,
     href: string
 }
 

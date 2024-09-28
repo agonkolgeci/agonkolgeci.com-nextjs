@@ -6,7 +6,7 @@ import { Card, CardContainer, CardImage } from "./_components/utils/ui/Card";
 import { Button } from "./_components/utils/ui/Button";
 import Link from "next/link";
 import { Justify, Orientation } from "./_components/utils/ui/Render";
-import { useMessages, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
     const t = useTranslations("home");
