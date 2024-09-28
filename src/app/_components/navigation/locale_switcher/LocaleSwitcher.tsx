@@ -3,15 +3,21 @@ import { useLocale, useTranslations } from "next-intl";
 import LocaleSwitcherDropdown from "./LocaleSwitcherDropdown";
 import Image from "next/image";
 
+export function LocaleFlag({ locale } : { locale: Locale }) {
+    return (
+        <Image className="rounded-full" src={`/locales/${locale}.svg`} loading="eager" width={24} height={24} alt={`${locale.toUpperCase()} Flag`} />
+    )
+}
+
 export default function LocaleSwitcher() {
     const t = useTranslations("locales");
-    const locale = useLocale() as Locale;
+    const currentLocale = useLocale() as Locale;
 
-    const Locale = ({ value, displayName } : { value: Locale, displayName: string }) => {
+    const Locale = ({ locale, displayName } : { locale: Locale, displayName: string }) => {
         return (
             <div className="flex flex-row gap-2">
                 <figure className="size-6 relative">
-                    <Image className="rounded-full" src={`/locales/${value}.svg`} loading="eager" fill={true} alt="EN" />
+                    <LocaleFlag locale={locale} />
                 </figure>
 
                 <p>{displayName}</p>
@@ -20,6 +26,6 @@ export default function LocaleSwitcher() {
     }
 
     return (
-        <LocaleSwitcherDropdown currentLocale={locale} locales={locales.map(locale => ({content: (<Locale displayName={t(locale)} value={locale} />), value: locale }))} />
+        <LocaleSwitcherDropdown currentLocale={currentLocale} locales={locales.map(locale => ({content: (<Locale displayName={t(locale)} locale={locale} />), value: locale }))} />
     )
 }

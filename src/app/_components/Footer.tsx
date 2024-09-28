@@ -57,7 +57,7 @@ export default function Footer() {
                         </Brackets>
 
                         <Brackets title={t("resources")}>
-                            <Bracket links={useResources()} blank={false} />
+                            <Bracket links={useResources()} blank={true} />
                         </Brackets>
 
                         <Brackets title={t("location")}>

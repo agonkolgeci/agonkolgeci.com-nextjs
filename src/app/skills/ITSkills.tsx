@@ -5,15 +5,15 @@ import { Language } from "../_components/utils/ui/Language";
 
 export function useITSkills(): AsbtractITSkill[] {
     return [
-        { key: "languages", contents: ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"] },
-        { key: "frameworks", contents: ["Node", "React", "NextJS", "Tailwind CSS", "Redis"] },
-        { key: "tools", contents: ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell", "MySQL", "MongoDB" ] }
+        { key: "languages", languages: ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"] },
+        { key: "frameworks", languages: ["Node", "React", "NextJS", "Tailwind CSS", "Redis"] },
+        { key: "tools", languages: ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell", "MySQL", "MongoDB" ] }
     ]
 }
 
 export type AsbtractITSkill = {
     key: string,
-    contents: string[]
+    languages: string[]
 }
 
 export default function ITSkills() {
@@ -39,7 +39,7 @@ export default function ITSkills() {
         <Section title={t("title")} description={t("description")} position={0}>
             <div className="block w-full max-w-[600px]">
                 <Slider>
-                    {it_skills.flatMap(it_skill => it_skill.contents).map(content => {
+                    {it_skills.flatMap(it_skill => it_skill.languages).map(content => {
                         return (
                             <Slide key={content}>
                                 <Language name={content} />
@@ -51,8 +51,15 @@ export default function ITSkills() {
                 
             <ul className="flex flex-row flex-wrap gap-x-24 gap-y-12">
                 {it_skills.map(it_skill => {
+                    const it_skill_path = (`contents.${it_skill.key}`);
+
                     return (
-                        <ITSkill key={it_skill.key} title={t(`skills.${it_skill.key}`)} languages={it_skill.contents} />
+                        <ITSkill 
+                            {...it_skill}
+                            key={it_skill.key} 
+
+                            title={t(`${it_skill_path}.title`)} 
+                        />
                     )
                 })}
             </ul>

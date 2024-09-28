@@ -4,7 +4,7 @@ import { getDefaultLocale } from '@/i18n/config';
 import { Locale } from '@/i18n/locales';
 import { cookies } from 'next/headers';
 
-const COOKIE_NAME = 'AGON-KOLGECI_WEBSITE_LOCALE';
+const COOKIE_NAME = 'agonkolgeci_locale';
 
 export async function getUserLocale() {
   return cookies().get(COOKIE_NAME)?.value || getDefaultLocale();

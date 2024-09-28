@@ -8,17 +8,17 @@ export function Label({ id, name, required, children } : { id?: string, name: st
     )
 }
 
-export function Input({ name, ...props } : { name: string } & React.ComponentPropsWithoutRef<"input">): React.ReactNode {
+export function Input({ label, ...props } : { label: string } & React.ComponentPropsWithoutRef<"input">): React.ReactNode {
     return (
-        <Label {...props} name={name}>
+        <Label {...props} name={label}>
             <input {...props} className="border-primary border-[1px] px-4 py-2 rounded-md focus:shadow-xl disabled:opacity-50" />
         </Label>
     )
 }
 
-export function Textarea({ name, ...props } : { name: string } & React.ComponentPropsWithoutRef<"textarea">): React.ReactNode {
+export function Textarea({ label, ...props } : { label: string } & React.ComponentPropsWithoutRef<"textarea">): React.ReactNode {
     return (
-        <Label {...props} name={name}>
+        <Label {...props} name={label}>
             <textarea {...props} className="border-primary border-[1px] px-4 py-2 rounded-md min-h-[150px] max-h-[500px] focus:shadow-xl disabled:opacity-50 disabled:resize-none" />
         </Label>
     )

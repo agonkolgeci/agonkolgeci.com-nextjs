@@ -3,8 +3,8 @@
 import Dropdown, { DropdownItem } from "@/app/_components/utils/ui/Dropdown";
 import { Locale } from "@/i18n/locales";
 import { setUserLocale } from "@/services/locale";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { useTransition } from "react";
+import { LocaleFlag } from "./LocaleSwitcher";
 
 export default function LocaleSwitcherDropdown({ locales, currentLocale } : { locales: DropdownItem[], currentLocale: Locale }) {
     const [isPending, startTransition] = useTransition()
@@ -19,7 +19,7 @@ export default function LocaleSwitcherDropdown({ locales, currentLocale } : { lo
 
     return (
         <Dropdown  
-            button={{icon: faGlobe}}
+            button={(<LocaleFlag locale={currentLocale}/>)}
             items={locales}
             defaultValue={currentLocale}
             disabled={isPending}

@@ -1,8 +1,11 @@
+import { getDefaultLocale } from "@/i18n/config";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export type MetadataProps = {
-  locale: string
+  params?: {
+    locale: string
+  }
 }
 
 export type PageMetadataProps = {
@@ -10,11 +13,11 @@ export type PageMetadataProps = {
 } & MetadataProps
 
 export async function getPageTranslations(metadata: PageMetadataProps) {
-  return await getTranslations({ locale: metadata.locale, namespace: metadata.namespace });
+  return await getTranslations({ locale: metadata.params?.locale || getDefaultLocale(), namespace: metadata.namespace });
 }
 
 export async function getPageMetadata(metadata: PageMetadataProps): Promise<Metadata> {
-  const t = await getTranslations({ locale: metadata.locale, namespace: metadata.namespace });
+  const t = await getPageTranslations(metadata);
 
   return {
     title: t("title"),

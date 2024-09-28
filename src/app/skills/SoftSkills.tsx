@@ -41,8 +41,16 @@ export default function SoftSkills() {
         <Section title={t("title")} description={t("description")} position={1}>
             <ul className="flex flex-col gap-16 max-w-screen-md">
                 {soft_skills.map(soft_skill => {
+                    const soft_skill_path = (`contents.${soft_skill.key}`);
+
                     return (
-                        <SoftSkill key={soft_skill.key} icon={soft_skill.icon} title={t(`skills.${soft_skill.key}.title`)} description={t(`skills.${soft_skill.key}.description`)} />
+                        <SoftSkill 
+                            {...soft_skill}
+                            key={soft_skill.key} 
+                            
+                            title={t(`${soft_skill_path}.title`)}
+                            description={t(`${soft_skill_path}.description`)}
+                        />
                     )
                 })}
             </ul>

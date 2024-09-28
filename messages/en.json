@@ -52,7 +52,7 @@
 
         "about": {
             "title": "About Me",
-            "description": "Discover who I am, my passions, and the journey that has shaped me. Learn about my background, interests, and what drives me to excel in everything I do.",
+            "description": "Discover who I am, my passions, and the journey that has shaped me. Learn about my background and my interests.",
 
             "presentation": "Hi, I'm Agon KOLGECI, a young software developer currently studying in Computer Science. Since I was young, I've been able to discover, learn and experiment with various technologies on a self-taught basis, which has enabled me to develop a real passion for IT and acquire a variety of skills in this field. All my experiences motivated me to continue my studies in this field to deepen my knowledge and become an expert capable of creating innovative solutions. Today, I'm determined to continue on this path and improve every day to achieve my goals."
         },
@@ -90,10 +90,16 @@
             "title": "IT Skills",
             "description": "Programming languages and tools I master.",
 
-            "skills": {
-                "languages": "Languages",
-                "frameworks": "Frameworks",
-                "tools": "Tools"
+            "contents": {
+                "languages": {
+                    "title": "Languages"
+                },
+                "frameworks": {
+                    "title": "Frameworks"
+                },
+                "tools": {
+                    "title": "Tools"
+                }
             }
         },
 
@@ -101,7 +107,7 @@
             "title": "Soft Skills",
             "description": "Various soft skills acquired during the different projects I've worked on.",
 
-            "skills": {
+            "contents": {
                 "motivation": {
                     "title": "Motivation",
                     "description": "I am highly motivated in everything I undertake and love exploring various topics."
@@ -163,38 +169,38 @@
             "title": "Personal Experiences",
             "description": "Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment.",
 
-            "experiences": {
+            "contents": {
                 "web": {
                     "title": "Web Development",
                     "date": "started in 2022",
                     "description": "Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies.",
-                    "tasks": [
-                        "Creating interactive websites with familiar frameworks like React, NextJS", 
-                        "Using CSS preprocessors like Sass for advanced styling",
-                        "Optimizing website performance and accessibility"
-                    ]
+                    "tasks": {
+                        "1": "Creating interactive websites with familiar frameworks like React, NextJS", 
+                        "2": "Using CSS preprocessors like Sass for advanced styling",
+                        "3": "Optimizing website performance and accessibility"
+                    }
                 },
 
                 "discord": {
                     "title": "Discord Development",
                     "date": "started in 2021",
                     "description": "Realization of various projects related to the development of Discord bots and server management tools, particularly focused on enhancing user engagement and community automation.",
-                    "tasks": [
-                        "Designing and implementing new features using Java and JavaScript", 
-                        "Integrating APIs and managing data flow between Discord and external services",
-                        "Developing and maintaining custom bot commands to streamline server operations"
-                    ]
+                    "tasks": {
+                        "1": "Designing and implementing new features using Java and JavaScript", 
+                        "2": "Integrating APIs and managing data flow between Discord and external services",
+                        "3": "Developing and maintaining custom bot commands to streamline server operations"
+                    }
                 },
 
                 "minecraft": {
                     "title": "Minecraft Development",
                     "date": "started in 2018",
                     "description": "Realization of various projects related to the operation of Minecraft servers, particularly in the development of Spigot/Bukkit plugins, management of servers and communications between them.",
-                    "tasks": [
-                        "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
-                        "Deployment and commissioning of infrastructure in Linux environments",
-                        "Discord bots development using the Discord API for community server automation"
-                    ]
+                    "tasks": {
+                        "1": "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
+                        "2": "Deployment and commissioning of infrastructure in Linux environments",
+                        "3": "Discord bots development using the Discord API for community server automation"
+                    }
                 }
             }
         },
@@ -203,17 +209,21 @@
             "title": "Professional Experiences",
             "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
 
-            "experiences": {
+            "tags": {
+                "volunteering": "Volunteering",
+                "internship": "Internship"
+            },
+
+            "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
                     "date": "sept. 2020 - apr. 2021",
                     "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
-                    
-                    "tags": ["Volunteering"],
-                    "tasks": [
-                        "Member of the administration team as Moderation team leader", 
-                        "Development of Discord moderation tools necessary for the proper functioning of the moderation"
-                    ]
+
+                    "tasks": {
+                        "1": "Member of the administration team as Moderation team leader", 
+                        "2": "Development of Discord moderation tools necessary for the proper functioning of the moderation"
+                    }
                 },
 
                 "buro_plus": {
@@ -221,24 +231,122 @@
                     "date": "dec 2019",
                     "description": "No.1 network for office/computer supplies in France.",
 
-                    "tags": ["Internship"],
-                    "tasks": [
-                        "Verification of the authenticity of the material", 
-                        "Order management and shelving",
-                        "Registration of items using the software",
-                        "Customer relationship / payment"
-                    ]
+                    "tasks": {
+                        "1": "Verification of the authenticity of the material", 
+                        "2": "Order management and shelving",
+                        "3": "Registration of items using the software",
+                        "4": "Customer relationship / payment"
+                    }
                 }
             }
         }
     },
 
     "gallery": {
+        "title": "Gallery",
+        "description": "Find out about the different creations I've made or taken part in. These have helped me learn more about certain aspects of development.",
 
+        "projects": {
+            "title": "Projects",
+            "description": "List of all the projects I have been involved in.",
+            
+            "tags": {
+                "founder": "Founder",
+                "lead-developer": "Lead Developer"
+            },
+
+            "team": {
+                "founders": "Founders",
+                "thanks": "Thanks",
+                "collaborators": "Collaborators"
+            },
+
+            "contents": {
+                "project-family": {
+                    "title": "Project Family",
+                    "date": "2022 - present",
+                    "description": "Project Family is a vanilla survival Minecraft server in the newest Java Edition which brought together a large number of people. Latest version: the 1.20, 'Trails and Tales' update."
+                },
+
+                "nexus": {
+                    "title": "Nexus",
+                    "date": "2024",
+                    "description": "Nexus is my Minecraft mini-games server. The main purpose of this server is to list all the creations I've made over the years on Minecraft."
+                },
+
+                "stranger-hide": {
+                    "title": "Stranger Hide",
+                    "date": "2021 - present",
+                    "description": "Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
+                },
+
+                "playze-family-bot": {
+                    "title": "Playze Family Bot",
+                    "date": "2020 - present",
+                    "description": "Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
+                },
+
+                "berkasia": {
+                    "title": "Berkasia",
+                    "date": "2017 - 2021",
+                    "description": "Minecraft PVP/Faction server featuring new events, a carefully thought-out economy and advanced systems to help you achieve your goals. Berkasia featured a completely Farm2Win system."
+                }
+            }
+        },
+
+        "repositories": {
+            "title": "Repositories",
+            "description": "List of all my source code available to everyone mainly on GitHub.",
+
+            "view_archives": {
+                "show": "View Archives",
+                "hide": "Hide Archives",
+                "description": "Archived repositories are outdated and no longer representative of my current work."
+            }
+        }
     },
 
     "contact": {
+        "title": "Contact",
+        "description": "Feel free to reach me for inquiries or simply to connect!",
 
+        "contact_form": {
+            "title": "Get In Touch",
+            "description": "Fill in the contact form below to send your message.",
+            
+            "inputs": {
+                "name": {
+                    "label": "Name",
+                    "placeholder": "Your Name"
+                },
+
+                "email": {
+                    "label": "E-mail",
+                    "placeholder": "Your E-mail"
+                },
+
+                "subject": {
+                    "label": "Subject",
+                    "placeholder": "Subject"
+                }
+            },
+
+            "textareas": {
+                "message": {
+                    "label": "Message"
+                }
+            },
+
+            "submit": "Submit",
+
+            "alerts": {
+                "fields_missing": "Please fill out all required fields in the form before submitting.",
+                "recaptcha_invalid": "Please complete the reCAPTCHA verification before submitting.",
+                "sending": "Your message is being sent...",
+                "sended": "Thank you for your message. I have received it and will get back to you shortly by e-mail.",
+                "unknown_error": "Sorry, but an error occurred and your message could not be sent. Please try again later."
+            }
+        }
     },
 
     "terms": {

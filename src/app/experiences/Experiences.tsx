@@ -9,15 +9,12 @@ export type AbstractExperience = {
     key: string,
     image: string,
     links?: ExternalURL[],
+    tags?: string[],
     languages?: string[],
-
-    options?: {
-        tags?: number
-        tasks?: number
-    }
+    tasks?: string[]
 }
 
-export function Experience({ image, links, languages, title, date, description, tags, tasks }: { title: string, date: string, description: string, tags?: string[], tasks?: string[] } & AbstractExperience) {
+export function Experience({ image, links, tags, languages, tasks, title, date, description }: { title: string, date: string, description: string } & AbstractExperience) {
     return (
         <Card orientation={Orientation.VERTICAL}>
             <CardImage src={image} alt={title} className="w-full h-[200px]" border="rounded-t-2xl"/>
@@ -57,18 +54,20 @@ export default function Experiences({ t, experiences } : { t: any, experiences: 
     return (
         <Cards className="grid-cols-[repeat(auto-fit,minmax(0,400px))] max-w-screen-2xl">
             {experiences.map(experience => {
+                const experience_path = (`contents.${experience.key}`);
+
                 return (
                     <Experience 
-                        key={experience.key} 
-                        image={experience.image}
-                        links={experience.links}
-                        languages={experience.languages}
+                        {...experience}
+                        key={experience.key}
 
-                        title={t(`experiences.${experience.key}.title`)}
-                        date={t(`experiences.${experience.key}.date`)}
-                        description={t(`experiences.${experience.key}.description`)}
-                        tags={Array.from({ length: experience.options?.tags || 0 }, (_, i) => t(`experiences.${experience.key}.tags.${i}`))}
-                        tasks={Array.from({ length: experience.options?.tasks || 0 }, (_, i) => t(`experiences.${experience.key}.tasks.${i}`))}
+                        tags={experience.tags?.map(tag => t(`tags.${tag}`))}
+                        
+                        tasks={experience.tasks?.map(task => t(`${experience_path}.tasks.${task}`))}
+
+                        title={t(`${experience_path}.title`)}
+                        date={t(`${experience_path}.date`)}
+                        description={t(`${experience_path}.description`)}
                     />
                 )
             })}

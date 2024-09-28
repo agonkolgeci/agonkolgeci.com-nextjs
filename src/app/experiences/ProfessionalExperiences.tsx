@@ -1,19 +1,15 @@
 import { useTranslations } from "next-intl";
 import Section from "../_components/pages/Section";
-import { Cards } from "../_components/utils/ui/Card";
 import Experiences from "./Experiences";
-import Experience, { AbstractExperience } from "./Experiences";
+import { AbstractExperience } from "./Experiences";
 
 export function useProfessionalExperiences(): AbstractExperience[] {
     return [
         {
             key: "world-heberg",
             image: "/experiences/world-heberg.png",
-
-            options: {
-                tags: 1,
-                tasks: 2
-            }
+            tags: ["volunteering"],
+            tasks: ["1", "2"]
         },
 
         {
@@ -22,11 +18,8 @@ export function useProfessionalExperiences(): AbstractExperience[] {
             links: [
                 { name: "Website", href: "https://www.buroplus.com/" }
             ],
-
-            options: {
-                tags: 1,
-                tasks: 4
-            }
+            tags: ["internship"],
+            tasks: ["1", "2", "3", "4"]
         }
     ]
 }

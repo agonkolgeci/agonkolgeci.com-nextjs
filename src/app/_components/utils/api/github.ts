@@ -1,10 +1,22 @@
-export function retrieveColorByType(repository: any): string {
-    if(repository["archived"]) return "bg-orange-500";
-    if(repository["is_template"]) return "bg-blue-500";
+export type Repository = {
+    name: string,
+    description: string,
+    owner: {
+        login: string,
+    },
 
-    return "bg-gray-500";
+    html_url: string,
+    homepage?: string,
+    language: string,
+    topics: string[],
+
+    stargazers_count: number,
+
+    fork: boolean,
+    archived: boolean,
+    is_template: boolean
 }
 
-export async function retrieveRepositories(): Promise<any[]> {
+export async function retrieveRepositories(): Promise<Repository[]> {
     return (await (await fetch("https://api.github.com/users/agonkolgeci/repos")).json());
 }

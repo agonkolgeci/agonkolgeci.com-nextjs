@@ -8,13 +8,14 @@ import Header from "./_components/Header";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { MetadataProps, getPageTranslations } from "./metadata";
+import { getDefaultLocale } from "@/i18n/config";
 
 export const viewport: Viewport = {
   themeColor: "#152238",
 }
 
-export async function generateMetadata(props: MetadataProps): Promise<Metadata> {
-  const t = await getPageTranslations({ namespace: "global", ...props });
+export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
+  const t = await getPageTranslations({ namespace: "global", params });
 
   return {
     title: {
@@ -31,7 +32,7 @@ export async function generateMetadata(props: MetadataProps): Promise<Metadata> 
     openGraph: {
       type: "website",
       images: "https://agonkolgeci.com/banner_full.webp",
-      locale: props.locale
+      locale: params?.locale || await getDefaultLocale()
     },
 
     twitter: {

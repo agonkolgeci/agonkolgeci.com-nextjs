@@ -38,9 +38,9 @@ export default function NavMenu() {
 
             {/* TABLET VIEW */}
             <div className="flex flex-row">
-                <FontAwesomeIcon className="lg:hidden text-3xl hover:cursor-pointer" icon={opened ? faClose : faBars} fixedWidth onClick={toggleMenu} />
+                <FontAwesomeIcon className="lg:hidden hover:cursor-pointer size-6" icon={opened ? faClose : faBars} onClick={toggleMenu} />
 
-                { opened && (<ul className="flex lg:hidden flex-col absolute top-full right-0 w-full h-max p-10 gap-8 text-xl font-semibold border-t-[1px] border-t-white bg-primary overflow-y-scroll">
+                { opened && (<ul className="flex lg:hidden flex-col absolute top-full right-0 w-full h-max p-10 gap-8 text-xl font-semibold border-t-[1px] border-t-white bg-primary overflow-y-auto">
                     <NavLinks/>
                 </ul>) }
             </div>

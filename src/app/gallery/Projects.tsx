@@ -1,14 +1,87 @@
-import Image from "next/image";
 import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
 import { Orientation } from "../_components/utils/ui/Render";
 import HyperLinks from "../_components/utils/ui/HyperLink";
 import Tags from "../_components/utils/ui/Tag";
 import Link from "next/link";
 import { ExternalURL } from "../_components/utils/ExternalLink";
-import { FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/Collaborators";
+import { Collaborators, FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "../_components/utils/Collaborators";
+import Section from "../_components/pages/Section";
+import { useTranslations } from "next-intl";
 
-export function Projects() {
-    const Project = ({ image, title, date, links, tags, description, team} : { image: string, title: string, date: string, links?: ExternalURL[], tags?: string[], description: string, team?: { role: string, authors: { name: string, href: string }[] }[] }) => {
+export type AbstractProject = {
+    key: string,
+    image: string,
+    links?: ExternalURL[],
+    tags?: string[],
+    team?: Collaborators[]
+}
+
+export function useProjects(): AbstractProject[] {
+    return [
+        {
+            key: "project-family",
+            image: "/gallery/project-family.webp",
+            links: [
+                { name: "Website", href: "https://playze.org/project-family/" }
+            ],
+            tags: [ "lead-developer" ],
+            team: [
+                { role: "founders", authors: [FABIEN_GRAYSSAGUEL] }
+            ],
+        },
+
+        {
+            key: "nexus",
+            image: "/gallery/nexus.webp",
+            links: [
+                { name: "GitHub", href: "https://github.com/agonkolgeci/Nexus" }
+            ],
+            tags: [ "founder", "lead-developer" ],
+            team: [
+                { role: "thanks", authors: [FABIEN_GRAYSSAGUEL] }
+            ]
+        },
+
+        {
+            key: "stranger-hide",
+            image: "/gallery/strangerhide.webp",
+            links: [
+                { name: "GitHub", href: "https://github.com/StrangerHide/" }
+            ],
+            tags: [ "lead-developer" ],
+            team: [
+                { role: "founders", authors: [LEO_RIVIERES, FABIEN_GRAYSSAGUEL] }
+            ]
+        },
+
+        {
+            key: "playze-family-bot",
+            image: "/gallery/playze-family-bot.webp",
+            links: [
+                { name: "Discord", href: "https://discord.com/application-directory/1112083786130280488" }
+            ],
+            tags: [ "lead-developer" ],
+            team: [
+                { role: "collaborators", authors: [FABIEN_GRAYSSAGUEL]}
+            ]
+        },
+
+        {
+            key: "berkasia",
+            image: "/gallery/berkasia.webp",
+            links: [
+                { name: "GitHub", href: "https://github.com/Berkasia/" }
+            ],
+            tags: [ "founder", "lead-developer" ]
+        }
+    ]
+}
+
+export default function Projects() {
+    const t = useTranslations("gallery.projects");
+    const projects = useProjects();
+
+    const Project = ({ image, links, team, title, date, description, tags} : { title: string, date: string, description: string } & AbstractProject) => {
         return (
             <Card orientation={Orientation.HORIZONTAL}>
                 <CardImage src={image} alt={title} className="w-full h-[200px] lg:w-[400px] lg:h-full" border="rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none"/>
@@ -54,73 +127,27 @@ export function Projects() {
     }
 
     return (
-        <Cards className="grid-cols-1 max-w-screen-xl">
-            <Project 
-                image="/gallery/project-family.webp"
-                title="Project Family"
-                date="2022 - present"
-                links={[
-                    { name: "Website", href: "https://playze.org/project-family/" }
-                ]}
-                tags={["Lead Developer"]}
-                description="Project Family is a vanilla survival Minecraft server in the newest Java Edition which brought together a large number of people. Latest version: the 1.20, 'Trails and Tales' update."
-                team={[
-                    { role: "Founders", authors: [FABIEN_GRAYSSAGUEL] }
-                ]}
-            />
+        <Section title={t("title")} description={t("description")} position={0}>
+            <Cards className="grid-cols-1 max-w-screen-xl">
+                {projects.map(project => {
+                    const project_path = (`contents.${project.key}`);
 
-            <Project 
-                image="/gallery/nexus.webp"
-                title="Nexus"
-                date="2024"
-                links={[
-                    { name: "GitHub", href: "https://github.com/agonkolgeci/Nexus" }
-                ]}
-                tags={["Founder", "Lead Developer"]}
-                description="Nexus is my Minecraft mini-games server. The main purpose of this server is to list all the creations I've made over the years on Minecraft."
-                team={[
-                    { role: "Thanks", authors: [FABIEN_GRAYSSAGUEL]}
-                ]}
-            />
+                    return (
+                        <Project
+                            {...project}
 
-            <Project 
-                image="/gallery/strangerhide.webp"
-                title="Stranger Hide"
-                date="2021 - present"
-                links={[
-                    { name: "GitHub", href: "https://github.com/StrangerHide/" }
-                ]}
-                tags={["Lead Developer"]}
-                description="Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
-                team={[
-                    { role: "Founders", authors: [LEO_RIVIERES, FABIEN_GRAYSSAGUEL] }
-                ]}
-            />
+                            key={project.key}
 
-            <Project 
-                image="/gallery/playze-family-bot.webp"
-                title="Playze Family Bot"
-                date="2020 - present"
-                links={[
-                    { name: "Discord", href: "https://discord.com/application-directory/1112083786130280488" }
-                ]}
-                tags={["Lead Developer"]}
-                description="Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
-                team={[
-                    { role: "Collaborators", authors: [FABIEN_GRAYSSAGUEL]}
-                ]}
-            />
+                            tags={project.tags?.map(tag => t(`tags.${tag}`))}
+                            team={project.team?.map(team => ({ role: t(`team.${team.role}`), authors: team.authors }))}
 
-            <Project 
-                image="/gallery/berkasia.webp"
-                title="Berkasia"
-                date="2017 - 2021"
-                links={[
-                    { name: "GitHub", href: "https://github.com/Berkasia/" }
-                ]}
-                tags={["Founder", "Lead Developer"]}
-                description="Minecraft PVP/Faction server featuring new events, a carefully thought-out economy and advanced systems to help you achieve your goals. Berkasia featured a completely Farm2Win system."
-            />
-        </Cards>
+                            title={t(`${project_path}.title`)}
+                            date={t(`${project_path}.date`)}
+                            description={t(`${project_path}.description`)}
+                        />
+                    )
+                })}
+            </Cards>
+        </Section>
     )
 }

@@ -3,8 +3,8 @@ import { MetadataProps, getPageMetadata } from "../metadata";
 import { useTranslations } from "next-intl";
 import SchoolCareer from "./SchoolCareer";
 
-export async function generateMetadata(props: MetadataProps) {
-    return getPageMetadata({namespace: "education", ...props});
+export async function generateMetadata({ params }: MetadataProps) {
+    return await getPageMetadata({namespace: "education", params});
 }
 
 export default function Education() {

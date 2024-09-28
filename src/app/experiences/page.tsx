@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 import PersonalExperiences from "./PersonalExperiences";
 import ProfessionalExperiences from "./ProfessionalExperiences";
 
-export async function generateMetadata(props: MetadataProps) {
-    return getPageMetadata({namespace: "experiences", ...props});
+export async function generateMetadata({ params }: MetadataProps) {
+    return getPageMetadata({namespace: "experiences", params});
 }
 
 export default function Experiences() {

@@ -9,14 +9,9 @@ export type DropdownItem = {
     value: string
 }
 
-export type DropdownButton = {
-    label?: string,
-    icon?: IconProp
-}
-
 export type DropdownCallback = (newValue: string) => void;
 
-export default function Dropdown({ button, items, defaultValue, disabled = false, onChange }: { button: DropdownButton, items: DropdownItem[], defaultValue: string, disabled?: boolean, onChange?: DropdownCallback }) {
+export default function Dropdown({ button, items, defaultValue, disabled = false, onChange }: { button: React.ReactNode, items: DropdownItem[], defaultValue: string, disabled?: boolean, onChange?: DropdownCallback }) {
     const [currentValue, setCurrentValue] = useState<string>(defaultValue);
     const handleChange: DropdownCallback = (newValue) => {
         if(onChange) onChange(newValue);
@@ -53,9 +48,8 @@ export default function Dropdown({ button, items, defaultValue, disabled = false
 
     return (
         <div className="flex flex-row relative">
-            <button className="block text-2xl hover:cursor-pointer" onClick={toggleMenu} ref={trigger}>
-                {button.label && <p>{button.label}</p>}
-                {button.icon && <FontAwesomeIcon icon={button.icon} fixedWidth />}
+            <button className="block hover:cursor-pointer relative" onClick={toggleMenu} ref={trigger}>
+                {button}
             </button>
 
             {opened && (

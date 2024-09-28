@@ -47,8 +47,17 @@ export default function SchoolCareer() {
         <Section title={t("title")} description={t("description")} position={0}>
             <ul className="flex flex-col gap-16 relative border-s border-primary max-w-screen-md">
                 {schools.map(school => {
+                    const school_path = (`schools.${school.key}`);
+
                     return (
-                        <School key={school.key} url={school.url} image={school.image} title={t(`schools.${school.key}.title`)} date={t(`schools.${school.key}.date`)} description={t(`schools.${school.key}.description`)} />
+                        <School 
+                            {...school}
+                            key={school.key} 
+                            
+                            title={t(`${school_path}.title`)} 
+                            date={t(`${school_path}.date`)} 
+                            description={t(`${school_path}.description`)} 
+                        />
                     )
                 })}
             </ul>

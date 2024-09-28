@@ -12,10 +12,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
                 { name: "V1", href: "https://v1.agonkolgeci.com/" }
             ],
             languages: ["React", "NextJS", "Tailwind CSS", "Sass", "TypeScript"],
-
-            options: {
-                tasks: 3
-            }
+            tasks: ["1", "2", "3"]
         },
 
         { 
@@ -25,10 +22,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
                 { name: "GitHub", href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=javascript" }
             ],
             languages: ["Java", "JavaScript"],
-
-            options: {
-                tasks: 3
-            }
+            tasks: ["1", "2", "3"]
         },
 
         {
@@ -38,10 +32,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
                 { name: "GitHub", href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=java" }
             ],
             languages: ["Java", "Redis", "MySQL", "Linux", "Bash"],
-        
-            options: {
-                tasks: 3
-            }
+            tasks: ["1", "2", "3"]
         }
     ]
 }

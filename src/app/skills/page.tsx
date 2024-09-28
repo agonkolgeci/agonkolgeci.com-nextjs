@@ -6,8 +6,8 @@ import { MetadataProps, getPageMetadata  } from "../metadata";
 import SoftSkills from "./SoftSkills";
 import ITSkills from "./ITSkills";
 
-export async function generateMetadata(props: MetadataProps) {
-    return getPageMetadata({namespace: "skills", ...props});
+export async function generateMetadata({ params }: MetadataProps) {
+    return await getPageMetadata({namespace: "skills", params});
 }
 
 export default function Skills() {
