@@ -9,11 +9,11 @@ export type PageMetadataProps = {
   namespace: string,
 } & MetadataProps
 
-export async function usePageTranslations(metadata: PageMetadataProps) {
+export async function getPageTranslations(metadata: PageMetadataProps) {
   return await getTranslations({ locale: metadata.locale, namespace: metadata.namespace });
 }
 
-export async function usePageMetadata(metadata: PageMetadataProps): Promise<Metadata> {
+export async function getPageMetadata(metadata: PageMetadataProps): Promise<Metadata> {
   const t = await getTranslations({ locale: metadata.locale, namespace: metadata.namespace });
 
   return {

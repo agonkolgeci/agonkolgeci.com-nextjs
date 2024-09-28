@@ -1,10 +1,10 @@
 import Article from "../_components/pages/Article";
-import { MetadataProps, usePageMetadata } from "../metadata";
+import { MetadataProps, getPageMetadata } from "../metadata";
 import { useTranslations } from "next-intl";
 import SchoolCareer from "./SchoolCareer";
 
 export async function generateMetadata(props: MetadataProps) {
-    return usePageMetadata({namespace: "education", ...props});
+    return getPageMetadata({namespace: "education", ...props});
 }
 
 export default function Education() {

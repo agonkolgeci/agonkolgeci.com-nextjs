@@ -1,11 +1,11 @@
 import Article from "../_components/pages/Article";
-import { MetadataProps, usePageMetadata } from "../metadata";
+import { MetadataProps, getPageMetadata } from "../metadata";
 import { useTranslations } from "next-intl";
 import PersonalExperiences from "./PersonalExperiences";
 import ProfessionalExperiences from "./ProfessionalExperiences";
 
 export async function generateMetadata(props: MetadataProps) {
-    return usePageMetadata({namespace: "experiences", ...props});
+    return getPageMetadata({namespace: "experiences", ...props});
 }
 
 export default function Experiences() {
