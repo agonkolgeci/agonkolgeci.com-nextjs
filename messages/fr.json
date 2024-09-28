@@ -1,0 +1,412 @@
+{
+    "locales": {
+        "en": "Anglais",
+        "fr": "Français"
+    },
+
+    "legal": {
+        "terms": "Mentions légales"
+    },
+
+    "navigation": {
+        "home": "Accueil",
+        "skills": "Compétences",
+        "education": "Éducation",
+        "experiences": "Expériences",
+        "gallery": "Réalisations",
+        "contact": "Contact"
+    },
+
+    "resources": {
+        "repositories": "Dépôts",
+        "resources": "Ressources",
+        "archives": "Archives"
+    },
+
+    "header": {
+        "logo": "Logo"
+    },
+
+    "footer": {
+        "banner": "Bannière",
+        "legal": "Légal",
+        "navigation": "Navigation",
+        "resources": "Ressources",
+        "location": "Où me trouver"
+    },
+
+    "copyright": {
+        "content": "Copyright © 2024 Agon KOLGECI • Tous droits réservés",
+        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, deployée avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
+    },
+
+    "global": {
+        "title": "Agon KOLGECI",
+        "description": "Passionné depuis mon plus jeune âge par l'informatique, je consacre mon temps à réaliser divers projets me permettant d'enrichir mes connaissances.",
+        "keywords": "Agon KOLGECI, Développeur de logiciels, Développeur passionné, Enthousiaste de l'informatique, Projets logiciels, Enrichissement des connaissances, Expert en codage, Portfolio de développeur, Passionné de technologie, Projets de programmation, Codeur compétent, Informatique, Compétences en développement, Logiciels innovants, Projets personnels, Passion pour la technologie, Jeune développeur, Auto-apprentissage, Professionnel de l'informatique, Projets technologiques"
+    },
+
+    "home": {
+        "title": "Agon KOLGECI",
+        "description": "Développeur en logiciels",
+
+        "about": {
+            "title": "À propos de moi",
+            "description": "Découvrez qui je suis, mes passions, et le parcours qui m'a façonné. Apprenez-en plus sur mon expérience ainsi que mes centres d'intérêt.",
+
+            "presentation": "Salut, je suis Agon KOLGECI, un jeune développeur en logiciels et actuellement en études de Sciences Informatiques. Depuis mon plus jeune âge, j'ai pu découvrir, apprendre et expérimenter diverses technologies en autodidacte, ce qui m'a permis de développer une véritable passion pour l'informatique et d'acquérir diverses compétences dans ce domaine. Toutes ces expériences m'ont motivé à poursuivre mes études dans ce domaine afin d'approfondir mes connaissances et devenir un expert capable de créer des solutions innovantes. Aujourd'hui je suis déterminé à continuer sur cette voie et à me perfectionner chaque jour pour atteindre mes objectifs."
+        },
+
+        "discover": {
+            "title": "Découvrez-en plus",
+            "description": "Ce n'est pas terminé, ce n'est que le début. Découvrez ce dont je suis capable en parcourant mon site !",
+
+            "knowledge": {
+                "title": "Explorez mes connaissances",
+                "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Cette section met en lumière mes compétences techniques et l'étendue de mon parcours d'apprentissage.",
+                "go_to_skills": "Voir mes compétences",
+                "go_to_education": "Voir mon éducation"
+            },
+
+            "career": {
+                "title": "Visualiser mon parcours",
+                "description": "Découvrez mes expériences personnelles et professionnelles, mettant en avant les rôles que j'ai occupés et les projets auxquels j'ai contribué. Cette section offre un aperçu détaillé de mon cheminement de carrière.",
+                "go_to_experiences": "Voir mes expériences"
+            },
+
+            "creations": {
+                "title": "Découvrez mes créations",
+                "description": "Explorez une collection de mes projets personnels et œuvres créatives. Du design au développement, cette galerie présente ma passion pour la création et l'innovation.",
+                "go_to_gallery": "Voir mes réalisations"
+            }
+        }
+    },
+
+    "skills": {
+        "title": "Compétences",
+        "description": "Au fil des années, j'ai pu développer et acquérir de l'expérience dans une variété de compétences.",
+
+        "it_skills": {
+            "title": "Compétences Informatiques",
+            "description": "Langages de programmation et outils que je maîtrise.",
+
+            "contents": {
+                "languages": {
+                    "title": "Langages"
+                },
+                "frameworks": {
+                    "title": "Frameworks"
+                },
+                "tools": {
+                    "title": "Outils"
+                }
+            }
+        },
+
+        "soft_skills": {
+            "title": "Savoir-être",
+            "description": "Diverses compétences interpersonnelles acquises au cours des différents projets sur lesquels j'ai travaillé.",
+
+            "contents": {
+                "motivation": {
+                    "title": "Motivation",
+                    "description": "Je suis très motivé dans tout ce que j'entreprends et j'aime explorer divers sujets."
+                },
+
+                "adaptation": {
+                    "title": "Adaptation",
+                    "description": "Je m'adapte facilement à différentes situations et je m'efforce toujours de donner le meilleur de moi-même."
+                },
+
+                "autonomy": {
+                    "title": "Autonomie",
+                    "description": "Principalement autodidacte, je sais être autonome pour atteindre mes objectifs."
+                },
+
+                "team_work": {
+                    "title": "Travail d'équipe",
+                    "description": "Je suis capable de collaborer et de respecter différents points de vue afin de contribuer activement aux objectifs du groupe."
+                }
+            }
+        }
+    },
+
+    "education": {
+        "title": "Éducation",
+        "description": "En savoir plus sur mon parcours académique et de quel manière il a contribué à développer mes compétences en informatique et en développement.",
+
+        "school_career": {
+            "title": "Parcours scolaire",
+            "description": "Après avoir terminé le lycée, je me suis directement orienté vers un Bachelor en Sciences Informatiques. Je suis passionné par la technologie et l'innovation, et c'est un réel plaisir de pouvoir travailler dans ce domaine.",
+
+            "schools": {
+                "unige": {
+                    "title": "Université de Genève : Bachelor en Sciences Informatiques",
+                    "description": "Le Bachelor en sciences informatiques permet d'acquérir une solide formation de base en algorithmique, en systèmes informatiques et sécurité, en génie logiciel, en imagerie numérique, en informatique théorique et en traitement de l'information multimédia.",
+                    "date": "2023 - aujourd'hui"
+                },
+
+                "stael": {
+                    "title": "Lycée : Madame de Staël",
+                    "description": "Diplôme du Baccalauréat général et scientifique.",
+                    "date": "2020 - 2023"
+                },
+
+                "jjr": {
+                    "title": "Collège : Jean-Jacques Rousseau",
+                    "description": "Diplôme du Brevet des collèges.",
+                    "date": "2016 - 2020"
+                }
+            }
+        }
+    },
+
+    "experiences": { 
+        "title": "Expériences",
+        "description": "Découvrez mes expériences au cours desquelles j'ai pu solidifier mes connaissances et compétences. Celles-ci incluent à la fois des expériences personnelles et professionnelles.",
+
+        "personal_experiences": {
+            "title": "Expériences Personnelles",
+            "description": "Grâce à mes expériences personnelles, j'ai pu consolider mes compétences dans certains domaines et acquérir une véritable compréhension de l'environnement.",
+
+            "contents": {
+                "web": {
+                    "title": "Développement Web",
+                    "date": "débuté en 2022",
+                    "description": "Réalisation de divers projets liés au développement web, incluant la création de sites web dynamiques et responsive. Les projets incluent la conception et la mise en œuvre de fonctionnalités front-end utilisant des technologies modernes.",
+                    "tasks": {
+                        "1": "Création de sites web interactifs avec des frameworks populaires comme React, NextJS", 
+                        "2": "Utilisation de préprocesseurs CSS comme Sass pour un style avancé",
+                        "3": "Optimisation des performances et de l'accessibilité des sites web"
+                    }
+                },
+
+                "discord": {
+                    "title": "Développement Discord",
+                    "date": "débuté en 2021",
+                    "description": "Réalisation de divers projets liés au développement de bots Discord et d'outils de gestion de serveurs, particulièrement axés sur l'amélioration de l'engagement des utilisateurs et l'automatisation de la communauté.",
+                    "tasks": {
+                        "1": "Conception et mise en œuvre de nouvelles fonctionnalités utilisant Java et JavaScript", 
+                        "2": "Intégration d'APIs et gestion du flux de données entre Discord et des services externes",
+                        "3": "Développement et maintenance de commandes de bots personnalisées pour rationaliser les opérations du serveur"
+                    }
+                },
+
+                "minecraft": {
+                    "title": "Développement Minecraft",
+                    "date": "débuté en 2018",
+                    "description": "Réalisation de divers projets liés à l'exploitation de serveurs Minecraft, particulièrement dans le développement de plugins Spigot/Bukkit, la gestion de serveurs et les communications entre eux.",
+                    "tasks": {
+                        "1": "Optimisation et mise en œuvre de code Java existant ou écriture de nouveaux systèmes (certains disponibles sur GitHub)", 
+                        "2": "Déploiement et mise en service d'infrastructures dans des environnements Linux",
+                        "3": "Développement de bots Discord utilisant l'API Discord pour l'automatisation des serveurs communautaires"
+                    }
+                }
+            }
+        },
+
+        "professional_experiences": {
+            "title": "Expériences Professionnelles",
+            "description": "Au cours de ma carrière, j'ai pu collaborer avec des équipes diverses et développer des solutions innovantes qui ont soutenu le succès opérationnel.",
+
+            "tags": {
+                "volunteering": "Bénévolat",
+                "internship": "Stage"
+            },
+
+            "contents": {
+                "world-heberg": {
+                    "title": "World-Heberg",
+                    "date": "sept. 2020 - avr. 2021",
+                    "description": "Association offrant des services d'hébergement gratuits incluant des solutions web, des instances nodejs, des offres cloud et des instances Sinus.",
+                    
+                    "tasks": {
+                        "1": "Membre de l'équipe d'administration en tant que chef d'équipe de modération", 
+                        "2": "Développement d'outils de modération Discord nécessaires au bon fonctionnement de la modération"
+                    }
+                },
+
+                "buro_plus": {
+                    "title": "Buro +",
+                    "date": "déc. 2019",
+                    "description": "Réseau numéro 1 pour les fournitures de bureau/informatique en France.",
+
+                    "tasks": {
+                        "1": "Vérification de l'authenticité du matériel", 
+                        "2": "Gestion des commandes et mise en rayon",
+                        "3": "Enregistrement des articles à l'aide du logiciel",
+                        "4": "Relation client / encaissement"
+                    }
+                }
+            }
+        }
+    },
+
+    "gallery": {
+        "title": "Réalisations",
+        "description": "Découvrez les différentes créations que j'ai réalisées ou auxquelles j'ai participé. Elles m'ont permis d'en apprendre davantage sur certains aspects du développement.",
+
+        "projects": {
+            "title": "Projets",
+            "description": "Liste de tous les projets auxquels j'ai participé.",
+            
+            "tags": {
+                "founder": "Fondateur",
+                "lead-developer": "Développeur principal"
+            },
+
+            "team": {
+                "founders": "Fondateurs",
+                "thanks": "Remerciements",
+                "collaborators": "Collaborateurs"
+            },
+
+            "contents": {
+                "project-family": {
+                    "title": "Project Family",
+                    "date": "2022 - présent",
+                    "description": "Project Family est un serveur Minecraft survival vanilla dans la toute dernière version Java, qui a réuni un grand nombre de personnes. Dernière version : la 1.20, mise à jour 'Trails and Tales'."
+                },
+
+                "nexus": {
+                    "title": "Nexus",
+                    "date": "2024",
+                    "description": "Nexus est mon serveur Minecraft de mini-jeux. L'objectif principal de ce serveur est de lister toutes les créations que j'ai réalisées au fil des années sur Minecraft."
+                },
+
+                "stranger-hide": {
+                    "title": "Stranger Hide",
+                    "date": "2021 - présent",
+                    "description": "Stranger Hide est un serveur cache-cache sur le thème de la série Stranger Things."
+                },
+
+                "playze-family-bot": {
+                    "title": "Playze Family Bot",
+                    "date": "2020 - présent",
+                    "description": "Playze Family est un bot Discord avec une multitude de fonctionnalités telles que l'ajout d'un système d'XP et de niveaux avec un classement en discutant ou en interagissant avec les autres membres du serveur, la création de concours Giveaways, l'édition possible du meilleur grade obtenable gratuitement sur le serveur : le Grade Custom, le choix des notifications que vous souhaitez recevoir, l'ajout de l'API GPT Chat (si vous lui parlez, il vous répondra), etc."
+                },
+
+                "berkasia": {
+                    "title": "Berkasia",
+                    "date": "2017 - 2021",
+                    "description": "Serveur Minecraft PVP/Faction avec de nouveaux événements, une économie bien pensée et des systèmes avancés pour vous aider à atteindre vos objectifs. Berkasia proposait un système totalement Farm2Win."
+                }
+            }
+        },
+
+        "repositories": {
+            "title": "Dépôts",
+            "description": "Liste de tout mon code source disponible à tous, principalement sur GitHub.",
+
+            "view_archives": {
+                "show": "Voir les Archives",
+                "hide": "Masquer les Archives",
+                "description": "Les dépôts archivés sont obsolètes et ne sont plus représentatifs de mon travail actuel."
+            }
+        }
+    },
+
+    "contact": {
+        "title": "Contact",
+        "description": "N'hésitez pas à me contacter pour toute demande ou simplement pour échanger !",
+
+        "contact_form": {
+            "title": "Entrer en contact",
+            "description": "Remplissez le formulaire de contact ci-dessous pour envoyer votre message.",
+            
+            "inputs": {
+                "name": {
+                    "label": "Nom",
+                    "placeholder": "Votre Nom"
+                },
+
+                "email": {
+                    "label": "E-mail",
+                    "placeholder": "Votre E-mail"
+                },
+
+                "subject": {
+                    "label": "Objet",
+                    "placeholder": "Objet"
+                }
+            },
+
+            "textareas": {
+                "message": {
+                    "label": "Message"
+                }
+            },
+
+            "submit": "Envoyer",
+
+            "alerts": {
+                "fields_missing": "Veuillez remplir tous les champs obligatoires du formulaire avant de soumettre.",
+                "recaptcha_invalid": "Veuillez compléter la vérification reCAPTCHA avant de soumettre.",
+                "sending": "Votre message est en cours d'envoi...",
+                "sended": "Merci pour votre message. Je l'ai bien reçu et vous répondrai par e-mail dans les plus brefs délais.",
+                "unknown_error": "Désolé, une erreur s'est produite et votre message n'a pas pu être envoyé. Veuillez réessayer plus tard."
+            }
+        }
+    },
+
+    "terms": {
+        "title": "Mentions légales",
+        "description": "Dernière mise à jour : 28 septembre 2024",
+
+        "contents": {
+            "general": {
+                "title": "Informations Générales",
+                "texts": {
+                    "1": "Ce site web sert de portfolio pour <author></author>, présentant divers projets et développements dans le domaine de l'informatique. En utilisant ce site, vous reconnaissez que les informations fournies ici sont à titre informatif général et peuvent changer au fil du temps."
+                }
+            },
+
+            "content": {
+                "title": "Utilisation du Contenu",
+                "texts": {
+                    "1": "Les visiteurs sont libres de partager tout contenu trouvé sur ce site. Cependant, certaines parties du site, telles que les dépôts GitHub ou autres documents liés, sont soumises à des licences spécifiques qui régissent leur utilisation. Il est de la responsabilité de l'utilisateur de vérifier les licences pertinentes avant de partager ou d'utiliser ces documents."
+                }
+            },
+
+            "intellectual-property": {
+                "title": "Propriété Intellectuelle",
+                "texts": {
+                    "1": "Le contenu de ce site, sauf indication contraire, est la propriété intellectuelle de <author></author>. Cela inclut le texte, la conception et les projets, qui sont tous protégés par les lois sur le droit d'auteur.",
+                    "2": "Cependant, certaines images et icônes utilisées sur le site proviennent de fournisseurs tiers, y compris, mais sans s'y limiter :",
+                    "3": "<references></references>",
+                    "4": "Ces images et icônes restent la propriété de leurs propriétaires respectifs et sont utilisées sous les licences fournies par ces sources. Les utilisateurs doivent respecter les droits de propriété intellectuelle de ces fournisseurs tiers lorsqu'ils utilisent ou partagent du contenu de ce site."
+                }
+            },
+
+            "disclaimer": {
+                "title": "Avertissement et Limitation de Responsabilité",
+                "texts": {
+                    "1": "Les informations fournies sur ce site sont destinées à être exactes et à jour au moment de leur publication. Cependant, <author></author> ne garantit pas l'exactitude, l'exhaustivité ou la mise à jour des informations et décline toute responsabilité pour toute erreur ou omission. Le contenu peut changer ou évoluer avec le temps, et les visiteurs sont encouragés à vérifier les informations de manière indépendante avant de s'y fier.",
+                    "2": "En utilisant ce site, vous reconnaissez que l'utilisation des informations ou du matériel est entièrement à vos propres risques, et <author></author> n'est pas responsable des dommages ou pertes pouvant résulter de l'utilisation du site ou de son contenu."
+                }
+            },
+
+            "modifications": {
+                "title": "Modifications des Conditions",
+                "texts": {
+                    "1": "<author></author> se réserve le droit de mettre à jour ou de modifier ces Conditions d'Utilisation à tout moment. Les modifications prendront effet immédiatement après leur publication. La date de la dernière mise à jour sera toujours indiquée en haut de cette page. Il est de la responsabilité de l'utilisateur de consulter régulièrement ces Conditions pour s'assurer de leur conformité."
+                }
+            },
+
+            "contact": {
+                "title": "Informations de Contact",
+                "texts": {
+                    "1": "Si vous avez des questions ou des préoccupations concernant ces <terms></terms>, veuillez contacter <author></author> à <contact></contact>."
+                }
+            },
+
+            "copyright": {
+                "title": "Avis de Droit d'auteur",
+                "texts": {
+                    "1": "Tout le contenu de ce site, y compris le texte, les images et le code, est la propriété intellectuelle de <author></author>, sauf indication contraire. Toute utilisation, reproduction ou distribution non autorisée d'une partie de ce site sans autorisation écrite expresse est interdite.",
+                    "2": "<copyright></copyright>"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,412 @@
+{
+    "locales": {
+        "en": "English",
+        "fr": "French"
+    },
+
+    "legal": {
+        "terms": "Terms of Service"
+    },
+
+    "navigation": {
+        "home": "Home",
+        "skills": "Skills",
+        "education": "Education",
+        "experiences": "Experiences",
+        "gallery": "Gallery",
+        "contact": "Contact"
+    },
+
+    "resources": {
+        "repositories": "Repositories",
+        "resources": "Resources",
+        "archives": "Archives"
+    },
+
+    "header": {
+        "logo": "Logo"
+    },
+
+    "footer": {
+        "banner": "Banner",
+        "legal": "Legal",
+        "navigation": "Navigation",
+        "resources": "Resources",
+        "location": "Where to find me"
+    },
+
+    "copyright": {
+        "content": "Copyright © 2024 Agon KOLGECI • All Rights Reserved",
+        "details": "Build with <nextjs>Next.js</nextjs> and <tailwindcss>Tailwind CSS</tailwindcss>, deployed with <vercel>Vercel</vercel> from <github>GitHub</github>."
+    },
+
+    "global": {
+        "title": "Agon KOLGECI",
+        "description": "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
+        "keywords": "Agon KOLGECI, Software Developer, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Young Developer, Self-Learning, IT Professional, Tech Projects"
+    },
+
+    "home": {
+        "title": "Agon KOLGECI",
+        "description": "Software Developer",
+
+        "about": {
+            "title": "About Me",
+            "description": "Discover who I am, my passions, and the journey that has shaped me. Learn about my background and my interests.",
+
+            "presentation": "Hi, I'm Agon KOLGECI, a young software developer currently studying in Computer Science. Since I was young, I've been able to discover, learn and experiment with various technologies on a self-taught basis, which has enabled me to develop a real passion for IT and acquire a variety of skills in this field. All my experiences motivated me to continue my studies in this field to deepen my knowledge and become an expert capable of creating innovative solutions. Today, I'm determined to continue on this path and improve every day to achieve my goals."
+        },
+
+        "discover": {
+            "title": "Discover more",
+            "description": "It's not over, it's just the beginning. Discover what I'm capable of by browsing my site!",
+
+            "knowledge": {
+                "title": "Explore my knowledge",
+                "description": "Delve into the skills and education I have acquired over the years. From technical proficiencies to academic achievements. This section showcases the breadth of my learning journey.",
+                "go_to_skills": "Go To Skills",
+                "go_to_education": "Go To Education"
+            },
+
+            "career": {
+                "title": "View my career",
+                "description": "Take a look at my personal and professional experiences, highlighting the roles I have taken on and the projects I have contributed to. This section provides an in-depth look at my career path.",
+                "go_to_experiences": "Go to Experiences"
+            },
+
+            "creations": {
+                "title": "Discover my creations",
+                "description": "Explore a collection of my personal projects and creative works. From design to development, this gallery showcases my passion for creation and innovation.",
+                "go_to_gallery": "Go to Gallery"
+            }
+        }
+    },
+
+    "skills": {
+        "title": "Skills",
+        "description": "Over the years, I've been able to develop and gain experience in a variety of skills.",
+
+        "it_skills": {
+            "title": "IT Skills",
+            "description": "Programming languages and tools I master.",
+
+            "contents": {
+                "languages": {
+                    "title": "Languages"
+                },
+                "frameworks": {
+                    "title": "Frameworks"
+                },
+                "tools": {
+                    "title": "Tools"
+                }
+            }
+        },
+
+        "soft_skills": {
+            "title": "Soft Skills",
+            "description": "Various soft skills acquired during the different projects I've worked on.",
+
+            "contents": {
+                "motivation": {
+                    "title": "Motivation",
+                    "description": "I am highly motivated in everything I undertake and love exploring various topics."
+                },
+
+                "adaptation": {
+                    "title": "Adaptation",
+                    "description": "I easily adapt to different situations and always strive to do my best."
+                },
+
+                "autonomy": {
+                    "title": "Autonomy",
+                    "description": "I'm mainly self-taught, I know how to be autonomous to reach my goal."
+                },
+
+                "team_work": {
+                    "title": "Team Work",
+                    "description": "I am able to collaborate and respect different points of view in order to actively contribute to the group's objectives."
+                }
+            }
+        }
+    },
+
+    "education": {
+        "title": "Education",
+        "description": "Learn more about my academic background and how it has contributed to my skills in computer science and development.",
+
+        "school_career": {
+            "title": "School career",
+            "description": "After finishing high school, I went straight into a Bachelor's degree in Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field.",
+
+            "schools": {
+                "unige": { 
+                    "title": "University of Geneva: Bachelor of Computer Science",
+                    "description": "The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.",
+                    "date": "2023 - present"
+                },
+
+                "stael": { 
+                    "title": "High School: Madame de Staël",
+                    "description": "High School Diploma general and sciences.",
+                    "date": "2020 - 2023"
+                },
+
+                "jjr": { 
+                    "title": "Middle School: Jean Jacques Rousseau",
+                    "description": "General Certifate of secondary education.",
+                    "date": "2016 - 2020"
+                }
+            }
+        }
+    },
+
+    "experiences": { 
+        "title": "Experiences",
+        "description": "Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences.",
+
+        "personal_experiences": {
+            "title": "Personal Experiences",
+            "description": "Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment.",
+
+            "contents": {
+                "web": {
+                    "title": "Web Development",
+                    "date": "started in 2022",
+                    "description": "Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies.",
+                    "tasks": {
+                        "1": "Creating interactive websites with familiar frameworks like React, NextJS", 
+                        "2": "Using CSS preprocessors like Sass for advanced styling",
+                        "3": "Optimizing website performance and accessibility"
+                    }
+                },
+
+                "discord": {
+                    "title": "Discord Development",
+                    "date": "started in 2021",
+                    "description": "Realization of various projects related to the development of Discord bots and server management tools, particularly focused on enhancing user engagement and community automation.",
+                    "tasks": {
+                        "1": "Designing and implementing new features using Java and JavaScript", 
+                        "2": "Integrating APIs and managing data flow between Discord and external services",
+                        "3": "Developing and maintaining custom bot commands to streamline server operations"
+                    }
+                },
+
+                "minecraft": {
+                    "title": "Minecraft Development",
+                    "date": "started in 2018",
+                    "description": "Realization of various projects related to the operation of Minecraft servers, particularly in the development of Spigot/Bukkit plugins, management of servers and communications between them.",
+                    "tasks": {
+                        "1": "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
+                        "2": "Deployment and commissioning of infrastructure in Linux environments",
+                        "3": "Discord bots development using the Discord API for community server automation"
+                    }
+                }
+            }
+        },
+
+        "professional_experiences": {
+            "title": "Professional Experiences",
+            "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
+
+            "tags": {
+                "volunteering": "Volunteering",
+                "internship": "Internship"
+            },
+
+            "contents": {
+                "world-heberg": {
+                    "title": "World-Heberg",
+                    "date": "sept. 2020 - apr. 2021",
+                    "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
+
+                    "tasks": {
+                        "1": "Member of the administration team as Moderation team leader", 
+                        "2": "Development of Discord moderation tools necessary for the proper functioning of the moderation"
+                    }
+                },
+
+                "buro_plus": {
+                    "title": "Buro +",
+                    "date": "dec 2019",
+                    "description": "No.1 network for office/computer supplies in France.",
+
+                    "tasks": {
+                        "1": "Verification of the authenticity of the material", 
+                        "2": "Order management and shelving",
+                        "3": "Registration of items using the software",
+                        "4": "Customer relationship / payment"
+                    }
+                }
+            }
+        }
+    },
+
+    "gallery": {
+        "title": "Gallery",
+        "description": "Find out about the different creations I've made or taken part in. These have helped me learn more about certain aspects of development.",
+
+        "projects": {
+            "title": "Projects",
+            "description": "List of all the projects I have been involved in.",
+            
+            "tags": {
+                "founder": "Founder",
+                "lead-developer": "Lead Developer"
+            },
+
+            "team": {
+                "founders": "Founders",
+                "thanks": "Thanks",
+                "collaborators": "Collaborators"
+            },
+
+            "contents": {
+                "project-family": {
+                    "title": "Project Family",
+                    "date": "2022 - present",
+                    "description": "Project Family is a vanilla survival Minecraft server in the newest Java Edition which brought together a large number of people. Latest version: the 1.20, 'Trails and Tales' update."
+                },
+
+                "nexus": {
+                    "title": "Nexus",
+                    "date": "2024",
+                    "description": "Nexus is my Minecraft mini-games server. The main purpose of this server is to list all the creations I've made over the years on Minecraft."
+                },
+
+                "stranger-hide": {
+                    "title": "Stranger Hide",
+                    "date": "2021 - present",
+                    "description": "Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
+                },
+
+                "playze-family-bot": {
+                    "title": "Playze Family Bot",
+                    "date": "2020 - present",
+                    "description": "Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
+                },
+
+                "berkasia": {
+                    "title": "Berkasia",
+                    "date": "2017 - 2021",
+                    "description": "Minecraft PVP/Faction server featuring new events, a carefully thought-out economy and advanced systems to help you achieve your goals. Berkasia featured a completely Farm2Win system."
+                }
+            }
+        },
+
+        "repositories": {
+            "title": "Repositories",
+            "description": "List of all my source code available to everyone mainly on GitHub.",
+
+            "view_archives": {
+                "show": "View Archives",
+                "hide": "Hide Archives",
+                "description": "Archived repositories are outdated and no longer representative of my current work."
+            }
+        }
+    },
+
+    "contact": {
+        "title": "Contact",
+        "description": "Feel free to reach me for inquiries or simply to connect!",
+
+        "contact_form": {
+            "title": "Get In Touch",
+            "description": "Fill in the contact form below to send your message.",
+            
+            "inputs": {
+                "name": {
+                    "label": "Name",
+                    "placeholder": "Your Name"
+                },
+
+                "email": {
+                    "label": "E-mail",
+                    "placeholder": "Your E-mail"
+                },
+
+                "subject": {
+                    "label": "Subject",
+                    "placeholder": "Subject"
+                }
+            },
+
+            "textareas": {
+                "message": {
+                    "label": "Message"
+                }
+            },
+
+            "submit": "Submit",
+
+            "alerts": {
+                "fields_missing": "Please fill out all required fields in the form before submitting.",
+                "recaptcha_invalid": "Please complete the reCAPTCHA verification before submitting.",
+                "sending": "Your message is being sent...",
+                "sended": "Thank you for your message. I have received it and will get back to you shortly by e-mail.",
+                "unknown_error": "Sorry, but an error occurred and your message could not be sent. Please try again later."
+            }
+        }
+    },
+
+    "terms": {
+        "title": "Terms of Service",
+        "description": "Latest Updated: September 28, 2024",
+
+        "contents": {
+            "general": {
+                "title": "General Information",
+                "texts": {
+                    "1": "This website serves as a portfolio for <author></author>, showcasing various projects and developments in the field of computer science. By using the site, you acknowledge that the information provided here is for general informational purposes and may change over time."
+                }
+            },
+
+            "content": {
+                "title": "Use of Content",
+                "texts": {
+                    "1": "Visitors are free to share any of the content found on this website. However, some parts of the site, such as GitHub repositories or other linked materials, are subject to specific licenses that govern their use. It is the responsibility of the user to check the relevant licenses before sharing or using these materials."
+                }
+            },
+
+            "intellectual-property": {
+                "title": "Intellectual Property",
+                "texts": {
+                    "1": "The content on this website, unless otherwise stated, is the intellectual property of <author></author>. This includes text, design, and projects, all of which are protected under copyright law.",
+                    "2": "However, certain images and icons used on the site are sourced from third-party providers, including but not limited to:",
+                    "3": "<references></references>",
+                    "4": "These images and icons remain the property of their respective owners and are used under the licenses provided by those sources. Users must respect the intellectual property rights of these third-party providers when using or sharing content from this website."
+                }
+            },
+
+            "disclaimer": {
+                "title": "Disclaimer and Limitation of Liability",
+                "texts": {
+                    "1": "The information provided on this website is intended to be accurate and up-to-date at the time of publication. However, <author></author> makes no guarantees about the accuracy, completeness, or currency of the information and disclaims any liability for any errors or omissions. The content may change or evolve over time, and visitors are encouraged to verify information independently before relying on it.",
+                    "2": "By using this website, you acknowledge that your use of any information or materials is entirely at your own risk, and <author></author> is not liable for any damages or losses that may result from your use of the website or its contents."
+                }
+            },
+
+            "modifications": {
+                "title": "Modifications to the Terms",
+                "texts": {
+                    "1": "<author></author> reserves the right to update or modify these Terms of Service at any time. Changes will be effective immediately upon posting. The date of the last update will always be indicated at the top of this page. It is the responsibility of the user to review these Terms regularly to ensure compliance."
+                }
+            },
+
+            "contact": {
+                "title": "Contact Information",
+                "texts": {
+                    "1": "If you have any questions or concerns regarding these <terms></terms>, please contact <author></author> at <contact></contact>."
+                }
+            },
+
+            "copyright": {
+                "title": "Copyright Notice",
+                "texts": {
+                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited.",
+                    "2": "<copyright></copyright>"
+                }
+            }
+        }
+    }
+}

@@ -1,19 +1,18 @@
-import { Metadata } from "next";
-import Article from "../_components/pages/article";
-import Section from "../_components/pages/section";
-import ContactForm from "./form";
+import { useTranslations } from "next-intl";
+import Article from "../_components/pages/Article";
+import { getPageMetadata, MetadataProps } from "../metadata";
+import ContactForm from "./ContactForm";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Feel free to reach me for inquiries or simply to connect!"
-};
+export async function generateMetadata({ params }: MetadataProps) {
+    return await getPageMetadata({namespace: "contact", params});
+}
 
 export default function Contact() {
+    const t = useTranslations("contact");
+
     return (
-        <Article title={String(metadata.title)} description={String(metadata.description)}>
-            <Section title="Get In Touch" description="Fill in the contact form below to send your message." position={0}>
-                <ContactForm recaptchaKey={String(process.env["GOOGLE_RECAPTCHA_PUBLIC_KEY"])} />
-            </Section>
+        <Article title={t("title")} description={t("description")}>
+            <ContactForm target_mail={String(process.env["CONTACT_TARGET_MAIL"])} recaptchaKey={String(process.env["GOOGLE_RECAPTCHA_PUBLIC_KEY"])} />
         </Article>
     );
 }
