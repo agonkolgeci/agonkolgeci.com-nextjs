@@ -394,7 +394,7 @@
             "modifications": {
                 "title": "Modifications to the Terms",
                 "texts": {
-                    "1": "<author></author> reserves the right to update or modify these Terms of Service at any time. Changes will be effective immediately upon posting. The date of the last update will always be indicated at the top of this page. It is the responsibility of the user to review these Terms regularly to ensure compliance."
+                    "1": "<author></author> reserves the right to update or modify these <terms></terms> at any time. Changes will be effective immediately upon posting. The date of the last update will always be indicated at the top of this page. It is the responsibility of the user to review these Terms regularly to ensure compliance."
                 }
             },
 
