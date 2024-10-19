@@ -27,7 +27,7 @@ export default function Repositories() {
         };
 
         fetchRepositories();
-    })
+    }, []);
 
     const Repository = ({ name, description, html_url, homepage, language, topics, archived, is_template }: Repository) => {
         const color = () => {
