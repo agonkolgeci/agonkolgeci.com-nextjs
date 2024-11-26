@@ -4,6 +4,13 @@
         "fr": "Français"
     },
 
+    "errors": {
+        "404": {
+            "title": "Page introuvable...",
+            "description": "Vous avez découvert une zone inconnue... Vous devez vite partir avant de vous faire aspirer par un trou noir !!!"
+        }
+    },
+
     "legal": {
         "terms": "Mentions légales"
     },

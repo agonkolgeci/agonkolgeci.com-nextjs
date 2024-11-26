@@ -4,6 +4,13 @@
         "fr": "French"
     },
 
+    "errors": {
+        "404": {
+            "title": "Page not found...",
+            "description": "You've discovered an unknown area... You must leave quickly before being sucked into a black hole!!!"
+        }
+    },
+
     "legal": {
         "terms": "Terms of Service"
     },
