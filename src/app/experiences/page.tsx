@@ -3,6 +3,7 @@ import Article from "../_components/pages/Article";
 import { MetadataProps, getPageMetadata } from "../metadata";
 import PersonalExperiences from "./PersonalExperiences";
 import ProfessionalExperiences from "./ProfessionalExperiences";
+import AcademicExperiences from "./AcademicExperiences";
 
 export async function generateMetadata({ params }: MetadataProps) {
     return getPageMetadata({namespace: "experiences", params});
@@ -15,6 +16,7 @@ export default function Experiences() {
         <Article title={t("title")} description={t("description")}>
             <PersonalExperiences />
             <ProfessionalExperiences />
+            <AcademicExperiences />
         </Article>
     );
 }

@@ -246,6 +246,22 @@
                     }
                 }
             }
+        },
+
+        "academic_experiences": {
+            "title": "Expériences Acádémiques",
+            "description": "Cette section met en avant mes réalisations et expériences académiques, incluant les cours suivis, les projets de recherche et ma participation à des projets académiques.",
+            "contents": {
+                "swerc2024": {
+                    "title": "SWERC 2024",
+                    "date": "30 nov & 1 déc 2024",
+                    "description": "SWERC est un concours de programmation de 5 heures pour des équipes de trois étudiants, axé sur la résolution de problèmes algorithmiques et la programmation pratique. Cette compétition sert de phase de sélection régionale pour le Championnat d'Europe et le Concours International de Programmation Collegiale.",
+                    "tasks": {
+                        "1": "Participation à ma première compétition algorithmique, acquérant une expérience précieuse en résolution de problèmes, travail en équipe et programmation sous pression.",
+                        "2": "Développement et débogage de programmes en C++ pour gérer des structures de données dynamiques et optimiser l'utilisation des ressources pendant la compétition."
+                    }
+                }
+            }
         }
     },
 

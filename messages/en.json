@@ -246,6 +246,23 @@
                     }
                 }
             }
+        },
+
+        "academic_experiences": {
+            "title": "Academic Experiences",
+            "description": "This section highlights my academic achievements and experiences, including coursework, research projects, and participation in academic projects.",
+
+            "contents": {
+                "swerc2024": {
+                    "title": "SWERC 2024",
+                    "date": "30 nov & 1 dec 2024",
+                    "description": "SWERC is a 5-hour programming contest for teams of three students, focused on algorithmic problem solving and practical coding. This competition serves as the regional selection phase for the Europe Championship and the International Collegiate Programming Contest.",
+                    "tasks": {
+                        "1": "Participated in my first algorithmic competition, gaining valuable experience in problem-solving, teamwork, and high-pressure coding challenges.",
+                        "2": "Developed and debugged programs in C++ to handle dynamic data structures and optimize resource usage during the competition."
+                    }
+                }
+            }
         }
     },
 

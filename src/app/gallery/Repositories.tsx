@@ -54,14 +54,15 @@ export default function Repositories() {
                         {homepage && <HyperLinks links={[ { name: "Homepage", href: homepage} ]} />}
                     </div>
 
+                    {language && <Languages languages={[language]}/>}
+                    
+                    {description && 
+                        <div className="flex flex-col gap-2">
+                            <p>{description}</p>
+                        </div>
+                    }
 
-                    <Languages languages={[language]}/>
-
-                    <div className="flex flex-col gap-2">
-                        <p>{description}</p>
-                    </div>
-
-                    <Tags tags={topics.slice(0, 5)} />
+                    {topics && <Tags tags={topics.slice(0, 5)} /> }
                 </CardContainer>
             </Card>
         )

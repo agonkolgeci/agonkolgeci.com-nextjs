@@ -17,7 +17,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
 
         { 
             key: "discord",
-            image: "/experiences/discord.webp",
+            image: "/experiences/discord.webp",  
             links: [
                 { name: "GitHub", href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=javascript" }
             ],
