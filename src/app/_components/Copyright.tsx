@@ -4,9 +4,15 @@ import ExternalLink from "./utils/ExternalLink";
 export default function Copyright() {
     const t = useTranslations("copyright");
 
+    const date = new Date();
+
     return (
         <div className="flex flex-col">
-            <p>{t("content")}</p>
+            <p>
+                {t.rich("content", {
+                    year: (() => date.getFullYear())
+                })}
+            </p>
 
             <span>
                 {t.rich("details", {

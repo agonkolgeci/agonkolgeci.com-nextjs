@@ -43,7 +43,7 @@
     },
 
     "copyright": {
-        "content": "Copyright © 2024 Agon KOLGECI • All Rights Reserved",
+        "content": "Copyright © <year></year> Agon KOLGECI • All Rights Reserved",
         "details": "Build with <nextjs>Next.js</nextjs> and <tailwindcss>Tailwind CSS</tailwindcss>, deployed with <vercel>Vercel</vercel> from <github>GitHub</github>."
     },
 
