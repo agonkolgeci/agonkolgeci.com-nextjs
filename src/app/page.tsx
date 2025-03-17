@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <div className="w-full bg-secondary">
-            <div className="bg-image-primary bg-cover bg-center">
+            <div className="bg-image-primary bg-cover bg-center animate-bg-spiral-in">
                 <div className="flex flex-col items-center justify-center gap-2 max-w-screen-lg h-screen mx-auto px-10 text-center">
                     <h1 className="bg-gradient-primary bg-clip-text text-transparent text-6xl leading-normal">{t("title")}</h1>
                     <p className="text-4xl text-shadow">{t("description")}</p>
@@ -47,7 +47,7 @@ export default function Home() {
 
             <Section title={t("about.title")} description={t("about.description")} position={0}>
                 <div className="flex flex-col lg:flex-row items-center gap-16 max-w-screen-xl">
-                    <div className="block">
+                    <div className="flex">
                         <figure className="block bg-gradient-primary w-[300px] h-[300px] relative rounded-2xl mt-4 ml-4">
                             <Image className="object-cover object-center -translate-x-4 -translate-y-4 rounded-2xl" src="/home/portrait.webp" fill={true} alt="Portrait" />
                         </figure>
@@ -58,7 +58,7 @@ export default function Home() {
                             {t("about.presentation").split(/(?<=\.|\?|\!)\s+/).map(text => <p key={text}>{text}</p>)}
                         </div>
 
-                        <SocialsLinks className="flex flex-row gap-8 text-5xl text-primary" /> 
+                        <SocialsLinks className="flex flex-row gap-8 text-5xl text-primary" />
                     </div>
                 </div>
             </Section>

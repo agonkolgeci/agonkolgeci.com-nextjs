@@ -56,3 +56,25 @@
         @apply text-xs;
     }
 }
+
+@layer utilities {
+    @keyframes spiral-in {
+        0% {
+            background-size: 200%;
+        }
+        
+        100% {
+            background-size: 100%;
+        }
+    }
+    
+    @keyframes infinite-scroll {
+        from { 
+            transform: translateX(0)
+        }
+
+        to { 
+            transform: translateX(-100%)
+        }
+    }
+}

@@ -25,15 +25,9 @@ const config: Config = {
       },
 
       animation: {
-        'infinite-scroll': 'infinite-scroll 20s linear infinite'
-      },
-
-      keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        },
-      } 
+        'infinite-scroll': 'infinite-scroll 20s linear infinite',
+        'bg-spiral-in': 'spiral-in 2s backwards'
+      }
     },
   }
 };
