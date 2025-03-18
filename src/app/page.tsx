@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <div className="w-full bg-secondary">
-            <div className="bg-image-primary bg-cover bg-center animate-bg-spiral-in">
+            <div className="bg-image-primary bg-cover bg-center">
                 <div className="flex flex-col items-center justify-center gap-2 max-w-screen-lg h-screen mx-auto px-10 text-center">
                     <h1 className="bg-gradient-primary bg-clip-text text-transparent text-6xl leading-normal">{t("title")}</h1>
                     <p className="text-4xl text-shadow">{t("description")}</p>
