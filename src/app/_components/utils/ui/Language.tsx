@@ -27,6 +27,7 @@ function retrieveLanguageByName(name: string): string {
         case "github": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
         case "gitlab": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg";
         case "linux": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg";
+        case "jenkins": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg";
         case "bash": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg";
         case "powershell": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg";
 

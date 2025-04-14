@@ -7,7 +7,7 @@ export function useITSkills(): AsbtractITSkill[] {
     return [
         { key: "languages", languages: ["Java", "JavaScript", "TypeScript", "Python", "C", "C++", "HTML", "CSS", "Sass"] },
         { key: "frameworks", languages: ["Node", "React", "NextJS", "Tailwind CSS", "Redis"] },
-        { key: "tools", languages: ["Git", "GitHub", "GitLab", "Linux", "Bash", "Powershell", "MySQL", "MongoDB" ] }
+        { key: "tools", languages: ["Git", "GitHub", "GitLab", "Linux", "Jenkins", "Bash", "Powershell", "MySQL", "MongoDB" ] }
     ]
 }
 
