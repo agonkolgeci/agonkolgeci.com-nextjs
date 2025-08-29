@@ -216,11 +216,6 @@
             "title": "Professional Experiences",
             "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
 
-            "tags": {
-                "volunteering": "Volunteering",
-                "internship": "Internship"
-            },
-
             "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
@@ -253,6 +248,19 @@
             "description": "This section highlights my academic achievements and experiences, including coursework, research projects, and participation in academic projects.",
 
             "contents": {
+                "redcap-swisscom-module": {
+                    "title": "Development of a REDCap Module for the Geneva University Hospitals",
+                    "date": "February 2025 - May 2025",
+                    "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts.",
+                    "tasks": {
+                        "1": "Deepen my skills in PHP, Docker, and the REDCap ecosystem",
+                        "2": "Develop greater rigor in reading and analyzing technical documentation",
+                        "3": "Contribute to the design of a solution that meets real institutional and functional constraints",
+                        "4": "Collaborate effectively with a team and interact with various project stakeholders"
+                    }
+                },
+
+
                 "swerc2024": {
                     "title": "SWERC 2024",
                     "date": "30 nov & 1 dec 2024",
@@ -274,22 +282,11 @@
             "title": "Projects",
             "description": "List of all the projects I have been involved in.",
             
-            "tags": {
-                "founder": "Founder",
-                "lead-developer": "Lead Developer"
-            },
-
-            "team": {
-                "founders": "Founders",
-                "thanks": "Thanks",
-                "collaborators": "Collaborators"
-            },
-
             "contents": {
                 "project-family": {
                     "title": "Project Family",
-                    "date": "2022 - present",
-                    "description": "Project Family is a vanilla survival Minecraft server in the newest Java Edition which brought together a large number of people. Latest version: the 1.20, 'Trails and Tales' update."
+                    "date": "April 2021 - present",
+                    "description": "Project Family is a modded survival Minecraft server with its own launcher on the latest version, Minecraft 1.21, featuring a large and active community."
                 },
 
                 "nexus": {
@@ -300,13 +297,13 @@
 
                 "stranger-hide": {
                     "title": "Stranger Hide",
-                    "date": "2021 - present",
+                    "date": "2021 - 2024",
                     "description": "Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
                 },
 
                 "playze-family-bot": {
                     "title": "Playze Family Bot",
-                    "date": "2020 - present",
+                    "date": "2020 - 2025",
                     "description": "Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
                 },
 
@@ -439,5 +436,21 @@
         },
 
         "back_to_top": "Back to top"
+    },
+
+    "tags": {
+        "founder": "Founder",
+        "lead-developer": "Lead Developer",
+        "volunteering": "Volunteering",
+        "internship": "Internship",
+        "unige": "University of Geneva"
+    },
+
+     "team": {
+        "founders": "Founder(s)",
+        "thanks": "Thank(s)",
+        "collaborators": "Collaborator(s)",
+        "supervisors": "Supervisor(s)",
+        "clients": "Client(s)"
     }
 }

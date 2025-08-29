@@ -1,9 +1,10 @@
 import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare, faBook, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function retrieveIconByName(name: string) {
     switch(name.toLowerCase()) {
+        case "documentation": return faBook;
         case "github": return faGithub;
         case "discord": return faDiscord;
         case "homepage": return faLink;

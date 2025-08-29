@@ -13,6 +13,7 @@ function retrieveLanguageByName(name: string): string {
         case "css": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg";
         case "sass": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg";
         case "redis": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original-wordmark.svg";
+        case "php": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg";
         
         // Frameworks
         case "mysql": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg";
@@ -30,6 +31,7 @@ function retrieveLanguageByName(name: string): string {
         case "jenkins": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg";
         case "bash": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg";
         case "powershell": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg";
+        case "docker": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg";
 
         default: return "";
     }

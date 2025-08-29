@@ -55,6 +55,12 @@
     h6 {
         @apply text-xs;
     }
+
+    .tag {
+        &[data-status="unige"] {
+            background-color: #D6005A;
+        }
+    }
 }
 
 @layer utilities {

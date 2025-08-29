@@ -1,3 +1,5 @@
+import exp from "constants";
+import Team, { Collaborators } from "../_components/utils/Collaborators";
 import { ExternalURL } from "../_components/utils/ExternalLink";
 import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
 import HyperLinks from "../_components/utils/ui/HyperLink";
@@ -11,26 +13,31 @@ export type AbstractExperience = {
     links?: ExternalURL[],
     tags?: string[],
     languages?: string[],
-    tasks?: string[]
+    tasks?: string[],
+    team?: Collaborators[]
 }
 
-export function Experience({ image, links, tags, languages, tasks, title, date, description }: { title: string, date: string, description: string } & AbstractExperience) {
+export function Experience({ image, links, tags, team, languages, tasks, title, date, description }: { title: string, date: string, description: string } & AbstractExperience) {
     return (
         <Card orientation={Orientation.VERTICAL}>
             <CardImage src={image} alt={title} className="w-full h-[200px]" border="rounded-t-2xl"/>
 
             <CardContainer orientation={Orientation.VERTICAL}>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-10">
                     <div className="flex flex-col">
                         <h3>{title}</h3>
                         <span>{date}</span>
                     </div>
 
-                    {links && <HyperLinks links={links} />}
+                    {links && 
+                        <div className="block min-w-fit">
+                            <HyperLinks links={links} />
+                        </div>
+                    }
                 </div>
 
                 {(tags || languages) &&
-                    <div className="flex flex-row">
+                    <div className="flex flex-col gap-4">
                         {tags && <Tags tags={tags} />}
                         {languages && <Languages languages={languages} />}
                     </div>
@@ -45,6 +52,8 @@ export function Experience({ image, links, tags, languages, tasks, title, date, 
                         {tasks.map(task => (<li key={task}>{task}</li>))}
                     </ul>
                 }
+
+                { team && <Team team={team} />}
             </CardContainer>
         </Card>
     )
@@ -61,7 +70,8 @@ export default function Experiences({ t, experiences } : { t: any, experiences: 
                         {...experience}
                         key={experience.key}
 
-                        tags={experience.tags?.map(tag => t(`tags.${tag}`))}
+                        tags={experience.tags}
+                        team={experience.team}
                         
                         tasks={experience.tasks?.map(task => t(`${experience_path}.tasks.${task}`))}
 

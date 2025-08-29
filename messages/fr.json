@@ -216,11 +216,6 @@
             "title": "Expériences Professionnelles",
             "description": "Au cours de ma carrière, j'ai pu collaborer avec des équipes diverses et développer des solutions innovantes qui ont soutenu le succès opérationnel.",
 
-            "tags": {
-                "volunteering": "Bénévolat",
-                "internship": "Stage"
-            },
-
             "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
@@ -252,6 +247,18 @@
             "title": "Expériences Acádémiques",
             "description": "Cette section met en avant mes réalisations et expériences académiques, incluant les cours suivis, les projets de recherche et ma participation à des projets académiques.",
             "contents": {
+                "redcap-swisscom-module": {
+                    "title": "Développement d'un module REDCap pour les Hôpitaux Universitaires de Genève",
+                    "date": "Février 2025 - Mai 2025",
+                    "description": "Dans le cadre d’un projet de semestre, j’ai pu participé au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception.",
+                    "tasks": {
+                        "1": "Approfondir mes compétences en PHP, Docker et dans l’écosystème REDCap",
+                        "2": "Développer ma rigueur dans la lecture et l’analyse de documentation technique",
+                        "3": "Contribuer à la conception d’une solution respectant des contraintes institutionnelles et fonctionnelles réelles",
+                        "4": "Collaborer efficacement avec une équipe et interagir avec différents intervenants du projet"
+                    }
+                },
+
                 "swerc2024": {
                     "title": "SWERC 2024",
                     "date": "30 nov & 1 déc 2024",
@@ -273,22 +280,11 @@
             "title": "Projets",
             "description": "Liste de tous les projets auxquels j'ai participé.",
             
-            "tags": {
-                "founder": "Fondateur",
-                "lead-developer": "Développeur principal"
-            },
-
-            "team": {
-                "founders": "Fondateurs",
-                "thanks": "Remerciements",
-                "collaborators": "Collaborateurs"
-            },
-
             "contents": {
                 "project-family": {
                     "title": "Project Family",
-                    "date": "2022 - présent",
-                    "description": "Project Family est un serveur Minecraft survival vanilla dans la toute dernière version Java, qui a réuni un grand nombre de personnes. Dernière version : la 1.20, mise à jour 'Trails and Tales'."
+                    "date": "Avril 2021 - présent",
+                    "description": "Project Family est un serveur Minecraft survie moddée sous Lanceur dans la toute dernière version Minecraft 1.21, avec une grande communauté active."
                 },
 
                 "nexus": {
@@ -299,13 +295,13 @@
 
                 "stranger-hide": {
                     "title": "Stranger Hide",
-                    "date": "2021 - présent",
+                    "date": "2021 - 2024",
                     "description": "Stranger Hide est un serveur cache-cache sur le thème de la série Stranger Things."
                 },
 
                 "playze-family-bot": {
                     "title": "Playze Family Bot",
-                    "date": "2020 - présent",
+                    "date": "2020 - 2025",
                     "description": "Playze Family est un bot Discord avec une multitude de fonctionnalités telles que l'ajout d'un système d'XP et de niveaux avec un classement en discutant ou en interagissant avec les autres membres du serveur, la création de concours Giveaways, l'édition possible du meilleur grade obtenable gratuitement sur le serveur : le Grade Custom, le choix des notifications que vous souhaitez recevoir, l'ajout de l'API GPT Chat (si vous lui parlez, il vous répondra), etc."
                 },
 
@@ -438,5 +434,21 @@
         },
 
         "back_to_top": "Revenir en haut"
+    },
+
+    "tags": {
+        "founder": "Fondateur",
+        "lead-developer": "Développeur principal",
+        "volunteering": "Bénévolat",
+        "internship": "Stage",
+        "unige": "Université de Genève"
+    },
+
+    "team": {
+        "founders": "Fondateur(s)",
+        "thanks": "Remerciement(s)",
+        "collaborators": "Collaborateur(s)",
+        "supervisors": "Superviseur(s)",
+        "clients": "Client(es)"
     }
 }
