@@ -154,13 +154,13 @@
                 },
 
                 "stael": {
-                    "title": "Lycée : Madame de Staël",
-                    "description": "Diplôme du Baccalauréat général et scientifique.",
+                    "title": "Baccaulauréat général et technologique : Lycée Madame de Staël",
+                    "description": "Spécialité Mathématiques & Physique-Chimie.",
                     "date": "2020 - 2023"
                 },
 
                 "jjr": {
-                    "title": "Collège : Jean-Jacques Rousseau",
+                    "title": "Brevet : Collège Jean-Jacques Rousseau",
                     "description": "Diplôme du Brevet des collèges.",
                     "date": "2016 - 2020"
                 }
@@ -249,7 +249,7 @@
             "contents": {
                 "redcap-swisscom-module": {
                     "title": "Développement d'un module REDCap pour les Hôpitaux Universitaires de Genève",
-                    "date": "Février 2025 - Mai 2025",
+                    "date": "fév. 2025 - mai 2025",
                     "description": "Dans le cadre d’un projet de semestre, j’ai pu participé au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception.",
                     "tasks": {
                         "1": "Approfondir mes compétences en PHP, Docker et dans l’écosystème REDCap",

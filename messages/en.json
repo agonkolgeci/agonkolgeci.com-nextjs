@@ -154,13 +154,13 @@
                 },
 
                 "stael": { 
-                    "title": "High School: Madame de Staël",
-                    "description": "High School Diploma general and sciences.",
+                    "title": "General and Technological Baccalaureate: Madame de Staël High School",
+                    "description": "Specialization in Mathematics & Physics-Chemistry.",
                     "date": "2020 - 2023"
                 },
 
                 "jjr": { 
-                    "title": "Middle School: Jean Jacques Rousseau",
+                    "title": "Certificate: Jean Jacques Rousseau Middle School",
                     "description": "General Certifate of secondary education.",
                     "date": "2016 - 2020"
                 }
@@ -250,7 +250,7 @@
             "contents": {
                 "redcap-swisscom-module": {
                     "title": "Development of a REDCap Module for the Geneva University Hospitals",
-                    "date": "February 2025 - May 2025",
+                    "date": "feb. 2025 - may 2025",
                     "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts.",
                     "tasks": {
                         "1": "Deepen my skills in PHP, Docker, and the REDCap ecosystem",
