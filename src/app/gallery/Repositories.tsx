@@ -12,7 +12,6 @@ import { Card, CardContainer, Cards } from "../_components/utils/ui/Card";
 import HyperLinks from "../_components/utils/ui/HyperLink";
 import Languages from "../_components/utils/ui/Language";
 import { Animation, Orientation } from "../_components/utils/ui/Render";
-import Tags from "../_components/utils/ui/Tag";
 import Topics from "../_components/utils/ui/Topic";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 

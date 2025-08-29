@@ -61,7 +61,7 @@ export function Experience({ image, links, tags, team, languages, tasks, title, 
 
 export default function Experiences({ t, experiences } : { t: any, experiences: AbstractExperience[] }) {
     return (
-        <Cards className="grid-cols-[repeat(auto-fit,minmax(0,500px))]">
+        <Cards className="grid-cols-[repeat(auto-fit,minmax(0,475px))]">
             {experiences.map(experience => {
                 const experience_path = (`contents.${experience.key}`);
 

@@ -28,17 +28,15 @@ export default function Teams({ team }: { team?: Team[] }): React.ReactNode {
                         <ul className="flex flex-row flex-wrap gap-2">
                             <p>{t(team.role, {count: team.members.length})}:</p>
 
-                            <li className="flex flex-[inherit] gap-1">
-                                {team.members.map((author, i) => {
-                                    return (
-                                        <div key={author.name}>
-                                            <Link key={author.name} href={author.href} target="_blank" className="underline">{author.name}</Link>
+                            {team.members.map((author, i) => {
+                                return (
+                                    <li key={author.name}>
+                                        <Link key={author.name} href={author.href} target="_blank" className="underline">{author.name}</Link>
 
-                                            {i < team.members.length - 1 && ','}
-                                        </div>
-                                    )
-                                })}
-                            </li>
+                                        {i < team.members.length - 1 && ','}
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </li>
                 )
