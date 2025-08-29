@@ -317,6 +317,11 @@
             "title": "Dépôts",
             "description": "Liste de tout mon code source disponible à tous, principalement sur GitHub.",
 
+            "properties": {
+                "stars": "{count, plural, one {star} other {stars}}",
+                "forks": "{count, plural, one {fork} other {forks}}"
+            },
+
             "view_archives": {
                 "show": "Voir les Archives",
                 "hide": "Masquer les Archives",
@@ -445,10 +450,10 @@
     },
 
     "team": {
-        "founders": "Fondateur(s)",
-        "thanks": "Remerciement(s)",
-        "collaborators": "Collaborateur(s)",
-        "supervisors": "Superviseur(s)",
-        "clients": "Client(es)"
+        "founders": "{count, plural, one {Fondateur} other {Fondateurs}}",
+        "thanks": "{count, plural, one {Remerciement} other {Remerciements}}",
+        "collaborators": "{count, plural, one {Collaborateur} other {Collaborateurs}}",
+        "supervisors": "{count, plural, one {Superviseur} other {Superviseurs}}",
+        "clients": "{count, plural, one {Client·e} other {Client·e·s}}"
     }
 }

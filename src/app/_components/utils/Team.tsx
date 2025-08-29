@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ExternalURL } from "./ExternalLink";
 import { useTranslations } from "next-intl";
 
-export const AGON_KOLGECI: ExternalURL = { name: "Agon KOLGECI", href: "https://agonkolgeci.com/" };
+export const AGON_KOLGECI: ExternalURL = { name: "Agon KOLGECI", href: "https://www.linkedin.com/in/agon-kolgeci-193aa2266/" };
 export const FABIEN_GRAYSSAGUEL: ExternalURL = { name: "Fabien GRAYSSAGUEL", href: "https://playze.org/"};
 export const LEO_RIVIERES: ExternalURL = { name: "Léo RIVIERES", href: "https://www.linkedin.com/in/l%C3%A9o-rivieres-743489245/"};
 export const ANTOINE_MAENDLY: ExternalURL = { name: "Antoine Maendly", href: "https://www.linkedin.com/in/antoine-maendly-1069b6327/" };
@@ -12,12 +12,12 @@ export const DELPHINE_COURVOISIER: ExternalURL = { name: "Delphine Courvoisier",
 export const JEAN_LUC_FALCONE: ExternalURL = { name: "Jean-Luc-Falcone", href: "https://spc.unige.ch/en/info/group-members/jean-luc-falcone/" }
 export const CHRISTOPHE_CHARPILLOZ: ExternalURL = { name: "Christophe Charpilloz", href: "https://www.linkedin.com/in/christophe-charpilloz-9010692/?originalSubdomain=ch" }
 
-export type Collaborators = {
+export type Team = {
     role: string,
     members: ExternalURL[]
 }
 
-export default function Team({ team }: { team?: Collaborators[] }): React.ReactNode {
+export default function Teams({ team }: { team?: Team[] }): React.ReactNode {
     const t = useTranslations("team");
 
     return (
@@ -26,12 +26,16 @@ export default function Team({ team }: { team?: Collaborators[] }): React.ReactN
                 return (
                     <li key={team.role}>
                         <ul className="flex flex-row flex-wrap gap-2">
-                            <p>{t(team.role)}:</p>
+                            <p>{t(team.role, {count: team.members.length})}:</p>
 
-                            <li className="flex flex-[inherit] gap-[inherit]">
-                                {team.members.map(author => {
+                            <li className="flex flex-[inherit] gap-1">
+                                {team.members.map((author, i) => {
                                     return (
-                                        <Link key={author.name} href={author.href} target="_blank" className="underline">{author.name}</Link>
+                                        <div key={author.name}>
+                                            <Link key={author.name} href={author.href} target="_blank" className="underline">{author.name}</Link>
+
+                                            {i < team.members.length - 1 && ','}
+                                        </div>
                                     )
                                 })}
                             </li>

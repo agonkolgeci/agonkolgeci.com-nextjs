@@ -14,7 +14,7 @@ export default function Tags({ tags }: { tags?: string[] }): React.ReactNode {
             {tags?.map(tag => {
                 return (
                     <li key={tag} className="flex flex-col items-center justify-center bg-primary text-white px-4 py-1 rounded-full tag" data-status={tag}>
-                        <Tag name={t(tag)}/>
+                        <Tag name={t(tag)} />
                     </li>
                 )
             })}

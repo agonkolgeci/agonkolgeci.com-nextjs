@@ -3,7 +3,7 @@ import Link from "next/link";
 import Copyright from "../_components/Copyright";
 import Article from "../_components/pages/Article";
 import Section from "../_components/pages/Section";
-import { AGON_KOLGECI } from "../_components/utils/Collaborators";
+import { AGON_KOLGECI } from "../_components/utils/Team";
 import ExternalLink, { CONTACT_URL } from "../_components/utils/ExternalLink";
 import { getPageMetadata, MetadataProps } from "../metadata";
 import { AbstractContent, useContents } from "./TermsContents";

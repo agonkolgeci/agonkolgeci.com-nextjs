@@ -319,6 +319,11 @@
             "title": "Repositories",
             "description": "List of all my source code available to everyone mainly on GitHub.",
 
+            "properties": {
+                "stars": "{count, plural, one {star} other {stars}}",
+                "forks": "{count, plural, one {fork} other {forks}}"
+            },
+
             "view_archives": {
                 "show": "View Archives",
                 "hide": "Hide Archives",
@@ -447,10 +452,10 @@
     },
 
      "team": {
-        "founders": "Founder(s)",
-        "thanks": "Thank(s)",
-        "collaborators": "Collaborator(s)",
-        "supervisors": "Supervisor(s)",
-        "clients": "Client(s)"
+        "founders": "{count, plural, one {Founder} other {Founders}}",
+        "thanks": "{count, plural, one {Acknowledgment} other {Acknowledgments}}",
+        "collaborators": "{count, plural, one {Collaborator} other {Collaborators}}",
+        "supervisors": "{count, plural, one {Supervisor} other {Supervisors}}",
+        "clients": "{count, plural, one {Client} other {Clients}}"
     }
 }

@@ -11,6 +11,7 @@ export type Repository = {
     topics: string[],
 
     stargazers_count: number,
+    forks_count: number,
 
     fork: boolean,
     archived: boolean,

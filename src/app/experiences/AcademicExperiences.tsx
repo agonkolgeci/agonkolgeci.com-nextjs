@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Section from "../_components/pages/Section";
 import Experiences, { AbstractExperience } from "./Experiences";
-import { ALEXANDRE_RIEDO, ANTOINE_MAENDLY, CHRISTOPHE_CHARPILLOZ, DELPHINE_COURVOISIER, ELIE_BUSSOD, JEAN_LUC_FALCONE } from "../_components/utils/Collaborators";
+import { ALEXANDRE_RIEDO, ANTOINE_MAENDLY, CHRISTOPHE_CHARPILLOZ, DELPHINE_COURVOISIER, ELIE_BUSSOD, JEAN_LUC_FALCONE } from "../_components/utils/Team";
 
 export function useAcademicExperiences(): AbstractExperience[] {
     return [

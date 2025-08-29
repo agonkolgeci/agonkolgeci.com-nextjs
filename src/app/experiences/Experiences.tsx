@@ -1,5 +1,5 @@
 import exp from "constants";
-import Team, { Collaborators } from "../_components/utils/Collaborators";
+import Teams, { Team } from "../_components/utils/Team";
 import { ExternalURL } from "../_components/utils/ExternalLink";
 import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/Card";
 import HyperLinks from "../_components/utils/ui/HyperLink";
@@ -14,7 +14,7 @@ export type AbstractExperience = {
     tags?: string[],
     languages?: string[],
     tasks?: string[],
-    team?: Collaborators[]
+    team?: Team[]
 }
 
 export function Experience({ image, links, tags, team, languages, tasks, title, date, description }: { title: string, date: string, description: string } & AbstractExperience) {
@@ -53,7 +53,7 @@ export function Experience({ image, links, tags, team, languages, tasks, title, 
                     </ul>
                 }
 
-                { team && <Team team={team} />}
+                { team && <Teams team={team} />}
             </CardContainer>
         </Card>
     )
@@ -61,7 +61,7 @@ export function Experience({ image, links, tags, team, languages, tasks, title, 
 
 export default function Experiences({ t, experiences } : { t: any, experiences: AbstractExperience[] }) {
     return (
-        <Cards className="grid-cols-[repeat(auto-fit,minmax(0,450px))] max-w-screen-2xl">
+        <Cards className="grid-cols-[repeat(auto-fit,minmax(0,500px))]">
             {experiences.map(experience => {
                 const experience_path = (`contents.${experience.key}`);
 

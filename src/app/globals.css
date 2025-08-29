@@ -57,8 +57,30 @@
     }
 
     .tag {
+        @apply bg-primary;
+
         &[data-status="unige"] {
             background-color: #D6005A;
+        }
+
+        &[data-status="volunteering"] {
+            @apply bg-blue-500;
+        }
+
+        &[data-status="internship"] {
+            @apply bg-blue-500;
+        }
+    }
+
+    .repo {
+        .property {
+            &[data-status="stars"] {
+                @apply text-yellow-500;
+            }
+
+            &[data-status="forks"] {
+                @apply text-gray-700;
+            }
         }
     }
 }
