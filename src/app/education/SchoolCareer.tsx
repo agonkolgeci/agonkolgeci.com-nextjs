@@ -45,7 +45,7 @@ export default function SchoolCareer() {
 
     return (
         <Section title={t("title")} description={t("description")} position={0}>
-            <ul className="flex flex-col gap-16 relative border-s border-primary max-w-screen-md">
+            <ul className="flex flex-col gap-16 relative border-s border-primary max-w-3-xl">
                 {schools.map(school => {
                     const school_path = (`schools.${school.key}`);
 
