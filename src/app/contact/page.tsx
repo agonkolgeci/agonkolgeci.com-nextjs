@@ -12,7 +12,7 @@ export default function Contact() {
 
     return (
         <Article title={t("title")} description={t("description")}>
-            <ContactForm target_mail={String(process.env["CONTACT_TARGET_MAIL"])} recaptchaKey={String(process.env["GOOGLE_RECAPTCHA_PUBLIC_KEY"])} />
+            <ContactForm target_mail={String(process.env["CONTACT_TARGET_MAIL"])} recaptchaKey={String(process.env["CLOUDFLARE_TURNSTILE_SITE_KEY"])} />
         </Article>
     );
 }

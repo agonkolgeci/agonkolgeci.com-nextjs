@@ -6,6 +6,7 @@ import { Card, CardContainer, CardImage, Cards } from "../_components/utils/ui/C
 import HyperLinks from "../_components/utils/ui/HyperLink";
 import { Orientation } from "../_components/utils/ui/Render";
 import Tags from "../_components/utils/ui/Tag";
+import { faDiscord, faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export type AbstractProject = {
     key: string,
@@ -21,7 +22,7 @@ export function useProjects(): AbstractProject[] {
             key: "project-family",
             image: "/gallery/project-family.webp",
             links: [
-                { name: "website", href: "https://playze.org/project-family/" }
+                { name: "Website", href: "https://playze.org/project-family/" }
             ],
             tags: [ "lead-developer" ],
             team: [
@@ -33,7 +34,7 @@ export function useProjects(): AbstractProject[] {
             key: "nexus",
             image: "/gallery/nexus.webp",
             links: [
-                { name: "github", href: "https://github.com/agonkolgeci/Nexus" }
+                { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci/Nexus" }
             ],
             tags: [ "founder", "lead-developer" ],
             team: [
@@ -45,7 +46,7 @@ export function useProjects(): AbstractProject[] {
             key: "stranger-hide",
             image: "/gallery/strangerhide.webp",
             links: [
-                { name: "github", href: "https://github.com/StrangerHide/" }
+                { name: "GitHub", icon: faGithub, href: "https://github.com/StrangerHide/" }
             ],
             tags: [ "lead-developer" ],
             team: [
@@ -57,7 +58,7 @@ export function useProjects(): AbstractProject[] {
             key: "playze-family-bot",
             image: "/gallery/playze-family-bot.webp",
             links: [
-                { name: "Discord", href: "https://discord.com/application-directory/1112083786130280488" }
+                { name: "Discord", icon: faDiscord, href: "https://discord.com/application-directory/1112083786130280488" }
             ],
             tags: [ "lead-developer" ],
             team: [
@@ -69,7 +70,7 @@ export function useProjects(): AbstractProject[] {
             key: "berkasia",
             image: "/gallery/berkasia.webp",
             links: [
-                { name: "GitHub", href: "https://github.com/Berkasia/" }
+                { name: "GitHub", icon: faGithub, href: "https://github.com/Berkasia/" }
             ],
             tags: [ "founder", "lead-developer" ]
         }
@@ -111,7 +112,7 @@ export default function Projects() {
 
     return (
         <Section title={t("title")} description={t("description")} position={0}>
-            <Cards className="grid-cols-1 max-w-screen-xl">
+            <Cards className="grid-cols-1 max-w-7-xl">
                 {projects.map(project => {
                     const project_path = (`contents.${project.key}`);
 

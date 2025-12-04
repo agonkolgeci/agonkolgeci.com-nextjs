@@ -1,5 +1,6 @@
 "use client";
 
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
 
@@ -7,6 +8,7 @@ export const CONTACT_URL: ExternalURL = { name: "contact@agonkolgeci.com", href:
 
 export type ExternalURL = {
     name: string,
+    icon?: IconDefinition,
     href: string
 }
 

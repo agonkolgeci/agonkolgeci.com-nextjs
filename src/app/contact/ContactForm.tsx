@@ -3,12 +3,12 @@
 import { Locale } from "@/i18n/locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import Section from "../_components/pages/Section";
 import { sendEmail } from "../_components/utils/api/mailer";
 import Alert, { AlertType } from "../_components/utils/ui/Alert";
 import { Button } from "../_components/utils/ui/Button";
 import Form, { Input, Textarea } from "../_components/utils/ui/Form";
+import Turnstile, { useTurnstile } from "react-turnstile";
 
 export type FormData = {
     name: string,
@@ -27,16 +27,16 @@ export type AbstractInput = {
     type: string
 }
 
+export type AbstractTextarea = {
+    key: string
+}
+
 export function useInputs(): AbstractInput[] {
     return [
         { key: "name", type: "text" },
         { key: "email", type: "email" },
         { key: "subject", type: "text" }
     ]
-}
-
-export type AbstractTextarea = {
-    key: string
 }
 
 export function useTextareas(): AbstractTextarea[] {
@@ -54,10 +54,9 @@ export default function ContactForm({ target_mail, recaptchaKey } : { target_mai
 
     const [pending, setPending] = useState(false);
     const [sent, setSent] = useState(false);
-
     const [status, setStatus] = useState<FormStatus>();
 
-    const [captcha, setCaptcha] = useState<string | null>();
+    const turnstile = useTurnstile();
 
     const handleSubmit = async(event: any) => {
         event.preventDefault();
@@ -75,7 +74,7 @@ export default function ContactForm({ target_mail, recaptchaKey } : { target_mai
             return;
         }
 
-        if(!captcha) {
+        if(!turnstile) {
             setStatus({type: AlertType.ERROR, message: t("alerts.recaptcha_invalid") });
 
             return;
@@ -145,17 +144,17 @@ export default function ContactForm({ target_mail, recaptchaKey } : { target_mai
                             />
                         )
                     })}
+    
+                    {!sent && <Turnstile sitekey={recaptchaKey} refreshExpired="auto" language={currentLocale} theme="light" fixedSize />}
+                    {status && <Alert type={status.type} message={status.message} />}
 
-                    {!sent ? <ReCAPTCHA sitekey={recaptchaKey} onChange={setCaptcha} hl={currentLocale} /> : null}
-                    {status ? <Alert type={status.type} message={status.message} /> : null}
-
-                    {!sent ? (
+                    {!sent && (
                         <div className="flex">
                             <Button type="submit" disabled={pending || sent}>
                                 <p>{t("submit")}</p>
                             </Button>
                         </div>
-                    ): null}
+                    )}
                 </Form>
             </div>
         </Section>

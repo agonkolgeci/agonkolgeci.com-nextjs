@@ -7,9 +7,11 @@ import { cookies } from 'next/headers';
 const COOKIE_NAME = 'agonkolgeci_locale';
 
 export async function getUserLocale() {
-  return cookies().get(COOKIE_NAME)?.value || getDefaultLocale();
+  const cookieStore = await cookies();
+  return cookieStore.get(COOKIE_NAME)?.value || getDefaultLocale();
 }
 
 export async function setUserLocale(locale: Locale) {
-  cookies().set(COOKIE_NAME, locale);
+  const cookieStore = await cookies();
+  cookieStore.set(COOKIE_NAME, locale);
 }

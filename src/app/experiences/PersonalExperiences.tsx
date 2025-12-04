@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Section from "../_components/pages/Section";
 import Experiences, { AbstractExperience } from "./Experiences";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export function usePersonalExperiences(): AbstractExperience[] {
     return [
@@ -8,7 +9,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
             key: "web",
             image: "/experiences/web.webp",
             links: [
-                { name: "GitHub", href: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" },
+                { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" },
                 { name: "V1", href: "https://v1.agonkolgeci.com/" }
             ],
             languages: ["React", "NextJS", "Tailwind CSS", "Sass", "TypeScript"],
@@ -19,7 +20,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
             key: "discord",
             image: "/experiences/discord.webp",  
             links: [
-                { name: "GitHub", href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=javascript" }
+                { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=javascript" }
             ],
             languages: ["Java", "JavaScript"],
             tasks: ["1", "2", "3"]
@@ -29,7 +30,7 @@ export function usePersonalExperiences(): AbstractExperience[] {
             key: "minecraft",
             image: "/experiences/minecraft.webp",
             links: [
-                { name: "GitHub", href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=java" }
+                { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci?tab=repositories&q=&type=source&language=java" }
             ],
             languages: ["Java", "Redis", "MySQL", "Linux", "Bash"],
             tasks: ["1", "2", "3"]

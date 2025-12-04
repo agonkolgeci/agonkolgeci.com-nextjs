@@ -1,108 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
     --navbar-height: 50px;
 }
 
-@layer components {
-    html {
-        scroll-behavior: smooth;
-    }
-
-    * {
-        @apply font-primary;
+@theme {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
     
-        scroll-margin-top: var(--navbar-height);
-    }
+    --color-primary: #152238;
+    --color-secondary: #192841;
+    --color-tertiary: #1c2e4a;
+    --color-quaternary: #203354;
+    --color-quinary: #23395d;
     
-    p, label, input, textarea, li {
-        @apply font-secondary;
+    --background-image-image-primary: url('/background.webp');
+    --background-image-gradient-primary: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(121,157,255,1) 50%, rgba(66,90,175,1) 100%);
+    
+    --animate-infinite-scroll: infinite-scroll 20s linear infinite;
+    --animate-bg-spiral-in: spiral-in 2s backwards;
+}
+
+@keyframes spiral-in {
+    0% {
+        background-size: 200%;
     }
-
-    span {
-        @apply text-gray-500 font-medium;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-bold;
-    }
-
-    h1 {
-        @apply text-2xl;
-    }
-
-    h2 {
-        @apply text-xl;
-    }
-
-    h3 {
-        @apply text-lg;
-    }
-
-    h4 {
-        @apply text-base;
-    }
-
-    h5 {
-        @apply text-sm;
-    }
-
-    h6 {
-        @apply text-xs;
-    }
-
-    .tag {
-        @apply bg-primary;
-
-        &[data-status="unige"] {
-            background-color: #D6005A;
-        }
-
-        &[data-status="volunteering"] {
-            @apply bg-blue-500;
-        }
-
-        &[data-status="internship"] {
-            @apply bg-blue-500;
-        }
-    }
-
-    .repo {
-        .property {
-            &[data-status="stars"] {
-                @apply text-yellow-500;
-            }
-
-            &[data-status="forks"] {
-                @apply text-gray-700;
-            }
-        }
+    100% {
+        background-size: 100%;
     }
 }
 
-@layer utilities {
-    @keyframes spiral-in {
-        0% {
-            background-size: 200%;
-        }
-        
-        100% {
-            background-size: 100%;
-        }
+@keyframes infinite-scroll {
+    from { 
+        transform: translateX(0);
     }
-    
-    @keyframes infinite-scroll {
-        from { 
-            transform: translateX(0)
-        }
+    to { 
+        transform: translateX(-100%);
+    }
+}
 
-        to { 
-            transform: translateX(-100%)
-        }
-    }
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    @apply font-primary;
+    scroll-margin-top: var(--navbar-height);
+}
+
+p, label, input, textarea, li {
+    @apply font-secondary;
+}
+
+span {
+    @apply text-gray-500 font-medium;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+}
+
+h1 {
+    @apply text-2xl;
+}
+
+h2 {
+    @apply text-xl;
+}
+
+h3 {
+    @apply text-lg;
+}
+
+h4 {
+    @apply text-base;
+}
+
+h5 {
+    @apply text-sm;
+}
+
+h6 {
+    @apply text-xs;
+}
+
+.tag {
+    @apply bg-primary;
+}
+
+.tag[data-status="unige"] {
+    background-color: #D6005A;
+}
+
+.tag[data-status="volunteering"],
+.tag[data-status="internship"] {
+    @apply bg-blue-500;
+}
+
+.repo .property[data-status="stars"] {
+    @apply text-yellow-500;
+}
+
+.repo .property[data-status="forks"] {
+    @apply text-gray-700;
 }

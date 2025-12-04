@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image"
-import { Button, ButtonStyle } from "./_components/utils/ui/Button";
 
 export default function NotFound() {
   const t = useTranslations("errors.404");

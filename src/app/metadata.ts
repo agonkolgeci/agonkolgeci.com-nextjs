@@ -13,7 +13,8 @@ export type PageMetadataProps = {
 } & MetadataProps
 
 export async function getPageTranslations(metadata: PageMetadataProps) {
-  return await getTranslations({ locale: metadata.params?.locale || getDefaultLocale(), namespace: metadata.namespace });
+  const locale = await Promise.resolve(metadata.params?.locale || getDefaultLocale());
+  return await getTranslations({ locale, namespace: metadata.namespace });
 }
 
 export async function getPageMetadata(metadata: PageMetadataProps): Promise<Metadata> {
