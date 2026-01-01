@@ -40,7 +40,7 @@ export default function NavMenu() {
             <div className="flex lg:hidden flex-row">
                 <FontAwesomeIcon className="hover:cursor-pointer size-6" icon={opened ? faClose : faBars} onClick={toggleMenu} />
 
-                { opened && (<ul className="flex lg:hidden flex-col absolute top-full right-0 w-full h-max p-10 gap-8 text-xl font-semibold border-t-[1px] border-t-white bg-primary overflow-y-auto">
+                { opened && (<ul className="flex lg:hidden flex-col absolute top-full right-0 w-full h-max p-10 gap-8 text-xl font-semibold border-t border-t-white bg-primary overflow-y-auto">
                     <NavLinks/>
                 </ul>) }
             </div>

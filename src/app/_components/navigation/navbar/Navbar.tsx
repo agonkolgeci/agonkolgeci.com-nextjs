@@ -4,7 +4,7 @@ import NavLogo from "./logo/NavLogo";
 
 export default function Navbar() {
     return (
-        <nav className={`flex flex-row flex-wrap items-center justify-between h-[var(--navbar-height)] max-w-screen-2xl mx-auto px-10 md:order-2`}>
+        <nav className={`flex flex-row flex-wrap items-center justify-between h-(--navbar-height) max-w-screen-2xl mx-auto px-10 md:order-2`}>
             <div className="flex items-center w-24 h-full relative">
                 <NavLogo />
             </div>
