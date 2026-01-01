@@ -38,15 +38,15 @@ export default function Home() {
 
     return (
         <div className="w-full bg-secondary">
-            <div className="bg-image-primary bg-cover bg-center">
-                <div className="flex flex-col items-center justify-center gap-2 max-w-5-lg h-screen mx-auto px-10 text-center">
+            <div className="bg-[url('/background.webp')] bg-cover bg-center">
+                <div className="flex flex-col items-center justify-center gap-2 max-w-5xl h-screen mx-auto px-10 text-center">
                     <h1 className="bg-gradient-primary bg-clip-text text-transparent text-6xl leading-normal">{t("title")}</h1>
                     <p className="text-4xl text-shadow">{t("description")}</p>
                 </div>
             </div>
 
             <Section title={t("about.title")} description={t("about.description")} position={0}>
-                <div className="flex flex-col lg:flex-row items-center gap-16 max-w-7-xl">
+                <div className="flex flex-col lg:flex-row items-center gap-16 max-w-7xl">
                     <div className="flex">
                         <figure className="block bg-gradient-primary w-[300px] h-[300px] relative rounded-2xl mt-4 ml-4">
                             <Image className="object-cover object-center -translate-x-4 -translate-y-4 rounded-2xl" src="/home/portrait.webp" fill={true} alt="Portrait" />
@@ -64,7 +64,7 @@ export default function Home() {
             </Section>
 
             <Section title={t("discover.title")} description={t("discover.description")} position={1}>
-                <div className="grid grid-cols-1 justify-center w-full gap-32 max-w-7-xl">
+                <div className="grid grid-cols-1 justify-center w-full gap-32 max-w-7xl">
                     <Discover orientation={Orientation.HORIZONTAL} 
                         image="/home/knowledge.webp"
                         title={t("discover.knowledge.title")}

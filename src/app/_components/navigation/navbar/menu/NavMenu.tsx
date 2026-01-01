@@ -22,7 +22,7 @@ export default function NavMenu() {
             useMenu().map(link => {
                 return (
                     <li key={link.name} onClick={closeMenu}>
-                        <Link href={link.href} className={pathname === link.href ? "border-white border-b-2 pb-[2px]" : "hover:underline"}>{link.name}</Link>
+                        <Link href={link.href} className={pathname === link.href ? "border-white border-b-2 pb-0.5" : "hover:underline"}>{link.name}</Link>
                     </li>
                 )
             })

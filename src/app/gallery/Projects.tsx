@@ -112,7 +112,7 @@ export default function Projects() {
 
     return (
         <Section title={t("title")} description={t("description")} position={0}>
-            <Cards className="grid-cols-1 max-w-7-xl">
+            <Cards className="grid-cols-1 max-w-7xl">
                 {projects.map(project => {
                     const project_path = (`contents.${project.key}`);
 

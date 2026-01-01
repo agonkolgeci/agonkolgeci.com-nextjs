@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Montserrat, Poppins } from "next/font/google";
 
 import "./globals.css";
 
@@ -10,17 +11,31 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { MetadataProps, getPageTranslations } from "./metadata";
 
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap'
+});
+
+export const isDev = process.env.NODE_ENV === 'development';
+
 export const viewport: Viewport = {
   themeColor: "#152238",
 }
 
 export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
   const t = await getPageTranslations({ namespace: "global", params });
+  const devPrefix = isDev ? "[DEV]" : ""
 
   return {
     title: {
-      default: t("title"),
-      template: `${t("title")} — %s`
+      default: `${devPrefix} ${t("title")}`,
+      template: `${devPrefix} ${t("title")} — %s`
     },
     description: t("description"),
 
