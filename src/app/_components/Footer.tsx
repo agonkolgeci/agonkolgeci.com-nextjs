@@ -7,7 +7,6 @@ import { useResources } from "./utils/links/resources";
 
 import { useTranslations } from "next-intl";
 import Copyright from "./Copyright";
-import Location from "./Location";
 import ExternalLink, { ExternalURL } from "./utils/ExternalLink";
 
 export default function Footer() {
@@ -61,9 +60,9 @@ export default function Footer() {
                             <Bracket links={useResources()} blank={true} />
                         </Brackets>
 
-                        <Brackets title={t("location")}>
+                        {/* <Brackets title={t("location")}>
                             <Location/>
-                        </Brackets>
+                        </Brackets> */}
                     </div>
                 </div>
             </div>
