@@ -2,44 +2,60 @@
 
 @theme {
     /* Fonts */
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Poppins', sans-serif;
-    
-    /* Colors */
-    --color-primary: #152238;
-    --color-secondary: #192841;
-    --color-tertiary: #1c2e4a;
-    --color-quaternary: #203354;
-    --color-quinary: #23395d;
+    --font-primary: var(--font-space-grotesk, 'Space Grotesk'), sans-serif;
+    --font-secondary: var(--font-inter, 'Inter'), sans-serif;
 
-    /* Background Images */
-    --background-image-gradient-primary: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(121,157,255,1) 50%, rgba(66,90,175,1) 100%);
-    
+    /* Colors — Obsidian Dark */
+    --color-primary: #09090b;
+    --color-secondary: #0f0f11;
+    --color-tertiary: #141416;
+    --color-quaternary: #18181b;
+    --color-quinary: #1c1c1f;
+
+    /* Gradients */
+    --background-image-gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+
     /* Animations */
     --animation-infinite-scroll: infinite-scroll 20s linear infinite;
     --animation-spiral-in: spiral-in 2s backwards;
+    --animation-spin-slow: spin-slow 20s linear infinite;
+    --animation-float: float 6s ease-in-out infinite;
+    --animation-glow-pulse: glow-pulse 3s ease-in-out infinite;
+    --animation-wave: wave 1.5s ease-in-out infinite;
 }
 
 :root {
-    --navbar-height: 50px;
+    --navbar-height: 60px;
 }
 
 @keyframes spiral-in {
-    0% {
-        background-size: 200%;
-    }
-    100% {
-        background-size: 100%;
-    }
+    0% { background-size: 200%; }
+    100% { background-size: 100%; }
 }
 
 @keyframes infinite-scroll {
-    from { 
-        transform: translateX(0);
-    }
-    to { 
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(0.4); }
+    50% { transform: scaleY(1); }
 }
 
 @layer components {
@@ -49,71 +65,68 @@
 
     * {
         @apply font-primary;
-    
         scroll-margin-top: var(--navbar-height);
     }
-    
+
     p, label, input, textarea, li {
         @apply font-secondary;
     }
 
     span {
-        @apply text-gray-500 font-medium;
+        @apply text-white/50 font-medium;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        @apply font-bold;
+        @apply font-bold text-white;
     }
 
-    h1 {
-        @apply text-2xl;
-    }
-
-    h2 {
-        @apply text-xl;
-    }
-
-    h3 {
-        @apply text-lg;
-    }
-
-    h4 {
-        @apply text-base;
-    }
-
-    h5 {
-        @apply text-sm;
-    }
-
-    h6 {
-        @apply text-xs;
-    }
+    h1 { @apply text-2xl; }
+    h2 { @apply text-xl; }
+    h3 { @apply text-lg; }
+    h4 { @apply text-base; }
+    h5 { @apply text-sm; }
+    h6 { @apply text-xs; }
 
     .tag {
-        @apply bg-primary;
+        @apply bg-white/10 text-white/70 border border-white/15;
 
         &[data-status="unige"] {
-            background-color: #D6005A;
+            background-color: rgba(214, 0, 90, 0.15);
+            border-color: rgba(214, 0, 90, 0.3);
+            color: #f472b6;
         }
 
         &[data-status="volunteering"] {
-            @apply bg-blue-500;
+            @apply bg-blue-500/15 border-blue-500/30 text-blue-400;
         }
 
         &[data-status="internship"] {
-            @apply bg-blue-500;
+            @apply bg-blue-500/15 border-blue-500/30 text-blue-400;
         }
     }
 
     .repo {
         .property {
             &[data-status="stars"] {
-                @apply text-yellow-500;
+                @apply text-yellow-400;
             }
 
             &[data-status="forks"] {
-                @apply text-gray-700;
+                @apply text-white/40;
             }
         }
+    }
+
+    .bento-card {
+        @apply relative rounded-3xl border border-white/[0.08] bg-neutral-900/60 backdrop-blur-xl overflow-hidden;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
     }
 }

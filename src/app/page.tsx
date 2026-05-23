@@ -1,102 +1,89 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Link from "next/link";
-import SocialsLinks from "./_components/navigation/socials/SocialsLinks";
-import Section from "./_components/pages/Section";
-import { ExternalURL } from "./_components/utils/ExternalLink";
-import { Button } from "./_components/utils/ui/Button";
-import { Card, CardContainer, CardImage } from "./_components/utils/ui/Card";
-import { Justify, Orientation } from "./_components/utils/ui/Render";
+import ClockWidget from "./_components/bento/ClockWidget";
+import ContactWidget from "./_components/bento/ContactWidget";
+import DiscoverWidget from "./_components/bento/DiscoverWidget";
+import GitHubWidget from "./_components/bento/GitHubWidget";
+import MusicWidget from "./_components/bento/MusicWidget";
+import ProfileCard from "./_components/bento/ProfileCard";
+import ProjectsWidget from "./_components/bento/ProjectsWidget";
+import StackWidget from "./_components/bento/StackWidget";
+import TimelineWidget from "./_components/bento/TimelineWidget";
 
 export default function Home() {
-    const t = useTranslations("home");
-
-    const Discover = ({ image, title, description, buttons, orientation } : { image: string, title: string, description: string, buttons?: ExternalURL[], orientation: Orientation }) => {
-        return (
-            <Card orientation={orientation}>
-                <CardImage src={image} alt={title} className="w-full h-[200px] lg:w-[500px] lg:h-[300px]" border="rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none" />
-
-                <CardContainer justify={Justify.BETWEEN}>
-                    <div className="flex flex-col gap-4">
-                        <h2>{title}</h2>
-                        <p>{description}</p>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-                        {buttons?.map(button => {
-                            return (
-                                <Link key={button.name} href={button.href}>
-                                    <Button>{button.name}</Button>
-                                </Link>
-                            )
-                        })}
-                    </div>
-                </CardContainer>
-            </Card>
-        )
-    }
-
     return (
-        <div className="w-full bg-secondary">
-            <div className="bg-[url('/background.webp')] bg-cover bg-center">
-                <div className="flex flex-col items-center justify-center gap-2 max-w-5xl h-screen mx-auto px-10 text-center">
-                    <h1 className="bg-gradient-primary bg-clip-text text-transparent text-6xl leading-normal">{t("title")}</h1>
-                    <p className="text-4xl text-shadow">{t("description")}</p>
-                </div>
+        <div className="min-h-screen relative">
+            {/* Ambient background glows */}
+            <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+                <div
+                    className="absolute top-1/4 left-[15%] w-[600px] h-[600px] rounded-full"
+                    style={{
+                        background: "radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)",
+                    }}
+                />
+                <div
+                    className="absolute bottom-1/3 right-[10%] w-[500px] h-[500px] rounded-full"
+                    style={{
+                        background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)",
+                    }}
+                />
+                <div
+                    className="absolute top-[65%] left-[40%] w-[400px] h-[400px] rounded-full"
+                    style={{
+                        background: "radial-gradient(circle, rgba(34,197,94,0.04) 0%, transparent 70%)",
+                    }}
+                />
             </div>
 
-            <Section title={t("about.title")} description={t("about.description")} position={0}>
-                <div className="flex flex-col lg:flex-row items-center gap-16 max-w-7xl">
-                    <div className="flex">
-                        <figure className="block bg-gradient-primary w-[300px] h-[300px] relative rounded-2xl mt-4 ml-4">
-                            <Image className="object-cover object-center -translate-x-4 -translate-y-4 rounded-2xl" src="/home/portrait.webp" fill={true} alt="Portrait" />
-                        </figure>
+            {/* Bento Grid */}
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[195px] gap-4">
+
+                    {/* Profile — 2×2 */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[380px] lg:min-h-0">
+                        <ProfileCard />
                     </div>
 
-                    <div className="flex flex-col gap-8">
-                        <div className="flex flex-col gap-6 text-lg">
-                            {t("about.presentation").split(/(?<=\.|\?|\!)\s+/).map(text => <p key={text}>{text}</p>)}
-                        </div>
-
-                        <SocialsLinks className="flex flex-row gap-8 text-5xl text-primary" />
+                    {/* Clock — 1×1 */}
+                    <div className="col-span-1 min-h-[180px] lg:min-h-0">
+                        <ClockWidget />
                     </div>
+
+                    {/* Music — 1×1 */}
+                    <div className="col-span-1 min-h-[180px] lg:min-h-0">
+                        <MusicWidget />
+                    </div>
+
+                    {/* Stack Lab — 2×1 */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-2 min-h-[180px] lg:min-h-0">
+                        <StackWidget />
+                    </div>
+
+                    {/* GitHub — 2×1 */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-2 min-h-[190px] lg:min-h-0">
+                        <GitHubWidget />
+                    </div>
+
+                    {/* Projects — 2×1 */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-2 min-h-[220px] lg:min-h-0">
+                        <ProjectsWidget />
+                    </div>
+
+                    {/* Timeline — 4×1 */}
+                    <div className="col-span-1 md:col-span-2 lg:col-span-4 min-h-[200px] lg:min-h-0">
+                        <TimelineWidget />
+                    </div>
+
+                    {/* Contact — 2×1 */}
+                    <div className="col-span-1 md:col-span-1 lg:col-span-2 min-h-[220px] lg:min-h-0">
+                        <ContactWidget />
+                    </div>
+
+                    {/* Discover — 2×1 */}
+                    <div className="col-span-1 md:col-span-1 lg:col-span-2 min-h-[220px] lg:min-h-0">
+                        <DiscoverWidget />
+                    </div>
+
                 </div>
-            </Section>
-
-            <Section title={t("discover.title")} description={t("discover.description")} position={1}>
-                <div className="grid grid-cols-1 justify-center w-full gap-32 max-w-7xl">
-                    <Discover orientation={Orientation.HORIZONTAL} 
-                        image="/home/knowledge.webp"
-                        title={t("discover.knowledge.title")}
-                        description={t("discover.knowledge.description")}
-                        buttons={[
-                            { name: t("discover.knowledge.go_to_skills"), href: "/skills" },
-                            { name: t("discover.knowledge.go_to_education"), href: "/education" }
-                        ]}
-                    />
-
-                    <Discover orientation={Orientation.HORIZONTAL} 
-                        image="/home/career.webp"
-                        title={t("discover.career.title")}
-                        description={t("discover.career.description")}
-                        buttons={[
-                            { name: t("discover.career.go_to_experiences"), href: "/experiences" }
-                        ]}
-                    />
-
-                    <Discover orientation={Orientation.HORIZONTAL} 
-                        image="/home/creations.webp"
-                        title={t("discover.creations.title")}
-                        description={t("discover.creations.description")}
-                        buttons={[
-                            { name: t("discover.creations.go_to_gallery"), href: "/gallery" }
-                        ]}
-                    />
-                </div>
-            </Section>
-
-            {/* <Section title="Testimonials" description="" position={2}>
-            </Section> */}
+            </div>
         </div>
     );
 }

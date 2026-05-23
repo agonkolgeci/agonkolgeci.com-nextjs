@@ -86,6 +86,112 @@
                 "description": "Explorez une collection de mes projets personnels et œuvres créatives. Du design au développement, cette galerie présente ma passion pour la création et l'innovation.",
                 "go_to_gallery": "Voir mes réalisations"
             }
+        },
+
+        "bento": {
+            "profile": {
+                "status": "Disponible à Genève 🇨🇭",
+                "role": "Développeur Logiciel & Étudiant en Informatique",
+                "tagline": "Constructeur d'expériences numériques.",
+                "cta": "Me contacter"
+            },
+
+            "clock": {
+                "title": "Genève, Suisse"
+            },
+
+            "music": {
+                "now_playing": "Bande-son du code",
+                "track": "Mode Concentration",
+                "artist": "Focus Flow",
+                "play": "Lecture",
+                "pause": "Pause"
+            },
+
+            "stack": {
+                "title": "Stack Lab",
+                "description": "Technologies que j'utilise au quotidien"
+            },
+
+            "github": {
+                "title": "Activité GitHub",
+                "description": "Graphique de contributions"
+            },
+
+            "projects": {
+                "label": "Projets phares",
+                "title": "Réalisations sélectionnées",
+                "view_all": "Tout voir",
+                "nexus": {
+                    "title": "Nexus",
+                    "description": "Serveur Minecraft de mini-jeux — toutes mes créations réunies"
+                },
+                "stranger_hide": {
+                    "title": "Stranger Hide",
+                    "description": "Serveur cache-cache sur le thème de Stranger Things"
+                },
+                "project_family": {
+                    "title": "Project Family",
+                    "description": "Serveur Minecraft survie moddée avec une grande communauté"
+                }
+            },
+
+            "timeline": {
+                "label": "Mon Parcours",
+                "title": "Chemin Académique & Professionnel",
+                "items": {
+                    "jjr": {
+                        "title": "JJ Rousseau",
+                        "subtitle": "Brevet des Collèges",
+                        "date": "2016"
+                    },
+                    "stael": {
+                        "title": "Mme de Staël",
+                        "subtitle": "Baccalauréat Scientifique",
+                        "date": "2020"
+                    },
+                    "world_heberg": {
+                        "title": "World-Heberg",
+                        "subtitle": "Chef Modération & Dev",
+                        "date": "2020"
+                    },
+                    "unige": {
+                        "title": "Univ. de Genève",
+                        "subtitle": "Bachelor Informatique",
+                        "date": "2023"
+                    },
+                    "swerc": {
+                        "title": "SWERC 2024",
+                        "subtitle": "Concours ICPC Régional",
+                        "date": "2024"
+                    },
+                    "redcap": {
+                        "title": "REDCap / HUG",
+                        "subtitle": "Projet de Semestre",
+                        "date": "2025"
+                    }
+                }
+            },
+
+            "contact": {
+                "label": "Ouvert aux opportunités",
+                "title": "Restons en Contact",
+                "cta_email": "Envoyer un e-mail",
+                "cta_linkedin": "LinkedIn",
+                "cta_github": "GitHub",
+                "cta_form": "Ouvrir le formulaire de contact"
+            },
+
+            "discover": {
+                "label": "Explorer",
+                "title": "Découvrir Plus",
+                "links": {
+                    "knowledge": "Compétences & Formation",
+                    "education": "Parcours Académique",
+                    "career": "Expériences",
+                    "gallery": "Galerie de Projets"
+                }
+            }
         }
     },
 

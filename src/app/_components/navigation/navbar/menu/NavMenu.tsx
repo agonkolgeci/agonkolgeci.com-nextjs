@@ -14,35 +14,50 @@ export default function NavMenu() {
 
     const [opened, setOpened] = useState(false);
 
-    const toggleMenu = useCallback(() => setOpened(curr => !curr), []);
+    const toggleMenu = useCallback(() => setOpened((curr) => !curr), []);
     const closeMenu = useCallback(() => setOpened(false), []);
 
-    const NavLinks = () => {
-        return (
-            useMenu().map(link => {
-                return (
-                    <li key={link.name} onClick={closeMenu}>
-                        <Link href={link.href} className={pathname === link.href ? "border-white border-b-2 pb-0.5" : "hover:underline"}>{link.name}</Link>
-                    </li>
-                )
-            })
-        )
-    }
+    const NavLinks = () =>
+        useMenu().map((link) => (
+            <li key={link.name} onClick={closeMenu}>
+                <Link
+                    href={link.href}
+                    className={
+                        pathname === link.href
+                            ? "text-white font-semibold border-b border-white/40 pb-0.5"
+                            : "text-white/50 font-medium hover:text-white/90 transition-colors duration-200"
+                    }
+                >
+                    {link.name}
+                </Link>
+            </li>
+        ));
 
     return (
         <div className="flex flex-row">
-            {/* DESKTOP VIEW */}
-            <ul className="hidden lg:flex flex-row font-semibold gap-8">
-                <NavLinks/>
+            {/* Desktop */}
+            <ul className="hidden lg:flex flex-row gap-8 text-sm">
+                <NavLinks />
             </ul>
 
-            {/* TABLET VIEW */}
+            {/* Mobile */}
             <div className="flex lg:hidden flex-row">
-                <FontAwesomeIcon className="hover:cursor-pointer size-6" icon={opened ? faClose : faBars} onClick={toggleMenu} />
+                <button
+                    onClick={toggleMenu}
+                    className="text-white/50 hover:text-white transition-colors"
+                    aria-label="Toggle menu"
+                >
+                    <FontAwesomeIcon className="size-5" icon={opened ? faClose : faBars} />
+                </button>
 
-                { opened && (<ul className="flex lg:hidden flex-col absolute top-full right-0 w-full h-max p-10 gap-8 text-xl font-semibold border-t border-t-white bg-primary overflow-y-auto">
-                    <NavLinks/>
-                </ul>) }
+                {opened && (
+                    <ul
+                        className="flex lg:hidden flex-col absolute top-full right-0 w-full p-8 gap-6 text-lg font-medium border-t border-white/[0.06]"
+                        style={{ background: "rgba(9,9,11,0.96)", backdropFilter: "blur(20px)" }}
+                    >
+                        <NavLinks />
+                    </ul>
+                )}
             </div>
         </div>
     );

@@ -86,6 +86,112 @@
                 "description": "Explore a collection of my personal projects and creative works. From design to development, this gallery showcases my passion for creation and innovation.",
                 "go_to_gallery": "Go to Gallery"
             }
+        },
+
+        "bento": {
+            "profile": {
+                "status": "Available in Geneva 🇨🇭",
+                "role": "Software Developer & CS Student",
+                "tagline": "Builder of digital experiences.",
+                "cta": "Get in touch"
+            },
+
+            "clock": {
+                "title": "Geneva, Switzerland"
+            },
+
+            "music": {
+                "now_playing": "Code Soundtrack",
+                "track": "Deep Work Mode",
+                "artist": "Focus Flow",
+                "play": "Play",
+                "pause": "Pause"
+            },
+
+            "stack": {
+                "title": "Stack Lab",
+                "description": "Technologies I work with daily"
+            },
+
+            "github": {
+                "title": "GitHub Activity",
+                "description": "Contribution canvas"
+            },
+
+            "projects": {
+                "label": "Featured Projects",
+                "title": "Selected Works",
+                "view_all": "View all",
+                "nexus": {
+                    "title": "Nexus",
+                    "description": "Minecraft mini-games server — all my creations in one place"
+                },
+                "stranger_hide": {
+                    "title": "Stranger Hide",
+                    "description": "Hide-and-seek server themed around Stranger Things"
+                },
+                "project_family": {
+                    "title": "Project Family",
+                    "description": "Modded survival Minecraft server with a large community"
+                }
+            },
+
+            "timeline": {
+                "label": "My Journey",
+                "title": "Academic & Professional Path",
+                "items": {
+                    "jjr": {
+                        "title": "JJ Rousseau",
+                        "subtitle": "Secondary Certificate",
+                        "date": "2016"
+                    },
+                    "stael": {
+                        "title": "Mme de Staël",
+                        "subtitle": "Scientific Baccalaureate",
+                        "date": "2020"
+                    },
+                    "world_heberg": {
+                        "title": "World-Heberg",
+                        "subtitle": "Moderation Lead & Dev",
+                        "date": "2020"
+                    },
+                    "unige": {
+                        "title": "Univ. of Geneva",
+                        "subtitle": "BSc Computer Science",
+                        "date": "2023"
+                    },
+                    "swerc": {
+                        "title": "SWERC 2024",
+                        "subtitle": "ICPC Regional Contest",
+                        "date": "2024"
+                    },
+                    "redcap": {
+                        "title": "REDCap / HUG",
+                        "subtitle": "Semester Project",
+                        "date": "2025"
+                    }
+                }
+            },
+
+            "contact": {
+                "label": "Open to opportunities",
+                "title": "Let's Connect",
+                "cta_email": "Send an email",
+                "cta_linkedin": "LinkedIn",
+                "cta_github": "GitHub",
+                "cta_form": "Open contact form"
+            },
+
+            "discover": {
+                "label": "Explore",
+                "title": "Discover More",
+                "links": {
+                    "knowledge": "Skills & Education",
+                    "education": "Academic Path",
+                    "career": "Experiences",
+                    "gallery": "Projects Gallery"
+                }
+            }
         }
     },
 
