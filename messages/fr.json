@@ -12,7 +12,8 @@
     },
 
     "legal": {
-        "terms": "Mentions légales"
+        "terms": "Mentions légales",
+        "privacy": "Politique de confidentialité"
     },
 
     "navigation": {
@@ -56,6 +57,7 @@
     "home": {
         "title": "Agon KOLGECI",
         "description": "Développeur en logiciels",
+        "quote": "Je conçois et développe des expériences numériques de nouvelle génération. En alliant une ingénierie rigoureuse à une esthétique épurée, je donne vie aux idées.",
 
         "about": {
             "title": "À propos de moi",
@@ -432,8 +434,63 @@
             "copyright": {
                 "title": "Avis de Droit d'auteur",
                 "texts": {
-                    "1": "Tout le contenu de ce site, y compris le texte, les images et le code, est la propriété intellectuelle de <author></author>, sauf indication contraire. Toute utilisation, reproduction ou distribution non autorisée d'une partie de ce site sans autorisation écrite expresse est interdite.",
-                    "2": "<copyright></copyright>"
+                    "1": "Tout le contenu de ce site, y compris le texte, les images et le code, est la propriété intellectuelle de <author></author>, sauf indication contraire. Toute utilisation, reproduction ou distribution non autorisée d'une partie de ce site sans autorisation écrite expresse est interdite."
+                }
+            }
+        },
+
+        "back_to_top": "Revenir en haut"
+    },
+
+    "privacy": {
+        "title": "Politique de confidentialité",
+        "description": "Dernière mise à jour : 28 septembre 2024",
+
+        "summary": {
+            "title": "Table des matières",
+            "description": "Accès rapide aux différentes sections."
+        },
+
+        "contents": {
+            "general": {
+                "title": "Introduction",
+                "texts": {
+                    "1": "Cette politique de confidentialité décrit comment <author></author> traite vos données lorsque vous visitez ce site portfolio. Nous nous engageons à protéger votre vie privée et à veiller à ce que vos informations personnelles soient traitées de manière sûre et responsable."
+                }
+            },
+
+            "data-collection": {
+                "title": "Collecte de données",
+                "texts": {
+                    "1": "Ce site web ne collecte aucune donnée personnelle automatiquement, à l'exception de métriques analytiques anonymes standards qui n'identifient pas les individus. Les seules informations personnelles collectées sont celles que vous soumettez volontairement via le formulaire de contact (telles que votre nom, adresse e-mail et le contenu de votre message)."
+                }
+            },
+
+            "data-usage": {
+                "title": "Utilisation des informations",
+                "texts": {
+                    "1": "Toutes les informations recueillies via le formulaire de contact sont uniquement utilisées pour répondre à vos demandes et communiquer directement avec vous. Nous ne vendrons, n'échangerons ni ne distribuerons jamais vos informations personnelles à des tiers."
+                }
+            },
+
+            "hosting": {
+                "title": "Hébergement et fichiers journaux",
+                "texts": {
+                    "1": "Ce site web est hébergé sur Vercel. Comme la plupart des plateformes d'hébergement, Vercel collecte automatiquement des informations de journal de serveur, qui peuvent inclure votre adresse IP, le type de navigateur, les pages de référence et l'horodatage. Ces données sont purement utilisées à des fins de sécurité système, d'optimisation des performances et de diagnostic."
+                }
+            },
+
+            "rights": {
+                "title": "Vos droits",
+                "texts": {
+                    "1": "Vous avez le droit de demander l'accès aux messages que vous nous avez envoyés, ou de nous demander de supprimer vos données personnelles (telles que les e-mails ou les messages envoyés via le formulaire) à tout moment. Contactez-nous simplement pour demander la suppression des données."
+                }
+            },
+
+            "contact": {
+                "title": "Informations de contact",
+                "texts": {
+                    "1": "Si vous avez des questions concernant cette politique de confidentialité ou si vous souhaitez demander la suppression de vos messages, veuillez contacter <author></author> à <contact></contact>."
                 }
             }
         },

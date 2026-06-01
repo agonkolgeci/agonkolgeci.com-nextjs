@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+    /* Fonts */
+    --font-primary: var(--font-syne), sans-serif;
+    --font-secondary: var(--font-poppins), sans-serif;
+    
+    /* Colors */
+    --color-primary: #000000;
+    --color-secondary: #080808;
+    --color-tertiary: #111111;
+    --color-quaternary: #1a1a1a;
+    --color-quinary: #252525;
+    --color-accent-blue: #4ea8ff;
+    --color-accent-teal: #62e2d5;
+
+    /* Background Images */
+    --background-image-gradient-primary: linear-gradient(90deg, #4ea8ff 0%, #62e2d5 100%);
+    
+    /* Animations */
+    --animation-infinite-scroll: infinite-scroll 20s linear infinite;
+    --animation-spiral-in: spiral-in 2s backwards;
+}
+
+:root {
+    --navbar-height: 70px;
+}
+
+body {
+    position: relative;
+    background-color: #000000;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: #151515;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4ea8ff;
+}
+
+/* Glowing Neon Borders */
+.glow-card-blue {
+    border: 1px solid rgba(78, 168, 255, 0.08);
+    box-shadow: 0 0 30px rgba(78, 168, 255, 0.01);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-card-blue:hover {
+    border-color: rgba(78, 168, 255, 0.4);
+    box-shadow: 0 0 40px rgba(78, 168, 255, 0.05);
+}
+
+.glow-card-teal {
+    border: 1px solid rgba(98, 226, 213, 0.08);
+    box-shadow: 0 0 30px rgba(98, 226, 213, 0.01);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-card-teal:hover {
+    border-color: rgba(98, 226, 213, 0.4);
+    box-shadow: 0 0 40px rgba(98, 226, 213, 0.05);
+}
+
+@layer components {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    * {
+        @apply font-primary;
+    
+        scroll-margin-top: var(--navbar-height);
+    }
+    
+    p, label, input, textarea, li {
+        @apply font-secondary;
+    }
+
+    span {
+        @apply text-gray-500 font-medium;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold;
+    }
+
+    h1 {
+        @apply text-2xl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+
+    h4 {
+        @apply text-base;
+    }
+
+    h5 {
+        @apply text-sm;
+    }
+
+    h6 {
+        @apply text-xs;
+    }
+
+    .tag {
+        @apply bg-primary;
+
+        &[data-status="unige"] {
+            background-color: #D6005A;
+        }
+
+        &[data-status="volunteering"] {
+            @apply bg-blue-500;
+        }
+
+        &[data-status="internship"] {
+            @apply bg-blue-500;
+        }
+    }
+
+    .repo {
+        .property {
+            &[data-status="stars"] {
+                @apply text-yellow-500;
+            }
+
+            &[data-status="forks"] {
+                @apply text-gray-700;
+            }
+        }
+    }
+}

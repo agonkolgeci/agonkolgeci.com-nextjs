@@ -12,7 +12,8 @@
     },
 
     "legal": {
-        "terms": "Terms of Service"
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy"
     },
 
     "navigation": {
@@ -56,6 +57,7 @@
     "home": {
         "title": "Agon KOLGECI",
         "description": "Software Developer",
+        "quote": "I design and build next-generation digital experiences. By combining clean engineering with refined design aesthetics, I shape ideas into reality.",
 
         "about": {
             "title": "About Me",
@@ -434,8 +436,63 @@
             "copyright": {
                 "title": "Copyright Notice",
                 "texts": {
-                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited.",
-                    "2": "<copyright></copyright>"
+                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited."
+                }
+            }
+        },
+
+        "back_to_top": "Back to top"
+    },
+
+    "privacy": {
+        "title": "Privacy Policy",
+        "description": "Latest Updated: September 28, 2024",
+
+        "summary": {
+            "title": "Table of contents",
+            "description": "Quick access to the sections."
+        },
+
+        "contents": {
+            "general": {
+                "title": "Introduction",
+                "texts": {
+                    "1": "This Privacy Policy describes how <author></author> handles your data when you visit this portfolio website. We are committed to protecting your privacy and ensuring your personal information is handled in a safe and responsible manner."
+                }
+            },
+
+            "data-collection": {
+                "title": "Information Collection",
+                "texts": {
+                    "1": "This website does not collect any personal data automatically, except for standard anonymous analytical metrics that do not identify individuals. The only personal information we collect is the details you voluntarily submit via the contact form (such as your name, email address, and message content)."
+                }
+            },
+
+            "data-usage": {
+                "title": "Use of Information",
+                "texts": {
+                    "1": "Any information collected through the contact form is solely used to respond to your inquiries and communicate directly with you. We will never sell, trade, or distribute your personal information to third parties."
+                }
+            },
+
+            "hosting": {
+                "title": "Hosting and Log Files",
+                "texts": {
+                    "1": "This website is hosted on Vercel. Like most hosting platforms, Vercel automatically collects server log information, which may include your IP address, browser type, referring pages, and timestamp. This data is purely used for system security, performance tuning, and diagnostics."
+                }
+            },
+
+            "rights": {
+                "title": "Your Rights",
+                "texts": {
+                    "1": "You have the right to request access to the messages you sent us, or ask us to delete your personal data (such as emails or messages sent through the form) at any time. Simply contact us to request data removal."
+                }
+            },
+
+            "contact": {
+                "title": "Contact Information",
+                "texts": {
+                    "1": "If you have any questions about this Privacy Policy or wishes to request removal of your messages, please contact <author></author> at <contact></contact>."
                 }
             }
         },
