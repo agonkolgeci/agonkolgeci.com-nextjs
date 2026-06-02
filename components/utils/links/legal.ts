@@ -5,7 +5,7 @@ export function useLegal(): ExternalURL[] {
     const t = useTranslations("legal");
 
     return [
-        { name: t("terms"), href: "/legal/terms" },
-        { name: t("privacy"), href: "/legal/privacy" }
+        { name: t("terms"), href: "/terms" },
+        { name: t("privacy"), href: "/privacy-policy" }
     ]
 }

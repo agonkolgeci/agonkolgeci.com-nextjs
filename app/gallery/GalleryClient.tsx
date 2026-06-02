@@ -76,6 +76,7 @@ export default function GalleryClient() {
     const t_projects = useTranslations("gallery.projects");
     const t_repos = useTranslations("gallery.repositories");
     const t_team = useTranslations("team");
+    const t_tags = useTranslations("tags");
 
     const [repositories, setRepositories] = useState<Repository[]>([]);
     const [showArchives, setShowArchives] = useState(false);
@@ -144,13 +145,13 @@ export default function GalleryClient() {
                     <div className="flex justify-between items-start gap-4">
                         <div className="flex items-center gap-2">
                             <FontAwesomeIcon icon={faFolderOpen} className={`size-4 ${isArchived ? 'text-accent-teal' : 'text-accent-blue'}`} />
-                            <Link href={repo.html_url} target="_blank" className="font-primary text-base font-bold text-white hover:text-accent-blue hover:underline transition-colors leading-tight">
+                            <Link href={repo.html_url} target="_blank" className="font-primary text-base font-bold text-white hover:text-accent-blue hover:underline transition-colors leading-tight cursor-pointer">
                                 {repo.name}
                             </Link>
                         </div>
                         
                         {repo.homepage && (
-                            <Link href={repo.homepage} target="_blank" className="text-gray-400 hover:text-white transition-colors shrink-0">
+                            <Link href={repo.homepage} target="_blank" className="text-gray-400 hover:text-white transition-colors shrink-0 cursor-pointer">
                                 <FontAwesomeIcon icon={faExternalLinkAlt} className="size-3.5" />
                             </Link>
                         )}
@@ -196,15 +197,15 @@ export default function GalleryClient() {
                     
                     {isArchived ? (
                         <span className="bg-accent-teal/10 border border-accent-teal/30 text-accent-teal px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            Archived
+                            {t("status.archived")}
                         </span>
                     ) : repo.is_template ? (
                         <span className="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            Template
+                            {t("status.template")}
                         </span>
                     ) : (
                         <span className="bg-white/5 border border-white/10 text-gray-400 px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            Active
+                            {t("status.active")}
                         </span>
                     )}
                 </div>
@@ -213,13 +214,13 @@ export default function GalleryClient() {
     };
 
     return (
-        <Article title={t("title")} description={t("description")}>
+        <Article title={t("title")} description={t("description")} pill={t("title")}>
             <div className="w-full py-10 max-w-7xl mx-auto px-8 flex flex-col gap-24">
                 
                 {/* PART 1: PREMIUM ZOOM CARD PROJECTS SECTION */}
                 <div className="flex flex-col gap-8 w-full mt-4">
                     <div className="flex flex-col gap-2 text-center lg:text-left select-none">
-                        <span className="text-[10px] uppercase tracking-widest text-accent-blue font-extrabold font-secondary">Featured Works</span>
+                        <span className="text-[10px] uppercase tracking-widest text-accent-blue font-extrabold font-secondary">{t("featured_works")}</span>
                         <h2 className="font-primary text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1">{t_projects("title")}</h2>
                         <p className="font-secondary text-sm md:text-base text-gray-400 mt-2">{t_projects("description")}</p>
                     </div>
@@ -277,7 +278,7 @@ export default function GalleryClient() {
                                                                 key={i} 
                                                                 href={link.href} 
                                                                 target="_blank" 
-                                                                className="bg-secondary/80 border border-white/8 hover:border-accent-blue/40 text-gray-300 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5"
+                                                                className="bg-secondary/80 border border-white/8 hover:border-accent-blue/40 text-gray-300 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5 cursor-pointer"
                                                             >
                                                                 {link.icon && <FontAwesomeIcon icon={link.icon} className="size-3" />}
                                                                 {link.name}
@@ -292,7 +293,7 @@ export default function GalleryClient() {
                                                 <div className="flex flex-wrap gap-2">
                                                     {project.tags.map((tag: string) => (
                                                         <span key={tag} className="bg-accent-teal/10 border border-accent-teal/30 text-accent-teal px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-extrabold font-secondary">
-                                                            {tag === 'lead-developer' ? 'Lead Developer' : 'Founder'}
+                                                            {t_tags(tag)}
                                                         </span>
                                                     ))}
                                                 </div>
@@ -309,7 +310,7 @@ export default function GalleryClient() {
                                             <div className="flex flex-col gap-2 border-t border-white/5 pt-6 mt-2">
                                                 <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary flex items-center gap-1.5 select-none">
                                                     <FontAwesomeIcon icon={faUsers} className="size-3" />
-                                                    Teammates
+                                                    {t("teammates")}
                                                 </span>
                                                 <div className="flex flex-wrap gap-x-4 gap-y-2 select-none">
                                                     {project.team.map((group: any) => (
@@ -345,7 +346,7 @@ export default function GalleryClient() {
                     {/* Header Row */}
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 select-none">
                         <div className="flex flex-col gap-2 text-center md:text-left">
-                            <span className="text-[10px] uppercase tracking-widest text-accent-teal font-extrabold font-secondary">Open Source</span>
+                            <span className="text-[10px] uppercase tracking-widest text-accent-teal font-extrabold font-secondary">{t("open_source")}</span>
                             <h2 className="font-primary text-3xl font-extrabold text-white tracking-tight mt-1">{t_repos("title")}</h2>
                             <p className="font-secondary text-sm text-gray-400 mt-2 max-w-xl">{t_repos("description")}</p>
                         </div>
@@ -359,7 +360,7 @@ export default function GalleryClient() {
                                 <button
                                     key={lang}
                                     onClick={() => setSelectedLanguage(lang)}
-                                    className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border ${isSelected ? 'bg-accent-blue/10 border-accent-blue text-accent-blue shadow-[0_0_12px_rgba(204,255,0,0.15)]' : 'bg-secondary/40 border-white/5 text-gray-400 hover:text-white hover:border-white/20'}`}
+                                    className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border cursor-pointer ${isSelected ? 'bg-accent-blue/10 border-accent-blue text-accent-blue shadow-[0_0_12px_rgba(204,255,0,0.15)]' : 'bg-secondary/40 border-white/5 text-gray-400 hover:text-white hover:border-white/20'}`}
                                 >
                                     {lang}
                                 </button>
@@ -381,8 +382,8 @@ export default function GalleryClient() {
                     {activeRepos.length === 0 && (
                         <div className="w-full text-center py-16 bg-secondary/10 border border-white/5 rounded-3xl select-none">
                             <FontAwesomeIcon icon={faFilter} className="size-8 text-gray-600 mb-4 animate-bounce" />
-                            <h3 className="font-primary text-lg font-bold text-white uppercase tracking-wider">No Repositories Found</h3>
-                            <p className="font-secondary text-sm text-gray-500 mt-1 max-w-sm mx-auto">Try selecting a different programming language.</p>
+                            <h3 className="font-primary text-lg font-bold text-white uppercase tracking-wider">{t("no_repos")}</h3>
+                            <p className="font-secondary text-sm text-gray-500 mt-1 max-w-sm mx-auto">{t("no_repos_desc")}</p>
                         </div>
                     )}
 

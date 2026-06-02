@@ -7,7 +7,7 @@ export function retrieveLanguageByName(name: string): string {
         case "javascript": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg";
         case "typescript": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
         case "python": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg";
-        case "c": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg";
+        case "c": return "https://skillicons.dev/icons?i=c";
         case "c++": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg";
         case "html": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg";
         case "css": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg";
@@ -32,6 +32,13 @@ export function retrieveLanguageByName(name: string): string {
         case "bash": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg";
         case "powershell": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg";
         case "docker": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg";
+        case "vscode": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg";
+        case "intellij idea": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg";
+        case "maven": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg";
+        case "gradle": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original.svg";
+        case "cloudflare": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg";
+        case "postman": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg";
+        case "stackoverflow": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stackoverflow/stackoverflow-original.svg";
 
         default: return "";
     }

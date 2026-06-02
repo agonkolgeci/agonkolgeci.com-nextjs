@@ -24,7 +24,7 @@ function Bracket({ links, blank }: { links: ExternalURL[], blank?: boolean }) {
             {links.map(link => {
                 return (
                     <li key={link.name} className="py-0.5">
-                        <ExternalLink url={link} colored={false} blank={blank} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 font-medium" />
+                        <ExternalLink url={link} colored={false} blank={blank} className="text-sm text-gray-400 hover:text-white transition-colors duration-300 font-medium cursor-pointer" />
                     </li>
                 )
             })}

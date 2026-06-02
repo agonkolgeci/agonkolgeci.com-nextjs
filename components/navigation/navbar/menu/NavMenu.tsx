@@ -3,7 +3,7 @@
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Link from "next/link";
@@ -16,9 +16,67 @@ export default function NavMenu() {
     const pathname = usePathname();
     const links = useMenu();
     const [opened, setOpened] = useState(false);
+    const [activeHash, setActiveHash] = useState("#home");
 
     const toggleMenu = useCallback(() => setOpened(curr => !curr), []);
     const closeMenu = useCallback(() => setOpened(false), []);
+
+    // IntersectionObserver to highlight active sections on scroll
+    useEffect(() => {
+        if (pathname !== "/") return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -40% 0px", // Trigger when section occupies screen center
+            threshold: 0
+        };
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    if (id) {
+                        setActiveHash("#" + id);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = ["home", "skills", "education", "experiences", "gallery", "contact"];
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // Initialize active hash on mount
+        if (typeof window !== "undefined" && window.location.hash) {
+            setActiveHash(window.location.hash);
+        }
+
+        return () => observer.disconnect();
+    }, [pathname]);
+
+    // Handle scroll intercept for same-page anchors
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (pathname === "/") {
+            const hashIndex = href.indexOf("#");
+            if (hashIndex !== -1) {
+                const targetId = href.substring(hashIndex + 1);
+                const element = document.getElementById(targetId);
+                if (element) {
+                    e.preventDefault();
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                    setActiveHash("#" + targetId);
+                    closeMenu();
+                }
+            }
+        } else {
+            closeMenu();
+        }
+    };
 
     // Staggered Motion entries for mobile links
     const containerVariants = {
@@ -47,11 +105,13 @@ export default function NavMenu() {
             {/* DESKTOP VIEW */}
             <ul className="hidden lg:flex flex-row gap-8 items-center font-semibold">
                 {links.map(link => {
-                    const isActive = pathname === link.href;
+                    const linkHash = link.href.includes("#") ? link.href.substring(link.href.indexOf("#")) : "";
+                    const isActive = pathname === "/" ? activeHash === linkHash : false;
                     return (
                         <li key={link.name} className="relative py-2">
                             <Link
                                 href={link.href}
+                                onClick={(e) => handleNavClick(e, link.href)}
                                 className={`font-secondary text-[10px] tracking-[0.2em] font-extrabold uppercase transition-colors duration-300 block select-none cursor-pointer ${isActive ? "text-accent-blue" : "text-gray-400 hover:text-white"}`}
                             >
                                 {link.name}
@@ -110,16 +170,17 @@ export default function NavMenu() {
                                     className="flex flex-col gap-5 sm:gap-8 items-start pl-2 sm:pl-6"
                                 >
                                     {links.map(link => {
-                                        const isActive = pathname === link.href;
+                                        const linkHash = link.href.includes("#") ? link.href.substring(link.href.indexOf("#")) : "";
+                                        const isActive = pathname === "/" ? activeHash === linkHash : false;
                                         return (
                                             <motion.li 
                                                 variants={itemVariants} 
                                                 key={link.name} 
-                                                onClick={closeMenu}
                                                 className="relative"
                                             >
                                                 <Link 
                                                     href={link.href} 
+                                                    onClick={(e) => handleNavClick(e, link.href)}
                                                     className={`font-primary text-[clamp(1.5rem,8vw,3.5rem)] leading-[1.1] font-extrabold tracking-tight uppercase transition-all duration-300 block hover:translate-x-3 select-none hover:text-accent-blue ${isActive ? "text-accent-blue font-black" : "text-gray-500 hover:text-white"}`}
                                                 >
                                                     {link.name}

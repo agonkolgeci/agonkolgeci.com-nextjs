@@ -18,7 +18,7 @@ export default function ExternalLink({ url, colored = true, blank = true, classN
     const isActive = pathname === url.href;
 
     return (
-        <Link className={className || `hover:underline ${isActive ? "underline" : ""} ${colored ? "text-accent-blue hover:opacity-80 transition-all font-semibold" : "text-inherit" }`} href={url.href} target={blank ? "_blank" : undefined}>
+        <Link className={className || `hover:underline cursor-pointer ${isActive ? "underline" : ""} ${colored ? "text-accent-blue hover:opacity-80 transition-all font-semibold" : "text-inherit" }`} href={url.href} target={blank ? "_blank" : undefined}>
             {url.name}
         </Link>
     )

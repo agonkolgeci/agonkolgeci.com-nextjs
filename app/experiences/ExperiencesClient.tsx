@@ -112,6 +112,7 @@ function ExperienceCard({
     glow: "lime" | "orange";
     milestoneIndex: number;
 }) {
+    const t = useTranslations("experiences");
     const t_academic = useTranslations("experiences.academic_experiences");
     const t_professional = useTranslations("experiences.professional_experiences");
     const t_personal = useTranslations("experiences.personal_experiences");
@@ -214,7 +215,7 @@ function ExperienceCard({
                         <div className="flex flex-col gap-1.5 border-t border-white/5 pt-2 select-none shrink-0">
                             <span className="text-[7.5px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary flex items-center gap-1">
                                 <FontAwesomeIcon icon={faUsers} className="size-2.5" />
-                                Collaborators & Supervisor
+                                {t("collaborators_supervisor")}
                             </span>
                             <div className="flex flex-wrap gap-x-3 gap-y-1">
                                 {data.team.map((group: any) => (
@@ -290,13 +291,13 @@ export default function ExperiencesClient() {
     };
 
     const chapters = [
-        { id: 0, key: "academic-section", title: "Academic Journey", label: "01", desc: "Foundations in computer science & research algorithms", glow: "lime" },
-        { id: 1, key: "professional-section", title: "Professional Path", label: "02", desc: "Collaborating with engineering teams & products", glow: "orange" },
-        { id: 2, key: "personal-section", title: "Personal Creations", label: "03", desc: "Designing & hosting custom open source infrastructure", glow: "lime" }
-    ] as const;
+        { id: 0, key: "academic-section", title: t("chapters.academic.title"), label: "01", desc: t("chapters.academic.desc"), glow: "lime" },
+        { id: 1, key: "professional-section", title: t("chapters.professional.title"), label: "02", desc: t("chapters.professional.desc"), glow: "orange" },
+        { id: 2, key: "personal-section", title: t("chapters.personal.title"), label: "03", desc: t("chapters.personal.desc"), glow: "lime" }
+    ];
 
     return (
-        <Article title={t("title")} description={t("description")}>
+        <Article title={t("title")} description={t("description")} pill={t("title")}>
             <div className="w-full bg-primary text-white overflow-visible selection:bg-accent-blue selection:text-white relative">
                 
                 {/* Visual grid guide lines */}
@@ -318,8 +319,8 @@ export default function ExperiencesClient() {
                             
                             {/* Header label */}
                             <div className="flex flex-col gap-1 border-b border-white/5 pb-4">
-                                <span className="text-[9px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">Catalog Index</span>
-                                <h3 className="font-primary text-xl font-bold text-white tracking-tight uppercase">Chapters</h3>
+                                <span className="text-[9px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">{t("catalog_index")}</span>
+                                <h3 className="font-primary text-xl font-bold text-white tracking-tight uppercase">{t("chapters_header")}</h3>
                             </div>
 
                             {/* Dynamic tab list */}
@@ -365,9 +366,9 @@ export default function ExperiencesClient() {
                                     <span className="text-accent-blue font-bold text-xs uppercase tracking-widest font-secondary">Chapter 01</span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
                                 </div>
-                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">Academic Journey</h2>
+                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">{t("chapters.academic.title")}</h2>
                                 <p className="font-secondary text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mt-1">
-                                    Theoretical algorithm foundations and practical scientific research at the University of Geneva. Creating system interfaces and modules for major telecom groups.
+                                    {t("chapters.academic.long_desc")}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-8">
@@ -383,9 +384,9 @@ export default function ExperiencesClient() {
                                     <span className="text-accent-teal font-bold text-xs uppercase tracking-widest font-secondary">Chapter 02</span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse" />
                                 </div>
-                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">Professional Path</h2>
+                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">{t("chapters.professional.title")}</h2>
                                 <p className="font-secondary text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mt-1">
-                                    Delivering high-fidelity products, managing server platforms, and automating DevOps deployment lifecycles for organizations and commercial groups.
+                                    {t("chapters.professional.long_desc")}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-8">
@@ -401,9 +402,9 @@ export default function ExperiencesClient() {
                                     <span className="text-accent-blue font-bold text-xs uppercase tracking-widest font-secondary">Chapter 03</span>
                                     <span className="w-1.5 h-1.5 rounded-full bg-accent-blue animate-pulse" />
                                 </div>
-                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">Personal Creations</h2>
+                                <h2 className="font-primary text-3xl font-black text-white tracking-tight">{t("chapters.personal.title")}</h2>
                                 <p className="font-secondary text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mt-1">
-                                    Publishing open-source packages, custom web applications, automation bots, and high-performance server structures driven by design passion.
+                                    {t("chapters.personal.long_desc")}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-8">

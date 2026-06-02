@@ -15,7 +15,7 @@
     --color-accent-teal: #62e2d5;
 
     /* Background Images */
-    --background-image-gradient-primary: linear-gradient(90deg, #4ea8ff 0%, #62e2d5 100%);
+    --background-image-gradient-primary: linear-gradient(90deg, #fff 0%, #799dff 50%, #425aaf 100%);
     
     /* Animations */
     --animation-infinite-scroll: infinite-scroll 20s linear infinite;
@@ -23,7 +23,7 @@
 }
 
 :root {
-    --navbar-height: 70px;
+    --navbar-height: 72px;
 }
 
 body {
@@ -53,6 +53,16 @@ body::before {
     }
 }
 
+/* Animated panning gradient (used for the hero name) */
+@keyframes gradient-pan {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
 .animate-marquee {
     display: flex;
     width: max-content;
@@ -79,6 +89,15 @@ body::before {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #4ea8ff;
+}
+
+/* Reusable gradient text (single source for highlighted titles) */
+.text-gradient {
+    background-image: var(--background-image-gradient-primary);
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Glowing Neon Borders */

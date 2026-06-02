@@ -29,6 +29,7 @@ export type FormStatus = {
 export default function ContactClient({ target_mail, recaptchaKey } : { target_mail: string, recaptchaKey: string }) {
     const currentLocale = useLocale() as Locale;
     const t = useTranslations("contact.contact_form");
+    const t_section = useTranslations("contact");
 
     const [pending, setPending] = useState(false);
     const [sent, setSent] = useState(false);
@@ -95,7 +96,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
             setSent(result);
 
             if (result) {
-                setStatus({ type: AlertType.SUCCESS, message: t("alerts.sended") });
+                setStatus({ type: AlertType.SUCCESS, message: t("alerts.sent") });
             } else {
                 setStatus({ type: AlertType.ERROR, message: t("alerts.unknown_error") });
             }
@@ -115,7 +116,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
     } as const;
 
     return (
-        <Article title={t("title")} description={t("description")}>
+        <Article title={t("title")} description={t("description")} pill={t_section("title")}>
             <div className="w-full py-10 max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 mt-4">
                 
                 {/* LEFT BENTO CELL: THE GLASSMORPHISM FORM (Span 3) */}
@@ -129,7 +130,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                     <div className="absolute top-0 left-0 w-28 h-28 bg-accent-blue/3 rounded-full blur-3xl pointer-events-none" />
                     
                     <h3 className="font-primary text-xl font-bold text-white tracking-tight uppercase border-b border-white/5 pb-4 select-none">
-                        Send A Message
+                        {t_section("send_message")}
                     </h3>
 
                     <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
@@ -238,14 +239,14 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                         
                         <div className="flex items-center gap-3 border-b border-white/5 pb-3">
                             <FontAwesomeIcon icon={faClock} className="size-4 text-accent-blue" />
-                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">Geneva Time</span>
+                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">{t_section("geneva_time")}</span>
                         </div>
                         
                         <div className="flex flex-col gap-1 py-1">
                             <div className="font-primary text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-accent-blue drop-shadow-[0_0_10px_rgba(204,255,0,0.3)] tabular-nums">
                                 {time || "00:00:00"}
                             </div>
-                            <span className="text-[9px] uppercase tracking-widest text-gray-500 font-bold font-secondary">Ticking live • Europe/Zurich timezone</span>
+                            <span className="text-[9px] uppercase tracking-widest text-gray-500 font-bold font-secondary">{t_section("ticking_live")}</span>
                         </div>
                     </motion.div>
 
@@ -261,7 +262,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                         
                         <div className="flex items-center gap-3 border-b border-white/5 pb-3">
                             <FontAwesomeIcon icon={faMapMarkerAlt} className="size-4 text-accent-teal" />
-                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">Current Base</span>
+                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">{t_section("current_base")}</span>
                         </div>
                         
                         <div className="flex items-center gap-4 py-2">
@@ -274,7 +275,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                             
                             <div className="flex flex-col">
                                 <h4 className="font-primary text-base font-bold text-white tracking-tight leading-snug">Geneva, Switzerland</h4>
-                                <span className="text-[9px] uppercase tracking-widest text-gray-500 font-semibold font-secondary mt-0.5">Dual-located in France borders</span>
+                                <span className="text-[9px] uppercase tracking-widest text-gray-500 font-semibold font-secondary mt-0.5">{t_section("borders")}</span>
                             </div>
                         </div>
                     </motion.div>
@@ -291,14 +292,14 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                         
                         <div className="flex items-center gap-3 border-b border-white/5 pb-3">
                             <FontAwesomeIcon icon={faEnvelope} className="size-4 text-accent-blue" />
-                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">Quick Connect</span>
+                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary">{t_section("quick_connect")}</span>
                         </div>
 
                         <div className="flex flex-col gap-3.5 mt-2">
                             {/* Email Pill */}
                             <Link 
                                 href="mailto:contact@agonkolgeci.com" 
-                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card"
+                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card cursor-pointer"
                                 data-cursor-text="CHAT"
                             >
                                 <FontAwesomeIcon icon={faEnvelope} className="size-4 text-accent-blue" />
@@ -309,7 +310,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                             <Link 
                                 href="https://github.com/agonkolgeci" 
                                 target="_blank" 
-                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card"
+                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card cursor-pointer"
                                 data-cursor-text="CHAT"
                             >
                                 <FontAwesomeIcon icon={faGithub} className="size-4 text-white" />
@@ -320,7 +321,7 @@ export default function ContactClient({ target_mail, recaptchaKey } : { target_m
                             <Link 
                                 href="https://linkedin.com/in/agon-kolgeci-193aa2266/" 
                                 target="_blank" 
-                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card"
+                                className="bg-secondary/80 border border-white/5 hover:border-accent-blue/45 text-gray-400 hover:text-white px-5 py-3 rounded-2xl text-xs font-semibold tracking-wider uppercase transition-all duration-300 flex items-center gap-3 interactive-card cursor-pointer"
                                 data-cursor-text="CHAT"
                             >
                                 <FontAwesomeIcon icon={faLinkedin} className="size-4 text-blue-400" />

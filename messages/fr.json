@@ -18,8 +18,8 @@
 
     "navigation": {
         "home": "Accueil",
-        "skills": "Compétences",
-        "education": "Éducation",
+        "skills": "Stack technique",
+        "education": "Formation",
         "experiences": "Expériences",
         "gallery": "Réalisations",
         "contact": "Contact"
@@ -45,7 +45,7 @@
 
     "copyright": {
         "content": "Copyright © <year></year> Agon KOLGECI • Tous droits réservés",
-        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, deployée avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
+        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, déployé avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
     },
 
     "global": {
@@ -58,6 +58,7 @@
         "title": "Agon KOLGECI",
         "description": "Développeur en logiciels",
         "quote": "Je conçois et développe des expériences numériques de nouvelle génération. En alliant une ingénierie rigoureuse à une esthétique épurée, je donne vie aux idées.",
+        "scroll_down": "Défiler vers le bas",
 
         "about": {
             "title": "À propos de moi",
@@ -73,8 +74,8 @@
             "knowledge": {
                 "title": "Explorez mes connaissances",
                 "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Cette section met en lumière mes compétences techniques et l'étendue de mon parcours d'apprentissage.",
-                "go_to_skills": "Voir mes compétences",
-                "go_to_education": "Voir mon éducation"
+                "go_to_skills": "Voir ma stack technique",
+                "go_to_education": "Voir ma formation"
             },
 
             "career": {
@@ -92,8 +93,48 @@
     },
 
     "skills": {
-        "title": "Compétences",
+        "title": "Stack technique",
         "description": "Au fil des années, j'ai pu développer et acquérir de l'expérience dans une variété de compétences.",
+        "core": "Fondamentaux",
+        "stack": "Frameworks",
+        "ops": "Déploiement",
+        "case_title": "Coffre Quantique",
+        "case_desc": "Défilez pour déverrouiller le cyber-coffre et projeter la matrice technologique holographique.",
+        "case_hint": "Survolez un orbe holographique pour inspecter les spécifications techniques.",
+        "tech_details": {
+            "java": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Programmation orientée objet pour des serveurs backend robustes, des architectures de plugins et des sockets réseau haute performance." },
+            "javascript": { "category": "Langage", "exp": "Débuté en 2020", "desc": "Scripting dynamique côté client et intégrations de bots d'automatisation fonctionnels modernes à travers les communautés." },
+            "typescript": { "category": "Langage", "exp": "Débuté en 2022", "desc": "JavaScript typé statiquement pour faire évoluer les applications en toute sécurité avec des liaisons d'interface strictes." },
+            "php": { "category": "Langage", "exp": "Débuté en 2019", "desc": "Développement de scripts côté serveur pour propulser des applications web dynamiques et modernes avec base de données." },
+            "python": { "category": "Langage", "exp": "Débuté en 2022", "desc": "Automatisation avancée des systèmes, algorithmes scientifiques et scripts utilitaires de parsing propres." },
+            "c": { "category": "Langage", "exp": "Débuté en 2023", "desc": "Programmation système haute performance, gestion manuelle de la mémoire et contrôle bas niveau proche du matériel." },
+            "c++": { "category": "Langage", "exp": "Débuté en 2024", "desc": "Architecture système bas niveau, structures de données à haute efficacité et résolution d'algorithmes compétitifs (SWERC)." },
+            "html": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Structuration sémantique de documents web garantissant un excellent référencement SEO et une accessibilité optimale." },
+            "css": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Stylisation responsive avancée, grilles de mise en page flexibles, animations de keyframes et design fluide." },
+            "sass": { "category": "Langage", "exp": "Débuté en 2020", "desc": "Feuilles de style précompilées dotées de variables imbriquées, de mixins réutilisables et d'une architecture modulaire." },
+            "node": { "category": "Framework", "exp": "Débuté en 2020", "desc": "Bibliothèques standard de backend asynchrones basées sur les événements exécutant des microservices d'API et des automations super évolutifs." },
+            "react": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Architecture de composants déclaratifs formant des interfaces utilisateur interactives haute fidélité et une gestion de micro-états." },
+            "nextjs": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Framework SSR full-stack avec pages statiques optimisées, routage Edge et gestionnaires d'API natifs." },
+            "tailwind css": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Jetons CSS utilitaires orchestrant des animations de morphisme de verre sombres et des mises en page sophistiquées." },
+            "redis": { "category": "Framework", "exp": "Débuté en 2020", "desc": "Grilles de cache mémoire ultra-rapides, clusters pub-sub et pipelines de paquets dynamiques." },
+            "vscode": { "category": "Outil", "exp": "Débuté en 2019", "desc": "Éditeur de code source léger et puissant avec une multitude d'extensions de productivité et de débogage." },
+            "intellij idea": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Environnement de développement complet et optimisé pour le développement Java d'entreprise et l'automatisation." },
+            "git": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Fusions de branches de dépôts distribués, contrôle de version et collaborations en équipe via des pull requests." },
+            "github": { "category": "Outil", "exp": "Débuté en 2020", "desc": "Hébergement de dépôts Git dans le cloud, flux d'intégration continue (Actions) et collaboration d'équipe sécurisée." },
+            "gitlab": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Plateforme DevOps complète intégrant des registres de conteneurs privés et des pipelines d'intégration continue." },
+            "docker": { "category": "Ops / Outil", "exp": "Débuté en 2024", "desc": "Configurations de conteneurs standard séparant les instances de base de données et les modules REDCap." },
+            "linux": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Administration shell Unix, scripts cron automatisés, réglage des performances et contrôle total d'hébergement." },
+            "jenkins": { "category": "Ops / Outil", "exp": "Débuté en 2024", "desc": "Automatisation des tests, de l'intégration et du déploiement continu d'applications logicielles en production." },
+            "bash": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Scripting shell Unix pour l'automatisation des tâches système, les tâches planifiées cron et l'administration serveur." },
+            "powershell": { "category": "Ops / Outil", "exp": "Débuté en 2020", "desc": "Cadre d'automatisation des tâches et de gestion de configuration orienté objet pour l'administration de systèmes Windows." },
+            "mysql": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Enregistrements transactionnels structurés, indexations complexes et intégrité persistante des caches." },
+            "mongodb": { "category": "Ops / Outil", "exp": "Débuté en 2022", "desc": "Structures JSON de documents flexibles, bases de données de clusters horizontaux et schémas dynamiques." },
+            "maven": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Outil de build et de gestion déclarative des dépendances pour standardiser l'architecture des projets Java." },
+            "gradle": { "category": "Outil", "exp": "Débuté en 2020", "desc": "Moteur de build de pointe offrant une compilation flexible via des scripts écrits en Kotlin et en Groovy DSL." },
+            "cloudflare": { "category": "Ops / Outil", "exp": "Débuté en 2022", "desc": "Réseau de distribution de contenu global protégeant les DNS, gérant les proxys Edge et assurant le cryptage SSL." },
+            "postman": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Plateforme collaborative de développement d'API permettant de concevoir, tester et simuler des requêtes HTTP." },
+            "stackoverflow": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Base de connaissances communautaire mondiale pour le partage d'astuces de programmation et la résolution de bugs." }
+        },
 
         "it_skills": {
             "title": "Compétences Informatiques",
@@ -141,7 +182,7 @@
     },
 
     "education": {
-        "title": "Éducation",
+        "title": "Formation",
         "description": "En savoir plus sur mon parcours académique et de quel manière il a contribué à développer mes compétences en informatique et en développement.",
 
         "school_career": {
@@ -173,6 +214,26 @@
     "experiences": { 
         "title": "Expériences",
         "description": "Découvrez mes expériences au cours desquelles j'ai pu solidifier mes connaissances et compétences. Celles-ci incluent à la fois des expériences personnelles et professionnelles.",
+        "catalog_index": "Index du catalogue",
+        "chapters_header": "Chapitres",
+        "collaborators_supervisor": "Collaborateurs & Superviseur",
+        "chapters": {
+            "academic": {
+                "title": "Parcours Académique",
+                "desc": "Bases de l'informatique & algorithmes de recherche",
+                "long_desc": "Bases algorithmiques théoriques et recherche scientifique pratique à l'Université de Genève. Création d'interfaces système et de modules pour de grands groupes de télécommunications."
+            },
+            "professional": {
+                "title": "Chemin Professionnel",
+                "desc": "Collaboration avec des équipes d'ingénieurs & produits",
+                "long_desc": "Livraison de produits haute fidélité, gestion de plateformes serveurs et automatisation des cycles de vie de déploiement DevOps pour des organisations et des groupes commerciaux."
+            },
+            "personal": {
+                "title": "Créations Personnelles",
+                "desc": "Conception & hébergement d'infrastructures open source personnalisées",
+                "long_desc": "Publication de packages open-source, d'applications web personnalisées, de bots d'automatisation et de structures de serveurs haute performance animés par la passion du design."
+            }
+        },
 
         "personal_experiences": {
             "title": "Expériences Personnelles",
@@ -246,13 +307,13 @@
         },
 
         "academic_experiences": {
-            "title": "Expériences Acádémiques",
+            "title": "Expériences Académiques",
             "description": "Cette section met en avant mes réalisations et expériences académiques, incluant les cours suivis, les projets de recherche et ma participation à des projets académiques.",
             "contents": {
                 "redcap-swisscom-module": {
                     "title": "Développement d'un module REDCap pour les Hôpitaux Universitaires de Genève",
                     "date": "fév. 2025 - mai 2025",
-                    "description": "Dans le cadre d’un projet de semestre, j’ai pu participé au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception.",
+                    "description": "Dans le cadre d’un projet de semestre, j’ai pu participer au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception.",
                     "tasks": {
                         "1": "Approfondir mes compétences en PHP, Docker et dans l’écosystème REDCap",
                         "2": "Développer ma rigueur dans la lecture et l’analyse de documentation technique",
@@ -329,12 +390,28 @@
                 "hide": "Masquer les Archives",
                 "description": "Les dépôts archivés sont obsolètes et ne sont plus représentatifs de mon travail actuel."
             }
+        },
+        "featured_works": "Réalisations en Vedette",
+        "open_source": "Open Source",
+        "no_repos": "Aucun dépôt trouvé",
+        "no_repos_desc": "Essayez de sélectionner un autre langage de programmation.",
+        "teammates": "Coéquipiers",
+        "status": {
+            "archived": "Archivé",
+            "template": "Modèle",
+            "active": "Actif"
         }
     },
 
     "contact": {
         "title": "Contact",
         "description": "N'hésitez pas à me contacter pour toute demande ou simplement pour échanger !",
+        "send_message": "Envoyer un message",
+        "geneva_time": "Heure de Genève",
+        "ticking_live": "Heure en direct • Fuseau Europe/Zurich",
+        "current_base": "Base Actuelle",
+        "borders": "Situé à proximité de la frontière française",
+        "quick_connect": "Connexion Rapide",
 
         "contact_form": {
             "title": "Entrer en contact",
@@ -369,7 +446,7 @@
                 "fields_missing": "Veuillez remplir tous les champs obligatoires du formulaire avant de soumettre.",
                 "recaptcha_invalid": "Veuillez compléter la vérification reCAPTCHA avant de soumettre.",
                 "sending": "Votre message est en cours d'envoi...",
-                "sended": "Merci pour votre message. Je l'ai bien reçu et vous répondrai par e-mail dans les plus brefs délais.",
+                "sent": "Merci pour votre message. Je l'ai bien reçu et vous répondrai par e-mail dans les plus brefs délais.",
                 "unknown_error": "Désolé, une erreur s'est produite et votre message n'a pas pu être envoyé. Veuillez réessayer plus tard."
             }
         }
@@ -377,7 +454,7 @@
 
     "terms": {
         "title": "Mentions légales",
-        "description": "Dernière mise à jour : 28 septembre 2024",
+        "description": "Dernière mise à jour : 1 juin 2026",
 
         "summary": {
             "title": "Table des matières",

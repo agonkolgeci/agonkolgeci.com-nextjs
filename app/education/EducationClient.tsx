@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +26,8 @@ export default function EducationClient() {
     const t = useTranslations("education");
     const t_career = useTranslations("education.school_career");
     const containerRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+    const [maxScroll, setMaxScroll] = useState(0);
 
     // Track vertical scrolling progression
     const { scrollYProgress } = useScroll({
@@ -33,9 +35,23 @@ export default function EducationClient() {
         offset: ["start start", "end end"]
     });
 
-    // Translate vertical scroll (0 to 1) into horizontal translation (-58%)
-    // This allows the cards to slide horizontally across the screen
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-58%"]);
+    // Measure the exact horizontal distance to travel: full track width minus the
+    // visible viewport. This makes the slide stop right when the last card lands,
+    // instead of overshooting with a hardcoded percentage.
+    useEffect(() => {
+        const compute = () => {
+            const track = trackRef.current;
+            if (!track) return;
+            const viewport = (track.offsetParent as HTMLElement | null)?.clientWidth ?? window.innerWidth;
+            setMaxScroll(Math.max(0, track.scrollWidth - viewport));
+        };
+        compute();
+        window.addEventListener("resize", compute);
+        return () => window.removeEventListener("resize", compute);
+    }, []);
+
+    // Translate vertical scroll (0 to 1) into the measured horizontal distance (px)
+    const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
 
     // Calculate dynamic focal lens scaling and opacity for each card
     const scale1 = useTransform(scrollYProgress, [0, 0.22, 0.35], [1.03, 1.03, 0.92]);
@@ -47,10 +63,20 @@ export default function EducationClient() {
     const scale3 = useTransform(scrollYProgress, [0.6, 0.78, 1], [0.92, 1.03, 1.03]);
     const opacity3 = useTransform(scrollYProgress, [0.6, 0.78, 1], [0.35, 1, 1]);
 
+    // Border activates by growing its width from 0 to 2px while the card is fully active.
+    const borderFill1 = useTransform(scrollYProgress, [0, 0.08, 0.25, 0.33], [0, 1, 1, 0]);
+    const borderFill2 = useTransform(scrollYProgress, [0.3, 0.4, 0.62, 0.72], [0, 1, 1, 0]);
+    const borderFill3 = useTransform(scrollYProgress, [0.72, 0.82, 1], [0, 1, 1]);
+    // Use an inset box-shadow ring (anti-aliased) instead of border-width, which browsers
+    // snap to whole device pixels — that snapping is what makes a width animation look jumpy.
+    const borderRing1 = useTransform(borderFill1, (v) => `inset 0 0 0 ${v * 2}px rgba(78, 168, 255, 0.9)`);
+    const borderRing2 = useTransform(borderFill2, (v) => `inset 0 0 0 ${v * 2}px rgba(98, 226, 213, 0.9)`);
+    const borderRing3 = useTransform(borderFill3, (v) => `inset 0 0 0 ${v * 2}px rgba(78, 168, 255, 0.9)`);
+
     const getTransformProps = (index: number) => {
-        if (index === 0) return { scale: scale1, opacity: opacity1 };
-        if (index === 1) return { scale: scale2, opacity: opacity2 };
-        return { scale: scale3, opacity: opacity3 };
+        if (index === 0) return { scale: scale1, opacity: opacity1, borderRing: borderRing1 };
+        if (index === 1) return { scale: scale2, opacity: opacity2, borderRing: borderRing2 };
+        return { scale: scale3, opacity: opacity3, borderRing: borderRing3 };
     };
 
     return (
@@ -65,9 +91,6 @@ export default function EducationClient() {
 
             {/* Static Section Intro Header */}
             <div className="mx-auto max-w-7xl px-8 pt-32 sm:pt-36 pb-12 flex flex-col items-center text-center relative z-10 select-none">
-                <span className="text-[10px] uppercase tracking-widest text-accent-blue font-extrabold font-secondary px-4 py-1.5 rounded-full bg-accent-blue/5 border border-accent-blue/10">
-                    Academic Timeline
-                </span>
                 <h1 className="font-primary text-5xl md:text-6xl font-extrabold tracking-tight mt-6 leading-none">
                     {t("title")}
                 </h1>
@@ -75,42 +98,38 @@ export default function EducationClient() {
                     {t_career("description")}
                 </p>
                 
-                {/* Horizontal scroll helper indicator */}
-                <div className="hidden lg:flex flex-row items-center gap-2.5 text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary mt-8 animate-pulse">
-                    <span>Scroll down to travel</span>
-                    <FontAwesomeIcon icon={faArrowRight} className="size-2.5 text-accent-blue" />
-                </div>
             </div>
 
             {/* VIEWPORT-LOCKING SCROLL TIMELINE CONTAINER */}
             <div ref={containerRef} className="relative h-[280vh] w-full overflow-visible">
                 {/* Sticky Pinned Viewport Frame */}
-                <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden z-20">
+                <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex flex-col justify-center overflow-hidden z-20">
                     
-                    {/* Horizontal guide tracking line */}
-                    <div className="absolute top-1/2 left-0 w-full h-[2px] bg-white/10 -translate-y-1/2 pointer-events-none">
+                    {/* Horizontal guide tracking line - shifted down to 56% for top card clearance */}
+                    <div className="absolute top-[56%] left-0 w-full h-[2px] bg-white/10 -translate-y-1/2 pointer-events-none">
                         <motion.div 
                             style={{ scaleX: scrollYProgress }} 
                             className="w-full h-full bg-gradient-to-r from-accent-blue to-accent-teal origin-left shadow-[0_0_10px_rgba(78,168,255,0.5)]" 
                         />
                     </div>
                     
-                    {/* Horizontal sliding track */}
-                    <motion.div 
+                    {/* Horizontal sliding track - absolute positioned at 56% to align perfectly with the shifted tracking line */}
+                    <motion.div
+                        ref={trackRef}
                         style={{ x }}
-                        className="flex flex-row gap-12 sm:gap-20 px-[15vw] lg:px-[25vw] items-center w-max h-auto relative z-10"
+                        className="absolute top-[56%] -translate-y-1/2 left-0 flex flex-row gap-12 sm:gap-20 px-[15vw] lg:px-[25vw] items-center w-max h-auto z-10"
                     >
                         {SCHOOLS.map((school, index) => {
                             const schoolPath = `schools.${school.key}`;
                             const glowClass = school.glow === "orange" ? "glow-card-teal" : "glow-card-blue";
                             const activeAccent = school.glow === "orange" ? "text-accent-teal" : "text-accent-blue";
-                            const { scale, opacity } = getTransformProps(index);
+                            const { scale, opacity, borderRing } = getTransformProps(index);
                             const isAbove = index % 2 === 0;
 
                             return (
                                 <div 
                                     key={school.key} 
-                                    className="relative w-[85vw] sm:w-[500px] h-[350px] sm:h-[600px] shrink-0 flex items-center justify-center group"
+                                    className="relative w-[85vw] sm:w-[500px] h-[320px] sm:h-[380px] shrink-0 flex items-center justify-center group"
                                 >
                                     {/* Pulsing Node */}
                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 hidden sm:flex items-center justify-center pointer-events-none">
@@ -126,19 +145,25 @@ export default function EducationClient() {
 
                                     {/* Vertical Connecting Line (Above) */}
                                     {isAbove && (
-                                        <div className={`absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[80px] bg-gradient-to-t ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
+                                        <div className={`absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[24px] bg-gradient-to-t ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
                                     )}
 
                                     {/* Vertical Connecting Line (Below) */}
                                     {!isAbove && (
-                                        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[80px] bg-gradient-to-b ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
+                                        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[24px] bg-gradient-to-b ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
                                     )}
 
                                     <motion.div
                                         style={{ scale, opacity }}
-                                        className={`w-full sm:absolute ${isAbove ? 'sm:bottom-1/2 sm:mb-[80px]' : 'sm:top-1/2 sm:mt-[80px]'} bg-secondary/35 backdrop-blur-xl rounded-[32px] p-8 sm:p-10 border border-white/8 ${glowClass} flex flex-col gap-6 overflow-hidden interactive-card`}
+                                        className={`w-full sm:absolute ${isAbove ? 'sm:bottom-1/2 sm:mb-[24px]' : 'sm:top-1/2 sm:mt-[24px]'} bg-secondary/35 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/8 ${glowClass} flex flex-col gap-4 sm:gap-5 overflow-hidden interactive-card`}
                                         data-cursor-text="STUDY"
                                     >
+                                        {/* Progressive accent border — inset ring thickens 0 -> 2px (anti-aliased, no pixel snapping) as the card becomes active */}
+                                        <motion.div
+                                            style={{ boxShadow: borderRing }}
+                                            className="absolute inset-0 rounded-3xl pointer-events-none z-20"
+                                        />
+
                                         {/* Ambient corner light glow on hover */}
                                         <div className={`absolute top-0 right-0 w-[160px] h-[160px] rounded-full blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${school.glow === 'orange' ? 'bg-accent-teal/5' : 'bg-accent-blue/5'}`} />
 
@@ -154,7 +179,7 @@ export default function EducationClient() {
 
                                         {/* Milestone Description */}
                                         <div className="flex flex-col gap-3 mt-2 border-b border-white/5 pb-5">
-                                            <Link href={school.url} target="_blank" className="inline-block group-hover:text-accent-blue transition-colors duration-300">
+                                            <Link href={school.url} target="_blank" className="inline-block group-hover:text-accent-blue transition-colors duration-300 cursor-pointer">
                                                 <h3 className="font-primary text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-inherit">
                                                     {t_career(`${schoolPath}.title`)}
                                                 </h3>

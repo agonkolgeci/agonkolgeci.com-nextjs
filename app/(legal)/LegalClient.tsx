@@ -149,7 +149,7 @@ export default function LegalClient({ namespace, contents }: LegalClientProps) {
                                             <div key={textKey} className="transition-all duration-300">
                                                 {t.rich(`${content_path}.texts.${textKey}`, {
                                                     author: () => <ExternalLink url={AGON_KOLGECI} />,
-                                                    terms: () => <ExternalLink url={{ name: t("title"), href: "/legal/terms" }} />,
+                                                    terms: () => <ExternalLink url={{ name: t("title"), href: "/terms" }} />,
                                                     contact: () => <ExternalLink url={CONTACT_URL} />,
                                                     references: () => (
                                                         <ul className="list-disc pl-5 mt-4 flex flex-col gap-2.5 text-accent-blue font-medium">
