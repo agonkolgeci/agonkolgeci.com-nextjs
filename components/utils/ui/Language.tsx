@@ -32,6 +32,7 @@ export function retrieveLanguageByName(name: string): string {
         case "bash": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg";
         case "powershell": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg";
         case "docker": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg";
+        case "kubernetes": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg";
         case "vscode": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg";
         case "intellij idea": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg";
         case "maven": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg";
@@ -39,6 +40,13 @@ export function retrieveLanguageByName(name: string): string {
         case "cloudflare": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg";
         case "postman": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg";
         case "stackoverflow": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stackoverflow/stackoverflow-original.svg";
+
+        // Tools & Tech from projects
+        case "spigot": return "https://cdn.simpleicons.org/spigotmc";
+        case "discord api": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/discordjs/discordjs-original.svg";
+        case "quarkus": return "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/quarkus/quarkus-original.svg";
+        case "kong": return "https://cdn.simpleicons.org/kong";
+        case "netty": return "https://skillicons.dev/icons?i=netty";
 
         default: return "";
     }

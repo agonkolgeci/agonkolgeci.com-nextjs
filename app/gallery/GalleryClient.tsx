@@ -7,80 +7,290 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
-    faAngleDown, faAngleUp, faCodeFork, faStar, faFolderOpen, 
-    faUsers, faFilter, faArchive, faExternalLinkAlt
+    faCodeFork, faStar, faFolderOpen, 
+    faUsers, faFilter, faArchive, faCalendarAlt
 } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { retrieveLanguageByName } from "@/components/utils/ui/Language";
 import Article from "@/components/pages/Article";
 import { retrieveRepositories, Repository } from "@/components/utils/api/github";
-import { FABIEN_GRAYSSAGUEL, LEO_RIVIERES } from "@/components/utils/Team";
+import { 
+    FABIEN_GRAYSSAGUEL, LEO_RIVIERES, 
+    ANTOINE_MAENDLY, ELIE_BUSSOD, DANIEL_DOSH, VIONA_CUFO,
+    JEAN_LUC_FALCONE, CHRISTOPHE_CHARPILLOZ, DELPHINE_COURVOISIER, ALEXANDRE_RIEDO
+} from "@/components/utils/Team";
 
 // Projects Dataset
 const PROJECTS = [
     {
         key: "project-family",
+        type: "personal",
         image: "/gallery/project-family.webp",
         links: [
             { name: "Website", href: "https://playze.org/project-family/" }
         ],
         tags: ["lead-developer"],
+        languages: ["Java", "Spigot", "MySQL"],
         team: [
             { role: "founders", members: [FABIEN_GRAYSSAGUEL] }
         ]
     },
     {
-        key: "nexus",
-        image: "/gallery/nexus.webp",
+        key: "yadbna",
+        type: "personal",
+        image: "/gallery/yadbna.png",
         links: [
-            { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci/Nexus" }
+            { name: "Website", href: "https://yadbna.xyz/" }
         ],
-        tags: ["founder", "lead-developer"],
+        tags: ["lead-developer"],
+        languages: ["Java", "JavaScript", "Discord API"],
         team: [
             { role: "thanks", members: [FABIEN_GRAYSSAGUEL] }
         ]
     },
     {
+        key: "unige-events",
+        type: "academic",
+        image: "/gallery/unige-events.jpg",
+        links: [
+            { name: "Website", href: "https://pinfo6.p-info.net/" }
+        ],
+        tags: ["tech-lead", "devops", "unige"],
+        languages: ["TypeScript", "React", "Java", "Quarkus", "Kong", "Kubernetes"],
+        team: [
+            { role: "collaborators", members: [ANTOINE_MAENDLY, DANIEL_DOSH, ELIE_BUSSOD, VIONA_CUFO] }
+        ]
+    },
+    {
+        key: "redcap-swisscom-module",
+        type: "academic",
+        image: "/experiences/redcap.webp",
+        links: [
+            { name: "Website", href: "https://github.com/vanderbilt-redcap/external-module-framework-docs" }
+        ],
+        tags: ["unige"],
+        languages: ["PHP", "Docker", "MySQL"],
+        team: [
+            { role: "collaborators", members: [ANTOINE_MAENDLY, ELIE_BUSSOD] },
+            { role: "supervisors", members: [JEAN_LUC_FALCONE, CHRISTOPHE_CHARPILLOZ] },
+            { role: "clients", members: [DELPHINE_COURVOISIER] }
+        ]
+    },
+    {
+        key: "nexus",
+        type: "personal",
+        image: "/gallery/nexus.webp",
+        links: [
+            { name: "GitHub", icon: faGithub, href: "https://github.com/agonkolgeci/Nexus" }
+        ],
+        tags: ["founder", "lead-developer"],
+        languages: ["Java", "Netty"],
+        team: [
+            { role: "thanks", members: [FABIEN_GRAYSSAGUEL] }
+        ]
+    },
+    {
+        key: "swerc2024",
+        type: "academic",
+        image: "/experiences/swerc2024.webp",
+        links: [
+            { name: "Website", href: "https://swerc.eu/2024" }
+        ],
+        tags: ["unige"],
+        languages: ["C++"],
+        team: [
+            { role: "collaborators", members: [ANTOINE_MAENDLY, ALEXANDRE_RIEDO] }
+        ]
+    },
+    {
         key: "stranger-hide",
+        type: "personal",
         image: "/gallery/strangerhide.webp",
         links: [
             { name: "GitHub", icon: faGithub, href: "https://github.com/StrangerHide/" }
         ],
         tags: ["lead-developer"],
+        languages: ["Java"],
         team: [
             { role: "founders", members: [LEO_RIVIERES, FABIEN_GRAYSSAGUEL] }
         ]
     },
     {
-        key: "playze-family-bot",
-        image: "/gallery/playze-family-bot.webp",
-        links: [
-            { name: "Discord App", icon: faDiscord, href: "https://discord.com/application-directory/1112083786130280488" }
-        ],
-        tags: ["lead-developer"],
-        team: [
-            { role: "collaborators", members: [FABIEN_GRAYSSAGUEL] }
-        ]
-    },
-    {
         key: "berkasia",
+        type: "personal",
         image: "/gallery/berkasia.webp",
         links: [
             { name: "GitHub", icon: faGithub, href: "https://github.com/Berkasia/" }
         ],
-        tags: ["founder", "lead-developer"]
+        tags: ["founder", "lead-developer"],
+        languages: ["Java", "MySQL"]
     }
 ] as const;
+
+function TechIcon({ name }: { name: string }) {
+    const url = retrieveLanguageByName(name);
+    if (!url) return null;
+
+    // Invert black NextJS, GitHub & Bash logos to white using CSS filters
+    const filterStyle = (name.toLowerCase() === "nextjs" || name.toLowerCase() === "github" || name.toLowerCase() === "bash") ? { filter: "brightness(0) invert(1)" } : undefined;
+
+    return (
+        <div className="relative group/tooltip flex items-center justify-center size-10 select-none shrink-0">
+            <img 
+                src={url} 
+                alt={name} 
+                className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110 will-change-transform transform-gpu" 
+                style={filterStyle}
+                loading="lazy" 
+            />
+            {/* Premium Tooltip */}
+            <span className="absolute bottom-full mb-2.5 left-1/2 -translate-x-1/2 opacity-0 scale-95 group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 transition-all duration-200 origin-bottom bg-[#080808]/95 border border-white/10 text-[9px] text-white font-secondary font-extrabold uppercase tracking-widest py-1 px-2.5 rounded-md whitespace-nowrap shadow-xl pointer-events-none select-none z-30">
+                {name}
+            </span>
+        </div>
+    );
+}
+
+function ProjectCard({ project }: { project: any }) {
+    const t_projects = useTranslations("gallery.projects");
+    const t_tags = useTranslations("tags");
+    const t_team = useTranslations("team");
+
+    const projectPath = `contents.${project.key}`;
+    const title = t_projects(`${projectPath}.title`);
+    const date = t_projects(`${projectPath}.date`);
+    const description = t_projects(`${projectPath}.description`);
+
+    return (
+        <motion.div
+            whileHover={{ scale: 1.02, y: -6 }}
+            className="bg-secondary/20 backdrop-blur-xl rounded-[32px] border border-white/5 glow-card-blue flex flex-col overflow-hidden relative group interactive-card transition-[border-color,box-shadow,background-color] duration-300 w-full h-full shadow-lg hover:shadow-2xl"
+            data-cursor-text="VISIT"
+        >
+            {/* Ambient corner light glow */}
+            <div className="absolute top-0 right-0 w-[180px] h-[180px] rounded-full blur-[70px] bg-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+            {/* Cover Image Wrapper */}
+            <div className="w-full h-[180px] sm:h-[220px] relative overflow-hidden shrink-0 shadow-md">
+                <Image
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    src={project.image}
+                    fill={true}
+                    sizes="(max-width: 768px) 100vw, 480px"
+                    alt={title}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
+            </div>
+
+            {/* Details Wrapper */}
+            <div className="p-6 sm:p-8 flex flex-col gap-6 flex-1 justify-between">
+                
+                {/* Title & Role Tags Stack */}
+                <div className="flex flex-col gap-2.5">
+                    <h3 className="font-primary text-xl sm:text-2xl font-extrabold text-white tracking-tight group-hover:text-accent-blue transition-colors duration-300 leading-snug">
+                        {project.links && project.links[0] ? (
+                            <Link 
+                                href={project.links[0].href} 
+                                target="_blank" 
+                                className="after:absolute after:inset-0 after:z-10 cursor-pointer"
+                            >
+                                {title}
+                            </Link>
+                        ) : (
+                            title
+                        )}
+                    </h3>
+                    
+                    {/* Role Tags */}
+                    {project.tags && (
+                        <div className="flex flex-wrap gap-2 select-none relative z-20 pointer-events-none">
+                            {project.tags?.map((tag: string) => {
+                                const isUnige = tag === "unige";
+                                return (
+                                    <span 
+                                        key={tag} 
+                                        className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-extrabold font-secondary border ${
+                                            isUnige 
+                                                ? "bg-[#CF0063]/15 border-[#CF0063]/35 text-[#ff5e97]" 
+                                                : "bg-accent-teal/15 border-accent-teal/30 text-accent-teal"
+                                        }`}
+                                    >
+                                        {t_tags(tag)}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                    )}
+                </div>
+
+                {/* Cyber Timestamp Pill */}
+                <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[10px] bg-white/5 border border-white/5 rounded-md px-2.5 py-1 w-max">
+                    <FontAwesomeIcon icon={faCalendarAlt} className="size-3 text-accent-blue" />
+                    <span className="uppercase tracking-wider font-semibold">{date}</span>
+                </div>
+
+                {/* Description */}
+                <p className="font-secondary text-sm text-gray-300 leading-relaxed">
+                    {description}
+                </p>
+
+                {/* Tech & Team Row */}
+                <div className="flex flex-col gap-4 mt-auto">
+                    {/* Language Icons */}
+                    {project.languages && (
+                        <div className="flex flex-wrap items-center gap-3 select-none relative z-20 shrink-0">
+                            {project.languages.map((lang: string) => (
+                                <TechIcon key={lang} name={lang} />
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Teammates Capsule Row */}
+                    {project.team && (
+                        <div className="flex flex-col gap-2.5 border-t border-white/5 pt-4 select-none shrink-0 relative z-20">
+                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary flex items-center gap-1.5">
+                                <FontAwesomeIcon icon={faUsers} className="size-3" />
+                                {t_projects("teammates", { defaultValue: "Teammates" })}
+                            </span>
+                            <div className="flex flex-col gap-2">
+                                {project.team.map((group: any) => (
+                                    <div key={group.role} className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
+                                        <span className="text-gray-400 capitalize font-medium">{t_team(group.role, { count: group.members.length })}:</span>
+                                        <div className="flex flex-wrap items-center gap-x-1">
+                                            {group.members.map((member: any, mIdx: number) => (
+                                                <span key={member.name} className="inline-flex items-center">
+                                                    <Link 
+                                                        href={member.href} 
+                                                        target="_blank" 
+                                                        className="text-accent-blue font-bold hover:underline relative z-30 cursor-pointer"
+                                                    >
+                                                        {member.name}
+                                                    </Link>
+                                                    {mIdx < group.members.length - 1 && <span className="text-gray-500 mr-1">,</span>}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+            </div>
+        </motion.div>
+    );
+}
 
 export default function GalleryClient() {
     const t = useTranslations("gallery");
     const t_projects = useTranslations("gallery.projects");
     const t_repos = useTranslations("gallery.repositories");
-    const t_team = useTranslations("team");
-    const t_tags = useTranslations("tags");
 
     const [repositories, setRepositories] = useState<Repository[]>([]);
     const [showArchives, setShowArchives] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState<string>("All");
+    const [selectedProjectType, setSelectedProjectType] = useState<"all" | "personal" | "academic">("all");
 
     useEffect(() => {
         const fetchRepos = async () => {
@@ -114,17 +324,12 @@ export default function GalleryClient() {
         return true;
     }).sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-    // Dynamic list of languages present in repositories for filtering
     const languages = ["All", "Java", "TypeScript", "JavaScript", "C++", "PHP"];
 
-    const cardVariants = {
-        hidden: { opacity: 0, y: 35 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { type: "spring" as const, stiffness: 90, damping: 16 }
-        }
-    } as const;
+    const filteredProjects = PROJECTS.filter(project => {
+        if (selectedProjectType !== "all" && project.type !== selectedProjectType) return false;
+        return true;
+    });
 
     const renderCard = (repo: any) => {
         const isArchived = repo.archived;
@@ -137,7 +342,7 @@ export default function GalleryClient() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                className={`group relative bg-secondary/30 rounded-3xl p-7 border flex flex-col justify-between gap-6 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)] ${isArchived ? 'border-accent-teal/20 hover:border-accent-teal/50' : 'border-white/8 hover:border-accent-blue/45'} interactive-card`}
+                className={`group relative bg-secondary/30 rounded-3xl p-7 border flex flex-col justify-between gap-6 transition-[border-color,box-shadow,background-color] duration-300 hover:shadow-[0_12px_35px_rgba(0,0,0,0.5)] ${isArchived ? 'border-accent-teal/20 hover:border-accent-teal/50' : 'border-white/8 hover:border-accent-blue/45'} interactive-card`}
                 data-cursor-text="CODE"
             >
                 <div className="flex flex-col gap-4">
@@ -149,12 +354,6 @@ export default function GalleryClient() {
                                 {repo.name}
                             </Link>
                         </div>
-                        
-                        {repo.homepage && (
-                            <Link href={repo.homepage} target="_blank" className="text-gray-400 hover:text-white transition-colors shrink-0 cursor-pointer">
-                                <FontAwesomeIcon icon={faExternalLinkAlt} className="size-3.5" />
-                            </Link>
-                        )}
                     </div>
 
                     {/* Stars and Forks counters */}
@@ -197,15 +396,15 @@ export default function GalleryClient() {
                     
                     {isArchived ? (
                         <span className="bg-accent-teal/10 border border-accent-teal/30 text-accent-teal px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            {t("status.archived")}
+                            {t("status.archived", { defaultValue: "Archived" })}
                         </span>
                     ) : repo.is_template ? (
                         <span className="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            {t("status.template")}
+                            {t("status.template", { defaultValue: "Template" })}
                         </span>
                     ) : (
                         <span className="bg-white/5 border border-white/10 text-gray-400 px-2.5 py-0.5 rounded-full text-[8px] uppercase tracking-widest font-extrabold font-secondary">
-                            {t("status.active")}
+                            {t("status.active", { defaultValue: "Active" })}
                         </span>
                     )}
                 </div>
@@ -217,7 +416,7 @@ export default function GalleryClient() {
         <Article title={t("title")} description={t("description")} pill={t("title")}>
             <div className="w-full py-10 max-w-7xl mx-auto px-8 flex flex-col gap-24">
                 
-                {/* PART 1: PREMIUM ZOOM CARD PROJECTS SECTION */}
+                {/* PART 1: PREMIUM BENTO GRID PROJECTS SECTION */}
                 <div className="flex flex-col gap-8 w-full mt-4">
                     <div className="flex flex-col gap-2 text-center lg:text-left select-none">
                         <span className="text-[10px] uppercase tracking-widest text-accent-blue font-extrabold font-secondary">{t("featured_works")}</span>
@@ -225,119 +424,61 @@ export default function GalleryClient() {
                         <p className="font-secondary text-sm md:text-base text-gray-400 mt-2">{t_projects("description")}</p>
                     </div>
 
-                    <div className="flex flex-col gap-10 w-full mt-6">
-                        {(PROJECTS as readonly any[]).map(project => {
-                            const projectPath = `contents.${project.key}`;
-                            const title = t_projects(`${projectPath}.title`);
-                            const date = t_projects(`${projectPath}.date`);
-                            const description = t_projects(`${projectPath}.description`);
-
+                    {/* Project Type Filter Selector */}
+                    <div className="flex justify-center lg:justify-start gap-2 select-none border-b border-white/5 pb-6">
+                        {(["all", "personal", "academic"] as const).map(projType => {
+                            const isSelected = selectedProjectType === projType;
                             return (
-                                <motion.div
-                                    key={project.key}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    variants={cardVariants}
-                                    whileHover={{ y: -8 }}
-                                    className="group relative flex flex-col lg:flex-row items-stretch w-full bg-secondary/35 border border-white/8 rounded-3xl overflow-hidden hover:border-accent-blue/45 hover:shadow-[0_15px_45px_rgba(204,255,0,0.04)] transition-all duration-500 interactive-card"
-                                    data-cursor-text="VISIT"
+                                <button
+                                    key={projType}
+                                    onClick={() => setSelectedProjectType(projType)}
+                                    className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border cursor-pointer ${isSelected ? 'bg-accent-blue/10 border-accent-blue text-accent-blue shadow-[0_0_12px_rgba(78,168,255,0.15)]' : 'bg-secondary/40 border-white/5 text-gray-400 hover:text-white hover:border-white/20'}`}
                                 >
-                                    {/* Hover Radial Glow */}
-                                    <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-accent-blue/3 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                                    {/* Left/Top: Image section */}
-                                    <div className="w-full lg:w-[45%] h-[240px] lg:h-auto relative overflow-hidden shrink-0">
-                                        <Image
-                                            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                                            src={project.image}
-                                            fill={true}
-                                            sizes="(max-width: 1024px) 100vw, 45vw"
-                                            alt={title}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-black/20 lg:to-black/80" />
-                                    </div>
-
-                                    {/* Right/Bottom: Content Details */}
-                                    <div className="flex-1 flex flex-col justify-between p-8 lg:p-10 gap-6 w-full">
-                                        <div className="flex flex-col gap-4">
-                                            
-                                            {/* Title block */}
-                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/5 pb-4">
-                                                <div className="flex flex-col">
-                                                    <h3 className="font-primary text-xl lg:text-2xl font-extrabold text-white tracking-tight group-hover:text-accent-blue transition-colors duration-300">
-                                                        {title}
-                                                    </h3>
-                                                    <span className="font-secondary text-xs text-accent-blue font-bold uppercase tracking-wider mt-1">{date}</span>
-                                                </div>
-
-                                                {project.links && (
-                                                    <div className="flex gap-3 shrink-0">
-                                                        {project.links.map((link: any, i: number) => (
-                                                            <Link 
-                                                                key={i} 
-                                                                href={link.href} 
-                                                                target="_blank" 
-                                                                className="bg-secondary/80 border border-white/8 hover:border-accent-blue/40 text-gray-300 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5 cursor-pointer"
-                                                            >
-                                                                {link.icon && <FontAwesomeIcon icon={link.icon} className="size-3" />}
-                                                                {link.name}
-                                                            </Link>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            {/* Role Tags Row */}
-                                            {project.tags && (
-                                                <div className="flex flex-wrap gap-2">
-                                                    {project.tags.map((tag: string) => (
-                                                        <span key={tag} className="bg-accent-teal/10 border border-accent-teal/30 text-accent-teal px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-extrabold font-secondary">
-                                                            {t_tags(tag)}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
-
-                                            {/* Description */}
-                                            <p className="font-secondary text-sm text-gray-400 leading-relaxed mt-1">
-                                                {description}
-                                            </p>
-                                        </div>
-
-                                        {/* Teammates Capsule Row */}
-                                        {project.team && (
-                                            <div className="flex flex-col gap-2 border-t border-white/5 pt-6 mt-2">
-                                                <span className="text-[10px] uppercase tracking-widest text-gray-500 font-extrabold font-secondary flex items-center gap-1.5 select-none">
-                                                    <FontAwesomeIcon icon={faUsers} className="size-3" />
-                                                    {t("teammates")}
-                                                </span>
-                                                <div className="flex flex-wrap gap-x-4 gap-y-2 select-none">
-                                                    {project.team.map((group: any) => (
-                                                        <div key={group.role} className="flex items-center gap-2 text-xs">
-                                                            <span className="text-gray-400 capitalize font-medium">{t_team(group.role, { count: group.members.length })}:</span>
-                                                            <div className="flex flex-wrap gap-2">
-                                                                    {group.members.map((member: any) => (
-                                                                        <Link 
-                                                                            key={member.name} 
-                                                                            href={member.href} 
-                                                                            target="_blank" 
-                                                                            className="text-accent-blue font-bold hover:underline"
-                                                                        >
-                                                                            {member.name}
-                                                                        </Link>
-                                                                    ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </motion.div>
+                                    {t_projects(`filters.${projType}`)}
+                                </button>
                             );
                         })}
                     </div>
+
+                    <motion.div 
+                        layout 
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-6"
+                    >
+                        <AnimatePresence mode="popLayout">
+                            {filteredProjects.map(project => {
+                                const cardVariants = {
+                                    hidden: { opacity: 0, y: 25, scale: 0.97 },
+                                    visible: {
+                                        opacity: 1,
+                                        y: 0,
+                                        scale: 1,
+                                        transition: { type: "spring", stiffness: 90, damping: 15 }
+                                    },
+                                    exit: {
+                                        opacity: 0,
+                                        y: 15,
+                                        scale: 0.95,
+                                        transition: { duration: 0.2 }
+                                    }
+                                } as const;
+
+                                return (
+                                    <motion.div
+                                        layout
+                                        key={project.key}
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="exit"
+                                        viewport={{ once: true, margin: "-100px" }}
+                                        variants={cardVariants}
+                                        className="h-full flex"
+                                    >
+                                        <ProjectCard project={project} />
+                                    </motion.div>
+                                );
+                            })}
+                        </AnimatePresence>
+                    </motion.div>
                 </div>
 
                 {/* PART 2: LIVE GITHUB REPOSITORIES BOARD */}
@@ -360,7 +501,7 @@ export default function GalleryClient() {
                                 <button
                                     key={lang}
                                     onClick={() => setSelectedLanguage(lang)}
-                                    className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border cursor-pointer ${isSelected ? 'bg-accent-blue/10 border-accent-blue text-accent-blue shadow-[0_0_12px_rgba(204,255,0,0.15)]' : 'bg-secondary/40 border-white/5 text-gray-400 hover:text-white hover:border-white/20'}`}
+                                    className={`relative px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border cursor-pointer ${isSelected ? 'bg-accent-blue/10 border-accent-blue text-accent-blue shadow-[0_0_12px_rgba(78,168,255,0.15)]' : 'bg-secondary/40 border-white/5 text-gray-400 hover:text-white hover:border-white/20'}`}
                                 >
                                     {lang}
                                 </button>
@@ -387,15 +528,15 @@ export default function GalleryClient() {
                         </div>
                     )}
 
-                    {/* Load Archives Button (When Closed) */}
-                    {!showArchives && archivedRepos.length > 0 && (
+                    {/* Load/Toggle Archives Button */}
+                    {archivedRepos.length > 0 && (
                         <div className="flex justify-center w-full mt-10 select-none">
                             <button
-                                onClick={() => setShowArchives(true)}
+                                onClick={() => setShowArchives(!showArchives)}
                                 className="bg-secondary/40 border border-accent-teal/30 text-accent-teal hover:bg-accent-teal hover:text-black shadow-[0_0_15px_rgba(98,226,213,0.05)] hover:shadow-[0_0_25px_rgba(98,226,213,0.25)] transition-all duration-500 px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider cursor-pointer active:scale-95 flex items-center gap-2"
                             >
                                 <FontAwesomeIcon icon={faArchive} className="size-3.5" />
-                                {t_repos("view_archives.show")}
+                                {showArchives ? t_repos("view_archives.hide") : t_repos("view_archives.show")}
                             </button>
                         </div>
                     )}
@@ -426,9 +567,6 @@ export default function GalleryClient() {
                                             className="opacity-15 blur-[2px]"
                                         />
                                     </svg>
-                                    <span className="text-[10px] uppercase tracking-widest text-accent-teal font-extrabold font-secondary mt-3 px-4 py-1.5 rounded-full bg-accent-teal/5 border border-accent-teal/10 shadow-[0_0_12px_rgba(98,226,213,0.03)] relative z-20 -translate-y-6">
-                                        {t_repos("view_archives.show")}
-                                    </span>
                                 </div>
 
                                 {/* Archived Grid */}
@@ -438,16 +576,6 @@ export default function GalleryClient() {
                                 >
                                     {archivedRepos.map(repo => renderCard(repo))}
                                 </motion.div>
-
-                                {/* Close Archives Button at bottom */}
-                                <div className="flex justify-center w-full mt-6 select-none">
-                                    <button
-                                        onClick={() => setShowArchives(false)}
-                                        className="bg-secondary/30 border border-white/5 text-gray-500 hover:text-white hover:border-white/15 transition-all duration-300 px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider cursor-pointer active:scale-95 flex items-center gap-2"
-                                    >
-                                        {t_repos("view_archives.hide")}
-                                    </button>
-                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>

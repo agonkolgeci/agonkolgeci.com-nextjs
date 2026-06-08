@@ -51,7 +51,7 @@ const AboutMobile = () => {
     const intro = sentences.slice(0, 2).join(" ").trim();
 
     return (
-        <div className="relative w-full bg-primary">
+        <div className="relative w-full bg-transparent">
             <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-12">
                 <div className="relative w-full h-[75vh] rounded-[28px] overflow-hidden border border-white/8">
                     <Image src="/home/portrait.png" fill sizes="100vw" alt={t("about.title")} className="object-cover object-center" />
@@ -95,7 +95,7 @@ const AboutDesktop = () => {
     const intro = sentences.slice(0, 2).join(" ").trim();
 
     return (
-        <div ref={sectionRef} className="relative h-[250vh] w-full bg-primary">
+        <div ref={sectionRef} className="relative h-[250vh] w-full bg-transparent">
             <div className="sticky top-0 h-screen w-full overflow-hidden">
 
                 {/* Image: starts full-screen, shrinks to the right side on scroll */}
@@ -155,12 +155,7 @@ const AboutScrollSection = () => {
 // Client-side module-level memory state to bypass preloader on client-side routing
 let preloaderHasPlayed = false;
 
-interface HomeClientProps {
-    target_mail: string;
-    recaptchaKey: string;
-}
-
-export default function HomeClient({ target_mail, recaptchaKey }: HomeClientProps) {
+export default function HomeClient() {
     const t = useTranslations("home");
     const [showPreloader, setShowPreloader] = useState(() => !preloaderHasPlayed);
     const [isLogoLoaded, setIsLogoLoaded] = useState(false);
@@ -193,7 +188,7 @@ export default function HomeClient({ target_mail, recaptchaKey }: HomeClientProp
     const descText = t("description");
 
     return (
-        <div className="w-full bg-primary relative overflow-visible">
+        <div className="w-full bg-transparent relative overflow-visible">
             
             {/* Preloader Overlay (ciaoenergy.com inspired) */}
             <AnimatePresence>
@@ -389,19 +384,19 @@ export default function HomeClient({ target_mail, recaptchaKey }: HomeClientProp
                 <EducationClient />
             </div>
 
-            {/* EXPERIENCES SECTION */}
-            <div id="experiences" className="w-full scroll-mt-[var(--navbar-height)]">
-                <ExperiencesClient />
-            </div>
-
             {/* GALLERY / CREATIONS SECTION */}
             <div id="gallery" className="w-full scroll-mt-[var(--navbar-height)]">
                 <GalleryClient />
             </div>
 
+            {/* EXPERIENCES SECTION */}
+            <div id="experiences" className="w-full scroll-mt-[var(--navbar-height)]">
+                <ExperiencesClient />
+            </div>
+
             {/* CONTACT SECTION */}
             <div id="contact" className="w-full scroll-mt-[var(--navbar-height)]">
-                <ContactClient target_mail={target_mail} recaptchaKey={recaptchaKey} />
+                <ContactClient />
             </div>
 
         </div>

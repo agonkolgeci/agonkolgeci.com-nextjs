@@ -43,13 +43,7 @@ export default function LegalClient({ namespace, contents }: LegalClientProps) {
     }, [contents]);
 
     return (
-        <article className="relative min-h-screen w-full bg-primary text-white py-24 xl:py-32 selection:bg-accent-blue selection:text-white">
-            {/* Soft Futuristic Atmospheric Glows (clipped here so the article itself stays scroll-friendly for sticky) */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-[-100px] w-[500px] h-[500px] bg-accent-blue/5 rounded-full blur-[140px]" />
-                <div className="absolute bottom-1/4 right-[-100px] w-[500px] h-[500px] bg-accent-teal/5 rounded-full blur-[140px]" />
-            </div>
-
+        <article className="relative min-h-screen w-full bg-transparent text-white py-24 xl:py-32 selection:bg-accent-blue selection:text-white">
             <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
                 {/* Visual Header Row */}
                 <div className="flex flex-col gap-4 max-w-3xl mb-16 md:mb-24">

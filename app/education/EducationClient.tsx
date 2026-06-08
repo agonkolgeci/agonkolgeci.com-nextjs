@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 interface School {
     key: string;
@@ -80,14 +80,13 @@ export default function EducationClient() {
     };
 
     return (
-        <article className="relative w-full bg-primary text-white overflow-visible selection:bg-accent-blue selection:text-white">
+        <article className="relative w-full bg-transparent text-white overflow-visible selection:bg-accent-blue selection:text-white">
             {/* Visual guide markers reminiscent of premium Webflow layouts */}
             <div className="absolute top-0 left-[15%] w-[1px] h-full bg-white/2 pointer-events-none" />
             <div className="absolute top-0 right-[15%] w-[1px] h-full bg-white/2 pointer-events-none" />
             
             {/* Ambient Background Glows */}
-            <div className="absolute top-1/4 left-[-150px] w-[500px] h-[500px] bg-accent-blue/4 rounded-full blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-[-150px] w-[500px] h-[500px] bg-accent-teal/4 rounded-full blur-[140px] pointer-events-none" />
+
 
             {/* Static Section Intro Header */}
             <div className="mx-auto max-w-7xl px-8 pt-32 sm:pt-36 pb-12 flex flex-col items-center text-center relative z-10 select-none">
@@ -167,14 +166,10 @@ export default function EducationClient() {
                                         {/* Ambient corner light glow on hover */}
                                         <div className={`absolute top-0 right-0 w-[160px] h-[160px] rounded-full blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${school.glow === 'orange' ? 'bg-accent-teal/5' : 'bg-accent-blue/5'}`} />
 
-                                        {/* Timeline Capsule Node Badge */}
-                                        <div className="flex flex-row justify-between items-center w-full">
-                                            <span className={`text-[10px] font-extrabold uppercase font-secondary tracking-widest px-3.5 py-1 rounded-full ${school.glow === 'orange' ? 'bg-accent-teal/10 text-accent-teal border border-accent-teal/20' : 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20'}`}>
-                                                Milestone 0{index + 1}
-                                            </span>
-                                            <time className={`font-secondary text-xs font-extrabold uppercase tracking-widest ${activeAccent}`}>
-                                                {t_career(`${schoolPath}.date`)}
-                                            </time>
+                                        {/* Cyber Timestamp Pill */}
+                                        <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[10px] bg-white/5 border border-white/5 rounded-md px-2.5 py-1 w-max">
+                                            <FontAwesomeIcon icon={faCalendarAlt} className={`size-3 ${activeAccent}`} />
+                                            <span className="uppercase tracking-wider font-semibold">{t_career(`${schoolPath}.date`)}</span>
                                         </div>
 
                                         {/* Milestone Description */}

@@ -213,124 +213,31 @@
 
     "experiences": { 
         "title": "Experiences",
-        "description": "Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences.",
-        "catalog_index": "Catalog Index",
-        "chapters_header": "Chapters",
+        "description": "Discover my professional experiences in which I was able to solidify my knowledge and skills.",
         "collaborators_supervisor": "Collaborators & Supervisor",
-        "chapters": {
-            "academic": {
-                "title": "Academic Journey",
-                "desc": "Foundations in computer science & research algorithms",
-                "long_desc": "Theoretical algorithm foundations and practical scientific research at the University of Geneva. Creating system interfaces and modules for major telecom groups."
-            },
-            "professional": {
-                "title": "Professional Path",
-                "desc": "Collaborating with engineering teams & products",
-                "long_desc": "Delivering high-fidelity products, managing server platforms, and automating DevOps deployment lifecycles for organizations and commercial groups."
-            },
-            "personal": {
-                "title": "Personal Creations",
-                "desc": "Designing & hosting custom open source infrastructure",
-                "long_desc": "Publishing open-source packages, custom web applications, automation bots, and high-performance server structures driven by design passion."
-            }
-        },
-
-        "personal_experiences": {
-            "title": "Personal Experiences",
-            "description": "Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment.",
-
-            "contents": {
-                "web": {
-                    "title": "Web Development",
-                    "date": "started in 2022",
-                    "description": "Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies.",
-                    "tasks": {
-                        "1": "Creating interactive websites with familiar frameworks like React, NextJS", 
-                        "2": "Using CSS preprocessors like Sass for advanced styling",
-                        "3": "Optimizing website performance and accessibility"
-                    }
-                },
-
-                "discord": {
-                    "title": "Discord Development",
-                    "date": "started in 2021",
-                    "description": "Realization of various projects related to the development of Discord bots and server management tools, particularly focused on enhancing user engagement and community automation.",
-                    "tasks": {
-                        "1": "Designing and implementing new features using Java and JavaScript", 
-                        "2": "Integrating APIs and managing data flow between Discord and external services",
-                        "3": "Developing and maintaining custom bot commands to streamline server operations"
-                    }
-                },
-
-                "minecraft": {
-                    "title": "Minecraft Development",
-                    "date": "started in 2018",
-                    "description": "Realization of various projects related to the operation of Minecraft servers, particularly in the development of Spigot/Bukkit plugins, management of servers and communications between them.",
-                    "tasks": {
-                        "1": "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
-                        "2": "Deployment and commissioning of infrastructure in Linux environments",
-                        "3": "Discord bots development using the Discord API for community server automation"
-                    }
-                }
-            }
-        },
-
+        "technologies": "Technologies Used",
         "professional_experiences": {
             "title": "Professional Experiences",
             "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
-
             "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
                     "date": "sept. 2020 - apr. 2021",
                     "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
-
                     "tasks": {
                         "1": "Member of the administration team as Moderation team leader", 
                         "2": "Development of Discord moderation tools necessary for the proper functioning of the moderation"
                     }
                 },
-
                 "buro_plus": {
                     "title": "Buro +",
                     "date": "dec 2019",
                     "description": "No.1 network for office/computer supplies in France.",
-
                     "tasks": {
                         "1": "Verification of the authenticity of the material", 
                         "2": "Order management and shelving",
                         "3": "Registration of items using the software",
                         "4": "Customer relationship / payment"
-                    }
-                }
-            }
-        },
-
-        "academic_experiences": {
-            "title": "Academic Experiences",
-            "description": "This section highlights my academic achievements and experiences, including coursework, research projects, and participation in academic projects.",
-
-            "contents": {
-                "redcap-swisscom-module": {
-                    "title": "Development of a REDCap Module for the Geneva University Hospitals",
-                    "date": "feb. 2025 - may 2025",
-                    "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts.",
-                    "tasks": {
-                        "1": "Deepen my skills in PHP, Docker, and the REDCap ecosystem",
-                        "2": "Develop greater rigor in reading and analyzing technical documentation",
-                        "3": "Contribute to the design of a solution that meets real institutional and functional constraints",
-                        "4": "Collaborate effectively with a team and interact with various project stakeholders"
-                    }
-                },
-
-
-                "swerc2024": {
-                    "title": "SWERC 2024",
-                    "date": "30 nov & 1 dec 2024",
-                    "description": "SWERC is a 5-hour programming contest for teams of three students, focused on algorithmic problem solving and practical coding. This competition serves as the regional selection phase for the Europe Championship and the International Collegiate Programming Contest.",
-                    "tasks": {
-                        "1": "Participated in my first algorithmic competition, gaining valuable experience in problem-solving, teamwork, and high-pressure coding challenges.",
-                        "2": "Developed and debugged programs in C++ to handle dynamic data structures and optimize resource usage during the competition."
                     }
                 }
             }
@@ -344,8 +251,28 @@
         "projects": {
             "title": "Projects",
             "description": "List of all the projects I have been involved in.",
-            
+            "filters": {
+                "all": "All",
+                "personal": "Personal",
+                "academic": "Academic"
+            },
             "contents": {
+                "unige-events": {
+                    "title": "UNIGE Events",
+                    "date": "February 2026 - May 2026",
+                    "description": "A university capstone project developed at the University of Geneva (UNIGE). It is a centralized web platform designed for students and campus associations to create, share, and register for campus events, built on a modern microservices architecture."
+                },
+                "redcap-swisscom-module": {
+                    "title": "REDCap HUG Module",
+                    "date": "February 2025 - May 2025",
+                    "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts."
+                },
+                "swerc2024": {
+                    "title": "SWERC 2024",
+                    "date": "November 30 & December 1 2024",
+                    "description": "SWERC is a 5-hour programming contest for teams of three students, focused on algorithmic problem solving and practical coding. This competition serves as the regional selection phase for the Europe Championship and the International Collegiate Programming Contest."
+                },
+
                 "project-family": {
                     "title": "Project Family",
                     "date": "April 2021 - present",
@@ -364,10 +291,10 @@
                     "description": "Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
                 },
 
-                "playze-family-bot": {
-                    "title": "Playze Family Bot",
-                    "date": "2020 - 2025",
-                    "description": "Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
+                "yadbna": {
+                    "title": "YADBNA",
+                    "date": "2020 - present",
+                    "description": "YADBNA (Yet Another Discord Bot Nobody Asked) is a Discord bot that features graphic level cards, visual leaderboards, invite tracking with real metrics, and advanced management tools such as custom self-roles and auto-cleanup temporary voice channels."
                 },
 
                 "berkasia": {
@@ -375,7 +302,8 @@
                     "date": "2017 - 2021",
                     "description": "Minecraft PVP/Faction server featuring new events, a carefully thought-out economy and advanced systems to help you achieve your goals. Berkasia featured a completely Farm2Win system."
                 }
-            }
+            },
+            "teammates": "Teammates"
         },
 
         "repositories": {
@@ -388,6 +316,7 @@
             },
 
             "view_archives": {
+                "title": "Archived Repositories",
                 "show": "View Archives",
                 "hide": "Hide Archives",
                 "description": "Archived repositories are outdated and no longer representative of my current work."
@@ -417,40 +346,8 @@
 
         "contact_form": {
             "title": "Get In Touch",
-            "description": "Fill in the contact form below to send your message.",
-            
-            "inputs": {
-                "name": {
-                    "label": "Name",
-                    "placeholder": "Your Name"
-                },
-
-                "email": {
-                    "label": "E-mail",
-                    "placeholder": "Your E-mail"
-                },
-
-                "subject": {
-                    "label": "Subject",
-                    "placeholder": "Subject"
-                }
-            },
-
-            "textareas": {
-                "message": {
-                    "label": "Message"
-                }
-            },
-
-            "submit": "Submit",
-
-            "alerts": {
-                "fields_missing": "Please fill out all required fields in the form before submitting.",
-                "recaptcha_invalid": "Please complete the reCAPTCHA verification before submitting.",
-                "sending": "Your message is being sent...",
-                "sent": "Thank you for your message. I have received it and will get back to you shortly by e-mail.",
-                "unknown_error": "Sorry, but an error occurred and your message could not be sent. Please try again later."
-            }
+            "description": "No form, no captcha, no server relay. Send me an email directly and I will get back to you.",
+            "submit": "Open Mail"
         }
     },
 
@@ -541,14 +438,14 @@
             "data-collection": {
                 "title": "Information Collection",
                 "texts": {
-                    "1": "This website does not collect any personal data automatically, except for standard anonymous analytical metrics that do not identify individuals. The only personal information we collect is the details you voluntarily submit via the contact form (such as your name, email address, and message content)."
+                    "1": "This website does not collect any personal data automatically, except for standard anonymous analytical metrics that do not identify individuals. If you contact us by e-mail, your message is handled directly through your mail provider and our mailbox."
                 }
             },
 
             "data-usage": {
                 "title": "Use of Information",
                 "texts": {
-                    "1": "Any information collected through the contact form is solely used to respond to your inquiries and communicate directly with you. We will never sell, trade, or distribute your personal information to third parties."
+                    "1": "Any information shared by e-mail is solely used to respond to your inquiries and communicate directly with you. We will never sell, trade, or distribute your personal information to third parties."
                 }
             },
 
@@ -562,7 +459,7 @@
             "rights": {
                 "title": "Your Rights",
                 "texts": {
-                    "1": "You have the right to request access to the messages you sent us, or ask us to delete your personal data (such as emails or messages sent through the form) at any time. Simply contact us to request data removal."
+                    "1": "You have the right to request access to the messages you sent us, or ask us to delete your personal data, at any time. Simply contact us to request data removal."
                 }
             },
 
@@ -582,7 +479,9 @@
         "lead-developer": "Lead Developer",
         "volunteering": "Volunteering",
         "internship": "Internship",
-        "unige": "University of Geneva"
+        "unige": "University of Geneva",
+        "devops": "DevOps",
+        "tech-lead": "Technical Leader"
     },
 
      "team": {

@@ -8,8 +8,8 @@ export function useMenu(): ExternalURL[] {
         { name: t("home"), href: "/#home" },
         { name: t("skills"), href: "/#skills" },
         { name: t("education"), href: "/#education" },
-        { name: t("experiences"), href: "/#experiences" },
         { name: t("gallery"), href: "/#gallery" },
+        { name: t("experiences"), href: "/#experiences" },
         { name: t("contact"), href: "/#contact" }
     ]
 }

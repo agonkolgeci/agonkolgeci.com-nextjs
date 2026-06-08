@@ -44,7 +44,7 @@ export default function NavMenu() {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        const sections = ["home", "skills", "education", "experiences", "gallery", "contact"];
+        const sections = ["home", "skills", "education", "gallery", "experiences", "contact"];
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);

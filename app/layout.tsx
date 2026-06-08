@@ -69,8 +69,30 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <NextIntlClientProvider messages={messages}>
           <Header/>
 
-          <main className="w-full">
-            {children}
+          <main className="w-full relative min-h-screen">
+            {/* Global full-bleed ambient background pattern */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+              {/* Tech dot-grid (edges faded horizontally so it never cuts net) */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px)",
+                  backgroundSize: "30px 30px",
+                  maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+                  WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)"
+                }}
+              />
+              {/* Accent blobs distributed down the full height of the page */}
+              <div className="absolute top-[3%] left-[4%] w-[520px] h-[520px] bg-accent-blue/[0.16] rounded-full blur-[120px]" />
+              <div className="absolute top-[24%] right-[2%] w-[480px] h-[480px] bg-accent-teal/[0.14] rounded-full blur-[120px]" />
+              <div className="absolute top-[46%] left-[1%] w-[500px] h-[500px] bg-accent-blue/[0.13] rounded-full blur-[125px]" />
+              <div className="absolute top-[68%] right-[4%] w-[480px] h-[480px] bg-accent-teal/[0.15] rounded-full blur-[120px]" />
+              <div className="absolute top-[88%] left-[8%] w-[460px] h-[460px] bg-accent-blue/[0.13] rounded-full blur-[120px]" />
+            </div>
+
+            <div className="relative w-full">
+              {children}
+            </div>
           </main>
 
           <Footer/>

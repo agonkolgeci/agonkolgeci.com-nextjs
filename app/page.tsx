@@ -6,10 +6,5 @@ export async function generateMetadata({ params }: MetadataProps) {
 }
 
 export default function Home() {
-    return (
-        <HomeClient 
-            target_mail={String(process.env["CONTACT_TARGET_MAIL"] || "")} 
-            recaptchaKey={String(process.env["CLOUDFLARE_TURNSTILE_SITE_KEY"] || "")} 
-        />
-    );
+    return <HomeClient />;
 }
