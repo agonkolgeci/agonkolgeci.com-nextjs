@@ -12,12 +12,13 @@
     },
 
     "legal": {
-        "terms": "Terms of Service"
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy"
     },
 
     "navigation": {
         "home": "Home",
-        "skills": "Skills",
+        "skills": "Tech Stack",
         "education": "Education",
         "experiences": "Experiences",
         "gallery": "Gallery",
@@ -56,6 +57,8 @@
     "home": {
         "title": "Agon KOLGECI",
         "description": "Software Developer",
+        "quote": "I design and build next-generation digital experiences. By combining clean engineering with refined design aesthetics, I shape ideas into reality.",
+        "scroll_down": "Scroll Down",
 
         "about": {
             "title": "About Me",
@@ -71,7 +74,7 @@
             "knowledge": {
                 "title": "Explore my knowledge",
                 "description": "Delve into the skills and education I have acquired over the years. From technical proficiencies to academic achievements. This section showcases the breadth of my learning journey.",
-                "go_to_skills": "Go To Skills",
+                "go_to_skills": "Go To Tech Stack",
                 "go_to_education": "Go To Education"
             },
 
@@ -90,8 +93,48 @@
     },
 
     "skills": {
-        "title": "Skills",
+        "title": "Tech Stack",
         "description": "Over the years, I've been able to develop and gain experience in a variety of skills.",
+        "core": "Core",
+        "stack": "Stack",
+        "ops": "Ops",
+        "case_title": "Quantum Chest",
+        "case_desc": "Scroll down to unlock the cyber-chest and project the holographic grid matrix.",
+        "case_hint": "Hover on any holographic orb to examine the technical specifications.",
+        "tech_details": {
+            "java": { "category": "Language", "exp": "Started in 2018", "desc": "Object-oriented programming for robust backend servers, plugin architectures, and high-performance network sockets." },
+            "javascript": { "category": "Language", "exp": "Started in 2020", "desc": "Dynamic client-side scripting and modern functional automation bot integrations across communities." },
+            "typescript": { "category": "Language", "exp": "Started in 2022", "desc": "Statically typed JavaScript scaling application codebases with absolute safety and strict interface bindings." },
+            "php": { "category": "Language", "exp": "Started in 2019", "desc": "Server-side scripting powering legacy and modern web applications with relational database persistence." },
+            "python": { "category": "Language", "exp": "Started in 2022", "desc": "Advanced systems automation, scientific algorithms, and clean utility parsing scripts." },
+            "c": { "category": "Language", "exp": "Started in 2023", "desc": "High-performance systems programming, memory management, and close-to-metal low-level architecture." },
+            "c++": { "category": "Language", "exp": "Started in 2024", "desc": "Low-level system architecture, high-efficiency data structures, and algorithmic puzzle-solving competitive programming (SWERC)." },
+            "html": { "category": "Language", "exp": "Started in 2018", "desc": "Semantic structuring of web documents ensuring rich SEO indexing and accessible DOM structures." },
+            "css": { "category": "Language", "exp": "Started in 2018", "desc": "Advanced responsive styling, layout grids, keyframe animations, and modern visual styling." },
+            "sass": { "category": "Language", "exp": "Started in 2020", "desc": "Syntactically awesome style sheets with nested variables, mixins, and scalable modular styling." },
+            "node": { "category": "Framework", "exp": "Started in 2020", "desc": "Event-driven asynchronous backend standard libraries executing super scalable API microservices and automation systems." },
+            "react": { "category": "Framework", "exp": "Started in 2022", "desc": "Declarative component architecture forming high-fidelity interactive user interfaces and micro-state management." },
+            "nextjs": { "category": "Framework", "exp": "Started in 2022", "desc": "Full-stack SSR frameworks with optimized static page outputs, edge routing architectures, and native API handlers." },
+            "tailwind css": { "category": "Framework", "exp": "Started in 2022", "desc": "Utility-first stylistic CSS tokens scaling dark-themed glassmorphism animations and visual layouts." },
+            "redis": { "category": "Framework", "exp": "Started in 2020", "desc": "Ultra-fast memory cache data grids, pub-sub clusters, and dynamic packet pipelines." },
+            "vscode": { "category": "Tool", "exp": "Started in 2019", "desc": "Sleek, lightweight source code editor with highly customized workspace plugins and debugging integrations." },
+            "intellij idea": { "category": "Tool", "exp": "Started in 2018", "desc": "Full-featured integrated development environment for Java enterprise applications and advanced compiler optimization." },
+            "git": { "category": "Tool", "exp": "Started in 2021", "desc": "Distributed repository branch merges, versioning control, and pull request team collaborations." },
+            "github": { "category": "Tool", "exp": "Started in 2020", "desc": "Cloud repository hosting, continuous integration workflows, and secure team collaboration." },
+            "gitlab": { "category": "Tool", "exp": "Started in 2021", "desc": "Enterprise DevOps lifecycle tool integrating secure container registries and private CI/CD pipelines." },
+            "docker": { "category": "Ops / Tool", "exp": "Started in 2024", "desc": "Containerized microservice standard setups separating database instances and Swisscom REDCap module interfaces." },
+            "linux": { "category": "Ops / Tool", "exp": "Started in 2018", "desc": "Unix shell administration, custom cron script automations, performance tuning, and pure server hosting control." },
+            "jenkins": { "category": "Ops / Tool", "exp": "Started in 2024", "desc": "Automated building, testing, and continuous delivery pipeline triggers for robust software deployment." },
+            "bash": { "category": "Ops / Tool", "exp": "Started in 2018", "desc": "Unix shell scripting for systems automation, background cron tasks, and network management." },
+            "powershell": { "category": "Ops / Tool", "exp": "Started in 2020", "desc": "Task automation and configuration management framework with object-oriented shell administration." },
+            "mysql": { "category": "Ops / Tool", "exp": "Started in 2018", "desc": "Structured transactional database records, query plan indexes, and persistent caching data integrity." },
+            "mongodb": { "category": "Ops / Tool", "exp": "Started in 2022", "desc": "Flexible document JSON structures, horizontal cluster databases, and dynamic document schemas." },
+            "maven": { "category": "Tool", "exp": "Started in 2018", "desc": "Declarative project management and dependency resolution build tool for standard Java ecosystems." },
+            "gradle": { "category": "Tool", "exp": "Started in 2020", "desc": "Highly performant build automation tool with flexible Kotlin and Groovy DSL compilation scripts." },
+            "cloudflare": { "category": "Ops / Tool", "exp": "Started in 2022", "desc": "Global content delivery network caching, edge proxy protection, and secure SSL/DNS resolution." },
+            "postman": { "category": "Tool", "exp": "Started in 2021", "desc": "Futuristic API platform for building, mock testing, and automating REST endpoints and requests." },
+            "stackoverflow": { "category": "Tool", "exp": "Started in 2018", "desc": "Global collaborative knowledge base for developer troubleshooting, bug resolution, and algorithmic discussion." }
+        },
 
         "it_skills": {
             "title": "IT Skills",
@@ -170,104 +213,31 @@
 
     "experiences": { 
         "title": "Experiences",
-        "description": "Discover my experiences in which I was able to solidify my knowledge and skills. These include both personal and professional experiences.",
-
-        "personal_experiences": {
-            "title": "Personal Experiences",
-            "description": "Thanks to my personal experiences, I've been able to solidify my skills in certain areas and acquire a real grasp of the environment.",
-
-            "contents": {
-                "web": {
-                    "title": "Web Development",
-                    "date": "started in 2022",
-                    "description": "Execution of various projects related to web development, including the creation of responsive and dynamic websites. Projects include the design and implementation of front-end features using modern technologies.",
-                    "tasks": {
-                        "1": "Creating interactive websites with familiar frameworks like React, NextJS", 
-                        "2": "Using CSS preprocessors like Sass for advanced styling",
-                        "3": "Optimizing website performance and accessibility"
-                    }
-                },
-
-                "discord": {
-                    "title": "Discord Development",
-                    "date": "started in 2021",
-                    "description": "Realization of various projects related to the development of Discord bots and server management tools, particularly focused on enhancing user engagement and community automation.",
-                    "tasks": {
-                        "1": "Designing and implementing new features using Java and JavaScript", 
-                        "2": "Integrating APIs and managing data flow between Discord and external services",
-                        "3": "Developing and maintaining custom bot commands to streamline server operations"
-                    }
-                },
-
-                "minecraft": {
-                    "title": "Minecraft Development",
-                    "date": "started in 2018",
-                    "description": "Realization of various projects related to the operation of Minecraft servers, particularly in the development of Spigot/Bukkit plugins, management of servers and communications between them.",
-                    "tasks": {
-                        "1": "Optimizing and implementing existing Java code or writing new systems (some available on GitHub)", 
-                        "2": "Deployment and commissioning of infrastructure in Linux environments",
-                        "3": "Discord bots development using the Discord API for community server automation"
-                    }
-                }
-            }
-        },
-
+        "description": "Discover my professional experiences in which I was able to solidify my knowledge and skills.",
+        "collaborators_supervisor": "Collaborators & Supervisor",
+        "technologies": "Technologies Used",
         "professional_experiences": {
             "title": "Professional Experiences",
             "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
-
             "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
                     "date": "sept. 2020 - apr. 2021",
                     "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
-
                     "tasks": {
                         "1": "Member of the administration team as Moderation team leader", 
                         "2": "Development of Discord moderation tools necessary for the proper functioning of the moderation"
                     }
                 },
-
                 "buro_plus": {
                     "title": "Buro +",
                     "date": "dec 2019",
                     "description": "No.1 network for office/computer supplies in France.",
-
                     "tasks": {
                         "1": "Verification of the authenticity of the material", 
                         "2": "Order management and shelving",
                         "3": "Registration of items using the software",
                         "4": "Customer relationship / payment"
-                    }
-                }
-            }
-        },
-
-        "academic_experiences": {
-            "title": "Academic Experiences",
-            "description": "This section highlights my academic achievements and experiences, including coursework, research projects, and participation in academic projects.",
-
-            "contents": {
-                "redcap-swisscom-module": {
-                    "title": "Development of a REDCap Module for the Geneva University Hospitals",
-                    "date": "feb. 2025 - may 2025",
-                    "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts.",
-                    "tasks": {
-                        "1": "Deepen my skills in PHP, Docker, and the REDCap ecosystem",
-                        "2": "Develop greater rigor in reading and analyzing technical documentation",
-                        "3": "Contribute to the design of a solution that meets real institutional and functional constraints",
-                        "4": "Collaborate effectively with a team and interact with various project stakeholders"
-                    }
-                },
-
-
-                "swerc2024": {
-                    "title": "SWERC 2024",
-                    "date": "30 nov & 1 dec 2024",
-                    "description": "SWERC is a 5-hour programming contest for teams of three students, focused on algorithmic problem solving and practical coding. This competition serves as the regional selection phase for the Europe Championship and the International Collegiate Programming Contest.",
-                    "tasks": {
-                        "1": "Participated in my first algorithmic competition, gaining valuable experience in problem-solving, teamwork, and high-pressure coding challenges.",
-                        "2": "Developed and debugged programs in C++ to handle dynamic data structures and optimize resource usage during the competition."
                     }
                 }
             }
@@ -281,8 +251,28 @@
         "projects": {
             "title": "Projects",
             "description": "List of all the projects I have been involved in.",
-            
+            "filters": {
+                "all": "All",
+                "personal": "Personal",
+                "academic": "Academic"
+            },
             "contents": {
+                "unige-events": {
+                    "title": "UNIGE Events",
+                    "date": "February 2026 - May 2026",
+                    "description": "A university capstone project developed at the University of Geneva (UNIGE). It is a centralized web platform designed for students and campus associations to create, share, and register for campus events, built on a modern microservices architecture."
+                },
+                "redcap-swisscom-module": {
+                    "title": "REDCap HUG Module",
+                    "date": "February 2025 - May 2025",
+                    "description": "As part of a semester project, I contributed to the development of a REDCap module integrating SMS delivery through the Swisscom API. The main objective was to provide a seamless user experience while optimizing sending costs and improving the management of delivery receipts."
+                },
+                "swerc2024": {
+                    "title": "SWERC 2024",
+                    "date": "November 30 & December 1 2024",
+                    "description": "SWERC is a 5-hour programming contest for teams of three students, focused on algorithmic problem solving and practical coding. This competition serves as the regional selection phase for the Europe Championship and the International Collegiate Programming Contest."
+                },
+
                 "project-family": {
                     "title": "Project Family",
                     "date": "April 2021 - present",
@@ -301,10 +291,10 @@
                     "description": "Stranger Hide is a hide-and-seek server in the theme of the Stranger Things series."
                 },
 
-                "playze-family-bot": {
-                    "title": "Playze Family Bot",
-                    "date": "2020 - 2025",
-                    "description": "Playze Family is a Discord bot with a multitude of features such as the addition of an XP and level system with a ranking by chatting or interacting with other server members, the creation of Giveaways contests, the possible edition of the best rank obtainable for free from the server: the Custom Grade, the choice of notifications you wish to receive, the addition of the GPT Chat API (if you talk to it, it will answer you), etc. ..."
+                "yadbna": {
+                    "title": "YADBNA",
+                    "date": "2020 - present",
+                    "description": "YADBNA (Yet Another Discord Bot Nobody Asked) is a Discord bot that features graphic level cards, visual leaderboards, invite tracking with real metrics, and advanced management tools such as custom self-roles and auto-cleanup temporary voice channels."
                 },
 
                 "berkasia": {
@@ -312,7 +302,8 @@
                     "date": "2017 - 2021",
                     "description": "Minecraft PVP/Faction server featuring new events, a carefully thought-out economy and advanced systems to help you achieve your goals. Berkasia featured a completely Farm2Win system."
                 }
-            }
+            },
+            "teammates": "Teammates"
         },
 
         "repositories": {
@@ -325,59 +316,44 @@
             },
 
             "view_archives": {
+                "title": "Archived Repositories",
                 "show": "View Archives",
                 "hide": "Hide Archives",
                 "description": "Archived repositories are outdated and no longer representative of my current work."
             }
+        },
+        "featured_works": "Featured Works",
+        "open_source": "Open Source",
+        "no_repos": "No Repositories Found",
+        "no_repos_desc": "Try selecting a different programming language.",
+        "teammates": "Teammates",
+        "status": {
+            "archived": "Archived",
+            "template": "Template",
+            "active": "Active"
         }
     },
 
     "contact": {
         "title": "Contact",
         "description": "Feel free to reach me for inquiries or simply to connect!",
+        "send_message": "Send A Message",
+        "geneva_time": "Geneva Time",
+        "ticking_live": "Ticking live • Europe/Zurich timezone",
+        "current_base": "Current Base",
+        "borders": "Dual-located in France borders",
+        "quick_connect": "Quick Connect",
 
         "contact_form": {
             "title": "Get In Touch",
-            "description": "Fill in the contact form below to send your message.",
-            
-            "inputs": {
-                "name": {
-                    "label": "Name",
-                    "placeholder": "Your Name"
-                },
-
-                "email": {
-                    "label": "E-mail",
-                    "placeholder": "Your E-mail"
-                },
-
-                "subject": {
-                    "label": "Subject",
-                    "placeholder": "Subject"
-                }
-            },
-
-            "textareas": {
-                "message": {
-                    "label": "Message"
-                }
-            },
-
-            "submit": "Submit",
-
-            "alerts": {
-                "fields_missing": "Please fill out all required fields in the form before submitting.",
-                "recaptcha_invalid": "Please complete the reCAPTCHA verification before submitting.",
-                "sending": "Your message is being sent...",
-                "sended": "Thank you for your message. I have received it and will get back to you shortly by e-mail.",
-                "unknown_error": "Sorry, but an error occurred and your message could not be sent. Please try again later."
-            }
+            "description": "No form, no captcha, no server relay. Send me an email directly and I will get back to you.",
+            "submit": "Open Mail"
         }
     },
 
     "terms": {
         "title": "Terms of Service",
-        "description": "Latest Updated: September 28, 2024",
+        "description": "Latest Updated: June 1, 2026",
 
         "summary": {
             "title": "Table of contents",
@@ -434,8 +410,63 @@
             "copyright": {
                 "title": "Copyright Notice",
                 "texts": {
-                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited.",
-                    "2": "<copyright></copyright>"
+                    "1": "All content on this website, including text, images, and code, is the intellectual property of <author></author>, unless otherwise noted. Unauthorized use, reproduction, or distribution of any part of this site without express written permission is prohibited."
+                }
+            }
+        },
+
+        "back_to_top": "Back to top"
+    },
+
+    "privacy": {
+        "title": "Privacy Policy",
+        "description": "Latest Updated: September 28, 2024",
+
+        "summary": {
+            "title": "Table of contents",
+            "description": "Quick access to the sections."
+        },
+
+        "contents": {
+            "general": {
+                "title": "Introduction",
+                "texts": {
+                    "1": "This Privacy Policy describes how <author></author> handles your data when you visit this portfolio website. We are committed to protecting your privacy and ensuring your personal information is handled in a safe and responsible manner."
+                }
+            },
+
+            "data-collection": {
+                "title": "Information Collection",
+                "texts": {
+                    "1": "This website does not collect any personal data automatically, except for standard anonymous analytical metrics that do not identify individuals. If you contact us by e-mail, your message is handled directly through your mail provider and our mailbox."
+                }
+            },
+
+            "data-usage": {
+                "title": "Use of Information",
+                "texts": {
+                    "1": "Any information shared by e-mail is solely used to respond to your inquiries and communicate directly with you. We will never sell, trade, or distribute your personal information to third parties."
+                }
+            },
+
+            "hosting": {
+                "title": "Hosting and Log Files",
+                "texts": {
+                    "1": "This website is hosted on Vercel. Like most hosting platforms, Vercel automatically collects server log information, which may include your IP address, browser type, referring pages, and timestamp. This data is purely used for system security, performance tuning, and diagnostics."
+                }
+            },
+
+            "rights": {
+                "title": "Your Rights",
+                "texts": {
+                    "1": "You have the right to request access to the messages you sent us, or ask us to delete your personal data, at any time. Simply contact us to request data removal."
+                }
+            },
+
+            "contact": {
+                "title": "Contact Information",
+                "texts": {
+                    "1": "If you have any questions about this Privacy Policy or wishes to request removal of your messages, please contact <author></author> at <contact></contact>."
                 }
             }
         },
@@ -448,7 +479,9 @@
         "lead-developer": "Lead Developer",
         "volunteering": "Volunteering",
         "internship": "Internship",
-        "unige": "University of Geneva"
+        "unige": "University of Geneva",
+        "devops": "DevOps",
+        "tech-lead": "Technical Leader"
     },
 
      "team": {

@@ -12,13 +12,14 @@
     },
 
     "legal": {
-        "terms": "Mentions légales"
+        "terms": "Mentions légales",
+        "privacy": "Politique de confidentialité"
     },
 
     "navigation": {
         "home": "Accueil",
-        "skills": "Compétences",
-        "education": "Éducation",
+        "skills": "Stack technique",
+        "education": "Formation",
         "experiences": "Expériences",
         "gallery": "Réalisations",
         "contact": "Contact"
@@ -44,7 +45,7 @@
 
     "copyright": {
         "content": "Copyright © <year></year> Agon KOLGECI • Tous droits réservés",
-        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, deployée avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
+        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, déployé avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
     },
 
     "global": {
@@ -56,6 +57,8 @@
     "home": {
         "title": "Agon KOLGECI",
         "description": "Développeur en logiciels",
+        "quote": "Je conçois et développe des expériences numériques de nouvelle génération. En alliant une ingénierie rigoureuse à une esthétique épurée, je donne vie aux idées.",
+        "scroll_down": "Défiler vers le bas",
 
         "about": {
             "title": "À propos de moi",
@@ -71,8 +74,8 @@
             "knowledge": {
                 "title": "Explorez mes connaissances",
                 "description": "Plongez dans les compétences et l'éducation que j'ai acquises au fil des années. Cette section met en lumière mes compétences techniques et l'étendue de mon parcours d'apprentissage.",
-                "go_to_skills": "Voir mes compétences",
-                "go_to_education": "Voir mon éducation"
+                "go_to_skills": "Voir ma stack technique",
+                "go_to_education": "Voir ma formation"
             },
 
             "career": {
@@ -90,8 +93,48 @@
     },
 
     "skills": {
-        "title": "Compétences",
+        "title": "Stack technique",
         "description": "Au fil des années, j'ai pu développer et acquérir de l'expérience dans une variété de compétences.",
+        "core": "Fondamentaux",
+        "stack": "Frameworks",
+        "ops": "Déploiement",
+        "case_title": "Coffre Quantique",
+        "case_desc": "Défilez pour déverrouiller le cyber-coffre et projeter la matrice technologique holographique.",
+        "case_hint": "Survolez un orbe holographique pour inspecter les spécifications techniques.",
+        "tech_details": {
+            "java": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Programmation orientée objet pour des serveurs backend robustes, des architectures de plugins et des sockets réseau haute performance." },
+            "javascript": { "category": "Langage", "exp": "Débuté en 2020", "desc": "Scripting dynamique côté client et intégrations de bots d'automatisation fonctionnels modernes à travers les communautés." },
+            "typescript": { "category": "Langage", "exp": "Débuté en 2022", "desc": "JavaScript typé statiquement pour faire évoluer les applications en toute sécurité avec des liaisons d'interface strictes." },
+            "php": { "category": "Langage", "exp": "Débuté en 2019", "desc": "Développement de scripts côté serveur pour propulser des applications web dynamiques et modernes avec base de données." },
+            "python": { "category": "Langage", "exp": "Débuté en 2022", "desc": "Automatisation avancée des systèmes, algorithmes scientifiques et scripts utilitaires de parsing propres." },
+            "c": { "category": "Langage", "exp": "Débuté en 2023", "desc": "Programmation système haute performance, gestion manuelle de la mémoire et contrôle bas niveau proche du matériel." },
+            "c++": { "category": "Langage", "exp": "Débuté en 2024", "desc": "Architecture système bas niveau, structures de données à haute efficacité et résolution d'algorithmes compétitifs (SWERC)." },
+            "html": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Structuration sémantique de documents web garantissant un excellent référencement SEO et une accessibilité optimale." },
+            "css": { "category": "Langage", "exp": "Débuté en 2018", "desc": "Stylisation responsive avancée, grilles de mise en page flexibles, animations de keyframes et design fluide." },
+            "sass": { "category": "Langage", "exp": "Débuté en 2020", "desc": "Feuilles de style précompilées dotées de variables imbriquées, de mixins réutilisables et d'une architecture modulaire." },
+            "node": { "category": "Framework", "exp": "Débuté en 2020", "desc": "Bibliothèques standard de backend asynchrones basées sur les événements exécutant des microservices d'API et des automations super évolutifs." },
+            "react": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Architecture de composants déclaratifs formant des interfaces utilisateur interactives haute fidélité et une gestion de micro-états." },
+            "nextjs": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Framework SSR full-stack avec pages statiques optimisées, routage Edge et gestionnaires d'API natifs." },
+            "tailwind css": { "category": "Framework", "exp": "Débuté en 2022", "desc": "Jetons CSS utilitaires orchestrant des animations de morphisme de verre sombres et des mises en page sophistiquées." },
+            "redis": { "category": "Framework", "exp": "Débuté en 2020", "desc": "Grilles de cache mémoire ultra-rapides, clusters pub-sub et pipelines de paquets dynamiques." },
+            "vscode": { "category": "Outil", "exp": "Débuté en 2019", "desc": "Éditeur de code source léger et puissant avec une multitude d'extensions de productivité et de débogage." },
+            "intellij idea": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Environnement de développement complet et optimisé pour le développement Java d'entreprise et l'automatisation." },
+            "git": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Fusions de branches de dépôts distribués, contrôle de version et collaborations en équipe via des pull requests." },
+            "github": { "category": "Outil", "exp": "Débuté en 2020", "desc": "Hébergement de dépôts Git dans le cloud, flux d'intégration continue (Actions) et collaboration d'équipe sécurisée." },
+            "gitlab": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Plateforme DevOps complète intégrant des registres de conteneurs privés et des pipelines d'intégration continue." },
+            "docker": { "category": "Ops / Outil", "exp": "Débuté en 2024", "desc": "Configurations de conteneurs standard séparant les instances de base de données et les modules REDCap." },
+            "linux": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Administration shell Unix, scripts cron automatisés, réglage des performances et contrôle total d'hébergement." },
+            "jenkins": { "category": "Ops / Outil", "exp": "Débuté en 2024", "desc": "Automatisation des tests, de l'intégration et du déploiement continu d'applications logicielles en production." },
+            "bash": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Scripting shell Unix pour l'automatisation des tâches système, les tâches planifiées cron et l'administration serveur." },
+            "powershell": { "category": "Ops / Outil", "exp": "Débuté en 2020", "desc": "Cadre d'automatisation des tâches et de gestion de configuration orienté objet pour l'administration de systèmes Windows." },
+            "mysql": { "category": "Ops / Outil", "exp": "Débuté en 2018", "desc": "Enregistrements transactionnels structurés, indexations complexes et intégrité persistante des caches." },
+            "mongodb": { "category": "Ops / Outil", "exp": "Débuté en 2022", "desc": "Structures JSON de documents flexibles, bases de données de clusters horizontaux et schémas dynamiques." },
+            "maven": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Outil de build et de gestion déclarative des dépendances pour standardiser l'architecture des projets Java." },
+            "gradle": { "category": "Outil", "exp": "Débuté en 2020", "desc": "Moteur de build de pointe offrant une compilation flexible via des scripts écrits en Kotlin et en Groovy DSL." },
+            "cloudflare": { "category": "Ops / Outil", "exp": "Débuté en 2022", "desc": "Réseau de distribution de contenu global protégeant les DNS, gérant les proxys Edge et assurant le cryptage SSL." },
+            "postman": { "category": "Outil", "exp": "Débuté en 2021", "desc": "Plateforme collaborative de développement d'API permettant de concevoir, tester et simuler des requêtes HTTP." },
+            "stackoverflow": { "category": "Outil", "exp": "Débuté en 2018", "desc": "Base de connaissances communautaire mondiale pour le partage d'astuces de programmation et la résolution de bugs." }
+        },
 
         "it_skills": {
             "title": "Compétences Informatiques",
@@ -139,7 +182,7 @@
     },
 
     "education": {
-        "title": "Éducation",
+        "title": "Formation",
         "description": "En savoir plus sur mon parcours académique et de quel manière il a contribué à développer mes compétences en informatique et en développement.",
 
         "school_career": {
@@ -170,102 +213,31 @@
 
     "experiences": { 
         "title": "Expériences",
-        "description": "Découvrez mes expériences au cours desquelles j'ai pu solidifier mes connaissances et compétences. Celles-ci incluent à la fois des expériences personnelles et professionnelles.",
-
-        "personal_experiences": {
-            "title": "Expériences Personnelles",
-            "description": "Grâce à mes expériences personnelles, j'ai pu consolider mes compétences dans certains domaines et acquérir une véritable compréhension de l'environnement.",
-
-            "contents": {
-                "web": {
-                    "title": "Développement Web",
-                    "date": "débuté en 2022",
-                    "description": "Réalisation de divers projets liés au développement web, incluant la création de sites web dynamiques et responsive. Les projets incluent la conception et la mise en œuvre de fonctionnalités front-end utilisant des technologies modernes.",
-                    "tasks": {
-                        "1": "Création de sites web interactifs avec des frameworks populaires comme React, NextJS", 
-                        "2": "Utilisation de préprocesseurs CSS comme Sass pour un style avancé",
-                        "3": "Optimisation des performances et de l'accessibilité des sites web"
-                    }
-                },
-
-                "discord": {
-                    "title": "Développement Discord",
-                    "date": "débuté en 2021",
-                    "description": "Réalisation de divers projets liés au développement de bots Discord et d'outils de gestion de serveurs, particulièrement axés sur l'amélioration de l'engagement des utilisateurs et l'automatisation de la communauté.",
-                    "tasks": {
-                        "1": "Conception et mise en œuvre de nouvelles fonctionnalités utilisant Java et JavaScript", 
-                        "2": "Intégration d'APIs et gestion du flux de données entre Discord et des services externes",
-                        "3": "Développement et maintenance de commandes de bots personnalisées pour rationaliser les opérations du serveur"
-                    }
-                },
-
-                "minecraft": {
-                    "title": "Développement Minecraft",
-                    "date": "débuté en 2018",
-                    "description": "Réalisation de divers projets liés à l'exploitation de serveurs Minecraft, particulièrement dans le développement de plugins Spigot/Bukkit, la gestion de serveurs et les communications entre eux.",
-                    "tasks": {
-                        "1": "Optimisation et mise en œuvre de code Java existant ou écriture de nouveaux systèmes (certains disponibles sur GitHub)", 
-                        "2": "Déploiement et mise en service d'infrastructures dans des environnements Linux",
-                        "3": "Développement de bots Discord utilisant l'API Discord pour l'automatisation des serveurs communautaires"
-                    }
-                }
-            }
-        },
-
+        "description": "Découvrez mes expériences professionnelles au cours desquelles j'ai pu solidifier mes connaissances et compétences.",
+        "collaborators_supervisor": "Collaborateurs & Superviseur",
+        "technologies": "Technologies Utilisées",
         "professional_experiences": {
             "title": "Expériences Professionnelles",
             "description": "Au cours de ma carrière, j'ai pu collaborer avec des équipes diverses et développer des solutions innovantes qui ont soutenu le succès opérationnel.",
-
             "contents": {
                 "world-heberg": {
                     "title": "World-Heberg",
                     "date": "sept. 2020 - avr. 2021",
                     "description": "Association offrant des services d'hébergement gratuits incluant des solutions web, des instances nodejs, des offres cloud et des instances Sinus.",
-                    
                     "tasks": {
                         "1": "Membre de l'équipe d'administration en tant que chef d'équipe de modération", 
                         "2": "Développement d'outils de modération Discord nécessaires au bon fonctionnement de la modération"
                     }
                 },
-
                 "buro_plus": {
                     "title": "Buro +",
                     "date": "déc. 2019",
                     "description": "Réseau numéro 1 pour les fournitures de bureau/informatique en France.",
-
                     "tasks": {
                         "1": "Vérification de l'authenticité du matériel", 
                         "2": "Gestion des commandes et mise en rayon",
                         "3": "Enregistrement des articles à l'aide du logiciel",
                         "4": "Relation client / encaissement"
-                    }
-                }
-            }
-        },
-
-        "academic_experiences": {
-            "title": "Expériences Acádémiques",
-            "description": "Cette section met en avant mes réalisations et expériences académiques, incluant les cours suivis, les projets de recherche et ma participation à des projets académiques.",
-            "contents": {
-                "redcap-swisscom-module": {
-                    "title": "Développement d'un module REDCap pour les Hôpitaux Universitaires de Genève",
-                    "date": "fév. 2025 - mai 2025",
-                    "description": "Dans le cadre d’un projet de semestre, j’ai pu participé au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception.",
-                    "tasks": {
-                        "1": "Approfondir mes compétences en PHP, Docker et dans l’écosystème REDCap",
-                        "2": "Développer ma rigueur dans la lecture et l’analyse de documentation technique",
-                        "3": "Contribuer à la conception d’une solution respectant des contraintes institutionnelles et fonctionnelles réelles",
-                        "4": "Collaborer efficacement avec une équipe et interagir avec différents intervenants du projet"
-                    }
-                },
-
-                "swerc2024": {
-                    "title": "SWERC 2024",
-                    "date": "30 nov & 1 déc 2024",
-                    "description": "SWERC est un concours de programmation de 5 heures pour des équipes de trois étudiants, axé sur la résolution de problèmes algorithmiques et la programmation pratique. Cette compétition sert de phase de sélection régionale pour le Championnat d'Europe et le Concours International de Programmation Collegiale.",
-                    "tasks": {
-                        "1": "Participation à ma première compétition algorithmique, acquérant une expérience précieuse en résolution de problèmes, travail en équipe et programmation sous pression.",
-                        "2": "Développement et débogage de programmes en C++ pour gérer des structures de données dynamiques et optimiser l'utilisation des ressources pendant la compétition."
                     }
                 }
             }
@@ -275,12 +247,32 @@
     "gallery": {
         "title": "Réalisations",
         "description": "Découvrez les différentes créations que j'ai réalisées ou auxquelles j'ai participé. Elles m'ont permis d'en apprendre davantage sur certains aspects du développement.",
-
+ 
         "projects": {
             "title": "Projets",
             "description": "Liste de tous les projets auxquels j'ai participé.",
-            
+            "filters": {
+                "all": "Tous",
+                "personal": "Personnel",
+                "academic": "Académique"
+            },
             "contents": {
+                "unige-events": {
+                    "title": "UNIGE Events",
+                    "date": "Février 2026 - Mai 2026",
+                    "description": "Projet universitaire de fin d'études réalisé à l'Université de Genève (UNIGE). Il s'agit d'une plateforme web centralisée permettant aux étudiants et associations de créer, partager et s'inscrire à des événements sur le campus, avec une architecture robuste basée sur des microservices."
+                },
+                "redcap-swisscom-module": {
+                    "title": "Module REDCap HUG",
+                    "date": "Février 2025 - Mai 2025",
+                    "description": "Dans le cadre d’un projet de semestre, j’ai pu participer au développement d’un module REDCap intégrant l’envoi de SMS via l’API de Swisscom. L’objectif principal était d’offrir une solution transparente pour l’utilisateur, tout en optimisant les coûts d’envoi et en améliorant la gestion des accusés de réception."
+                },
+                "swerc2024": {
+                    "title": "SWERC 2024",
+                    "date": "30 novembre & 1 décembre 2024",
+                    "description": "SWERC est un concours de programmation de 5 heures pour des équipes de trois étudiants, axé sur la résolution de problèmes algorithmiques et la programmation pratique. Cette compétition sert de phase de sélection régionale pour le Championnat d'Europe et le Concours International de Programmation Collegiale."
+                },
+
                 "project-family": {
                     "title": "Project Family",
                     "date": "Avril 2021 - présent",
@@ -299,10 +291,10 @@
                     "description": "Stranger Hide est un serveur cache-cache sur le thème de la série Stranger Things."
                 },
 
-                "playze-family-bot": {
-                    "title": "Playze Family Bot",
-                    "date": "2020 - 2025",
-                    "description": "Playze Family est un bot Discord avec une multitude de fonctionnalités telles que l'ajout d'un système d'XP et de niveaux avec un classement en discutant ou en interagissant avec les autres membres du serveur, la création de concours Giveaways, l'édition possible du meilleur grade obtenable gratuitement sur le serveur : le Grade Custom, le choix des notifications que vous souhaitez recevoir, l'ajout de l'API GPT Chat (si vous lui parlez, il vous répondra), etc."
+                "yadbna": {
+                    "title": "YADBNA",
+                    "date": "2020 - présent",
+                    "description": "YADBNA (Yet Another Discord Bot Nobody Asked) est un bot Discord qui propose des cartes de niveau graphiques, des classements visuels, un suivi précis des invitations et des outils de gestion avancés tels que des rôles personnalisables et des salons vocaux temporaires automatiques."
                 },
 
                 "berkasia": {
@@ -310,7 +302,8 @@
                     "date": "2017 - 2021",
                     "description": "Serveur Minecraft PVP/Faction avec de nouveaux événements, une économie bien pensée et des systèmes avancés pour vous aider à atteindre vos objectifs. Berkasia proposait un système totalement Farm2Win."
                 }
-            }
+            },
+            "teammates": "Coéquipiers"
         },
 
         "repositories": {
@@ -323,59 +316,44 @@
             },
 
             "view_archives": {
+                "title": "Projets Archivés",
                 "show": "Voir les Archives",
                 "hide": "Masquer les Archives",
                 "description": "Les dépôts archivés sont obsolètes et ne sont plus représentatifs de mon travail actuel."
             }
+        },
+        "featured_works": "Réalisations en Vedette",
+        "open_source": "Open Source",
+        "no_repos": "Aucun dépôt trouvé",
+        "no_repos_desc": "Essayez de sélectionner un autre langage de programmation.",
+        "teammates": "Coéquipiers",
+        "status": {
+            "archived": "Archivé",
+            "template": "Modèle",
+            "active": "Actif"
         }
     },
 
     "contact": {
         "title": "Contact",
         "description": "N'hésitez pas à me contacter pour toute demande ou simplement pour échanger !",
+        "send_message": "Envoyer un message",
+        "geneva_time": "Heure de Genève",
+        "ticking_live": "Heure en direct • Fuseau Europe/Zurich",
+        "current_base": "Base Actuelle",
+        "borders": "Situé à proximité de la frontière française",
+        "quick_connect": "Connexion Rapide",
 
         "contact_form": {
             "title": "Entrer en contact",
-            "description": "Remplissez le formulaire de contact ci-dessous pour envoyer votre message.",
-            
-            "inputs": {
-                "name": {
-                    "label": "Nom",
-                    "placeholder": "Votre Nom"
-                },
-
-                "email": {
-                    "label": "E-mail",
-                    "placeholder": "Votre E-mail"
-                },
-
-                "subject": {
-                    "label": "Objet",
-                    "placeholder": "Objet"
-                }
-            },
-
-            "textareas": {
-                "message": {
-                    "label": "Message"
-                }
-            },
-
-            "submit": "Envoyer",
-
-            "alerts": {
-                "fields_missing": "Veuillez remplir tous les champs obligatoires du formulaire avant de soumettre.",
-                "recaptcha_invalid": "Veuillez compléter la vérification reCAPTCHA avant de soumettre.",
-                "sending": "Votre message est en cours d'envoi...",
-                "sended": "Merci pour votre message. Je l'ai bien reçu et vous répondrai par e-mail dans les plus brefs délais.",
-                "unknown_error": "Désolé, une erreur s'est produite et votre message n'a pas pu être envoyé. Veuillez réessayer plus tard."
-            }
+            "description": "Pas de formulaire, pas de captcha, pas de relais serveur. Envoyez-moi directement un e-mail et je vous répondrai.",
+            "submit": "Ouvrir l'e-mail"
         }
     },
 
     "terms": {
         "title": "Mentions légales",
-        "description": "Dernière mise à jour : 28 septembre 2024",
+        "description": "Dernière mise à jour : 1 juin 2026",
 
         "summary": {
             "title": "Table des matières",
@@ -432,8 +410,63 @@
             "copyright": {
                 "title": "Avis de Droit d'auteur",
                 "texts": {
-                    "1": "Tout le contenu de ce site, y compris le texte, les images et le code, est la propriété intellectuelle de <author></author>, sauf indication contraire. Toute utilisation, reproduction ou distribution non autorisée d'une partie de ce site sans autorisation écrite expresse est interdite.",
-                    "2": "<copyright></copyright>"
+                    "1": "Tout le contenu de ce site, y compris le texte, les images et le code, est la propriété intellectuelle de <author></author>, sauf indication contraire. Toute utilisation, reproduction ou distribution non autorisée d'une partie de ce site sans autorisation écrite expresse est interdite."
+                }
+            }
+        },
+
+        "back_to_top": "Revenir en haut"
+    },
+
+    "privacy": {
+        "title": "Politique de confidentialité",
+        "description": "Dernière mise à jour : 28 septembre 2024",
+
+        "summary": {
+            "title": "Table des matières",
+            "description": "Accès rapide aux différentes sections."
+        },
+
+        "contents": {
+            "general": {
+                "title": "Introduction",
+                "texts": {
+                    "1": "Cette politique de confidentialité décrit comment <author></author> traite vos données lorsque vous visitez ce site portfolio. Nous nous engageons à protéger votre vie privée et à veiller à ce que vos informations personnelles soient traitées de manière sûre et responsable."
+                }
+            },
+
+            "data-collection": {
+                "title": "Collecte de données",
+                "texts": {
+                    "1": "Ce site web ne collecte aucune donnée personnelle automatiquement, à l'exception de métriques analytiques anonymes standards qui n'identifient pas les individus. Si vous nous contactez par e-mail, votre message est traité directement via votre fournisseur de messagerie et notre boîte mail."
+                }
+            },
+
+            "data-usage": {
+                "title": "Utilisation des informations",
+                "texts": {
+                    "1": "Toutes les informations partagées par e-mail sont uniquement utilisées pour répondre à vos demandes et communiquer directement avec vous. Nous ne vendrons, n'échangerons ni ne distribuerons jamais vos informations personnelles à des tiers."
+                }
+            },
+
+            "hosting": {
+                "title": "Hébergement et fichiers journaux",
+                "texts": {
+                    "1": "Ce site web est hébergé sur Vercel. Comme la plupart des plateformes d'hébergement, Vercel collecte automatiquement des informations de journal de serveur, qui peuvent inclure votre adresse IP, le type de navigateur, les pages de référence et l'horodatage. Ces données sont purement utilisées à des fins de sécurité système, d'optimisation des performances et de diagnostic."
+                }
+            },
+
+            "rights": {
+                "title": "Vos droits",
+                "texts": {
+                    "1": "Vous avez le droit de demander l'accès aux messages que vous nous avez envoyés, ou de nous demander de supprimer vos données personnelles, à tout moment. Contactez-nous simplement pour demander la suppression des données."
+                }
+            },
+
+            "contact": {
+                "title": "Informations de contact",
+                "texts": {
+                    "1": "Si vous avez des questions concernant cette politique de confidentialité ou si vous souhaitez demander la suppression de vos messages, veuillez contacter <author></author> à <contact></contact>."
                 }
             }
         },
@@ -446,7 +479,9 @@
         "lead-developer": "Développeur principal",
         "volunteering": "Bénévolat",
         "internship": "Stage",
-        "unige": "Université de Genève"
+        "unige": "Université de Genève",
+        "devops": "DevOps",
+        "tech-lead": "Leader technique"
     },
 
     "team": {
