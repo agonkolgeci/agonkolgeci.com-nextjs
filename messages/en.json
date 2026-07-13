@@ -6,8 +6,12 @@
 
     "errors": {
         "404": {
+            "eyebrow": "Lost signal",
             "title": "Page not found...",
-            "description": "You've discovered an unknown area... You must leave quickly before being sucked into a black hole!!!"
+            "description": "You've reached an unknown area of the site. Return to a known section before this route disappears into the void.",
+            "home": "Back home",
+            "contact": "Contact me",
+            "robot_alt": "Confused robot illustration for the 404 page"
         }
     },
 

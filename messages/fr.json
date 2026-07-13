@@ -6,8 +6,12 @@
 
     "errors": {
         "404": {
+            "eyebrow": "Signal perdu",
             "title": "Page introuvable...",
-            "description": "Vous avez découvert une zone inconnue... Vous devez vite partir avant de vous faire aspirer par un trou noir !!!"
+            "description": "Vous avez atteint une zone inconnue du site. Revenez vers une section connue avant que cette route ne disparaisse dans le vide.",
+            "home": "Retour à l'accueil",
+            "contact": "Me contacter",
+            "robot_alt": "Illustration d'un robot confus pour la page 404"
         }
     },
 
