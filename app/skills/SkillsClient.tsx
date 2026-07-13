@@ -84,11 +84,13 @@ interface BadgeProps {
     index: number;
     activeStep: number;
     radiusMultiplier: number;
+    isCompactHeight: boolean;
+    isNarrowViewport: boolean;
     hoveredTech: string | null;
     onHover: (name: string | null) => void;
 }
 
-function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hoveredTech, onHover }: BadgeProps) {
+function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeight, isNarrowViewport, hoveredTech, onHover }: BadgeProps) {
     const t = useTranslations("skills");
     
     const rowIndex = item.step - 1; // 0 (Languages), 1 (Frameworks), 2 (Ops)
@@ -107,9 +109,11 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
     
     // Dynamic angle step based on row index and row size to ensure comfortable spacing without overlaps:
     // We dynamically scale the angle steps on small mobile viewports to prevent horizontal screen clipping
-    const isMobile = radiusMultiplier < 0.6;
-    const angleSteps = isMobile ? [7.2, 5.8, 4.2] : [11.5, 9.5, 7.2];
-    const angleStep = angleSteps[rowIndex];
+    const angleSteps = isNarrowViewport ? [7.2, 5.8, 4.2] : [11.5, 9.5, 7.2];
+    // Compensate for height-driven radius reduction so adjacent badges keep
+    // enough horizontal breathing room instead of collapsing into each other.
+    const angleCompensation = 1 / Math.max(radiusMultiplier, isNarrowViewport ? 0.55 : 0.65);
+    const angleStep = angleSteps[rowIndex] * angleCompensation;
     
     const angleDeg = (colIndex - (rowSize - 1) / 2) * angleStep;
     const angleRad = (angleDeg * Math.PI) / 180;
@@ -122,6 +126,19 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
     const isErupted = activeStep >= item.step;
     const delay = isErupted ? 0.05 + colIndex * 0.03 : (rowSize - 1 - colIndex) * 0.01;
     const isHovered = hoveredTech === item.name;
+    const [placeTooltipBelow, setPlaceTooltipBelow] = useState(finalY < 0);
+
+    const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
+        const badgeRect = event.currentTarget.getBoundingClientRect();
+        const spaceAbove = badgeRect.top - 84; // Fixed 72px navbar + 12px breathing room
+        const spaceBelow = window.innerHeight - badgeRect.bottom - 12;
+
+        // Use the side with the most real viewport space. This remains correct
+        // while the sticky section enters and exits, when its local coordinates
+        // no longer match its position on screen.
+        setPlaceTooltipBelow(spaceBelow >= spaceAbove);
+        onHover(item.name);
+    };
 
     // Load translations dynamically
     const t_category = t(`tech_details.${item.name.toLowerCase()}.category`);
@@ -147,7 +164,7 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
                 zIndex: isHovered ? 100 : 20
             }}
             className="absolute origin-center cursor-pointer select-none will-change-transform"
-            onMouseEnter={() => onHover(item.name)}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={() => onHover(null)}
         >
             {/* 
@@ -157,7 +174,7 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
               Replaced expensive backdrop-blur-md with solid obsidian glass bg-[#0a0a0a]/90.
             */}
             <div
-                className="relative flex items-center justify-center size-14 sm:size-18 md:size-20 rounded-full bg-[#0a0a0a]/90 border border-white/6 hover:border-accent-blue/40 shadow-lg transition-all duration-300 group will-change-transform"
+                className={`relative flex items-center justify-center rounded-full bg-[#0a0a0a]/90 border border-white/6 hover:border-accent-blue/40 shadow-lg transition-all duration-300 group will-change-transform ${isCompactHeight ? "size-14" : "size-14 sm:size-18 md:size-20"}`}
                 style={{
                     boxShadow: isHovered ? `0 0 25px ${item.color}35` : "none",
                     borderColor: isHovered ? `${item.color}40` : "rgba(255, 255, 255, 0.06)",
@@ -174,7 +191,7 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
                     }}
                 />
                 
-                <TechIcon name={item.name} className="size-8 sm:size-10 md:size-12" />
+                <TechIcon name={item.name} className={isCompactHeight ? "size-8" : "size-8 sm:size-10 md:size-12"} />
 
                 {/* Minimal label (fades in on hover underneath badge if tooltip isn't captured) */}
                 <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[8px] uppercase tracking-widest font-extrabold font-secondary text-gray-400 whitespace-nowrap bg-black/75 px-2 py-0.5 rounded border border-white/5 pointer-events-none">
@@ -196,7 +213,7 @@ function ConstellationBadge({ item, index, activeStep, radiusMultiplier, hovered
                     pointerEvents: isHovered ? "auto" : "none"
                 }}
                 transition={{ type: "spring", stiffness: 150, damping: 18 }}
-                className={`absolute bottom-full mb-5 left-1/2 -translate-x-1/2 w-64 p-5 bg-[#050505]/95 ${isHovered ? 'backdrop-blur-xl' : ''} border border-white/10 rounded-2xl shadow-2xl z-[999] pointer-events-none text-left flex flex-col gap-3 selection:bg-accent-blue selection:text-white border-t-2`}
+                className={`absolute left-1/2 -translate-x-1/2 w-64 p-5 bg-[#050505]/95 ${isHovered ? 'backdrop-blur-xl' : ''} ${placeTooltipBelow ? "top-full mt-5" : "bottom-full mb-5"} border border-white/10 rounded-2xl shadow-2xl z-[999] pointer-events-none text-left flex flex-col gap-3 selection:bg-accent-blue selection:text-white border-t-2`}
                 style={{
                     borderTopColor: item.color,
                     boxShadow: `0 10px 30px -5px rgba(0,0,0,0.8), 0 0 15px ${item.color}20`,
@@ -304,6 +321,8 @@ export default function SkillsClient() {
     const softSkillsRef = useRef<HTMLDivElement>(null);
     const [hoveredTech, setHoveredTech] = useState<string | null>(null);
     const [radiusMultiplier, setRadiusMultiplier] = useState(1);
+    const [isCompactHeight, setIsCompactHeight] = useState(false);
+    const [isNarrowViewport, setIsNarrowViewport] = useState(false);
     const [activeStep, setActiveStep] = useState(0);
 
     // Track scroll coordinates over the pinned parent timeline height
@@ -340,17 +359,26 @@ export default function SkillsClient() {
         });
     });
 
-    // Handle responsive constellation radius boundaries
+    // Scale against both viewport axes. The original layout only considered
+    // width, which left the full 740px orbit active on short desktop windows.
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
+            const height = window.innerHeight;
+            let widthMultiplier = 1;
+
             if (width < 640) {
-                setRadiusMultiplier(0.55);
+                widthMultiplier = 0.55;
             } else if (width < 1024) {
-                setRadiusMultiplier(0.76);
-            } else {
-                setRadiusMultiplier(1.0);
+                widthMultiplier = 0.76;
             }
+
+            // 0.49 at 570px, 0.65 at 694px, and 1 at >= 960px.
+            const heightMultiplier = Math.min(1, Math.max(0.48, (height - 200) / 760));
+
+            setRadiusMultiplier(Math.min(widthMultiplier, heightMultiplier));
+            setIsCompactHeight(height < 720);
+            setIsNarrowViewport(width < 640);
         };
 
         handleResize();
@@ -374,8 +402,8 @@ export default function SkillsClient() {
                           By placing this inside the sticky viewport container, it remains beautifully visible 
                           at the top of the viewport when the section pins!
                         */}
-                        <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-center z-30 select-none w-full max-w-2xl px-6">
-                            <h2 className="font-primary text-4xl sm:text-5xl font-extrabold tracking-tight leading-none text-white">
+                        <div className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center text-center z-30 select-none w-full max-w-2xl px-6 ${isCompactHeight ? "top-4" : "top-8"}`}>
+                            <h2 className={`font-primary font-extrabold tracking-tight leading-none text-white ${isCompactHeight ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl"}`}>
                                 {t("title")}
                             </h2>
                             <p className="font-secondary text-xs sm:text-sm text-gray-400 mt-3 max-w-xl leading-relaxed">
@@ -384,7 +412,7 @@ export default function SkillsClient() {
                         </div>
 
                         {/* Centered chamber container */}
-                        <div className="relative w-full max-w-5xl h-full flex flex-col items-center justify-center overflow-visible mt-16 sm:mt-20">
+                        <div className={`relative w-full max-w-5xl h-full flex flex-col items-center justify-center overflow-visible ${isCompactHeight ? "mt-12" : "mt-16 sm:mt-20"}`}>
                             
                              {/* Ambient Light Beam from Open Suitcase */}
                             <motion.div
@@ -480,6 +508,8 @@ export default function SkillsClient() {
                                     index={index}
                                     activeStep={activeStep}
                                     radiusMultiplier={radiusMultiplier}
+                                    isCompactHeight={isCompactHeight}
+                                    isNarrowViewport={isNarrowViewport}
                                     hoveredTech={hoveredTech}
                                     onHover={setHoveredTech}
                                 />
