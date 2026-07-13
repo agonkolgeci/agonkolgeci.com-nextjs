@@ -170,6 +170,45 @@ export default function HomeClient() {
         return () => clearTimeout(timer);
     }, []);
 
+    // Lock the page while the preloader is visible so wheel/touch input cannot
+    // advance the homepage before the entry animation finishes.
+    useEffect(() => {
+        if (!showPreloader) return;
+
+        const scrollY = window.scrollY;
+        const { body, documentElement } = document;
+        const previousBodyStyle = {
+            overflow: body.style.overflow,
+            position: body.style.position,
+            top: body.style.top,
+            width: body.style.width,
+            overscrollBehavior: body.style.overscrollBehavior
+        };
+        const previousHtmlStyle = {
+            overflow: documentElement.style.overflow,
+            overscrollBehavior: documentElement.style.overscrollBehavior
+        };
+
+        documentElement.style.overflow = "hidden";
+        documentElement.style.overscrollBehavior = "none";
+        body.style.overflow = "hidden";
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.width = "100%";
+        body.style.overscrollBehavior = "none";
+
+        return () => {
+            documentElement.style.overflow = previousHtmlStyle.overflow;
+            documentElement.style.overscrollBehavior = previousHtmlStyle.overscrollBehavior;
+            body.style.overflow = previousBodyStyle.overflow;
+            body.style.position = previousBodyStyle.position;
+            body.style.top = previousBodyStyle.top;
+            body.style.width = previousBodyStyle.width;
+            body.style.overscrollBehavior = previousBodyStyle.overscrollBehavior;
+            window.scrollTo(0, scrollY);
+        };
+    }, [showPreloader]);
+
     // Smooth scroll to hash anchor on mount once the preloader fades out
     useEffect(() => {
         if (!showPreloader && typeof window !== "undefined" && window.location.hash) {
@@ -200,7 +239,7 @@ export default function HomeClient() {
                             scale: 1.01,
                             transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } 
                         }}
-                        className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center select-none"
+                        className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center select-none touch-none"
                     >
                         {/* Centered Massive Masked Logo System */}
                         <div className="relative w-[360px] sm:w-[560px] md:w-[720px] lg:w-[840px] h-[110px] sm:h-[160px] md:h-[200px] lg:h-[240px] flex items-center justify-center">
