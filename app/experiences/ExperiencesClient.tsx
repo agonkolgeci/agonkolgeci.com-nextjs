@@ -51,9 +51,12 @@ function TechIcon({ name }: { name: string }) {
 
     return (
         <div className="relative group/tooltip flex items-center justify-center size-10 select-none shrink-0">
-            <img 
+            <Image
                 src={url} 
                 alt={name} 
+                width={28}
+                height={28}
+                unoptimized
                 className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110 will-change-transform transform-gpu" 
                 style={filterStyle}
                 loading="lazy" 

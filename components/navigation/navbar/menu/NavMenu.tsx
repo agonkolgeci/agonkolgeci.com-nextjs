@@ -51,11 +51,16 @@ export default function NavMenu() {
         });
 
         // Initialize active hash on mount
-        if (typeof window !== "undefined" && window.location.hash) {
-            setActiveHash(window.location.hash);
-        }
+        const frame = window.requestAnimationFrame(() => {
+            if (window.location.hash) {
+                setActiveHash(window.location.hash);
+            }
+        });
 
-        return () => observer.disconnect();
+        return () => {
+            window.cancelAnimationFrame(frame);
+            observer.disconnect();
+        };
     }, [pathname]);
 
     // Handle scroll intercept for same-page anchors

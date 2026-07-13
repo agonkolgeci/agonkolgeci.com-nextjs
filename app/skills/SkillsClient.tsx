@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent, useTransform, MotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-solid-svg-icons";
 import Article from "@/components/pages/Article";
@@ -64,9 +65,12 @@ function TechIcon({ name, className = "size-6" }: { name: string; className?: st
     const filterStyle = (name.toLowerCase() === "nextjs" || name.toLowerCase() === "github" || name.toLowerCase() === "bash") ? { filter: "brightness(0) invert(1)" } : undefined;
 
     return (
-        <img 
+        <Image
             src={url} 
             alt={name} 
+            width={32}
+            height={32}
+            unoptimized
             className={`${className} shrink-0 object-contain hover:scale-110 transition-transform duration-300`} 
             style={filterStyle}
             loading="lazy" 
@@ -301,22 +305,16 @@ export default function SkillsClient() {
     const [hoveredTech, setHoveredTech] = useState<string | null>(null);
     const [radiusMultiplier, setRadiusMultiplier] = useState(1);
     const [activeStep, setActiveStep] = useState(0);
-    const [mounted, setMounted] = useState(false);
-
-    // Safeguard target ref execution to occur only post-hydration on client-side
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     // Track scroll coordinates over the pinned parent timeline height
     const { scrollYProgress } = useScroll({
-        target: mounted ? containerRef : undefined,
+        target: containerRef,
         offset: ["start start", "end end"]
     });
 
     // Separate scroll progress for the soft skills section
     const { scrollYProgress: softScrollProgress } = useScroll({
-        target: mounted ? softSkillsRef : undefined,
+        target: softSkillsRef,
         offset: ["start start", "end end"]
     });
 
