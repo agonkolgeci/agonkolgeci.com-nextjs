@@ -191,7 +191,8 @@ export default function EducationClient() {
                                                     className="object-contain object-left filter brightness-95 contrast-105" 
                                                     src={school.image} 
                                                     width={140} 
-                                                    height={36} 
+                                                    height={40}
+                                                    style={{ height: "auto" }}
                                                     alt="School Crest" 
                                                     priority
                                                 />
