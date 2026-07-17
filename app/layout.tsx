@@ -9,7 +9,7 @@ import Header from "@/components/Header";
 import { getDefaultLocale } from "@/i18n/config";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
-import { MetadataProps, getPageTranslations, siteUrl } from "@/lib/metadata";
+import { MetadataProps, getPageTranslations, getSocialCard, formatTitle, siteUrl } from "@/lib/metadata";
 
 const syne = Syne({
   subsets: ['latin'],
@@ -27,19 +27,22 @@ const poppins = Poppins({
 export const isDev = process.env.NODE_ENV === 'development';
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  // Brand accent — colours the Discord/Slack embed strip and mobile browser UI.
+  themeColor: "#4ea8ff",
 }
 
 export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
   const t = await getPageTranslations({ namespace: "global", params });
   const devPrefix = isDev ? "[DEV]" : ""
-  const locale = params?.locale || await getDefaultLocale();
+  // Home tab title = "Agon KOLGECI — Portfolio"; the card reuses this same title.
+  const homeTitle = formatTitle(t("title"), t("label"));
+  const card = await getSocialCard(params, "/", { title: homeTitle, description: t("portfolio") });
 
   return {
     metadataBase: new URL(siteUrl),
 
     title: {
-      default: `${devPrefix} ${t("title")}`,
+      default: `${devPrefix} ${homeTitle}`,
       template: `${devPrefix} ${t("title")} — %s`
     },
     description: t("description"),
@@ -66,22 +69,8 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
       }
     },
 
-    openGraph: {
-      type: "website",
-      url: "/",
-      siteName: t("title"),
-      title: t("title"),
-      description: t("description"),
-      images: "/banner_full.webp",
-      locale
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
-      images: "/banner_full.webp"
-    }
+    // Uniform social-share card (name / job title / portfolio blurb).
+    ...card
   }
 }
 
@@ -98,7 +87,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     name: t("title"),
     url: siteUrl,
     image: `${siteUrl}/logo_full.webp`,
-    jobTitle: "Software Developer",
+    jobTitle: t("role"),
     description: t("description"),
     email: "contact@agonkolgeci.com",
     sameAs: [

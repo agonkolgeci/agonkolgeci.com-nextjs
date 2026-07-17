@@ -54,7 +54,10 @@
 
     "global": {
         "title": "Agon KOLGECI",
+        "role": "Software Developer",
+        "label": "Portfolio",
         "description": "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
+        "portfolio": "Personal portfolio of Agon KOLGECI — a passionate Software Developer showcasing his projects, skills and experiences.",
         "keywords": "Agon KOLGECI, Software Developer, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Developer, Self-Learning, IT Professional, Tech Projects"
     },
 
@@ -357,6 +360,7 @@
 
     "terms": {
         "title": "Terms of Service",
+        "label": "Terms",
         "description": "Latest Updated: June 1, 2026",
 
         "summary": {
@@ -424,6 +428,7 @@
 
     "privacy": {
         "title": "Privacy Policy",
+        "label": "Privacy",
         "description": "Latest Updated: September 28, 2024",
 
         "summary": {

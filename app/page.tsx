@@ -1,10 +1,7 @@
 import HomeClient from "./HomeClient";
-import { MetadataProps, getPageMetadata } from "@/lib/metadata";
 
-export async function generateMetadata({ params }: MetadataProps) {
-    return await getPageMetadata({ namespace: "home", params });
-}
-
+// Home is the root segment: it inherits the root layout's metadata directly
+// (title default "Agon KOLGECI", canonical "/", and the portfolio social card).
 export default function Home() {
     return <HomeClient />;
 }
