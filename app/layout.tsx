@@ -8,8 +8,8 @@ import Header from "@/components/Header";
 
 import { getDefaultLocale } from "@/i18n/config";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
-import { MetadataProps, getPageTranslations } from "@/lib/metadata";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { MetadataProps, getPageTranslations, siteUrl } from "@/lib/metadata";
 
 const syne = Syne({
   subsets: ['latin'],
@@ -33,8 +33,11 @@ export const viewport: Viewport = {
 export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
   const t = await getPageTranslations({ namespace: "global", params });
   const devPrefix = isDev ? "[DEV]" : ""
+  const locale = params?.locale || await getDefaultLocale();
 
   return {
+    metadataBase: new URL(siteUrl),
+
     title: {
       default: `${devPrefix} ${t("title")}`,
       template: `${devPrefix} ${t("title")} — %s`
@@ -42,19 +45,42 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
     description: t("description"),
 
     keywords: t("keywords"),
-    authors: { name: t("title"), url: "https://github.com/agonkolgeci/agonkolgeci.com-nextjs" },
-    
-    robots: { index: true, follow: true },
+    authors: { name: t("title"), url: siteUrl },
+    creator: t("title"),
+    publisher: t("title"),
+
+    // Single-page site: everything canonicalises to the root URL.
+    alternates: {
+      canonical: "/"
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1
+      }
+    },
 
     openGraph: {
       type: "website",
-      images: "https://agonkolgeci.com/banner_full.webp",
-      locale: params?.locale || await getDefaultLocale()
+      url: "/",
+      siteName: t("title"),
+      title: t("title"),
+      description: t("description"),
+      images: "/banner_full.webp",
+      locale
     },
 
     twitter: {
-      card: "summary",
-      images: "https://agonkolgeci.com/logo_full.webp"
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: "/banner_full.webp"
     }
   }
 }
@@ -62,10 +88,32 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
 export default async function RootLayout({ children }: { children: React.ReactNode; }) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const t = await getTranslations("global");
+
+  // Person structured data — helps search engines build a rich knowledge panel
+  // for a personal portfolio. Serialized into a single <script type="application/ld+json">.
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: t("title"),
+    url: siteUrl,
+    image: `${siteUrl}/logo_full.webp`,
+    jobTitle: "Software Developer",
+    description: t("description"),
+    email: "contact@agonkolgeci.com",
+    sameAs: [
+      "https://github.com/agonkolgeci",
+      "https://linkedin.com/in/agon-kolgeci-193aa2266/"
+    ]
+  };
 
   return (
     <html lang={locale} className={`${syne.variable} ${poppins.variable}`}>
       <body className="bg-primary text-white selection:bg-accent-blue selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <NextIntlClientProvider messages={messages}>
           <Header/>
 

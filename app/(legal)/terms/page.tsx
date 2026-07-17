@@ -2,7 +2,7 @@ import { getPageMetadata, MetadataProps } from "@/lib/metadata";
 import LegalClient, { AbstractContent } from "../LegalClient";
 
 export async function generateMetadata({ params }: MetadataProps) {
-    return await getPageMetadata({ namespace: "terms", params });
+    return await getPageMetadata({ namespace: "terms", path: "/terms", params });
 }
 
 export default function Terms() {
