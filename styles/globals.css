@@ -26,6 +26,14 @@
     --navbar-height: 72px;
 }
 
+html {
+    /* `overflow-x` on the body is propagated to the viewport by the UA, which
+       left mobile browsers still able to pan sideways. Setting it on the root
+       clips for real. `clip` rather than `hidden`: it creates no scroll
+       container, so `position: sticky` keeps working. */
+    overflow-x: clip;
+}
+
 body {
     position: relative;
     background-color: #000000;

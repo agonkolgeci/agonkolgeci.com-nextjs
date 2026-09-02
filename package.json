@@ -29,7 +29,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "16.3.4",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.0",
     "typescript": "^6"
@@ -40,9 +40,9 @@
     ]
   },
   "allowScripts": {
-    "@parcel/watcher@2.5.6": true,
-    "@swc/core@1.15.40": true,
-    "sharp@0.34.5": true,
+    "@parcel/watcher@2.6.0": true,
+    "@swc/core@1.16.1": true,
+    "sharp@0.35.4": true,
     "unrs-resolver@1.12.2": true
   }
 }

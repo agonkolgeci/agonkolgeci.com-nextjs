@@ -66,8 +66,8 @@ export default function SoftSkillsClient() {
                             return (
                                 <motion.div
                                     key={skill.key}
-                                    initial={{ opacity: 0, x: 40 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.25 }}
                                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                     whileHover={{ y: -2, transition: { duration: 0.2 } }}

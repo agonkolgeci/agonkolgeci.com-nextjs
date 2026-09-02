@@ -85,13 +85,19 @@ export default function ContactClient() {
                     {/* mailto CTA */}
                     <Link
                         href={`mailto:${MAIL}`}
-                        className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-secondary font-bold text-sm uppercase tracking-widest text-white border border-white/10 bg-white/[0.03] hover:bg-accent-blue hover:border-accent-blue hover:text-black transition-all duration-500 shadow-[0_0_0_0_rgba(78,168,255,0)] hover:shadow-[0_0_40px_rgba(78,168,255,0.3)] select-none"
+                        className="group relative inline-flex max-w-full items-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full font-secondary font-bold text-[11px] sm:text-sm uppercase tracking-wider sm:tracking-widest text-white border border-white/10 bg-white/[0.03] hover:bg-accent-blue hover:border-accent-blue hover:text-black transition-all duration-500 shadow-[0_0_0_0_rgba(78,168,255,0)] hover:shadow-[0_0_40px_rgba(78,168,255,0.3)] select-none"
                     >
-                        <FontAwesomeIcon icon={faEnvelope} className="size-4 transition-transform duration-300 group-hover:scale-110" />
-                        <span>{MAIL}</span>
+                        <FontAwesomeIcon icon={faEnvelope} className="size-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                        <span className="min-w-0 truncate">{MAIL}</span>
+                        {/* 
+                          Kept visible instead of revealed on hover: hidden with `opacity-0`
+                          it still held its slot, so the padding looked heavier on the right
+                          than on the left — very visible once the button is nearly as wide
+                          as a phone screen.
+                        */}
                         <FontAwesomeIcon
                             icon={faArrowRight}
-                            className="size-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                            className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
                         />
                     </Link>
                 </motion.div>

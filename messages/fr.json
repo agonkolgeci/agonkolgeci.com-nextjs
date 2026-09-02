@@ -49,7 +49,7 @@
 
     "copyright": {
         "content": "Copyright © <year></year> Agon Kolgeci • Tous droits réservés",
-        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, déployé avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
+        "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, déployé avec <vercel>Vercel</vercel> depuis <github>GitHub</github>"
     },
 
     "global": {

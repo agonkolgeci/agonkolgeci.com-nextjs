@@ -316,9 +316,24 @@ export default function SkillsClient() {
     // Scale against both viewport axes. The original layout only considered
     // width, which left the full 740px orbit active on short desktop windows.
     useEffect(() => {
+        let lastWidth = 0;
+        let lastHeight = 0;
+
         const handleResize = () => {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
+            /*
+              Measured off the document, not `window.inner*`: on phones the URL bar
+              collapsing and expanding during a scroll changes `innerHeight` by ~60-100px
+              while `100vh` — what the layout is actually built on — stays put. Recomputing
+              on that made the whole section grow and shrink as you scrolled, so genuine
+              height changes are only honoured past anything a browser chrome can cause.
+            */
+            const width = document.documentElement.clientWidth;
+            const height = document.documentElement.clientHeight;
+
+            if (width === lastWidth && Math.abs(height - lastHeight) < 140) return;
+            lastWidth = width;
+            lastHeight = height;
+
             let widthMultiplier = 1;
 
             if (width < 640) {
@@ -377,10 +392,11 @@ export default function SkillsClient() {
             <div className="relative z-10 w-full flex flex-col gap-10 max-w-7xl mx-auto px-8 overflow-visible">
                 
                 {/* 1. SCROLL LOCKED LOCKING CHAMBER FOR CONSTELLATION ERUPTION (fast, natural timeline) */}
-                <div ref={containerRef} className="relative h-[135vh] w-full overflow-visible">
+                <div ref={containerRef} className="relative h-[135svh] w-full overflow-visible">
                     
                     {/* Sticky locking viewport frame */}
-                    <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex flex-col items-center justify-center overflow-visible select-none">
+                    {/* svh, not vh: on phones `vh` is the tall viewport, so with the URL bar out the pinned frame was taller than what you could actually see. */}
+                    <div className="sticky top-[72px] h-[calc(100svh-72px)] w-full flex flex-col items-center justify-center overflow-visible select-none">
 
 
                         {/* 
