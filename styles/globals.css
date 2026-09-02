@@ -29,6 +29,11 @@
 body {
     position: relative;
     background-color: #000000;
+    /* Decorative pieces (orbiting badges, oversized headings) reach past the
+       viewport on small screens. `clip` swallows that sideways overflow without
+       turning the body into a scroll container, so `position: sticky` keeps
+       working — which `overflow-x: hidden` would have broken. */
+    overflow-x: clip;
 }
 
 body::before {
@@ -41,7 +46,50 @@ body::before {
     opacity: 0.02;
     pointer-events: none;
     z-index: 9999;
+    transform: translateZ(0);
+    /* Tile a small square instead of stretching the SVG over the whole viewport:
+       the turbulence filter is then rasterised once at 200x200 rather than at
+       screen resolution every time the overlay is repainted. */
+    background-size: 200px 200px;
+    background-repeat: repeat;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hero ambience. These run forever, so they are plain CSS transforms the
+   compositor can handle on its own instead of JS-driven animation frames. */
+@keyframes beam-travel-y {
+    from {
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        transform: translate3d(0, 200%, 0);
+    }
+}
+
+@keyframes beam-travel-x {
+    from {
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        transform: translate3d(200%, 0, 0);
+    }
+}
+
+@keyframes scroll-hint {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, 12px, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    [style*="beam-travel"],
+    [style*="scroll-hint"] {
+        animation: none !important;
+    }
 }
 
 @keyframes marquee {
@@ -122,10 +170,6 @@ body::before {
 }
 
 @layer components {
-    html {
-        scroll-behavior: smooth;
-    }
-
     * {
         @apply font-primary;
     

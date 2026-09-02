@@ -48,21 +48,21 @@
     },
 
     "copyright": {
-        "content": "Copyright © <year></year> Agon KOLGECI • All Rights Reserved",
+        "content": "Copyright © <year></year> Agon Kolgeci • All Rights Reserved",
         "details": "Build with <nextjs>Next.js</nextjs> and <tailwindcss>Tailwind CSS</tailwindcss>, deployed with <vercel>Vercel</vercel> from <github>GitHub</github>."
     },
 
     "global": {
-        "title": "Agon KOLGECI",
+        "title": "Agon Kolgeci",
         "role": "Software Developer",
         "label": "Portfolio",
         "description": "Passionate since my youngest age by computers, I devote my time to realize various projects allowing me to enrich my own knowledge.",
-        "portfolio": "Personal portfolio of Agon KOLGECI — a passionate Software Developer showcasing his projects, skills and experiences.",
-        "keywords": "Agon KOLGECI, Software Developer, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Developer, Self-Learning, IT Professional, Tech Projects"
+        "portfolio": "Personal portfolio of Agon Kolgeci — a passionate Software Developer showcasing his projects, skills and experiences.",
+        "keywords": "Agon Kolgeci, Software Developer, Passionate Developer, Computer Enthusiast, Software Projects, Knowledge Enrichment, Coding Expert, Developer Portfolio, Tech Enthusiast, Programming Projects, Skilled Coder, Computer Science, Development Skills, Innovative Software, Personal Projects, Technology Passion, Developer, Self-Learning, IT Professional, Tech Projects"
     },
 
     "home": {
-        "title": "Agon KOLGECI",
+        "title": "Agon Kolgeci",
         "description": "Software Developer",
         "quote": "I design and build next-generation digital experiences. By combining clean engineering with refined design aesthetics, I shape ideas into reality.",
         "scroll_down": "Scroll Down",
@@ -71,7 +71,7 @@
             "title": "About Me",
             "description": "Discover who I am, my passions, and the journey that has shaped me. Learn about my background and my interests.",
 
-            "presentation": "Hi, I'm Agon KOLGECI, a software developer currently studying in Computer Science. Since I was young, I've been able to discover, learn and experiment with various technologies on a self-taught basis, which has enabled me to develop a real passion for IT and acquire a variety of skills in this field. All my experiences motivated me to continue my studies in this field to deepen my knowledge and become an expert capable of creating innovative solutions. Today, I'm determined to continue on this path and improve every day to achieve my goals."
+            "presentation": "Hi, I'm Agon Kolgeci, a software developer currently studying in Computer Science. Since I was young, I've been able to discover, learn and experiment with various technologies on a self-taught basis, which has enabled me to develop a real passion for IT and acquire a variety of skills in this field. All my experiences motivated me to continue my studies in this field to deepen my knowledge and become an expert capable of creating innovative solutions. Today, I'm determined to continue on this path and improve every day to achieve my goals."
         },
 
         "discover": {
@@ -194,25 +194,26 @@
 
         "school_career": {
             "title": "School career",
-            "description": "After finishing high school, I went straight into a Bachelor's degree in Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field.",
+            "description": "Ever since I was little I have known what I wanted to do, and that is why I went on to study Computer Science. I'm passionate about technology and innovation, and it's a real pleasure to be able to work in this field.",
 
             "schools": {
-                "unige": { 
-                    "title": "Bachelor of Computer Science: University of Geneva",
-                    "description": "The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.",
-                    "date": "2023 - present"
+                "master": { 
+                    "title": "Master of Computer Science",
+                    "institution": "University of Geneva",
+                    "description": "The Master of Science in Computer Science deepens advanced expertise in software engineering, artificial intelligence, distributed systems, cybersecurity, and applied research.",
+                    "date": "2026 - present"
                 },
-
+                "bachelor": { 
+                    "title": "Bachelor of Computer Science",
+                    "institution": "University of Geneva",
+                    "description": "The Bachelor of Science in Computer Science provides a solid foundation in algorithms, computer systems and security, software engineering, digital imaging, theoretical computer science and multimedia information processing.",
+                    "date": "2023 - 2026"
+                },
                 "stael": { 
-                    "title": "General and Technological Baccalaureate: Madame de Staël High School",
+                    "title": "General and Technological Baccalaureate",
+                    "institution": "Madame de Staël High School",
                     "description": "Specialization in Mathematics & Physics-Chemistry.",
                     "date": "2020 - 2023"
-                },
-
-                "jjr": { 
-                    "title": "Certificate: Jean Jacques Rousseau Middle School",
-                    "description": "General Certifate of secondary education.",
-                    "date": "2016 - 2020"
                 }
             }
         }
@@ -227,7 +228,18 @@
             "title": "Professional Experiences",
             "description": "During my career, I was able to collaborate with diverse teams, and develop innovative solutions that supported operational success.",
             "contents": {
+                "unige_are": {
+                    "role": "Teaching and Research Assistant (ARE)",
+                    "title": "University of Geneva",
+                    "date": "sept 2026 - dec 2026",
+                    "description": "Teaching and research assistant (ARE) at the Faculty of Science, supporting the teaching of two courses of the computer science curriculum.",
+                    "tasks": {
+                        "1": "\"Concurrent and Distributed Systems\" (3rd year): supervising students during exercise sessions and lab work.",
+                        "2": "\"Programming for Biologists\" (1st year): guiding non-computer-science students through their first steps in programming."
+                    }
+                },
                 "world-heberg": {
+                    "role": "Moderation Team Lead",
                     "title": "World-Heberg",
                     "date": "sept. 2020 - apr. 2021",
                     "description": "Association providing free hosting services including web solutions, nodejs instances, cloud offerings and Sinus instances.",
@@ -237,6 +249,7 @@
                     }
                 },
                 "buro_plus": {
+                    "role": "Sales Intern",
                     "title": "Buro +",
                     "date": "dec 2019",
                     "description": "No.1 network for office/computer supplies in France.",
@@ -301,7 +314,7 @@
                 "yadbna": {
                     "title": "YADBNA",
                     "date": "2020 - present",
-                    "description": "YADBNA (Yet Another Discord Bot Nobody Asked) is a Discord bot that features graphic level cards, visual leaderboards, invite tracking with real metrics, and advanced management tools such as custom self-roles and auto-cleanup temporary voice channels."
+                    "description": "YADBNA is a Discord bot that features graphic level cards, visual leaderboards, invite tracking with real metrics, and advanced management tools such as custom self-roles and auto-cleanup temporary voice channels."
                 },
 
                 "berkasia": {
@@ -484,6 +497,7 @@
     },
 
     "tags": {
+        "are": "Student Job",
         "founder": "Founder",
         "lead-developer": "Lead Developer",
         "volunteering": "Volunteering",

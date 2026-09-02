@@ -151,7 +151,7 @@ export default function NavMenu() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: "-100%" }}
                             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                            className="fixed inset-0 w-screen h-screen bg-[#030303]/98 backdrop-blur-2xl z-[9999] flex flex-col justify-between p-6 sm:p-12 overflow-hidden"
+                            className="fixed inset-0 w-screen h-screen bg-[#030303]/98 z-[9999] flex flex-col justify-between p-6 sm:p-12 overflow-hidden"
                         >
                             {/* Drawer Header */}
                             <div className="flex flex-row items-center justify-between w-full border-b border-white/5 pb-6">

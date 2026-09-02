@@ -11,6 +11,7 @@ import SocialsLinks from "@/components/navigation/socials/SocialsLinks";
 
 import SkillsClient from "./skills/SkillsClient";
 import EducationClient from "./education/EducationClient";
+import SoftSkillsClient from "./skills/SoftSkillsClient";
 import ExperiencesClient from "./experiences/ExperiencesClient";
 import GalleryClient from "./gallery/GalleryClient";
 import ContactClient from "./contact/ContactClient";
@@ -31,7 +32,7 @@ const AboutExtras = () => {
                 </span>
                 <span className="inline-flex items-center gap-2 text-[11px] font-secondary font-bold text-gray-300 bg-white/[0.03] border border-white/8 rounded-full px-3.5 py-1.5">
                     <FontAwesomeIcon icon={faGraduationCap} className="text-gray-400 text-xs" />
-                    BSc Computer Science
+                    MSc Computer Science
                 </span>
             </div>
 
@@ -52,16 +53,22 @@ const AboutMobile = () => {
 
     return (
         <div className="relative w-full bg-transparent">
-            <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-12">
-                <div className="relative w-full h-[75vh] rounded-[28px] overflow-hidden border border-white/8">
-                    <Image src="/home/portrait.png" fill sizes="100vw" alt={t("about.title")} className="object-cover object-center" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-20 sm:py-24 flex flex-col gap-10 sm:gap-12">
+                <div className="relative w-full h-[65vh] sm:h-[75vh] rounded-[28px] overflow-hidden border border-white/8 transform-gpu">
+                    <Image 
+                        src="/home/portrait.png" 
+                        fill 
+                        sizes="(max-width: 1024px) 100vw, 50vw" 
+                        alt={t("about.title")} 
+                        className="object-cover object-center" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
                 </div>
                 <div className="flex flex-col gap-6">
-                    <h2 className="font-primary text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                    <h2 className="font-primary text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight break-words [text-wrap:balance]">
                         {t("about.title")}
                     </h2>
-                    <p className="font-secondary text-base text-gray-400 leading-relaxed">
+                    <p className="font-secondary text-sm sm:text-base text-gray-300 leading-relaxed break-words [text-wrap:pretty]">
                         {intro}
                     </p>
                     <AboutExtras />
@@ -71,9 +78,7 @@ const AboutMobile = () => {
     );
 };
 
-// Desktop About — pinned; portrait starts full then shrinks to the right while text slides in.
-// Kept as its own component so the useScroll target ref is always attached to a mounted
-// element (fixes the "Target ref is defined but not hydrated" error).
+// Desktop About — pinned; portrait starts full then smoothly reveals right side on GPU while text slides in.
 const AboutDesktop = () => {
     const t = useTranslations("home");
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -83,49 +88,53 @@ const AboutDesktop = () => {
         offset: ["start start", "end end"]
     });
 
-    // Image starts full-width and shrinks to the right half as text slides in
-    const imageWidth = useTransform(scrollYProgress, [0, 0.6, 1], ["100%", "55%", "55%"]);
+    // Image starts full-screen and clips GPU-side to the right 50% as text slides in (no DOM layout reflow)
+    const imageClip = useTransform(
+        scrollYProgress, 
+        [0, 0.38, 1], 
+        ["inset(0% 0% 0% 0%)", "inset(0% 0% 0% 48%)", "inset(0% 0% 0% 48%)"]
+    );
     const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
 
-    // Text panel slides in from the left and fades in
-    const textOpacity = useTransform(scrollYProgress, [0.15, 0.55], [0, 1]);
-    const textX = useTransform(scrollYProgress, [0.15, 0.55], [-80, 0]);
+    // Text panel slides in from the left and reaches 100% full opacity early in the scroll
+    const textOpacity = useTransform(scrollYProgress, [0.06, 0.28], [0, 1]);
+    const textX = useTransform(scrollYProgress, [0.06, 0.28], [-35, 0]);
 
     const sentences = t("about.presentation").match(/[^.!?]+[.!?]+/g) ?? [t("about.presentation")];
     const intro = sentences.slice(0, 2).join(" ").trim();
 
     return (
-        <div ref={sectionRef} className="relative h-[250vh] w-full bg-transparent">
-            <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div ref={sectionRef} className="relative h-[180vh] w-full bg-transparent">
+            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
 
-                {/* Image: starts full-screen, shrinks to the right side on scroll */}
+                {/* Image: GPU-accelerated clipPath animation completely avoids CPU layout reflows */}
                 <motion.div
-                    style={{ width: imageWidth }}
-                    className="absolute right-0 top-0 h-full overflow-hidden z-0"
+                    style={{ clipPath: imageClip }}
+                    className="absolute right-0 top-0 h-full w-full overflow-hidden z-0 pointer-events-none transform-gpu will-change-transform"
                 >
-                    <motion.div style={{ scale: imageScale }} className="absolute right-0 top-0 h-full w-screen">
+                    <motion.div style={{ scale: imageScale }} className="absolute right-0 top-0 h-full w-full">
                         <Image
                             src="/home/portrait.png"
                             fill
                             sizes="100vw"
                             priority
                             alt={t("about.title")}
-                            className="object-cover object-center"
+                            className="object-cover object-[center_right] xl:object-center"
                         />
                     </motion.div>
-                    {/* Left-edge gradient blends the image into the text column */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/20 to-transparent pointer-events-none" />
+                    {/* Left-edge gradient smoothly blends the photo into the dark background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-transparent pointer-events-none" />
                 </motion.div>
 
-                {/* Text panel: hidden initially, slides in from the left on scroll */}
+                {/* Text panel: slightly widened container with generous padding and crisp line breaks */}
                 <motion.div
                     style={{ opacity: textOpacity, x: textX }}
-                    className="absolute left-0 top-0 h-full w-1/2 flex flex-col justify-center gap-7 pl-12 xl:pl-20 pr-12 z-10"
+                    className="relative z-10 w-full lg:w-[54%] xl:w-[50%] h-full flex flex-col justify-center gap-7 pl-8 sm:pl-12 lg:pl-16 xl:pl-24 pr-6 sm:pr-8 lg:pr-12 xl:pr-14 select-none transform-gpu will-change-transform"
                 >
-                    <h2 className="font-primary text-5xl xl:text-6xl font-extrabold tracking-tighter text-white leading-[0.95]">
+                    <h2 className="font-primary text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white leading-[1.05] break-words [text-wrap:balance]">
                         {t("about.title")}
                     </h2>
-                    <p className="font-secondary text-base xl:text-lg text-gray-400 leading-relaxed max-w-xl">
+                    <p className="font-secondary text-sm lg:text-base xl:text-lg text-gray-300 leading-relaxed max-w-xl break-words [text-wrap:pretty]">
                         {intro}
                     </p>
                     <AboutExtras />
@@ -309,31 +318,27 @@ export default function HomeClient() {
             <div id="home" className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden scroll-mt-[var(--navbar-height)]">
                 {/* Atmospheric grid lines with traveling neon glows */}
                 <div className="absolute top-0 left-[20%] w-px h-full bg-white/4 pointer-events-none overflow-hidden">
-                    <motion.div
-                        animate={{ y: ["-100%", "200%"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    <div
                         className="w-full h-24 bg-gradient-to-b from-transparent via-accent-blue to-transparent"
+                        style={{ animation: "beam-travel-y 4s linear infinite" }}
                     />
                 </div>
                 <div className="absolute top-0 left-1/2 w-px h-full bg-white/4 pointer-events-none overflow-hidden">
-                    <motion.div
-                        animate={{ y: ["-100%", "200%"] }}
-                        transition={{ duration: 6.5, delay: 1, repeat: Infinity, ease: "linear" }}
+                    <div
                         className="w-full h-32 bg-gradient-to-b from-transparent via-accent-blue/60 to-transparent"
+                        style={{ animation: "beam-travel-y 6.5s linear 1s infinite" }}
                     />
                 </div>
                 <div className="absolute top-0 right-[20%] w-px h-full bg-white/4 pointer-events-none overflow-hidden">
-                    <motion.div
-                        animate={{ y: ["-100%", "200%"] }}
-                        transition={{ duration: 4, delay: 2, repeat: Infinity, ease: "linear" }}
+                    <div
                         className="w-full h-24 bg-gradient-to-b from-transparent via-accent-teal to-transparent"
+                        style={{ animation: "beam-travel-y 4s linear 2s infinite" }}
                     />
                 </div>
                 <div className="absolute top-[30%] left-0 w-full h-px bg-white/4 pointer-events-none overflow-hidden">
-                    <motion.div
-                        animate={{ x: ["-100%", "200%"] }}
-                        transition={{ duration: 7, delay: 1.5, repeat: Infinity, ease: "linear" }}
+                    <div
                         className="h-full w-40 bg-gradient-to-r from-transparent via-accent-teal/50 to-transparent"
+                        style={{ animation: "beam-travel-x 7s linear 1.5s infinite" }}
                     />
                 </div>
                 <div className="absolute bottom-[30%] left-0 w-full h-px bg-white/4 pointer-events-none" />
@@ -399,10 +404,9 @@ export default function HomeClient() {
                         {t("scroll_down")}
                     </span>
                     <div className="w-5 h-9 rounded-full border border-white/20 group-hover:border-accent-blue/50 flex justify-center p-1.5 bg-white/2 transition-colors duration-300">
-                        <motion.div 
-                            animate={{ y: [0, 12, 0] }}
-                            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                        <div
                             className="w-1 h-1 rounded-full bg-accent-blue"
+                            style={{ animation: "scroll-hint 1.6s ease-in-out infinite" }}
                         />
                     </div>
                 </motion.div>
@@ -421,6 +425,11 @@ export default function HomeClient() {
             {/* EDUCATION SECTION */}
             <div id="education" className="w-full scroll-mt-[var(--navbar-height)]">
                 <EducationClient />
+            </div>
+
+            {/* SOFT SKILLS SECTION */}
+            <div id="soft-skills" className="w-full scroll-mt-[var(--navbar-height)]">
+                <SoftSkillsClient />
             </div>
 
             {/* GALLERY / CREATIONS SECTION */}

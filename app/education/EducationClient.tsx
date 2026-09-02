@@ -3,10 +3,9 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 interface School {
     key: string;
@@ -15,196 +14,139 @@ interface School {
     glow: "lime" | "orange";
 }
 
-// Academic Milestones Data
+// Academic Milestones Data (Most Recent First)
 const SCHOOLS: School[] = [
-    { key: "unige", url: "https://unige.ch/", image: "/education/unige.svg", glow: "lime" },
-    { key: "stael", url: "https://madame-de-stael.ent.auvergnerhonealpes.fr/", glow: "orange" },
-    { key: "jjr", url: "https://jeanjacquesrousseau-stjulien.ent.auvergnerhonealpes.fr/", glow: "lime" }
+    { key: "master", url: "https://www.unige.ch/bachelor-master/en/masters/computer-science", image: "/education/unige.svg", glow: "lime" },
+    { key: "bachelor", url: "https://www.unige.ch/bachelor-master/bachelors/sciences-informatiques", image: "/education/unige.svg", glow: "orange" },
+    { key: "stael", url: "https://madame-de-stael.ent.auvergnerhonealpes.fr/", glow: "lime" }
 ];
 
 export default function EducationClient() {
     const t = useTranslations("education");
     const t_career = useTranslations("education.school_career");
-    const containerRef = useRef<HTMLDivElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
-    const [maxScroll, setMaxScroll] = useState(0);
-
-    // Track vertical scrolling progression
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
-
-    // Measure the exact horizontal distance to travel: full track width minus the
-    // visible viewport. This makes the slide stop right when the last card lands,
-    // instead of overshooting with a hardcoded percentage.
-    useEffect(() => {
-        const compute = () => {
-            const track = trackRef.current;
-            if (!track) return;
-            const viewport = (track.offsetParent as HTMLElement | null)?.clientWidth ?? window.innerWidth;
-            setMaxScroll(Math.max(0, track.scrollWidth - viewport));
-        };
-        compute();
-        window.addEventListener("resize", compute);
-        return () => window.removeEventListener("resize", compute);
-    }, []);
-
-    // Translate vertical scroll (0 to 1) into the measured horizontal distance (px)
-    const x = useTransform(scrollYProgress, [0, 1], [0, -maxScroll]);
-
-    // Calculate dynamic focal lens scaling and opacity for each card
-    const scale1 = useTransform(scrollYProgress, [0, 0.22, 0.35], [1.03, 1.03, 0.92]);
-    const opacity1 = useTransform(scrollYProgress, [0, 0.25, 0.35], [1, 1, 0.35]);
-
-    const scale2 = useTransform(scrollYProgress, [0.18, 0.35, 0.5, 0.65, 0.78], [0.92, 1.03, 1.03, 1.03, 0.92]);
-    const opacity2 = useTransform(scrollYProgress, [0.18, 0.35, 0.5, 0.65, 0.78], [0.35, 1, 1, 1, 0.35]);
-
-    const scale3 = useTransform(scrollYProgress, [0.6, 0.78, 1], [0.92, 1.03, 1.03]);
-    const opacity3 = useTransform(scrollYProgress, [0.6, 0.78, 1], [0.35, 1, 1]);
-
-    // Border activates by growing its width from 0 to 2px while the card is fully active.
-    const borderFill1 = useTransform(scrollYProgress, [0, 0.08, 0.25, 0.33], [0, 1, 1, 0]);
-    const borderFill2 = useTransform(scrollYProgress, [0.3, 0.4, 0.62, 0.72], [0, 1, 1, 0]);
-    const borderFill3 = useTransform(scrollYProgress, [0.72, 0.82, 1], [0, 1, 1]);
-    // Use an inset box-shadow ring (anti-aliased) instead of border-width, which browsers
-    // snap to whole device pixels — that snapping is what makes a width animation look jumpy.
-    const borderRing1 = useTransform(borderFill1, (v) => `inset 0 0 0 ${v * 2}px rgba(78, 168, 255, 0.9)`);
-    const borderRing2 = useTransform(borderFill2, (v) => `inset 0 0 0 ${v * 2}px rgba(98, 226, 213, 0.9)`);
-    const borderRing3 = useTransform(borderFill3, (v) => `inset 0 0 0 ${v * 2}px rgba(78, 168, 255, 0.9)`);
-
-    const getTransformProps = (index: number) => {
-        if (index === 0) return { scale: scale1, opacity: opacity1, borderRing: borderRing1 };
-        if (index === 1) return { scale: scale2, opacity: opacity2, borderRing: borderRing2 };
-        return { scale: scale3, opacity: opacity3, borderRing: borderRing3 };
-    };
 
     return (
         <article className="relative w-full bg-transparent text-white overflow-visible selection:bg-accent-blue selection:text-white">
             {/* Visual guide markers reminiscent of premium Webflow layouts */}
             <div className="absolute top-0 left-[15%] w-[1px] h-full bg-white/2 pointer-events-none" />
             <div className="absolute top-0 right-[15%] w-[1px] h-full bg-white/2 pointer-events-none" />
-            
-            {/* Ambient Background Glows */}
 
-
-            {/* Static Section Intro Header */}
+            {/* Section Intro Header */}
             <div className="mx-auto max-w-7xl px-8 pt-32 sm:pt-36 pb-12 flex flex-col items-center text-center relative z-10 select-none">
-                <h1 className="font-primary text-5xl md:text-6xl font-extrabold tracking-tight mt-6 leading-none">
+                <h1 className="font-primary text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mt-6 leading-none break-words max-w-full">
                     {t("title")}
                 </h1>
                 <p className="font-secondary text-base md:text-lg text-gray-400 mt-4 max-w-2xl leading-relaxed">
                     {t_career("description")}
                 </p>
-                
             </div>
 
-            {/* VIEWPORT-LOCKING SCROLL TIMELINE CONTAINER */}
-            <div ref={containerRef} className="relative h-[280vh] w-full overflow-visible">
-                {/* Sticky Pinned Viewport Frame */}
-                <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex flex-col justify-center overflow-hidden z-20">
-                    
-                    {/* Horizontal guide tracking line - shifted down to 56% for top card clearance */}
-                    <div className="absolute top-[56%] left-0 w-full h-[2px] bg-white/10 -translate-y-1/2 pointer-events-none">
-                        <motion.div 
-                            style={{ scaleX: scrollYProgress }} 
-                            className="w-full h-full bg-gradient-to-r from-accent-blue to-accent-teal origin-left shadow-[0_0_10px_rgba(78,168,255,0.5)]" 
-                        />
+            {/* VERTICAL TIMELINE CONTAINER */}
+            <div className="max-w-5xl mx-auto px-6 sm:px-8 py-12 relative z-10">
+
+                {/* Timeline Items List */}
+                <div className="flex flex-col gap-12 sm:gap-16 relative">
+
+                    {/* 
+                      Timeline spine. It lives inside the list, not in the padded
+                      container, so that `left-7 sm:left-9 md:left-1/2` resolves against
+                      exactly the same box as the nodes below — measuring it from the
+                      container instead left it offset by that container's own padding.
+                    */}
+                    <div className="absolute left-7 sm:left-9 md:left-1/2 -translate-x-1/2 -top-8 -bottom-4 w-[2px] bg-gradient-to-b from-accent-blue via-accent-teal to-accent-blue/10 pointer-events-none">
+                        <div className="absolute inset-0 w-full h-full shadow-[0_0_12px_rgba(78,168,255,0.4)]" />
                     </div>
-                    
-                    {/* Horizontal sliding track - absolute positioned at 56% to align perfectly with the shifted tracking line */}
-                    <motion.div
-                        ref={trackRef}
-                        style={{ x }}
-                        className="absolute top-[56%] -translate-y-1/2 left-0 flex flex-row gap-12 sm:gap-20 px-[15vw] lg:px-[25vw] items-center w-max h-auto z-10"
-                    >
-                        {SCHOOLS.map((school, index) => {
-                            const schoolPath = `schools.${school.key}`;
-                            const glowClass = school.glow === "orange" ? "glow-card-teal" : "glow-card-blue";
-                            const activeAccent = school.glow === "orange" ? "text-accent-teal" : "text-accent-blue";
-                            const { scale, opacity, borderRing } = getTransformProps(index);
-                            const isAbove = index % 2 === 0;
 
-                            return (
-                                <div 
-                                    key={school.key} 
-                                    className="relative w-[85vw] sm:w-[500px] h-[320px] sm:h-[380px] shrink-0 flex items-center justify-center group"
-                                >
-                                    {/* Pulsing Node */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 hidden sm:flex items-center justify-center pointer-events-none">
-                                        {/* Ripple Glows */}
-                                        <div className={`absolute w-8 h-8 rounded-full opacity-20 scale-70 animate-ping ${school.glow === 'orange' ? 'bg-accent-teal' : 'bg-accent-blue'}`} />
-                                        <div className={`absolute w-12 h-12 rounded-full opacity-10 scale-70 animate-pulse ${school.glow === 'orange' ? 'bg-accent-teal' : 'bg-accent-blue'}`} />
-                                        
-                                        {/* Core Node */}
-                                        <div className="w-4 h-4 rounded-full border border-white/30 bg-secondary flex items-center justify-center relative z-10 transition-all duration-300 group-hover:border-white">
-                                            <div className={`w-2 h-2 rounded-full ${school.glow === 'orange' ? 'bg-accent-teal' : 'bg-accent-blue'}`} />
-                                        </div>
+                    {SCHOOLS.map((school, index) => {
+                        const schoolPath = `schools.${school.key}`;
+                        const isEven = index % 2 === 0;
+                        const glowClass = school.glow === "orange" ? "glow-card-teal" : "glow-card-blue";
+                        const activeAccent = school.glow === "orange" ? "text-accent-teal" : "text-accent-blue";
+                        const haloColor = school.glow === "orange" ? "bg-accent-teal" : "bg-accent-blue";
+
+                        return (
+                            <div key={school.key} className="relative w-full flex items-center">
+
+                                {/* Glowing Node on Timeline Spine */}
+                                <div className="absolute left-7 sm:left-9 md:left-1/2 -translate-x-1/2 top-8 z-30 flex items-center justify-center pointer-events-none">
+                                    {/* Ripple Halo */}
+                                    <div className={`absolute w-8 h-8 rounded-full opacity-20 animate-ping ${haloColor}`} />
+                                    <div className={`absolute w-6 h-6 rounded-full opacity-30 animate-pulse ${haloColor}`} />
+                                    
+                                    {/* Core Node */}
+                                    <div className="w-4 h-4 rounded-full border-2 border-white/40 bg-[#080808] flex items-center justify-center relative z-10 shadow-[0_0_10px_rgba(78,168,255,0.5)]">
+                                        <div className={`w-2 h-2 rounded-full ${haloColor}`} />
                                     </div>
+                                </div>
 
-                                    {/* Vertical Connecting Line (Above) */}
-                                    {isAbove && (
-                                        <div className={`absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[24px] bg-gradient-to-t ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
-                                    )}
-
-                                    {/* Vertical Connecting Line (Below) */}
-                                    {!isAbove && (
-                                        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-[1.5px] h-[24px] bg-gradient-to-b ${school.glow === 'orange' ? 'from-accent-teal/50 to-transparent' : 'from-accent-blue/50 to-transparent'} hidden sm:block pointer-events-none`} />
-                                    )}
-
-                                    <motion.div
-                                        style={{ scale, opacity }}
-                                        className={`w-full sm:absolute ${isAbove ? 'sm:bottom-1/2 sm:mb-[24px]' : 'sm:top-1/2 sm:mt-[24px]'} bg-secondary/35 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/8 ${glowClass} flex flex-col gap-4 sm:gap-5 overflow-hidden interactive-card`}
+                                {/* Timeline Card Item */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 35 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                    className={`w-full ml-12 sm:ml-16 md:ml-0 md:w-[calc(50%-36px)] ${
+                                        isEven ? "md:mr-auto" : "md:ml-auto"
+                                    }`}
+                                >
+                                    <Link
+                                        href={school.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`block bg-secondary/60 rounded-3xl p-6 sm:p-8 border border-white/8 ${glowClass} flex flex-col gap-4 overflow-hidden interactive-card group hover:border-accent-blue/40 transition-all duration-300 transform-gpu relative cursor-pointer`}
                                         data-cursor-text="STUDY"
                                     >
-                                        {/* Progressive accent border — inset ring thickens 0 -> 2px (anti-aliased, no pixel snapping) as the card becomes active */}
-                                        <motion.div
-                                            style={{ boxShadow: borderRing }}
-                                            className="absolute inset-0 rounded-3xl pointer-events-none z-20"
-                                        />
+                                        {/* Ambient Corner Hover Glow */}
+                                        <div className={`absolute top-0 right-0 w-[180px] h-[180px] rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${school.glow === 'orange' ? 'bg-accent-teal/10' : 'bg-accent-blue/10'}`} />
 
-                                        {/* Ambient corner light glow on hover */}
-                                        <div className={`absolute top-0 right-0 w-[160px] h-[160px] rounded-full blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${school.glow === 'orange' ? 'bg-accent-teal/5' : 'bg-accent-blue/5'}`} />
-
-                                        {/* Cyber Timestamp Pill */}
-                                        <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[10px] bg-white/5 border border-white/5 rounded-md px-2.5 py-1 w-max">
-                                            <FontAwesomeIcon icon={faCalendarAlt} className={`size-3 ${activeAccent}`} />
-                                            <span className="uppercase tracking-wider font-semibold">{t_career(`${schoolPath}.date`)}</span>
+                                        {/* Header: Timestamp Pill & Index Counter */}
+                                        <div className="flex items-center justify-between gap-3 select-none">
+                                            <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[11px] sm:text-xs bg-white/[0.04] border border-white/10 rounded-md px-2.5 sm:px-3 py-1 w-max">
+                                                <FontAwesomeIcon icon={faCalendarAlt} className={`size-3 sm:size-3.5 ${activeAccent}`} />
+                                                <span className="uppercase tracking-wider font-semibold">
+                                                    {t_career(`${schoolPath}.date`)}
+                                                </span>
+                                            </div>
+                                            <span className="font-mono text-[11px] sm:text-xs font-semibold text-gray-500">
+                                                0{index + 1}
+                                            </span>
                                         </div>
 
-                                        {/* Milestone Description */}
-                                        <div className="flex flex-col gap-3 mt-2 border-b border-white/5 pb-5">
-                                            <Link href={school.url} target="_blank" className="inline-block group-hover:text-accent-blue transition-colors duration-300 cursor-pointer">
-                                                <h3 className="font-primary text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-inherit">
-                                                    {t_career(`${schoolPath}.title`)}
-                                                </h3>
-                                            </Link>
-                                            <p className="font-secondary text-sm text-gray-400 leading-relaxed mt-1">
+                                        {/* Milestone Title, Institution & Description */}
+                                        <div className={`flex flex-col gap-2 mt-1 ${school.image ? "border-b border-white/5 pb-5" : ""}`}>
+                                            <h3 className="font-primary text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight group-hover:text-accent-blue transition-colors duration-300">
+                                                {t_career(`${schoolPath}.title`)}
+                                            </h3>
+                                            <span className={`text-xs sm:text-sm font-secondary font-bold tracking-wide ${activeAccent}`}>
+                                                {t_career(`${schoolPath}.institution`)}
+                                            </span>
+                                            <p className="font-secondary text-sm text-gray-400 leading-relaxed mt-1.5">
                                                 {t_career(`${schoolPath}.description`)}
                                             </p>
                                         </div>
 
                                         {/* School Crest Logo Asset */}
                                         {school.image && (
-                                            <div className="mt-2 relative w-full h-[50px] flex items-center justify-start opacity-70 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500 select-none pointer-events-none">
-                                                <Image 
-                                                    className="object-contain object-left filter brightness-95 contrast-105" 
-                                                    src={school.image} 
-                                                    width={140} 
-                                                    height={40}
+                                            <div className="mt-1 relative w-full h-[45px] flex items-center justify-start opacity-90 select-none pointer-events-none">
+                                                <Image
+                                                    className="object-contain object-left filter brightness-95 contrast-105"
+                                                    src={school.image}
+                                                    width={140}
+                                                    height={38}
                                                     style={{ height: "auto" }}
-                                                    alt="School Crest" 
-                                                    priority
+                                                    alt={t_career(`${schoolPath}.institution`)}
+                                                    loading="lazy"
                                                 />
                                             </div>
                                         )}
-                                    </motion.div>
-                                </div>
-                            );
-                        })}
-                    </motion.div>
+                                    </Link>
+                                </motion.div>
 
+                            </div>
+                        );
+                    })}
                 </div>
+
             </div>
         </article>
     );

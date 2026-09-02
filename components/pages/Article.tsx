@@ -3,7 +3,7 @@ export default function Article({ title, description, children, pill }: { title?
         <article className="w-full bg-transparent text-white relative overflow-visible selection:bg-accent-blue selection:text-white">
             <div className="mx-auto max-w-7xl px-8 pt-32 sm:pt-36 pb-12 flex flex-col items-center text-center relative z-10 select-none">
                 {title && (
-                    <h1 className="font-primary text-5xl md:text-6xl font-extrabold tracking-tight mt-6 leading-none">
+                    <h1 className="font-primary text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mt-6 leading-none break-words max-w-full">
                         {title}
                     </h1>
                 )}
@@ -17,4 +17,4 @@ export default function Article({ title, description, children, pill }: { title?
             {children}
         </article>
     );
-}
+}

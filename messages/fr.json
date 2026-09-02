@@ -48,21 +48,21 @@
     },
 
     "copyright": {
-        "content": "Copyright © <year></year> Agon KOLGECI • Tous droits réservés",
+        "content": "Copyright © <year></year> Agon Kolgeci • Tous droits réservés",
         "details": "Fait avec <nextjs>Next.js</nextjs> et <tailwindcss>Tailwind CSS</tailwindcss>, déployé avec <vercel>Vercel</vercel> depuis <github>GitHub</github>."
     },
 
     "global": {
-        "title": "Agon KOLGECI",
+        "title": "Agon Kolgeci",
         "role": "Développeur en logiciels",
         "label": "Portfolio",
         "description": "Passionné depuis mon plus jeune âge par l'informatique, je consacre mon temps à réaliser divers projets me permettant d'enrichir mes connaissances.",
-        "portfolio": "Portfolio personnel d'Agon KOLGECI — développeur logiciel passionné présentant ses projets, compétences et expériences.",
-        "keywords": "Agon KOLGECI, Développeur de logiciels, Développeur passionné, Enthousiaste de l'informatique, Projets logiciels, Enrichissement des connaissances, Expert en codage, Portfolio de développeur, Passionné de technologie, Projets de programmation, Codeur compétent, Informatique, Compétences en développement, Logiciels innovants, Projets personnels, Passion pour la technologie, Développeur, Auto-apprentissage, Professionnel de l'informatique, Projets technologiques"
+        "portfolio": "Portfolio personnel d'Agon Kolgeci — développeur logiciel passionné présentant ses projets, compétences et expériences.",
+        "keywords": "Agon Kolgeci, Développeur de logiciels, Développeur passionné, Enthousiaste de l'informatique, Projets logiciels, Enrichissement des connaissances, Expert en codage, Portfolio de développeur, Passionné de technologie, Projets de programmation, Codeur compétent, Informatique, Compétences en développement, Logiciels innovants, Projets personnels, Passion pour la technologie, Développeur, Auto-apprentissage, Professionnel de l'informatique, Projets technologiques"
     },
 
     "home": {
-        "title": "Agon KOLGECI",
+        "title": "Agon Kolgeci",
         "description": "Développeur en logiciels",
         "quote": "Je conçois et développe des expériences numériques de nouvelle génération. En alliant une ingénierie rigoureuse à une esthétique épurée, je donne vie aux idées.",
         "scroll_down": "Défiler vers le bas",
@@ -71,7 +71,7 @@
             "title": "À propos de moi",
             "description": "Découvrez qui je suis, mes passions, et le parcours qui m'a façonné. Apprenez-en plus sur mon expérience ainsi que mes centres d'intérêt.",
 
-            "presentation": "Salut, je suis Agon KOLGECI, développeur en logiciels et actuellement en études de Sciences Informatiques. Depuis mon plus jeune âge, j'ai pu découvrir, apprendre et expérimenter diverses technologies en autodidacte, ce qui m'a permis de développer une véritable passion pour l'informatique et d'acquérir diverses compétences dans ce domaine. Toutes ces expériences m'ont motivé à poursuivre mes études dans ce domaine afin d'approfondir mes connaissances et devenir un expert capable de créer des solutions innovantes. Aujourd'hui je suis déterminé à continuer sur cette voie et à me perfectionner chaque jour pour atteindre mes objectifs."
+            "presentation": "Salut, je suis Agon Kolgeci, développeur en logiciels et actuellement en études de Sciences Informatiques. Depuis mon plus jeune âge, j'ai pu découvrir, apprendre et expérimenter diverses technologies en autodidacte, ce qui m'a permis de développer une véritable passion pour l'informatique et d'acquérir diverses compétences dans ce domaine. Toutes ces expériences m'ont motivé à poursuivre mes études dans ce domaine afin d'approfondir mes connaissances et devenir un expert capable de créer des solutions innovantes. Aujourd'hui je suis déterminé à continuer sur cette voie et à me perfectionner chaque jour pour atteindre mes objectifs."
         },
 
         "discover": {
@@ -194,25 +194,26 @@
 
         "school_career": {
             "title": "Parcours scolaire",
-            "description": "Après avoir terminé le lycée, je me suis directement orienté vers un Bachelor en Sciences Informatiques. Je suis passionné par la technologie et l'innovation, et c'est un réel plaisir de pouvoir travailler dans ce domaine.",
+            "description": "Depuis tout petit, j'ai toujours su ce que je voulais faire et c'est pour cela que je me suis orienté vers des études en Sciences Informatiques. Je suis passionné par la technologie et l'innovation, et c'est un réel plaisir de pouvoir travailler dans ce domaine.",
 
             "schools": {
-                "unige": {
-                    "title": "Bachelor en Sciences Informatiques : Université de Genève",
-                    "description": "Le Bachelor en sciences informatiques permet d'acquérir une solide formation de base en algorithmique, en systèmes informatiques et sécurité, en génie logiciel, en imagerie numérique, en informatique théorique et en traitement de l'information multimédia.",
-                    "date": "2023 - aujourd'hui"
+                "master": {
+                    "title": "Master en Sciences Informatiques",
+                    "institution": "Université de Genève",
+                    "description": "Le Master en sciences informatiques approfondit les compétences avancées en génie logiciel, intelligence artificielle, systèmes distribués, sécurité informatique et recherche appliquée.",
+                    "date": "2026 - aujourd'hui"
                 },
-
+                "bachelor": {
+                    "title": "Bachelor en Sciences Informatiques",
+                    "institution": "Université de Genève",
+                    "description": "Le Bachelor en sciences informatiques permet d'acquérir une solide formation de base en algorithmique, en systèmes informatiques et sécurité, en génie logiciel, en imagerie numérique, en informatique théorique et en traitement de l'information multimédia.",
+                    "date": "2023 - 2026"
+                },
                 "stael": {
-                    "title": "Baccaulauréat général et technologique : Lycée Madame de Staël",
+                    "title": "Baccalauréat général et technologique",
+                    "institution": "Lycée Madame de Staël",
                     "description": "Spécialité Mathématiques & Physique-Chimie.",
                     "date": "2020 - 2023"
-                },
-
-                "jjr": {
-                    "title": "Brevet : Collège Jean-Jacques Rousseau",
-                    "description": "Diplôme du Brevet des collèges.",
-                    "date": "2016 - 2020"
                 }
             }
         }
@@ -227,7 +228,18 @@
             "title": "Expériences Professionnelles",
             "description": "Au cours de ma carrière, j'ai pu collaborer avec des équipes diverses et développer des solutions innovantes qui ont soutenu le succès opérationnel.",
             "contents": {
+                "unige_are": {
+                    "role": "Auxiliaire de recherche et d'enseignement (ARE)",
+                    "title": "Université de Genève",
+                    "date": "sept. 2026 - déc. 2026",
+                    "description": "Auxiliaire de recherche et d'enseignement (ARE) à la Faculté des sciences, en soutien à l'enseignement de deux cours du cursus d'informatique.",
+                    "tasks": {
+                        "1": "Cours « Systèmes concurrents et distribués » (3ème année) : encadrement des étudiants pendant les séances d'exercices et les travaux pratiques.",
+                        "2": "Cours « Programmation pour biologistes » (1ère année) : accompagnement d'étudiants non-informaticiens dans leurs premiers pas en programmation."
+                    }
+                },
                 "world-heberg": {
+                    "role": "Chef d'équipe de modération",
                     "title": "World-Heberg",
                     "date": "sept. 2020 - avr. 2021",
                     "description": "Association offrant des services d'hébergement gratuits incluant des solutions web, des instances nodejs, des offres cloud et des instances Sinus.",
@@ -237,6 +249,7 @@
                     }
                 },
                 "buro_plus": {
+                    "role": "Stagiaire ventes",
                     "title": "Buro +",
                     "date": "déc. 2019",
                     "description": "Réseau numéro 1 pour les fournitures de bureau/informatique en France.",
@@ -301,7 +314,7 @@
                 "yadbna": {
                     "title": "YADBNA",
                     "date": "2020 - présent",
-                    "description": "YADBNA (Yet Another Discord Bot Nobody Asked) est un bot Discord qui propose des cartes de niveau graphiques, des classements visuels, un suivi précis des invitations et des outils de gestion avancés tels que des rôles personnalisables et des salons vocaux temporaires automatiques."
+                    "description": "YADBNA est un bot Discord qui propose des cartes de niveau graphiques, des classements visuels, un suivi précis des invitations et des outils de gestion avancés tels que des rôles personnalisables et des salons vocaux temporaires automatiques."
                 },
 
                 "berkasia": {
@@ -484,6 +497,7 @@
     },
 
     "tags": {
+        "are": "Emploi étudiant",
         "founder": "Fondateur",
         "lead-developer": "Développeur principal",
         "volunteering": "Bénévolat",

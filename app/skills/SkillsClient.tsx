@@ -4,10 +4,9 @@ import { useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent, useTransform, MotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBolt, faPeopleGroup, faPerson, faSliders } from "@fortawesome/free-solid-svg-icons";
 import Article from "@/components/pages/Article";
 import { retrieveLanguageByName } from "@/components/utils/ui/Language";
+import MacBook, { DECK_OVERHANG } from "@/components/utils/ui/MacBook";
 
 // All 32 GitHub core technologies and tools divided into 3 scroll steps (10 in step 1, 9 in step 2, 13 in step 3)
 const TECH_CONSTELLATION = [
@@ -50,12 +49,27 @@ const TECH_CONSTELLATION = [
     { name: "StackOverflow", color: "#f58025", angle: 0, ring: 2, step: 3 }
 ];
 
-const SOFT_SKILLS_DATA = [
-    { key: "motivation" as const, color: "#4ea8ff", percent: 98, metric: "SYNC", icon: faBolt },
-    { key: "adaptation" as const, color: "#62e2d5", percent: 95, metric: "FLEX", icon: faSliders },
-    { key: "autonomy" as const, color: "#a855f7", percent: 92, metric: "AUTO", icon: faPerson },
-    { key: "team_work" as const, color: "#eab308", percent: 96, metric: "TEAM", icon: faPeopleGroup }
-];
+// Orbit geometry, shared by the badges and by the code that has to know how far
+// down the arcs reach in order to balance the pinned frame.
+const ORBIT_RADII = [500, 620, 740];
+const ORBIT_ANGLE_STEPS = { wide: [11.5, 9.5, 7.2], narrow: [7.2, 5.8, 4.2] };
+const ORBIT_BASE_OFFSET = 460;
+const ORBIT_BADGE_RADIUS = 40;
+
+// Lowest point the arcs reach under their own centre. Each arc curves downwards
+// towards its ends, so this is the outermost badge of whichever row hangs lowest.
+function orbitReachBelow(radiusMultiplier: number) {
+    const compensation = 1 / Math.max(radiusMultiplier, 0.65);
+
+    return ORBIT_RADII.reduce((lowest, radius, row) => {
+        const rowSize = TECH_CONSTELLATION.filter(item => item.step === row + 1).length;
+        const halfSpan = ((rowSize - 1) / 2) * ORBIT_ANGLE_STEPS.wide[row] * compensation;
+        const y = -radius * radiusMultiplier * Math.cos((halfSpan * Math.PI) / 180)
+            + ORBIT_BASE_OFFSET * radiusMultiplier;
+
+        return Math.max(lowest, y);
+    }, 0) + ORBIT_BADGE_RADIUS;
+}
 
 function TechIcon({ name, className = "size-6" }: { name: string; className?: string }) {
     const url = retrieveLanguageByName(name);
@@ -86,11 +100,12 @@ interface BadgeProps {
     radiusMultiplier: number;
     isCompactHeight: boolean;
     isNarrowViewport: boolean;
+    emitterY: number;
     hoveredTech: string | null;
     onHover: (name: string | null) => void;
 }
 
-function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeight, isNarrowViewport, hoveredTech, onHover }: BadgeProps) {
+function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeight, isNarrowViewport, emitterY, hoveredTech, onHover }: BadgeProps) {
     const t = useTranslations("skills");
     
     const rowIndex = item.step - 1; // 0 (Languages), 1 (Frameworks), 2 (Ops)
@@ -104,12 +119,11 @@ function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeigh
     // Row 1 (10 items): Radius 500px (narrower circle, holds 10 badges nicely)
     // Row 2 (9 items): Radius 620px (120px vertical gap, holds 9 badges)
     // Row 3 (13 items): Radius 740px (120px vertical gap, wider circle holds 13 badges beautifully)
-    const radii = [500, 620, 740];
-    const r = radii[rowIndex] * radiusMultiplier;
+    const r = ORBIT_RADII[rowIndex] * radiusMultiplier;
     
     // Dynamic angle step based on row index and row size to ensure comfortable spacing without overlaps:
     // We dynamically scale the angle steps on small mobile viewports to prevent horizontal screen clipping
-    const angleSteps = isNarrowViewport ? [7.2, 5.8, 4.2] : [11.5, 9.5, 7.2];
+    const angleSteps = isNarrowViewport ? ORBIT_ANGLE_STEPS.narrow : ORBIT_ANGLE_STEPS.wide;
     // Compensate for height-driven radius reduction so adjacent badges keep
     // enough horizontal breathing room instead of collapsing into each other.
     const angleCompensation = 1 / Math.max(radiusMultiplier, isNarrowViewport ? 0.55 : 0.65);
@@ -120,11 +134,16 @@ function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeigh
     
     // Symmetrical flatter rainbow arch projection shifted down to align with lowered chest (+128px base translation)
     const finalX = r * Math.sin(angleRad);
-    const finalY = -r * Math.cos(angleRad) + 460 * radiusMultiplier; // Shifting entire system down to float perfectly (+128px chest base - offset = +460px)
+    const finalY = -r * Math.cos(angleRad) + ORBIT_BASE_OFFSET * radiusMultiplier; // Shifting entire system down to float perfectly (+128px chest base - offset = +460px)
     
-    // Staggered spring animations for automatic erupt / retract at each scroll step
-    const isErupted = activeStep >= item.step;
-    const delay = isErupted ? 0.05 + colIndex * 0.03 : (rowSize - 1 - colIndex) * 0.01;
+    // Every badge leaves the screen in the same burst, the moment the lid opens.
+    // The stagger ripples outwards from the middle of each arc so the icons look
+    // like they are being thrown out of the machine rather than switched on.
+    const isErupted = activeStep >= 1;
+    const distanceFromCentre = Math.abs(colIndex - (rowSize - 1) / 2);
+    const delay = isErupted
+        ? 0.4 + rowIndex * 0.07 + distanceFromCentre * 0.035
+        : distanceFromCentre * 0.02;
     const isHovered = hoveredTech === item.name;
     const [placeTooltipBelow, setPlaceTooltipBelow] = useState(finalY < 0);
 
@@ -147,23 +166,20 @@ function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeigh
 
     return (
         <motion.div
-            initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+            initial={{ x: 0, y: emitterY, scale: 0, opacity: 0 }}
             animate={{
                 x: isErupted ? finalX : 0,
-                y: isErupted ? finalY : 0,
+                y: isErupted ? finalY : emitterY,
                 scale: isErupted ? 1 : 0,
                 opacity: isErupted ? 1 : 0
             }}
             transition={{
-                x: { type: "spring", stiffness: isErupted ? 75 : 120, damping: isErupted ? 14 : 18, delay },
-                y: { type: "spring", stiffness: isErupted ? 75 : 120, damping: isErupted ? 14 : 18, delay },
-                scale: { type: "spring", stiffness: isErupted ? 90 : 120, damping: isErupted ? 14 : 18, delay },
-                opacity: { type: "spring", stiffness: isErupted ? 90 : 120, damping: isErupted ? 14 : 18, delay }
+                x: { type: "spring", stiffness: 150, damping: 17, delay },
+                y: { type: "spring", stiffness: 150, damping: 17, delay },
+                scale: { type: "spring", stiffness: 260, damping: 15, delay },
+                opacity: { duration: 0.25, delay }
             }}
-            style={{
-                zIndex: isHovered ? 100 : 20
-            }}
-            className="absolute origin-center cursor-pointer select-none will-change-transform"
+            className="absolute origin-center cursor-pointer select-none transform-gpu pointer-events-auto z-20 hover:z-[100]"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={() => onHover(null)}
         >
@@ -174,12 +190,15 @@ function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeigh
               Replaced expensive backdrop-blur-md with solid obsidian glass bg-[#0a0a0a]/90.
             */}
             <div
-                className={`relative flex items-center justify-center rounded-full bg-[#0a0a0a]/90 border border-white/6 hover:border-accent-blue/40 shadow-lg transition-all duration-300 group will-change-transform ${isCompactHeight ? "size-14" : "size-14 sm:size-18 md:size-20"}`}
+                className={`relative flex items-center justify-center rounded-full bg-[#0a0a0a]/90 border border-white/6 hover:border-accent-blue/40 shadow-lg transition-all duration-300 group hover:[animation-play-state:paused] ${isCompactHeight ? "size-14" : "size-14 sm:size-18 md:size-20"}`}
                 style={{
                     boxShadow: isHovered ? `0 0 25px ${item.color}35` : "none",
                     borderColor: isHovered ? `${item.color}40` : "rgba(255, 255, 255, 0.06)",
-                    animation: isErupted && !isHovered 
-                        ? `skillsBadgeFloat ${3.2 + (colIndex % 3) * 0.7 + (rowIndex % 2) * 0.5}s ease-in-out infinite` 
+                    // Paused rather than removed on hover: dropping the animation would
+                    // snap the badge back to its resting position instead of holding it
+                    // wherever the drift had floated it to.
+                    animation: isErupted
+                        ? `skillsBadgeFloat ${3.2 + (colIndex % 3) * 0.7 + (rowIndex % 2) * 0.5}s ease-in-out infinite`
                         : "none"
                 }}
             >
@@ -248,81 +267,22 @@ function ConstellationBadge({ item, activeStep, radiusMultiplier, isCompactHeigh
     );
 }
 
-// Scroll-driven soft skill card: slides in from the right and STAYS (additive reveal)
-// Cards are in normal vertical flow - no absolute positioning
-function SoftSkillCard({ skill, index, total, softScrollProgress, t_soft }: {
-    skill: typeof SOFT_SKILLS_DATA[number];
-    index: number;
-    total: number;
-    softScrollProgress: MotionValue<number>;
-    t_soft: ReturnType<typeof useTranslations>;
-}) {
-    // Card i enters when scroll progress passes (i / total)
-    // Animation completes in the next 10% of progress — very snappy, ~1 scroll per card
-    const enterStart = index / total;
-    const enterEnd = enterStart + 0.1;
-
-    const x = useTransform(
-        softScrollProgress,
-        [Math.max(0, enterStart - 0.01), enterEnd],
-        ["100%", "0%"]
-    );
-    const opacity = useTransform(
-        softScrollProgress,
-        [Math.max(0, enterStart - 0.01), enterEnd],
-        [0, 1]
-    );
-
-    return (
-        <motion.div
-            style={{ x, opacity, borderLeftColor: skill.color }}
-            className="w-full bg-white/[0.03] border border-white/8 border-l-4 rounded-2xl p-5 flex items-start gap-5 will-change-transform overflow-hidden"
-        >
-            {/* Subtle accent glow on left edge */}
-            <div
-                className="absolute left-0 top-0 bottom-0 w-px pointer-events-none"
-                style={{ boxShadow: `4px 0 16px ${skill.color}30` }}
-            />
-
-            {/* Icon */}
-            <div
-                className="p-3 border rounded-xl flex items-center justify-center shrink-0"
-                style={{
-                    borderColor: `${skill.color}25`,
-                    backgroundColor: `${skill.color}10`,
-                    color: skill.color
-                }}
-            >
-                <FontAwesomeIcon icon={skill.icon} className="size-5" />
-            </div>
-
-            {/* Text */}
-            <div className="flex flex-col gap-1 flex-1 min-w-0">
-                <h3
-                    className="font-primary text-base font-extrabold tracking-tight uppercase"
-                    style={{ color: skill.color }}
-                >
-                    {t_soft(`contents.${skill.key}.title`)}
-                </h3>
-                <p className="font-secondary text-sm text-gray-400 leading-relaxed">
-                    {t_soft(`contents.${skill.key}.description`)}
-                </p>
-            </div>
-        </motion.div>
-    );
-}
-
 export default function SkillsClient() {
     const t = useTranslations("skills");
-    const t_soft = useTranslations("skills.soft_skills");
 
     // Ref and states
     const containerRef = useRef<HTMLDivElement>(null);
-    const softSkillsRef = useRef<HTMLDivElement>(null);
     const [hoveredTech, setHoveredTech] = useState<string | null>(null);
     const [radiusMultiplier, setRadiusMultiplier] = useState(1);
     const [isCompactHeight, setIsCompactHeight] = useState(false);
     const [isNarrowViewport, setIsNarrowViewport] = useState(false);
+    // Below lg the badges are a grid under the machine instead of orbits around it,
+    // so the deck goes back into the flow instead of hanging over what follows.
+    const [usesBadgeGrid, setUsesBadgeGrid] = useState(false);
+    // Extra push applied to the whole composition so the pinned frame has the same
+    // breathing room above the heading as below the machine.
+    const [contentOffset, setContentOffset] = useState(0);
+    const [laptopScale, setLaptopScale] = useState(1);
     const [activeStep, setActiveStep] = useState(0);
 
     // Track scroll coordinates over the pinned parent timeline height
@@ -331,20 +291,14 @@ export default function SkillsClient() {
         offset: ["start start", "end end"]
     });
 
-    // Separate scroll progress for the soft skills section
-    const { scrollYProgress: softScrollProgress } = useScroll({
-        target: softSkillsRef,
-        offset: ["start start", "end end"]
-    });
-
-    // Reactive scroll lock trigger - throttled exactly to step boundaries to prevent rendering lags
+    // Reactive scroll lock trigger - unlocks early in the scroll so the user enjoys all badges before leaving
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         let newStep = 0;
-        if (latest <= 0.05) {
+        if (latest <= 0.02) {
             newStep = 0;
-        } else if (latest <= 0.35) {
+        } else if (latest <= 0.18) {
             newStep = 1;
-        } else if (latest <= 0.65) {
+        } else if (latest <= 0.38) {
             newStep = 2;
         } else {
             newStep = 3;
@@ -376,9 +330,37 @@ export default function SkillsClient() {
             // 0.49 at 570px, 0.65 at 694px, and 1 at >= 960px.
             const heightMultiplier = Math.min(1, Math.max(0.48, (height - 200) / 760));
 
-            setRadiusMultiplier(Math.min(widthMultiplier, heightMultiplier));
+            const multiplier = Math.min(widthMultiplier, heightMultiplier);
+            setRadiusMultiplier(multiplier);
             setIsCompactHeight(height < 720);
             setIsNarrowViewport(width < 640);
+            setUsesBadgeGrid(width < 1024);
+
+            // The MacBook is drawn once at a fixed 460x472 design size, so fitting it
+            // to the viewport is a single scale factor. The width steps keep the lid
+            // the same size the flat mockup used to be, so the badge arcs still clear it.
+            const laptopWidthScale = width < 640 ? 0.5 : width < 1024 ? 0.72 : 0.96;
+            // Below lg the badges sit in a grid under the machine, which needs room.
+            const laptopHeightScale = (height - (width < 1024 ? 470 : 300)) / 472;
+            const scale = Math.max(0.4, Math.min(1, laptopWidthScale, laptopHeightScale));
+            setLaptopScale(scale);
+
+            /*
+              Vertical balance. The heading is pinned near the top of the frame while
+              the arcs are centred on the chamber, and each arc holds far more of its
+              badges above its centre than below — so every extra pixel of viewport
+              height used to pile up as dead space under the laptop. Push the whole
+              composition down by half of that surplus and the two gaps match.
+            */
+            const stickyHeight = height - 72;
+            const chamberTop = height < 720 ? 48 : width < 640 ? 64 : 80;
+            const headingTop = height < 720 ? 16 : 32;
+            const reachBelow = width < 1024
+                ? 0
+                : Math.max(orbitReachBelow(multiplier), 256 * scale);
+            setContentOffset(reachBelow === 0
+                ? 0
+                : Math.max(0, (stickyHeight / 2 - chamberTop - headingTop - reachBelow) / 2));
         };
 
         handleResize();
@@ -386,12 +368,16 @@ export default function SkillsClient() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // How far the machine is lifted out of the centre of the chamber, which is
+    // also where the display ends up — so the icons fly out of the screen.
+    const emitterY = -55 * laptopScale;
+
     return (
         <Article pill={t("title")}>
             <div className="relative z-10 w-full flex flex-col gap-10 max-w-7xl mx-auto px-8 overflow-visible">
                 
-                {/* 1. SCROLL LOCKED LOCKING CHAMBER FOR CONSTELLATION ERUPTION (h-170vh parent) */}
-                <div ref={containerRef} className="relative h-[170vh] w-full overflow-visible">
+                {/* 1. SCROLL LOCKED LOCKING CHAMBER FOR CONSTELLATION ERUPTION (fast, natural timeline) */}
+                <div ref={containerRef} className="relative h-[135vh] w-full overflow-visible">
                     
                     {/* Sticky locking viewport frame */}
                     <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex flex-col items-center justify-center overflow-visible select-none">
@@ -402,7 +388,10 @@ export default function SkillsClient() {
                           By placing this inside the sticky viewport container, it remains beautifully visible 
                           at the top of the viewport when the section pins!
                         */}
-                        <div className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center text-center z-30 select-none w-full max-w-2xl px-6 ${isCompactHeight ? "top-4" : "top-8"}`}>
+                        <div
+                            className={`absolute left-1/2 flex flex-col items-center text-center z-30 select-none w-full max-w-2xl px-6 ${isCompactHeight ? "top-4" : "top-8"}`}
+                            style={{ transform: `translate(-50%, ${contentOffset}px)` }}
+                        >
                             <h2 className={`font-primary font-extrabold tracking-tight leading-none text-white ${isCompactHeight ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl"}`}>
                                 {t("title")}
                             </h2>
@@ -412,149 +401,94 @@ export default function SkillsClient() {
                         </div>
 
                         {/* Centered chamber container */}
-                        <div className={`relative w-full max-w-5xl h-full flex flex-col items-center justify-center overflow-visible ${isCompactHeight ? "mt-12" : "mt-16 sm:mt-20"}`}>
+                        <div
+                            className={`relative w-full max-w-5xl h-full flex flex-col items-center justify-center overflow-visible ${isCompactHeight ? "mt-12" : "mt-16 sm:mt-20"}`}
+                            style={{ transform: `translateY(${contentOffset}px)` }}
+                        >
                             
-                             {/* Ambient Light Beam from Open Suitcase */}
+                            {/* Ambient Radiant Screen Light Beam from Open Laptop */}
                             <motion.div
                                 animate={{
-                                    scaleY: activeStep >= 1 ? 1 : 0,
-                                    opacity: activeStep >= 1 ? 0.7 : 0
+                                    opacity: activeStep >= 1 ? 0.75 : 0,
+                                    scale: activeStep >= 1 ? 1 : 0.6
                                 }}
                                 transition={{
-                                    type: "spring",
-                                    stiffness: 60,
-                                    damping: 15,
-                                    delay: activeStep >= 1 ? 0.1 : 0
+                                    type: "tween",
+                                    ease: [0.25, 1, 0.5, 1],
+                                    duration: 1.2,
+                                    delay: activeStep >= 1 ? 0.2 : 0
                                 }}
-                                className="absolute bottom-[50%] left-1/2 -translate-x-1/2 w-32 h-[300px] bg-gradient-to-t from-accent-blue/35 via-accent-teal/15 to-transparent blur-md rounded-full origin-bottom pointer-events-none z-0 translate-y-32"
+                                className="absolute bottom-[50%] left-1/2 -translate-x-1/2 w-80 sm:w-96 md:w-[460px] h-[360px] bg-gradient-to-t from-blue-600/30 via-cyan-500/15 to-transparent blur-3xl rounded-full origin-bottom pointer-events-none z-0 translate-y-24"
                             />
 
-                            {/* Majestic Cybernetic Treasure Chest base (w-72 sm:w-80 h-32 sm:h-36) */}
-                            <div className="relative w-72 sm:w-80 h-32 sm:h-36 flex items-center justify-center z-10 mt-12 translate-y-32">
-                                
-                                {/* 3D Perspective Base Container */}
-                                <div className={`absolute inset-0 bg-gradient-to-br from-[#0c0c0c]/95 to-[#040404]/95 border-2 rounded-b-2xl shadow-2xl flex items-center justify-center preserve-3d group transition-all duration-500 will-change-transform ${activeStep >= 1 ? 'border-accent-blue/55 shadow-[0_0_40px_rgba(78,168,255,0.35)]' : 'border-white/10 shadow-black/85'}`}>
-                                    
-                                    {/* Symmetrical vertical metal panel straps on chest body */}
-                                    <div className="absolute left-[20%] top-0 w-3 h-full bg-white/5 border-x border-white/5" />
-                                    <div className="absolute right-[20%] top-0 w-3 h-full bg-white/5 border-x border-white/5" />
-                                    <div className="absolute left-1/2 -translate-x-1/2 top-0 w-4 h-full bg-accent-blue/5 border-x border-accent-blue/10 flex items-center justify-center"><div className="w-[1px] h-full bg-accent-blue/20" /></div>
-
-                                    {/* Mechanical Cyber Grab Rings (Side handles) */}
-                                    <div className="absolute left-[-16px] top-1/4 w-4 h-12 border-2 border-r-0 border-white/15 rounded-l-xl flex items-center justify-end pointer-events-none"><div className="w-1.5 h-6 bg-white/10 rounded-full" /></div>
-                                    <div className="absolute right-[-16px] top-1/4 w-4 h-12 border-2 border-l-0 border-white/15 rounded-r-xl flex items-center justify-start pointer-events-none"><div className="w-1.5 h-6 bg-white/10 rounded-full" /></div>
-
-                                    {/* High-Tech mechanical corner armor brackets */}
-                                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-white/20 rounded-bl-lg bg-white/[0.01]" />
-                                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-white/20 rounded-br-lg bg-white/[0.01]" />
-
-                                    {/* Breathing Neon Aura line */}
-                                    <div className={`absolute bottom-3 left-1/2 -translate-x-1/2 w-[85%] h-1 rounded-full transition-all duration-500 ${activeStep >= 1 ? 'bg-accent-blue/50 shadow-[0_0_15px_rgba(78,168,255,0.8)]' : 'bg-white/10 shadow-none'}`} />
-
-                                    {/* Chest Interior Tech Panel (glowing power engine inside) */}
-                                    <div className={`absolute inset-[3px] bg-[#020202] rounded-b-2xl overflow-hidden transition-all duration-500 z-0 flex flex-col items-center justify-center border border-accent-blue/20 ${activeStep >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(78,168,255,0.25)_0%,transparent_70%)] animate-pulse" />
-                                        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:10px_10px]" />
-                                        
-                                        {/* Glowing power fusion core */}
-                                        <div className="w-12 h-12 rounded-full border border-accent-teal/40 flex items-center justify-center bg-accent-teal/10 shadow-[0_0_20px_rgba(98,226,213,0.4)] animate-pulse">
-                                            <span className="w-3 h-3 rounded-full bg-accent-blue shadow-[0_0_10px_#4ea8ff] animate-ping" />
-                                        </div>
-                                    </div>
-
-                                    {/* Front Cyber Padlock Receiver Plate */}
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 bg-gradient-to-br from-[#0c0c0c] to-[#121212] border-2 border-white/8 rounded-xl shadow-inner flex items-center justify-center z-20">
-                                        <div className={`absolute top-1 left-1 size-1 rounded-full ${activeStep >= 1 ? 'bg-accent-blue' : 'bg-red-500'}`} />
-                                        <div className={`absolute top-1 right-1 size-1 rounded-full ${activeStep >= 1 ? 'bg-accent-blue' : 'bg-red-500'}`} />
-                                        
-                                        {/* Cyber lock indicator */}
-                                        <div className={`size-8 rounded-full border border-dashed flex items-center justify-center animate-[spin_10s_linear_infinite] ${activeStep >= 1 ? 'border-accent-blue/35 bg-accent-blue/5' : 'border-white/10'}`}>
-                                            <div className={`size-2 rounded-full transition-all duration-500 ${activeStep >= 1 ? 'bg-accent-teal animate-pulse shadow-[0_0_8px_#62e2d5]' : 'bg-red-500'}`} />
-                                        </div>
-                                    </div>
-
-                                    {/* 3D VAULTED SEMICIRCULAR DOME LID (Mechanical hinge rotating backward - 115deg) */}
-                                    <motion.div
-                                        animate={{ rotateX: activeStep >= 1 ? -115 : 0 }}
-                                        transition={{ type: "spring", stiffness: 80, damping: 15 }}
-                                        style={{ transformStyle: "preserve-3d", originY: 1 }}
-                                        className="absolute bottom-full left-[-2px] right-[-2px] h-24 sm:h-28 bg-gradient-to-t from-[#121212]/95 to-[#080808]/95 border-x-2 border-t-2 border-white/10 rounded-t-[48px] shadow-xl z-10 flex items-center justify-center origin-bottom will-change-transform"
-                                    >
-                                        {/* Domed lid interior atmospheric mesh */}
-                                        <div className={`absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(78,168,255,0.2),transparent)] rounded-t-[48px] pointer-events-none transition-opacity duration-300 ${activeStep >= 1 ? 'opacity-100' : 'opacity-0'}`} />
-                                        
-                                        {/* Concentric mechanical bands running over the dome */}
-                                        <div className="absolute left-[20%] top-0 w-3 h-full bg-white/5 border-x border-white/5" />
-                                        <div className="absolute right-[20%] top-0 w-3 h-full bg-white/5 border-x border-white/5" />
-                                        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-4 h-full bg-accent-teal/5 border-x border-accent-teal/10" />
-
-                                        {/* Front Heavy Mechanical Padlock Clasp (Hangs over base receiver plate when closed) */}
-                                        <div className="absolute bottom-[-16px] left-1/2 -translate-x-1/2 w-10 h-14 bg-gradient-to-b from-[#181818] to-[#0c0c0c] border border-white/15 rounded-b-lg shadow-lg flex flex-col items-center justify-center z-20 pointer-events-none">
-                                            {/* Holographic clasp detail lock slot */}
-                                            <div className={`w-3.5 h-6 rounded-full border transition-colors duration-500 flex items-center justify-center ${activeStep >= 1 ? 'border-accent-teal/40 bg-accent-teal/5' : 'border-red-500/20 bg-red-500/5'}`}>
-                                                <div className={`w-1.5 h-1.5 rounded-full ${activeStep >= 1 ? 'bg-accent-teal animate-ping' : 'bg-red-500'}`} />
-                                            </div>
-                                        </div>
-                                    </motion.div>
-
-                                </div>
+                            {/* 
+                              The MacBook itself — a real CSS 3D machine that swings open on its hinge.
+                              The negative bottom margin pulls the foreshortened deck out of the flow so
+                              the lid stays centred in the chamber and the keyboard simply hangs below it.
+                            */}
+                            <div
+                                className="relative z-10 flex items-start justify-center"
+                                style={usesBadgeGrid ? undefined : {
+                                    marginBottom: -DECK_OVERHANG * laptopScale,
+                                    transform: `translateY(${emitterY}px)`
+                                }}
+                            >
+                                <MacBook open={activeStep >= 1} scale={laptopScale} />
                             </div>
 
-                            {/* PROJECTED BADGES ORBIT matrix */}
-                            {TECH_CONSTELLATION.map((item, index) => (
-                                <ConstellationBadge
-                                    key={item.name}
-                                    item={item}
-                                    index={index}
-                                    activeStep={activeStep}
-                                    radiusMultiplier={radiusMultiplier}
-                                    isCompactHeight={isCompactHeight}
-                                    isNarrowViewport={isNarrowViewport}
-                                    hoveredTech={hoveredTech}
-                                    onHover={setHoveredTech}
-                                />
-                            ))}
-
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* 2. SOFT SKILLS — Scroll-Pinned Additive Reveal */}
-                {/* Tall container: each scroll step reveals one more card from the right */}
-                <div ref={softSkillsRef} className="relative w-full" style={{ height: `${SOFT_SKILLS_DATA.length * 50}vh` }}>
-
-                    {/* Sticky viewport stays pinned during the entire reveal sequence */}
-                    <div className="sticky top-[72px] h-[calc(100vh-72px)] w-full flex items-center overflow-hidden">
-
-                        {/* Two-column layout: left title stays fixed, right cards stack up */}
-                        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
-                            {/* LEFT — Title block */}
-                            <div className="lg:col-span-4 flex flex-col gap-6 select-none">
-                                <h2 className="font-primary text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-none">
-                                    {t_soft("title")}
-                                </h2>
-                                <p className="font-secondary text-sm text-gray-400 max-w-xs leading-relaxed">
-                                    {t_soft("description")}
-                                </p>
-                            </div>
-
-                            {/* RIGHT — Cards in vertical flow, each slides in from right on scroll */}
-                            <div className="lg:col-span-8 flex flex-col gap-4 overflow-hidden">
-                                {SOFT_SKILLS_DATA.map((skill, i) => (
-                                    <SoftSkillCard
-                                        key={skill.key}
-                                        skill={skill}
-                                        index={i}
-                                        total={SOFT_SKILLS_DATA.length}
-                                        softScrollProgress={softScrollProgress}
-                                        t_soft={t_soft}
+                            {/*
+                              PROJECTED BADGES ORBIT matrix.
+                              The arcs need roughly 800px of width, so they only exist from `sm`
+                              up. The wrapper reproduces the chamber's centring, which is what the
+                              absolutely positioned badges measure their orbit from.
+                            */}
+                            <div className="absolute inset-0 z-20 hidden lg:flex items-center justify-center pointer-events-none overflow-visible">
+                                {TECH_CONSTELLATION.map((item, index) => (
+                                    <ConstellationBadge
+                                        key={item.name}
+                                        item={item}
+                                        index={index}
+                                        activeStep={activeStep}
+                                        radiusMultiplier={radiusMultiplier}
+                                        isCompactHeight={isCompactHeight}
+                                        isNarrowViewport={isNarrowViewport}
+                                        emitterY={emitterY}
+                                        hoveredTech={hoveredTech}
+                                        onHover={setHoveredTech}
                                     />
                                 ))}
                             </div>
 
+                            {/*
+                              Phone layout: 32 badges cannot orbit inside 375px without either
+                              spilling off-screen or overlapping each other, so below `sm` they
+                              land as a grid under the machine — same burst, same order.
+                            */}
+                            <div className="lg:hidden relative z-10 mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-[330px] sm:max-w-[560px] px-1">
+                                {TECH_CONSTELLATION.map((item, index) => (
+                                    <motion.div
+                                        key={item.name}
+                                        initial={false}
+                                        animate={{
+                                            opacity: activeStep >= 1 ? 1 : 0,
+                                            scale: activeStep >= 1 ? 1 : 0.2,
+                                            y: activeStep >= 1 ? 0 : -24
+                                        }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 260,
+                                            damping: 18,
+                                            delay: activeStep >= 1 ? 0.4 + index * 0.015 : 0
+                                        }}
+                                        className="size-9 sm:size-11 rounded-full bg-[#0a0a0a]/90 border border-white/6 flex items-center justify-center shrink-0"
+                                    >
+                                        <TechIcon name={item.name} className="size-5 sm:size-6" />
+                                    </motion.div>
+                                ))}
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
 

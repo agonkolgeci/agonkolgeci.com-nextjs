@@ -108,10 +108,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
           <main className="w-full relative min-h-screen">
             {/* Global full-bleed ambient background pattern */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 transform-gpu">
               {/* Tech dot-grid (edges faded horizontally so it never cuts net) */}
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 transform-gpu"
                 style={{
                   backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px)",
                   backgroundSize: "30px 30px",
@@ -119,12 +119,24 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)"
                 }}
               />
-              {/* Accent blobs distributed down the full height of the page */}
-              <div className="absolute top-[3%] left-[4%] w-[520px] h-[520px] bg-accent-blue/[0.16] rounded-full blur-[120px]" />
-              <div className="absolute top-[24%] right-[2%] w-[480px] h-[480px] bg-accent-teal/[0.14] rounded-full blur-[120px]" />
-              <div className="absolute top-[46%] left-[1%] w-[500px] h-[500px] bg-accent-blue/[0.13] rounded-full blur-[125px]" />
-              <div className="absolute top-[68%] right-[4%] w-[480px] h-[480px] bg-accent-teal/[0.15] rounded-full blur-[120px]" />
-              <div className="absolute top-[88%] left-[8%] w-[460px] h-[460px] bg-accent-blue/[0.13] rounded-full blur-[120px]" />
+              {/* 
+                Accent lighting. These used to be five 500px circles each carrying a
+                blur(120px) filter and its own compositor layer, which Firefox had to
+                re-rasterise while scrolling. A blurred circle is a radial gradient, so
+                they are now painted as one plain background — same look, no filters.
+              */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: [
+                    "radial-gradient(760px 760px at 14% 3%, rgba(78,168,255,0.16), transparent 70%)",
+                    "radial-gradient(720px 720px at 88% 24%, rgba(98,226,213,0.14), transparent 70%)",
+                    "radial-gradient(740px 740px at 10% 46%, rgba(78,168,255,0.13), transparent 70%)",
+                    "radial-gradient(720px 720px at 90% 68%, rgba(98,226,213,0.15), transparent 70%)",
+                    "radial-gradient(700px 700px at 18% 88%, rgba(78,168,255,0.13), transparent 70%)"
+                  ].join(", ")
+                }}
+              />
             </div>
 
             <div className="relative w-full">

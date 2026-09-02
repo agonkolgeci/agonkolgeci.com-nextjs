@@ -50,7 +50,7 @@ export default function LegalClient({ namespace, contents }: LegalClientProps) {
                     <span className="text-[10px] uppercase tracking-widest text-accent-blue font-extrabold font-secondary">
                         {t("description")}
                     </span>
-                    <h1 className="font-primary text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-none">
+                    <h1 className="font-primary text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-none break-words">
                         {t("title")}
                     </h1>
                 </div>

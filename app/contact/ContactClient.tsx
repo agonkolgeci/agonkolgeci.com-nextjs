@@ -73,7 +73,7 @@ export default function ContactClient() {
                     </span>
 
                     {/* Big title */}
-                    <h2 className="font-primary text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[0.95]">
+                    <h2 className="font-primary text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[0.95]">
                         {t("title")}
                     </h2>
 

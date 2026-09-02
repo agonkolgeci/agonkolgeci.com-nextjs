@@ -27,7 +27,7 @@ const PROJECTS = [
         type: "personal",
         image: "/gallery/project-family.webp",
         links: [
-            { name: "Website", href: "https://playze.org/project-family/" }
+            { name: "Website", href: "https://projectfamily.fr/" }
         ],
         tags: ["lead-developer"],
         languages: ["Java", "Spigot", "MySQL"],
@@ -142,7 +142,7 @@ function TechIcon({ name }: { name: string }) {
                 width={28}
                 height={28}
                 unoptimized
-                className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110 will-change-transform transform-gpu" 
+                className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110" 
                 style={filterStyle}
                 loading="lazy" 
             />
@@ -167,7 +167,7 @@ function ProjectCard({ project }: { project: any }) {
     return (
         <motion.div
             whileHover={{ scale: 1.02, y: -6 }}
-            className="bg-secondary/20 backdrop-blur-xl rounded-[32px] border border-white/5 glow-card-blue flex flex-col overflow-hidden relative group interactive-card transition-[border-color,box-shadow,background-color] duration-300 w-full h-full shadow-lg hover:shadow-2xl"
+            className="bg-secondary/50 rounded-[32px] border border-white/5 glow-card-blue flex flex-col overflow-hidden relative group interactive-card transition-[border-color,box-shadow,background-color] duration-300 w-full h-full shadow-lg hover:shadow-2xl"
             data-cursor-text="VISIT"
         >
             {/* Ambient corner light glow */}
@@ -188,8 +188,16 @@ function ProjectCard({ project }: { project: any }) {
             {/* Details Wrapper */}
             <div className="p-6 sm:p-8 flex flex-col gap-6 flex-1 justify-between">
                 
-                {/* Title & Role Tags Stack */}
+                {/* Header: Date above, Title, Role Tags below */}
                 <div className="flex flex-col gap-2.5">
+                    
+                    {/* Timestamp Pill */}
+                    <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[10px] bg-white/5 border border-white/5 rounded-md px-2.5 py-1 w-max select-none">
+                        <FontAwesomeIcon icon={faCalendarAlt} className="size-3 text-accent-blue" />
+                        <span className="uppercase tracking-wider font-semibold">{date}</span>
+                    </div>
+
+                    {/* Title */}
                     <h3 className="font-primary text-xl sm:text-2xl font-extrabold text-white tracking-tight group-hover:text-accent-blue transition-colors duration-300 leading-snug">
                         {project.links && project.links[0] ? (
                             <Link 
@@ -203,10 +211,10 @@ function ProjectCard({ project }: { project: any }) {
                             title
                         )}
                     </h3>
-                    
+
                     {/* Role Tags */}
                     {project.tags && (
-                        <div className="flex flex-wrap gap-2 select-none relative z-20 pointer-events-none">
+                        <div className="flex flex-wrap gap-2 select-none relative z-20 pointer-events-none mt-0.5">
                             {project.tags?.map((tag: string) => {
                                 const isUnige = tag === "unige";
                                 return (
@@ -224,12 +232,6 @@ function ProjectCard({ project }: { project: any }) {
                             })}
                         </div>
                     )}
-                </div>
-
-                {/* Cyber Timestamp Pill */}
-                <div className="flex items-center gap-1.5 text-gray-200 font-mono text-[10px] bg-white/5 border border-white/5 rounded-md px-2.5 py-1 w-max">
-                    <FontAwesomeIcon icon={faCalendarAlt} className="size-3 text-accent-blue" />
-                    <span className="uppercase tracking-wider font-semibold">{date}</span>
                 </div>
 
                 {/* Description */}

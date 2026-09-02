@@ -24,6 +24,13 @@ interface Experience {
 
 const PROFESSIONAL_EXPERIENCES: readonly Experience[] = [
     {
+        key: "unige_are",
+        image: "/experiences/unige.jpg",
+        tags: ["are"],
+        tasks: ["1", "2"],
+        languages: []
+    },
+    {
         key: "world-heberg",
         image: "/experiences/world-heberg.png",
         tags: ["volunteering"],
@@ -57,7 +64,7 @@ function TechIcon({ name }: { name: string }) {
                 width={28}
                 height={28}
                 unoptimized
-                className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110 will-change-transform transform-gpu" 
+                className="size-7 shrink-0 object-contain transition-transform duration-300 group-hover/tooltip:scale-110" 
                 style={filterStyle}
                 loading="lazy" 
             />
@@ -78,7 +85,8 @@ export default function ExperiencesClient() {
 
     const activeExp = PROFESSIONAL_EXPERIENCES[activeIdx];
     const expPath = `contents.${activeExp.key}`;
-    const title = t_professional(`${expPath}.title`);
+    const role = t_professional(`${expPath}.role`);
+    const company = t_professional(`${expPath}.title`);
     const description = t_professional(`${expPath}.description`);
 
     return (
@@ -88,7 +96,7 @@ export default function ExperiencesClient() {
                 {/* Experiences Container */}
                 <div className="w-full relative max-w-6xl mx-auto px-6 sm:px-8 mt-12 overflow-visible z-10">
                     
-                    <div className="flex flex-col md:flex-row w-full bg-secondary/15 border border-white/5 rounded-[24px] overflow-hidden backdrop-blur-xl relative">
+                    <div className="flex flex-col md:flex-row w-full bg-secondary/50 border border-white/5 rounded-[24px] overflow-hidden relative">
 
                         {/* Tabs list */}
                         <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-r border-white/10 shrink-0 md:w-64 bg-white/[0.005] no-scrollbar select-none">
@@ -118,10 +126,10 @@ export default function ExperiencesClient() {
                                         </div>
                                         {/* Title & Date */}
                                         <div className="flex flex-col text-left">
-                                            <span className={`text-xs sm:text-sm font-bold tracking-wide transition-colors duration-300 ${isActive ? "text-accent-blue" : "text-gray-300"}`}>
+                                            <span className={`text-sm sm:text-base font-bold tracking-wide transition-colors duration-300 ${isActive ? "text-accent-blue" : "text-gray-300"}`}>
                                                 {expTitle}
                                             </span>
-                                            <span className="text-[10px] text-gray-500 mt-0.5 font-medium capitalize">
+                                            <span className="text-[11px] sm:text-xs text-gray-500 mt-0.5 font-medium capitalize">
                                                 {expDate}
                                             </span>
                                         </div>
@@ -144,9 +152,13 @@ export default function ExperiencesClient() {
                                     {/* Header: Title, Tags & Links */}
                                     <div className="flex flex-row items-start justify-between gap-4">
                                         <div className="flex flex-col gap-2">
-                                            <h3 className="font-primary text-2xl font-extrabold text-white tracking-tight leading-none">
-                                                {title}
+                                            {/* The job comes first, the employer sits under it */}
+                                            <h3 className="font-primary text-2xl font-extrabold text-white tracking-tight leading-tight">
+                                                {role}
                                             </h3>
+                                            <span className="font-secondary text-sm text-gray-500 font-semibold -mt-0.5">
+                                                {company}
+                                            </span>
                                             {/* Tags */}
                                             {activeExp.tags && (
                                                 <div className="flex flex-wrap gap-2 mt-1">
